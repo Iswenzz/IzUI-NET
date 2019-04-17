@@ -16,10 +16,5 @@ namespace Iswenzz.UI
         {
             InitializeComponent();
         }
-
-        private void imageButton1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

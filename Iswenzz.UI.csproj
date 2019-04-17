@@ -61,6 +61,12 @@
     <Compile Include="Controls\Containers\BorderPanel.Designer.cs">
       <DependentUpon>BorderPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Containers\SeparatorPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\Containers\SeparatorPanel.Designer.cs">
+      <DependentUpon>SeparatorPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Separator.cs">
       <SubType>Component</SubType>
     </Compile>
