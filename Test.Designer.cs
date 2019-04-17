@@ -29,36 +29,82 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Test));
-            this.slider1 = new Iswenzz.UI.Controls.Buttons.Slider();
-            this.imageButton1 = new Iswenzz.UI.Controls.Buttons.ImageButton();
-            this.specialLabel1 = new Iswenzz.UI.Controls.SpecialLabel();
-            this.flatButton1 = new Iswenzz.UI.Controls.Buttons.FlatButton();
-            this.flatButton2 = new Iswenzz.UI.Controls.Buttons.FlatButton();
             this.seperator1 = new Iswenzz.UI.Controls.Separator();
+            this.specialLabel1 = new Iswenzz.UI.Controls.SpecialLabel();
+            this.flatButton2 = new Iswenzz.UI.Controls.Buttons.FlatButton();
+            this.flatButton1 = new Iswenzz.UI.Controls.Buttons.FlatButton();
+            this.imageButton1 = new Iswenzz.UI.Controls.Buttons.ImageButton();
+            this.slider1 = new Iswenzz.UI.Controls.Buttons.Slider();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // slider1
+            // seperator1
             // 
-            this.slider1.BackColor = System.Drawing.Color.Transparent;
-            this.slider1.BarInnerColor = System.Drawing.Color.DimGray;
-            this.slider1.BarOuterColor = System.Drawing.Color.DimGray;
-            this.slider1.BorderRoundRectSize = new System.Drawing.Size(20, 20);
-            this.slider1.DrawFocusRectangle = false;
-            this.slider1.DrawSemitransparentThumb = false;
-            this.slider1.ElapsedInnerColor = System.Drawing.Color.SteelBlue;
-            this.slider1.ElapsedOuterColor = System.Drawing.Color.SteelBlue;
-            this.slider1.LargeChange = ((uint)(5u));
-            this.slider1.Location = new System.Drawing.Point(35, 25);
-            this.slider1.MouseEffects = false;
-            this.slider1.Name = "slider1";
-            this.slider1.Size = new System.Drawing.Size(314, 26);
-            this.slider1.SmallChange = ((uint)(1u));
-            this.slider1.TabIndex = 2;
-            this.slider1.Text = "slider1";
-            this.slider1.ThumbOuterColor = System.Drawing.Color.Gainsboro;
-            this.slider1.ThumbPenColor = System.Drawing.Color.Gainsboro;
-            this.slider1.ThumbRoundRectSize = new System.Drawing.Size(10, 10);
-            this.slider1.ThumbSize = 22;
+            this.seperator1.BackColor = System.Drawing.Color.Transparent;
+            this.seperator1.ForeColor = System.Drawing.Color.DarkGray;
+            this.seperator1.Location = new System.Drawing.Point(969, 188);
+            this.seperator1.Name = "seperator1";
+            this.seperator1.SeparatorThickness = 0F;
+            this.seperator1.Size = new System.Drawing.Size(91, 48);
+            this.seperator1.TabIndex = 13;
+            this.seperator1.Text = "seperator1";
+            // 
+            // specialLabel1
+            // 
+            this.specialLabel1.Angles = 0;
+            this.specialLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.specialLabel1.ForeColor = System.Drawing.Color.Gainsboro;
+            this.specialLabel1.Location = new System.Drawing.Point(138, 156);
+            this.specialLabel1.Name = "specialLabel1";
+            this.specialLabel1.RoundedCorner = 0;
+            this.specialLabel1.Size = new System.Drawing.Size(125, 40);
+            this.specialLabel1.TabIndex = 11;
+            this.specialLabel1.Text = "specialLabel1";
+            // 
+            // flatButton2
+            // 
+            this.flatButton2.Angles = 90;
+            this.flatButton2.BackColor = System.Drawing.Color.SteelBlue;
+            this.flatButton2.FlatAppearance.BorderSize = 0;
+            this.flatButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.flatButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.flatButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.flatButton2.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.flatButton2.HoverColor = System.Drawing.Color.RoyalBlue;
+            this.flatButton2.HoverColorLeave = System.Drawing.Color.Empty;
+            this.flatButton2.HoverColorText = System.Drawing.Color.DarkOrange;
+            this.flatButton2.HoverColorTextLeave = System.Drawing.Color.Empty;
+            this.flatButton2.IsAngleAllowed = true;
+            this.flatButton2.Location = new System.Drawing.Point(15, 156);
+            this.flatButton2.Name = "flatButton2";
+            this.flatButton2.RoundedCorner = 0;
+            this.flatButton2.Size = new System.Drawing.Size(67, 150);
+            this.flatButton2.TabIndex = 10;
+            this.flatButton2.Text = "Test";
+            this.flatButton2.UseVisualStyleBackColor = false;
+            // 
+            // flatButton1
+            // 
+            this.flatButton1.Angles = 90;
+            this.flatButton1.BackColor = System.Drawing.Color.SteelBlue;
+            this.flatButton1.FlatAppearance.BorderSize = 0;
+            this.flatButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.flatButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.flatButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.flatButton1.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.flatButton1.HoverColor = System.Drawing.Color.RoyalBlue;
+            this.flatButton1.HoverColorLeave = System.Drawing.Color.Empty;
+            this.flatButton1.HoverColorText = System.Drawing.Color.DarkOrange;
+            this.flatButton1.HoverColorTextLeave = System.Drawing.Color.Empty;
+            this.flatButton1.Location = new System.Drawing.Point(15, 98);
+            this.flatButton1.Name = "flatButton1";
+            this.flatButton1.RoundedCorner = 0;
+            this.flatButton1.Size = new System.Drawing.Size(91, 36);
+            this.flatButton1.TabIndex = 8;
+            this.flatButton1.Text = "Test";
+            this.flatButton1.UseVisualStyleBackColor = false;
             // 
             // imageButton1
             // 
@@ -75,7 +121,7 @@
             this.imageButton1.HoverColorLeave = System.Drawing.Color.Empty;
             this.imageButton1.HoverColorText = System.Drawing.Color.DarkOrange;
             this.imageButton1.HoverColorTextLeave = System.Drawing.Color.Empty;
-            this.imageButton1.Location = new System.Drawing.Point(428, 89);
+            this.imageButton1.Location = new System.Drawing.Point(969, 98);
             this.imageButton1.Name = "imageButton1";
             this.imageButton1.RoundedCorner = 0;
             this.imageButton1.Size = new System.Drawing.Size(88, 84);
@@ -83,82 +129,67 @@
             this.imageButton1.UseVisualStyleBackColor = false;
             this.imageButton1.Click += new System.EventHandler(this.imageButton1_Click);
             // 
-            // specialLabel1
+            // slider1
             // 
-            this.specialLabel1.Angles = 0;
-            this.specialLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.specialLabel1.ForeColor = System.Drawing.Color.DimGray;
-            this.specialLabel1.Location = new System.Drawing.Point(449, 269);
-            this.specialLabel1.Name = "specialLabel1";
-            this.specialLabel1.RoundedCorner = 0;
-            this.specialLabel1.Size = new System.Drawing.Size(125, 40);
-            this.specialLabel1.TabIndex = 11;
-            this.specialLabel1.Text = "specialLabel1";
+            this.slider1.BackColor = System.Drawing.Color.Transparent;
+            this.slider1.BarInnerColor = System.Drawing.Color.DimGray;
+            this.slider1.BarOuterColor = System.Drawing.Color.DimGray;
+            this.slider1.BarPenColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.slider1.BorderRoundRectSize = new System.Drawing.Size(20, 20);
+            this.slider1.DrawFocusRectangle = false;
+            this.slider1.DrawSemitransparentThumb = false;
+            this.slider1.ElapsedInnerColor = System.Drawing.Color.SteelBlue;
+            this.slider1.ElapsedOuterColor = System.Drawing.Color.SteelBlue;
+            this.slider1.LargeChange = ((uint)(5u));
+            this.slider1.Location = new System.Drawing.Point(138, 98);
+            this.slider1.MouseEffects = false;
+            this.slider1.Name = "slider1";
+            this.slider1.Size = new System.Drawing.Size(314, 26);
+            this.slider1.SmallChange = ((uint)(1u));
+            this.slider1.TabIndex = 2;
+            this.slider1.Text = "slider1";
+            this.slider1.ThumbOuterColor = System.Drawing.Color.Gainsboro;
+            this.slider1.ThumbPenColor = System.Drawing.Color.Gainsboro;
+            this.slider1.ThumbRoundRectSize = new System.Drawing.Size(10, 10);
+            this.slider1.ThumbSize = 22;
             // 
-            // flatButton1
+            // panel1
             // 
-            this.flatButton1.Angles = 90;
-            this.flatButton1.BackColor = System.Drawing.Color.SteelBlue;
-            this.flatButton1.FlatAppearance.BorderSize = 0;
-            this.flatButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.flatButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.flatButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.flatButton1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.flatButton1.HoverColor = System.Drawing.Color.RoyalBlue;
-            this.flatButton1.HoverColorLeave = System.Drawing.Color.Empty;
-            this.flatButton1.HoverColorText = System.Drawing.Color.DarkOrange;
-            this.flatButton1.HoverColorTextLeave = System.Drawing.Color.Empty;
-            this.flatButton1.Location = new System.Drawing.Point(258, 152);
-            this.flatButton1.Name = "flatButton1";
-            this.flatButton1.RoundedCorner = 0;
-            this.flatButton1.Size = new System.Drawing.Size(91, 36);
-            this.flatButton1.TabIndex = 8;
-            this.flatButton1.Text = "Test";
-            this.flatButton1.UseVisualStyleBackColor = false;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1060, 73);
+            this.panel1.TabIndex = 14;
             // 
-            // flatButton2
+            // label1
             // 
-            this.flatButton2.Angles = 90;
-            this.flatButton2.BackColor = System.Drawing.Color.SteelBlue;
-            this.flatButton2.FlatAppearance.BorderSize = 0;
-            this.flatButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.flatButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.flatButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.flatButton2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.flatButton2.HoverColor = System.Drawing.Color.RoyalBlue;
-            this.flatButton2.HoverColorLeave = System.Drawing.Color.Empty;
-            this.flatButton2.HoverColorText = System.Drawing.Color.DarkOrange;
-            this.flatButton2.HoverColorTextLeave = System.Drawing.Color.Empty;
-            this.flatButton2.IsAngleAllowed = true;
-            this.flatButton2.Location = new System.Drawing.Point(47, 118);
-            this.flatButton2.Name = "flatButton2";
-            this.flatButton2.RoundedCorner = 0;
-            this.flatButton2.Size = new System.Drawing.Size(67, 150);
-            this.flatButton2.TabIndex = 10;
-            this.flatButton2.Text = "Test";
-            this.flatButton2.UseVisualStyleBackColor = false;
-            // 
-            // seperator1
-            // 
-            this.seperator1.Location = new System.Drawing.Point(204, 232);
-            this.seperator1.Name = "seperator1";
-            this.seperator1.Size = new System.Drawing.Size(75, 48);
-            this.seperator1.TabIndex = 13;
-            this.seperator1.Text = "seperator1";
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.Font = new System.Drawing.Font("Open Sans Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(1060, 73);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Test Control";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Test
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.Controls.Add(this.seperator1);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
             this.Controls.Add(this.specialLabel1);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.seperator1);
             this.Controls.Add(this.flatButton2);
             this.Controls.Add(this.flatButton1);
             this.Controls.Add(this.imageButton1);
             this.Controls.Add(this.slider1);
             this.Name = "Test";
-            this.Size = new System.Drawing.Size(605, 322);
+            this.Size = new System.Drawing.Size(1060, 543);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -170,5 +201,7 @@
         private Controls.Buttons.FlatButton flatButton1;
         private Controls.Buttons.FlatButton flatButton2;
         private Controls.Separator seperator1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
     }
 }
