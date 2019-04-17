@@ -1,6 +1,6 @@
 ﻿namespace Iswenzz.UI.Controls
 {
-    partial class Seperator
+    partial class Separator
     {
         /// <summary>
         /// Required designer variable.
