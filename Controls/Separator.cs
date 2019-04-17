@@ -18,6 +18,9 @@ namespace Iswenzz.UI.Controls
         public Separator()
         {
             InitializeComponent();
+            Size = new Size(125, 25);
+            BackColor = Color.Transparent;
+            ForeColor = Color.DarkGray;
         }
 
         protected override void OnPaint(PaintEventArgs pe)
