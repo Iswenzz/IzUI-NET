@@ -26,7 +26,7 @@ namespace Iswenzz.UI.Controls
         }
 
         private int roundedCorner;
-        [Description("Curve amount.")]
+        [Description("Curved corner amount.")]
         public int RoundedCorner
         {
             get => roundedCorner;
