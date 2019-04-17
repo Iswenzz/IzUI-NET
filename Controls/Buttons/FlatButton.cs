@@ -6,9 +6,10 @@ using System.Windows.Forms;
 
 namespace Iswenzz.UI.Controls.Buttons
 {
-    public partial class FlatButton : Button
+    public partial class FlatButton : AlphaButton
     {
         private int angles;
+        [Description("Angle rotation degree.")]
         public int Angles
         {
             get => angles;
@@ -16,6 +17,8 @@ namespace Iswenzz.UI.Controls.Buttons
         }
 
         private bool isAngleAllowed;
+        [DefaultValue(false)]
+        [Description("Allows angled graphics render.")]
         public bool IsAngleAllowed
         {
             get => isAngleAllowed;
@@ -23,13 +26,15 @@ namespace Iswenzz.UI.Controls.Buttons
         }
 
         private int roundedCorner;
+        [Description("Curved corner amount.")]
         public int RoundedCorner
         {
             get => roundedCorner;
             set { roundedCorner = value; Invalidate(); }
         }
-        
+
         private Color hoverColor;
+        [Description("Change the color when mouse hover the button.")]
         public Color HoverColor
         {
             get => hoverColor;
@@ -37,6 +42,7 @@ namespace Iswenzz.UI.Controls.Buttons
         }
 
         private Color hoverColor_leave;
+        [Description("Change the color when mouse leave the button.")]
         public Color HoverColorLeave
         {
             get => hoverColor_leave;
@@ -44,6 +50,7 @@ namespace Iswenzz.UI.Controls.Buttons
         }
 
         private Color hoverColorText;
+        [Description("Change the color when mouse hover the button.")]
         public Color HoverColorText
         {
             get => hoverColorText;
@@ -51,6 +58,7 @@ namespace Iswenzz.UI.Controls.Buttons
         }
 
         private Color hoverColorText_leave;
+        [Description("Change the color when mouse leave the button.")]
         public Color HoverColorTextLeave
         {
             get => hoverColorText_leave;
@@ -60,6 +68,7 @@ namespace Iswenzz.UI.Controls.Buttons
         public FlatButton()
         {
             InitializeComponent();
+            TextAlign = ContentAlignment.MiddleCenter;
             FlatStyle = FlatStyle.Flat;
             FlatAppearance.BorderSize = 0;
             FlatAppearance.MouseDownBackColor = Color.Transparent;
@@ -69,9 +78,6 @@ namespace Iswenzz.UI.Controls.Buttons
             ForeColor = Color.WhiteSmoke;
             HoverColor = Color.RoyalBlue;
             HoverColorText = Color.DarkOrange;
-            RoundedCorner = 0;
-            Angles = 90;
-            IsAngleAllowed = false;
         }
 
         protected override void OnMouseLeave(EventArgs e)
