@@ -12,11 +12,6 @@ namespace Iswenzz.UI.Controls
             SetStyle(ControlStyles.Opaque, true);
         }
 
-        protected override void OnPaint(PaintEventArgs pe)
-        {
-            base.OnPaint(pe);
-        }
-
         protected override void OnParentBackColorChanged(EventArgs e)
         {
             Invalidate();
