@@ -1,0 +1,8 @@
+D:\Users\Wenzz\source\repos\VS\Extra Control\bin\Debug\Extra Control.dll
+D:\Users\Wenzz\source\repos\VS\Extra Control\bin\Debug\Extra Control.pdb
+D:\Users\Wenzz\source\repos\VS\Extra Control\obj\Debug\Extra_Control.UserControl1.resources
+D:\Users\Wenzz\source\repos\VS\Extra Control\obj\Debug\Extra Control.csproj.GenerateResource.cache
+D:\Users\Wenzz\source\repos\VS\Extra Control\obj\Debug\Extra Control.csproj.CoreCompileInputs.cache
+D:\Users\Wenzz\source\repos\VS\Extra Control\obj\Debug\Extra Control.dll
+D:\Users\Wenzz\source\repos\VS\Extra Control\obj\Debug\Extra Control.pdb
+D:\Users\Wenzz\source\repos\VS\Extra Control\obj\Debug\Extra Control.csprojAssemblyReference.cache
