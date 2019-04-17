@@ -49,11 +49,17 @@
     <Compile Include="Controls\AlphaControl.Designer.cs">
       <DependentUpon>AlphaControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Seperator.cs">
+    <Compile Include="Controls\Buttons\AlphaButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\Seperator.Designer.cs">
-      <DependentUpon>Seperator.cs</DependentUpon>
+    <Compile Include="Controls\Buttons\AlphaButton.Designer.cs">
+      <DependentUpon>AlphaButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Separator.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\Separator.Designer.cs">
+      <DependentUpon>Separator.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\Buttons\Slider.cs">
       <SubType>Component</SubType>
