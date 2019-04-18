@@ -1,6 +1,10 @@
 ﻿using System.Drawing;
 using System.ComponentModel;
 using System.Windows.Forms;
+using System.Drawing.Design;
+
+using Iswenzz.UI.TEditor;
+using Iswenzz.UI.Data;
 
 namespace Iswenzz.UI.Controls.Containers
 {
@@ -23,6 +27,16 @@ namespace Iswenzz.UI.Controls.Containers
             set { thickness = value; Invalidate(); }
         }
 
+        private RectLocation separatorLocation;
+        [Editor(typeof(FlagUIEditor), typeof(UITypeEditor))]
+        [DefaultValue(RectLocation.Bottom | RectLocation.Top)]
+        [Description("Draw separator line at the location.")]
+        public RectLocation SeparatorLocation
+        {
+            get => separatorLocation;
+            set { separatorLocation = value; Invalidate(); }
+        }
+
         public SeparatorPanel()
         {
             InitializeComponent();
@@ -33,10 +47,21 @@ namespace Iswenzz.UI.Controls.Containers
         {
             base.OnPaint(pe);
 
-            pe.Graphics.DrawLine(new Pen(BorderColor, Thickness),
-                new Point(0, 0), new Point(Width, 0));
-            pe.Graphics.DrawLine(new Pen(BorderColor, Thickness), 
-                new Point(0, Height - 1), new Point(Width, Height - 1));
+            if (SeparatorLocation.HasFlag(RectLocation.Top))
+                pe.Graphics.DrawLine(new Pen(BorderColor, Thickness), 
+                    new Point(0, 0), new Point(Width - 1, 0));
+
+            if (SeparatorLocation.HasFlag(RectLocation.Right))
+                pe.Graphics.DrawLine(new Pen(BorderColor, Thickness),
+                    new Point(Width - 1, 0), new Point(Width - 1, Height - 1));
+
+            if (SeparatorLocation.HasFlag(RectLocation.Bottom))
+                pe.Graphics.DrawLine(new Pen(BorderColor, Thickness), 
+                    new Point(0, Height - 1), new Point(Width - 1, Height - 1));
+
+            if (SeparatorLocation.HasFlag(RectLocation.Left))
+                pe.Graphics.DrawLine(new Pen(BorderColor, Thickness),
+                    new Point(0, 0), new Point(0, Height - 1));
         }
     }
 }
