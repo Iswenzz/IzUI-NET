@@ -72,7 +72,7 @@
             this.separatorPanel1.Location = new System.Drawing.Point(108, 315);
             this.separatorPanel1.Name = "separatorPanel1";
             this.separatorPanel1.Size = new System.Drawing.Size(67, 87);
-            this.separatorPanel1.TabIndex = 19;
+            this.separatorPanel1.TabIndex = 20;
             this.separatorPanel1.Thickness = 0F;
             // 
             // separator1

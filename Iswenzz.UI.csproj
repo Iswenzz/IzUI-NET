@@ -28,6 +28,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -67,6 +70,12 @@
     <Compile Include="Controls\Containers\SeparatorPanel.Designer.cs">
       <DependentUpon>SeparatorPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\FlagCheckedListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\FlagCheckedListBox.Designer.cs">
+      <DependentUpon>FlagCheckedListBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Separator.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -91,6 +100,7 @@
     <Compile Include="Controls\Buttons\ImageButton.Designer.cs">
       <DependentUpon>ImageButton.cs</DependentUpon>
     </Compile>
+    <Compile Include="Data\ERectLocation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -103,6 +113,7 @@
     <Compile Include="Controls\SpecialLabel.Designer.cs">
       <DependentUpon>SpecialLabel.cs</DependentUpon>
     </Compile>
+    <Compile Include="TEditor\FlagUIEditor.cs" />
     <Compile Include="Test.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -122,6 +133,9 @@
     <EmbeddedResource Include="Test.resx">
       <DependentUpon>Test.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="TConverter\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
