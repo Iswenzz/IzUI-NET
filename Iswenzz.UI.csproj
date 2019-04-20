@@ -70,17 +70,17 @@
     <Compile Include="Controls\Containers\SeparatorPanel.Designer.cs">
       <DependentUpon>SeparatorPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Containers\TreeListBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controls\Containers\TreeListBox.Designer.cs">
-      <DependentUpon>TreeListBox.cs</DependentUpon>
-    </Compile>
     <Compile Include="Controls\Containers\FlagCheckedListBox.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\Containers\FlagCheckedListBox.Designer.cs">
       <DependentUpon>FlagCheckedListBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Containers\TreeViewer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\Containers\TreeViewer.Designer.cs">
+      <DependentUpon>TreeViewer.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\Separator.cs">
       <SubType>Component</SubType>

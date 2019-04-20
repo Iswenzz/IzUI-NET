@@ -29,8 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Test));
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Node3");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Node0", new System.Windows.Forms.TreeNode[] {
+            treeNode1});
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Node1");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Node2");
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.treeViewer1 = new Iswenzz.UI.Controls.Containers.TreeViewer();
             this.separatorPanel1 = new Iswenzz.UI.Controls.Containers.SeparatorPanel();
             this.separator1 = new Iswenzz.UI.Controls.Separator();
             this.specialLabel2 = new Iswenzz.UI.Controls.SpecialLabel();
@@ -51,7 +57,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1060, 73);
+            this.panel1.Size = new System.Drawing.Size(1189, 73);
             this.panel1.TabIndex = 14;
             // 
             // label1
@@ -61,10 +67,35 @@
             this.label1.ForeColor = System.Drawing.Color.Gainsboro;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1060, 73);
+            this.label1.Size = new System.Drawing.Size(1189, 73);
             this.label1.TabIndex = 0;
             this.label1.Text = "Test Control";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // treeViewer1
+            // 
+            this.treeViewer1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.treeViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.treeViewer1.DrawMode = System.Windows.Forms.TreeViewDrawMode.OwnerDrawAll;
+            this.treeViewer1.ForeColor = System.Drawing.Color.Gainsboro;
+            this.treeViewer1.Location = new System.Drawing.Point(487, 121);
+            this.treeViewer1.MinusIcon = ((System.Drawing.Image)(resources.GetObject("treeViewer1.MinusIcon")));
+            this.treeViewer1.Name = "treeViewer1";
+            treeNode1.Name = "Node3";
+            treeNode1.Text = "Node3";
+            treeNode2.Name = "Node0";
+            treeNode2.Text = "Node0";
+            treeNode3.Name = "Node1";
+            treeNode3.Text = "Node1";
+            treeNode4.Name = "Node2";
+            treeNode4.Text = "Node2";
+            this.treeViewer1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode2,
+            treeNode3,
+            treeNode4});
+            this.treeViewer1.PlusIcon = ((System.Drawing.Image)(resources.GetObject("treeViewer1.PlusIcon")));
+            this.treeViewer1.Size = new System.Drawing.Size(188, 204);
+            this.treeViewer1.TabIndex = 22;
             // 
             // separatorPanel1
             // 
@@ -229,6 +260,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.Controls.Add(this.treeViewer1);
             this.Controls.Add(this.separatorPanel1);
             this.Controls.Add(this.separator1);
             this.Controls.Add(this.specialLabel2);
@@ -241,7 +273,7 @@
             this.Controls.Add(this.imageButton1);
             this.Controls.Add(this.slider1);
             this.Name = "Test";
-            this.Size = new System.Drawing.Size(1060, 636);
+            this.Size = new System.Drawing.Size(1189, 681);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -260,5 +292,6 @@
         private Controls.SpecialLabel specialLabel2;
         private Controls.Separator separator1;
         private Controls.Containers.SeparatorPanel separatorPanel1;
+        private Controls.Containers.TreeViewer treeViewer1;
     }
 }
