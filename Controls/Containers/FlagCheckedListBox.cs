@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace Iswenzz.UI.Controls
+namespace Iswenzz.UI.Controls.Containers
 {
     public partial class FlagCheckedListBox : CheckedListBox
     {

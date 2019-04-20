@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Drawing.Design;
 using System.Windows.Forms.Design;
 
-using Iswenzz.UI.Controls;
+using Iswenzz.UI.Controls.Containers;
 
 namespace Iswenzz.UI.TEditor
 {

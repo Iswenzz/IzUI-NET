@@ -1,4 +1,4 @@
-﻿namespace Iswenzz.UI.Controls
+﻿namespace Iswenzz.UI.Controls.Containers
 {
     partial class FlagCheckedListBox
     {
