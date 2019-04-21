@@ -38,6 +38,12 @@ namespace Iswenzz.UI.Controls.Containers
             DrawNode += Tree_DrawIcons;
         }
 
+        protected override void OnAfterExpand(TreeViewEventArgs e)
+        {
+            base.OnAfterExpand(e);
+            Invalidate();
+        }
+
         /// <summary>
         /// Drawing of all <see cref="TreeNode"/>.
         /// </summary>
@@ -60,7 +66,7 @@ namespace Iswenzz.UI.Controls.Containers
 
             if (expandImg != null)
             {
-                expandImg = new Bitmap(expandImg, new Size(14, 14));
+                expandImg = new Bitmap(expandImg, new Size(nodeRect.Size.Height, nodeRect.Size.Height));
                 g = Graphics.FromImage(expandImg);
                 imgPtr = g.GetHdc();
                 g.ReleaseHdc();

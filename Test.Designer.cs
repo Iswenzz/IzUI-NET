@@ -37,7 +37,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.treeViewer1 = new Iswenzz.UI.Controls.Containers.TreeViewer();
-            this.separatorPanel1 = new Iswenzz.UI.Controls.Containers.SeparatorPanel();
             this.separator1 = new Iswenzz.UI.Controls.Separator();
             this.specialLabel2 = new Iswenzz.UI.Controls.SpecialLabel();
             this.borderPanel1 = new Iswenzz.UI.Controls.Containers.BorderPanel();
@@ -47,6 +46,7 @@
             this.flatButton1 = new Iswenzz.UI.Controls.Buttons.FlatButton();
             this.imageButton1 = new Iswenzz.UI.Controls.Buttons.ImageButton();
             this.slider1 = new Iswenzz.UI.Controls.Buttons.Slider();
+            this.separatorPanel1 = new Iswenzz.UI.Controls.Containers.SeparatorPanel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,9 +76,11 @@
             // 
             this.treeViewer1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
             this.treeViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.treeViewer1.DefaultIcon = null;
             this.treeViewer1.DrawMode = System.Windows.Forms.TreeViewDrawMode.OwnerDrawAll;
+            this.treeViewer1.Font = new System.Drawing.Font("Open Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeViewer1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.treeViewer1.Location = new System.Drawing.Point(487, 121);
+            this.treeViewer1.Location = new System.Drawing.Point(210, 315);
             this.treeViewer1.MinusIcon = ((System.Drawing.Image)(resources.GetObject("treeViewer1.MinusIcon")));
             this.treeViewer1.Name = "treeViewer1";
             treeNode1.Name = "Node3";
@@ -94,17 +96,8 @@
             treeNode3,
             treeNode4});
             this.treeViewer1.PlusIcon = ((System.Drawing.Image)(resources.GetObject("treeViewer1.PlusIcon")));
-            this.treeViewer1.Size = new System.Drawing.Size(188, 204);
+            this.treeViewer1.Size = new System.Drawing.Size(125, 108);
             this.treeViewer1.TabIndex = 22;
-            // 
-            // separatorPanel1
-            // 
-            this.separatorPanel1.BorderColor = System.Drawing.Color.DimGray;
-            this.separatorPanel1.Location = new System.Drawing.Point(108, 315);
-            this.separatorPanel1.Name = "separatorPanel1";
-            this.separatorPanel1.Size = new System.Drawing.Size(67, 87);
-            this.separatorPanel1.TabIndex = 20;
-            this.separatorPanel1.Thickness = 0F;
             // 
             // separator1
             // 
@@ -255,13 +248,22 @@
             this.slider1.ThumbRoundRectSize = new System.Drawing.Size(10, 10);
             this.slider1.ThumbSize = 22;
             // 
+            // separatorPanel1
+            // 
+            this.separatorPanel1.BorderColor = System.Drawing.Color.DimGray;
+            this.separatorPanel1.Location = new System.Drawing.Point(108, 315);
+            this.separatorPanel1.Name = "separatorPanel1";
+            this.separatorPanel1.SeparatorLocation = ((Iswenzz.UI.Data.RectLocation)((Iswenzz.UI.Data.RectLocation.Right | Iswenzz.UI.Data.RectLocation.Left)));
+            this.separatorPanel1.Size = new System.Drawing.Size(85, 87);
+            this.separatorPanel1.TabIndex = 23;
+            // 
             // Test
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.Controls.Add(this.treeViewer1);
             this.Controls.Add(this.separatorPanel1);
+            this.Controls.Add(this.treeViewer1);
             this.Controls.Add(this.separator1);
             this.Controls.Add(this.specialLabel2);
             this.Controls.Add(this.borderPanel1);
@@ -291,7 +293,7 @@
         private Controls.Containers.BorderPanel borderPanel1;
         private Controls.SpecialLabel specialLabel2;
         private Controls.Separator separator1;
-        private Controls.Containers.SeparatorPanel separatorPanel1;
         private Controls.Containers.TreeViewer treeViewer1;
+        private Controls.Containers.SeparatorPanel separatorPanel1;
     }
 }
