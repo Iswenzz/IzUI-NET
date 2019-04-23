@@ -55,7 +55,7 @@ namespace Iswenzz.UI.Controls.Containers
 
             // Node Icon
             bool hasImage = false;
-            Point ptNodeIcon = new Point(nodeRect.Location.X - 4, nodeRect.Location.Y + 2);
+            Point ptNodeIcon = new Point(nodeRect.Location.X - 18, nodeRect.Location.Y + 2);
             if (e.Node.ImageKey != null && e.Node.TreeView.ImageList != null)
             {
                 hasImage = true;
