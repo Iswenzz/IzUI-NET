@@ -8,6 +8,31 @@ namespace Iswenzz.UI.Controls.Buttons
 {
     public partial class FlatButton : AlphaButton
     {
+        private Image icon;
+        [Description("Button icon.")]
+        public Image Icon
+        {
+            get => icon;
+            set { icon = value; Invalidate(); }
+        }
+
+        private bool iconAutoPlacement;
+        [Description("Button icon placement (true = auto, false = stuck).")]
+        [DefaultValue(false)]
+        public bool IconAutoPlacement
+        {
+            get => iconAutoPlacement;
+            set { iconAutoPlacement = value; Invalidate(); }
+        }
+
+        private int iconSize;
+        [Description("Button icon size (0 = Auto).")]
+        public int IconSize
+        {
+            get => iconSize;
+            set { iconSize = value; Invalidate(); }
+        }
+
         private int angles;
         [Description("Angle rotation degree.")]
         public int Angles
@@ -138,6 +163,30 @@ namespace Iswenzz.UI.Controls.Buttons
             }
             else
                 pevent.Graphics.DrawString(Text, Font, new SolidBrush(ForeColor), rect, sf);
+
+            if (Icon != null)
+            {
+                switch (true)
+                {
+                    case true when IconSize == 0 && IconAutoPlacement:
+                        pevent.Graphics.DrawImage(Icon, 
+                            new Rectangle(((Width / 2) / 2) - Height / 2, 0, Height, Height));
+                        break;
+                    case true when IconSize != 0 && IconAutoPlacement:
+                        pevent.Graphics.DrawImage(Icon,
+                            new Rectangle(((Width / 2) / 2) - IconSize / 2, 0, IconSize, IconSize));
+                        break;
+
+                    case true when IconSize == 0 && !IconAutoPlacement:
+                        pevent.Graphics.DrawImage(Icon,
+                            new Rectangle(10, 0, Height, Height));
+                        break;
+                    case true when IconSize != 0 && !IconAutoPlacement:
+                        pevent.Graphics.DrawImage(Icon,
+                            new Rectangle(10, 0, IconSize, IconSize));
+                        break;
+                }
+            }
         }
 
         private GraphicsPath GetRoundPath(RectangleF Rect, int radius)

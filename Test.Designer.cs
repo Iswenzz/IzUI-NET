@@ -36,6 +36,8 @@
             System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Node2");
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.flatButton3 = new Iswenzz.UI.Controls.Buttons.FlatButton();
+            this.separatorPanel1 = new Iswenzz.UI.Controls.Containers.SeparatorPanel();
             this.treeViewer1 = new Iswenzz.UI.Controls.Containers.TreeViewer();
             this.separator1 = new Iswenzz.UI.Controls.Separator();
             this.specialLabel2 = new Iswenzz.UI.Controls.SpecialLabel();
@@ -46,7 +48,6 @@
             this.flatButton1 = new Iswenzz.UI.Controls.Buttons.FlatButton();
             this.imageButton1 = new Iswenzz.UI.Controls.Buttons.ImageButton();
             this.slider1 = new Iswenzz.UI.Controls.Buttons.Slider();
-            this.separatorPanel1 = new Iswenzz.UI.Controls.Containers.SeparatorPanel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,6 +72,39 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Test Control";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // flatButton3
+            // 
+            this.flatButton3.Angles = 90;
+            this.flatButton3.BackColor = System.Drawing.Color.SteelBlue;
+            this.flatButton3.FlatAppearance.BorderSize = 0;
+            this.flatButton3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.flatButton3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.flatButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.flatButton3.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.flatButton3.HoverColor = System.Drawing.Color.RoyalBlue;
+            this.flatButton3.HoverColorLeave = System.Drawing.Color.Empty;
+            this.flatButton3.HoverColorText = System.Drawing.Color.DarkOrange;
+            this.flatButton3.HoverColorTextLeave = System.Drawing.Color.Empty;
+            this.flatButton3.Icon = ((System.Drawing.Image)(resources.GetObject("flatButton3.Icon")));
+            this.flatButton3.IconSize = 0;
+            this.flatButton3.Location = new System.Drawing.Point(126, 185);
+            this.flatButton3.Name = "flatButton3";
+            this.flatButton3.RoundedCorner = 0;
+            this.flatButton3.Size = new System.Drawing.Size(155, 40);
+            this.flatButton3.TabIndex = 24;
+            this.flatButton3.Text = "Test";
+            this.flatButton3.UseVisualStyleBackColor = false;
+            // 
+            // separatorPanel1
+            // 
+            this.separatorPanel1.BorderColor = System.Drawing.Color.DimGray;
+            this.separatorPanel1.Location = new System.Drawing.Point(108, 315);
+            this.separatorPanel1.Name = "separatorPanel1";
+            this.separatorPanel1.SeparatorLocation = ((Iswenzz.UI.Data.RectLocation)((Iswenzz.UI.Data.RectLocation.Right | Iswenzz.UI.Data.RectLocation.Left)));
+            this.separatorPanel1.Size = new System.Drawing.Size(85, 87);
+            this.separatorPanel1.TabIndex = 23;
+            this.separatorPanel1.Thickness = 0F;
             // 
             // treeViewer1
             // 
@@ -171,6 +205,8 @@
             this.flatButton2.HoverColorLeave = System.Drawing.Color.Empty;
             this.flatButton2.HoverColorText = System.Drawing.Color.DarkOrange;
             this.flatButton2.HoverColorTextLeave = System.Drawing.Color.Empty;
+            this.flatButton2.Icon = null;
+            this.flatButton2.IconSize = 0;
             this.flatButton2.IsAngleAllowed = true;
             this.flatButton2.Location = new System.Drawing.Point(15, 179);
             this.flatButton2.Name = "flatButton2";
@@ -193,6 +229,8 @@
             this.flatButton1.HoverColorLeave = System.Drawing.Color.Empty;
             this.flatButton1.HoverColorText = System.Drawing.Color.DarkOrange;
             this.flatButton1.HoverColorTextLeave = System.Drawing.Color.Empty;
+            this.flatButton1.Icon = null;
+            this.flatButton1.IconSize = 0;
             this.flatButton1.Location = new System.Drawing.Point(15, 121);
             this.flatButton1.Name = "flatButton1";
             this.flatButton1.RoundedCorner = 0;
@@ -217,6 +255,8 @@
             this.imageButton1.HoverColorLeave = System.Drawing.Color.Empty;
             this.imageButton1.HoverColorText = System.Drawing.Color.DarkOrange;
             this.imageButton1.HoverColorTextLeave = System.Drawing.Color.Empty;
+            this.imageButton1.Icon = null;
+            this.imageButton1.IconSize = 0;
             this.imageButton1.Location = new System.Drawing.Point(50, 174);
             this.imageButton1.Name = "imageButton1";
             this.imageButton1.RoundedCorner = 0;
@@ -248,20 +288,12 @@
             this.slider1.ThumbRoundRectSize = new System.Drawing.Size(10, 10);
             this.slider1.ThumbSize = 22;
             // 
-            // separatorPanel1
-            // 
-            this.separatorPanel1.BorderColor = System.Drawing.Color.DimGray;
-            this.separatorPanel1.Location = new System.Drawing.Point(108, 315);
-            this.separatorPanel1.Name = "separatorPanel1";
-            this.separatorPanel1.SeparatorLocation = ((Iswenzz.UI.Data.RectLocation)((Iswenzz.UI.Data.RectLocation.Right | Iswenzz.UI.Data.RectLocation.Left)));
-            this.separatorPanel1.Size = new System.Drawing.Size(85, 87);
-            this.separatorPanel1.TabIndex = 23;
-            // 
             // Test
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.Controls.Add(this.flatButton3);
             this.Controls.Add(this.separatorPanel1);
             this.Controls.Add(this.treeViewer1);
             this.Controls.Add(this.separator1);
@@ -295,5 +327,6 @@
         private Controls.Separator separator1;
         private Controls.Containers.TreeViewer treeViewer1;
         private Controls.Containers.SeparatorPanel separatorPanel1;
+        private Controls.Buttons.FlatButton flatButton3;
     }
 }
