@@ -53,8 +53,29 @@ namespace Iswenzz.UI.Controls.Containers
             Graphics g;
             IntPtr imgPtr;
 
+            // Node Icon
+            bool hasImage = false;
+            Point ptNodeIcon = new Point(nodeRect.Location.X - 4, nodeRect.Location.Y + 2);
+            if (e.Node.ImageKey != null && e.Node.TreeView.ImageList != null)
+            {
+                hasImage = true;
+                Image nodeImg = e.Node.TreeView.ImageList.Images[e.Node.ImageKey];
+                if (nodeImg != null)
+                {
+                    g = Graphics.FromImage(nodeImg);
+                    imgPtr = g.GetHdc();
+                    g.ReleaseHdc();
+                    e.Graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+                    e.Graphics.DrawImage(nodeImg, ptNodeIcon);
+                }
+            }
+
             // Plus / Minus Icon
-            Point ptExpand = new Point(nodeRect.Location.X - 20, nodeRect.Location.Y + 2);
+            Point ptExpand;
+            if (!hasImage)
+                ptExpand = new Point(nodeRect.Location.X - 20, nodeRect.Location.Y + 2);
+            else
+                ptExpand = new Point(nodeRect.Location.X - 40, nodeRect.Location.Y + 2);
             Image expandImg = null;
 
             if (e.Node.IsExpanded && e.Node.Nodes.Count > 0)
@@ -66,25 +87,11 @@ namespace Iswenzz.UI.Controls.Containers
 
             if (expandImg != null)
             {
-                expandImg = new Bitmap(expandImg, new Size(nodeRect.Size.Height, nodeRect.Size.Height));
+                expandImg = new Bitmap(expandImg, new Size(nodeRect.Size.Height - 4, nodeRect.Size.Height - 4));
                 g = Graphics.FromImage(expandImg);
                 imgPtr = g.GetHdc();
                 g.ReleaseHdc();
                 e.Graphics.DrawImage(expandImg, ptExpand);
-            }
-
-            // Node Icon
-            Point ptNodeIcon = new Point(nodeRect.Location.X - 4, nodeRect.Location.Y + 2);
-            if (e.Node.ImageKey != null && e.Node.TreeView.ImageList != null)
-            {
-                Image nodeImg = e.Node.TreeView.ImageList.Images[e.Node.ImageKey];
-                if (nodeImg != null)
-                {
-                    g = Graphics.FromImage(nodeImg);
-                    imgPtr = g.GetHdc();
-                    g.ReleaseHdc();
-                    e.Graphics.DrawImage(nodeImg, ptNodeIcon);
-                }
             }
 
             // Node Text
@@ -98,8 +105,7 @@ namespace Iswenzz.UI.Controls.Containers
                 textBrush = new SolidBrush(ControlPaint.Dark(e.Node.TreeView.ForeColor, 0.2f));
 
             textRect.Width += 40;
-            e.Graphics.DrawString(e.Node.Text, nodeFont, textBrush,
-                Rectangle.Inflate(textRect, -12, 0));
+            e.Graphics.DrawString(e.Node.Text, nodeFont, textBrush, textRect);
         }
     }
 }
