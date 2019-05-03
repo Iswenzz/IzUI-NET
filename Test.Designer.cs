@@ -87,6 +87,7 @@
             this.flatButton3.HoverColorText = System.Drawing.Color.DarkOrange;
             this.flatButton3.HoverColorTextLeave = System.Drawing.Color.Empty;
             this.flatButton3.Icon = ((System.Drawing.Image)(resources.GetObject("flatButton3.Icon")));
+            this.flatButton3.IconAutoPlacement = false;
             this.flatButton3.IconSize = 0;
             this.flatButton3.Location = new System.Drawing.Point(126, 185);
             this.flatButton3.Name = "flatButton3";
@@ -206,6 +207,7 @@
             this.flatButton2.HoverColorText = System.Drawing.Color.DarkOrange;
             this.flatButton2.HoverColorTextLeave = System.Drawing.Color.Empty;
             this.flatButton2.Icon = null;
+            this.flatButton2.IconAutoPlacement = false;
             this.flatButton2.IconSize = 0;
             this.flatButton2.IsAngleAllowed = true;
             this.flatButton2.Location = new System.Drawing.Point(15, 179);
@@ -230,6 +232,7 @@
             this.flatButton1.HoverColorText = System.Drawing.Color.DarkOrange;
             this.flatButton1.HoverColorTextLeave = System.Drawing.Color.Empty;
             this.flatButton1.Icon = null;
+            this.flatButton1.IconAutoPlacement = false;
             this.flatButton1.IconSize = 0;
             this.flatButton1.Location = new System.Drawing.Point(15, 121);
             this.flatButton1.Name = "flatButton1";
@@ -256,6 +259,7 @@
             this.imageButton1.HoverColorText = System.Drawing.Color.DarkOrange;
             this.imageButton1.HoverColorTextLeave = System.Drawing.Color.Empty;
             this.imageButton1.Icon = null;
+            this.imageButton1.IconAutoPlacement = false;
             this.imageButton1.IconSize = 0;
             this.imageButton1.Location = new System.Drawing.Point(50, 174);
             this.imageButton1.Name = "imageButton1";

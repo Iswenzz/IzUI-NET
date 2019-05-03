@@ -18,7 +18,6 @@ namespace Iswenzz.UI.Controls.Buttons
 
         private bool iconAutoPlacement;
         [Description("Button icon placement (true = auto, false = stuck).")]
-        [DefaultValue(false)]
         public bool IconAutoPlacement
         {
             get => iconAutoPlacement;
@@ -103,6 +102,13 @@ namespace Iswenzz.UI.Controls.Buttons
             ForeColor = Color.WhiteSmoke;
             HoverColor = Color.RoyalBlue;
             HoverColorText = Color.DarkOrange;
+        }
+
+        public virtual void SetIcon(Image icon, int size, bool autoPlace)
+        {
+            Icon = icon;
+            IconSize = size;
+            IconAutoPlacement = autoPlace;
         }
 
         protected override void OnMouseLeave(EventArgs e)
