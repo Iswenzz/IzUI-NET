@@ -30,7 +30,7 @@ namespace Iswenzz.UI.Controls
             get
             {
                 CreateParams cp = base.CreateParams;
-                cp.ExStyle = cp.ExStyle | 0x20;
+                cp.ExStyle |= 0x20;
                 return cp;
             }
         }

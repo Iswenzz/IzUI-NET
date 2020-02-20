@@ -20,10 +20,6 @@ namespace Iswenzz.UI.Controls.Buttons
         [Category("Action")]
         public event EventHandler ValueChanged;
 
-        [Description("Event fires when the control first loads.")]
-        [Category("Action")]
-        public event EventHandler EVENT_LOAD;
-
         /// <summary>
         /// Fires when user scrolls the Slider
         /// </summary>
@@ -34,18 +30,6 @@ namespace Iswenzz.UI.Controls.Buttons
         protected override void OnCreateControl()
         {
             base.OnCreateControl();
-            OnLoad(EventArgs.Empty);
-        }
-
-        protected virtual void OnLoad(EventArgs e)
-        {
-            ((EventHandler)Events[EVENT_LOAD])?.Invoke(this, e);
-        }
-
-        public event EventHandler Load
-        {
-            add => Events.AddHandler(EVENT_LOAD, value);
-            remove => Events.RemoveHandler(EVENT_LOAD, value);
         }
 
         private Rectangle thumbRect; //bounding rectangle of thumb area
@@ -197,7 +181,7 @@ namespace Iswenzz.UI.Controls.Buttons
                 if (value >= barMinimum && value <= barMaximum)
                 {
                     trackerValue = value;
-                    if (ValueChanged != null) ValueChanged(this, new EventArgs());
+                    ValueChanged?.Invoke(this, new EventArgs());
                     Invalidate();
                 }
                 else throw new ArgumentOutOfRangeException("Value is outside appropriate range (min, max)");
@@ -225,7 +209,7 @@ namespace Iswenzz.UI.Controls.Buttons
                     if (trackerValue < barMinimum)
                     {
                         trackerValue = barMinimum;
-                        if (ValueChanged != null) ValueChanged(this, new EventArgs());
+                        ValueChanged?.Invoke(this, new EventArgs());
                     }
                     Invalidate();
                 }
@@ -254,7 +238,7 @@ namespace Iswenzz.UI.Controls.Buttons
                     if (trackerValue > barMaximum)
                     {
                         trackerValue = barMaximum;
-                        if (ValueChanged != null) ValueChanged(this, new EventArgs());
+                        ValueChanged?.Invoke(this, new EventArgs());
                     }
                     Invalidate();
                 }
@@ -509,24 +493,24 @@ namespace Iswenzz.UI.Controls.Buttons
         }
 
         //define own color schemas
-        private Color[,] aColorSchema = new Color[,]
+        private readonly Color[,] aColorSchema = new Color[,]
         {
-                {
-                    Color.White, Color.Gainsboro, Color.Silver, Color.SkyBlue, Color.DarkSlateBlue, Color.Gainsboro,
-                    Color.DarkGreen, Color.Chartreuse
-                },
-                {
-                    Color.White, Color.Gainsboro, Color.Silver, Color.Red, Color.DarkRed, Color.Gainsboro, Color.Coral,
-                    Color.LightCoral
-                },
-                {
-                    Color.White, Color.Gainsboro, Color.Silver, Color.GreenYellow, Color.Yellow, Color.Gold, Color.Orange,
-                    Color.OrangeRed
-                },
-                {
-                    Color.White, Color.Gainsboro, Color.Silver, Color.Red, Color.Crimson, Color.Gainsboro, Color.DarkViolet
-                    , Color.Violet
-                }
+            {
+                Color.White, Color.Gainsboro, Color.Silver, Color.SkyBlue, Color.DarkSlateBlue, Color.Gainsboro,
+                Color.DarkGreen, Color.Chartreuse
+            },
+            {
+                Color.White, Color.Gainsboro, Color.Silver, Color.Red, Color.DarkRed, Color.Gainsboro, Color.Coral,
+                Color.LightCoral
+            },
+            {
+                Color.White, Color.Gainsboro, Color.Silver, Color.GreenYellow, Color.Yellow, Color.Gold, Color.Orange,
+                Color.OrangeRed
+            },
+            {
+                Color.White, Color.Gainsboro, Color.Silver, Color.Red, Color.Crimson, Color.Gainsboro, 
+                Color.DarkViolet, Color.Violet
+            }
         };
 
         public enum ColorSchemas
@@ -571,9 +555,9 @@ namespace Iswenzz.UI.Controls.Buttons
         {
             InitializeComponent();
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer |
-                     ControlStyles.ResizeRedraw | ControlStyles.Selectable |
-                     ControlStyles.SupportsTransparentBackColor | ControlStyles.UserMouse |
-                     ControlStyles.UserPaint, true);
+                ControlStyles.ResizeRedraw | ControlStyles.Selectable |
+                ControlStyles.SupportsTransparentBackColor | ControlStyles.UserMouse |
+                ControlStyles.UserPaint, true);
             BackColor = Color.Transparent;
 
             Minimum = min;
@@ -606,27 +590,25 @@ namespace Iswenzz.UI.Controls.Buttons
             if (!Enabled)
             {
                 Color[] desaturatedColors = DesaturateColors(thumbOuterColor, thumbInnerColor, thumbPenColor,
-                                                             barOuterColor, barInnerColor, barPenColor,
-                                                             elapsedOuterColor, elapsedInnerColor);
+                    barOuterColor, barInnerColor, barPenColor, elapsedOuterColor, elapsedInnerColor);
                 DrawSlider(e, desaturatedColors[0], desaturatedColors[1], desaturatedColors[2],
-                                desaturatedColors[3],
-                                desaturatedColors[4], desaturatedColors[5], desaturatedColors[6], desaturatedColors[7]);
+                    desaturatedColors[3], desaturatedColors[4], desaturatedColors[5], desaturatedColors[6], 
+                    desaturatedColors[7]);
             }
             else
             {
                 if (mouseEffects && mouseInRegion)
                 {
                     Color[] lightenedColors = LightenColors(thumbOuterColor, thumbInnerColor, thumbPenColor,
-                                                            barOuterColor, barInnerColor, barPenColor,
-                                                            elapsedOuterColor, elapsedInnerColor);
+                        barOuterColor, barInnerColor, barPenColor, elapsedOuterColor, elapsedInnerColor);
                     DrawSlider(e, lightenedColors[0], lightenedColors[1], lightenedColors[2], lightenedColors[3],
-                                    lightenedColors[4], lightenedColors[5], lightenedColors[6], lightenedColors[7]);
+                        lightenedColors[4], lightenedColors[5], lightenedColors[6], lightenedColors[7]);
                 }
                 else
                 {
                     DrawSlider(e, thumbOuterColor, thumbInnerColor, thumbPenColor,
-                                    barOuterColor, barInnerColor, barPenColor,
-                                    elapsedOuterColor, elapsedInnerColor);
+                        barOuterColor, barInnerColor, barPenColor,
+                        elapsedOuterColor, elapsedInnerColor);
                 }
             }
         }
@@ -644,20 +626,22 @@ namespace Iswenzz.UI.Controls.Buttons
         /// <param name="elapsedOuterColorPaint">The elapsed outer color paint.</param>
         /// <param name="elapsedInnerColorPaint">The elapsed inner color paint.</param>
         private void DrawSlider(PaintEventArgs e, Color thumbOuterColorPaint, Color thumbInnerColorPaint,
-                                     Color thumbPenColorPaint, Color barOuterColorPaint, Color barInnerColorPaint,
-                                     Color barPenColorPaint, Color elapsedOuterColorPaint, Color elapsedInnerColorPaint)
+            Color thumbPenColorPaint, Color barOuterColorPaint, Color barInnerColorPaint, 
+            Color barPenColorPaint, Color elapsedOuterColorPaint, Color elapsedInnerColorPaint)
         {
             try
             {
                 //set up thumbRect aproprietly
                 if (barOrientation == Orientation.Horizontal)
                 {
-                    int TrackX = (((trackerValue - barMinimum) * (ClientRectangle.Width - thumbSize)) / (barMaximum - barMinimum));
+                    int TrackX = (trackerValue - barMinimum) * (ClientRectangle.Width - thumbSize) 
+                        / (barMaximum - barMinimum);
                     thumbRect = new Rectangle(TrackX, 1, thumbSize - 1, ClientRectangle.Height - 3);
                 }
                 else
                 {
-                    int TrackY = (((trackerValue - barMinimum) * (ClientRectangle.Height - thumbSize)) / (barMaximum - barMinimum));
+                    int TrackY = (trackerValue - barMinimum) * (ClientRectangle.Height - thumbSize) 
+                        / (barMaximum - barMinimum);
                     thumbRect = new Rectangle(1, TrackY, ClientRectangle.Width - 3, thumbSize - 1);
                 }
 
@@ -698,18 +682,14 @@ namespace Iswenzz.UI.Controls.Buttons
                 }
 
                 //draw bar
-                using (
-                    LinearGradientBrush lgbBar =
-                        new LinearGradientBrush(barHalfRect, barOuterColorPaint, barInnerColorPaint, gradientOrientation)
-                    )
+                using (LinearGradientBrush lgbBar = new LinearGradientBrush(
+                    barHalfRect, barOuterColorPaint, barInnerColorPaint, gradientOrientation))
                 {
                     lgbBar.WrapMode = WrapMode.TileFlipXY;
                     e.Graphics.FillRectangle(lgbBar, barRect);
                     //draw elapsed bar
-                    using (
-                        LinearGradientBrush lgbElapsed =
-                            new LinearGradientBrush(barHalfRect, elapsedOuterColorPaint, elapsedInnerColorPaint,
-                                                    gradientOrientation))
+                    using (LinearGradientBrush lgbElapsed = new LinearGradientBrush(
+                        barHalfRect, elapsedOuterColorPaint, elapsedInnerColorPaint, gradientOrientation))
                     {
                         lgbElapsed.WrapMode = WrapMode.TileFlipXY;
                         if (Capture && drawSemitransparentThumb)
@@ -722,10 +702,8 @@ namespace Iswenzz.UI.Controls.Buttons
                             e.Graphics.FillRectangle(lgbElapsed, elapsedRect);
                     }
                     //draw bar band                    
-                    using (Pen barPen = new Pen(barPenColorPaint, 0.5f))
-                    {
-                        e.Graphics.DrawRectangle(barPen, barRect);
-                    }
+                    using Pen barPen = new Pen(barPenColorPaint, 0.5f);
+                    e.Graphics.DrawRectangle(barPen, barRect);
                 }
 
                 //draw thumb
@@ -735,10 +713,8 @@ namespace Iswenzz.UI.Controls.Buttons
                     newthumbOuterColorPaint = Color.FromArgb(175, thumbOuterColorPaint);
                     newthumbInnerColorPaint = Color.FromArgb(175, thumbInnerColorPaint);
                 }
-                using (
-                    LinearGradientBrush lgbThumb =
-                        new LinearGradientBrush(thumbHalfRect, newthumbOuterColorPaint, newthumbInnerColorPaint,
-                                                gradientOrientation))
+                using (LinearGradientBrush lgbThumb = new LinearGradientBrush(
+                    thumbHalfRect, newthumbOuterColorPaint, newthumbInnerColorPaint, gradientOrientation))
                 {
                     lgbThumb.WrapMode = WrapMode.TileFlipXY;
                     e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
@@ -747,17 +723,8 @@ namespace Iswenzz.UI.Controls.Buttons
                     Color newThumbPenColor = thumbPenColorPaint;
                     if (mouseEffects && (Capture || mouseInThumbRegion))
                         newThumbPenColor = ControlPaint.Dark(newThumbPenColor);
-                    using (Pen thumbPen = new Pen(newThumbPenColor))
-                    {
-                        e.Graphics.DrawPath(thumbPen, thumbPath);
-                    }
-                    //gp.Dispose();                    
-                    /*if (Capture || mouseInThumbRegion)
-                        using (LinearGradientBrush lgbThumb2 = new LinearGradientBrush(thumbHalfRect, Color.FromArgb(150, Color.Blue), Color.Transparent, gradientOrientation))
-                        {
-                            lgbThumb2.WrapMode = WrapMode.TileFlipXY;
-                            e.Graphics.FillPath(lgbThumb2, gp);
-                        }*/
+                    using Pen thumbPen = new Pen(newThumbPenColor);
+                    e.Graphics.DrawPath(thumbPen, thumbPath);
                 }
 
                 //draw focusing rectangle
@@ -770,19 +737,14 @@ namespace Iswenzz.UI.Controls.Buttons
                         r.Height--;
                         r.X++;
                         //ControlPaint.DrawFocusRectangle(e.Graphics, r);                        
-                        using (GraphicsPath gpBorder = CreateRoundRectPath(r, borderRoundRectSize))
-                        {
-                            e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-                            e.Graphics.DrawPath(p, gpBorder);
-                        }
+                        using GraphicsPath gpBorder = CreateRoundRectPath(r, borderRoundRectSize);
+                        e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+                        e.Graphics.DrawPath(p, gpBorder);
                     }
             }
             catch (Exception Err)
             {
                 Console.WriteLine("DrawBackGround Error in " + Name + ":" + Err.Message);
-            }
-            finally
-            {
             }
         }
 
@@ -830,8 +792,8 @@ namespace Iswenzz.UI.Controls.Buttons
             if (e.Button == MouseButtons.Left)
             {
                 Capture = true;
-                if (Scroll != null) Scroll(this, new ScrollEventArgs(ScrollEventType.ThumbTrack, trackerValue));
-                if (ValueChanged != null) ValueChanged(this, new EventArgs());
+                Scroll?.Invoke(this, new ScrollEventArgs(ScrollEventType.ThumbTrack, trackerValue));
+                ValueChanged?.Invoke(this, new EventArgs());
                 OnMouseMove(e);
             }
         }
@@ -853,10 +815,8 @@ namespace Iswenzz.UI.Controls.Buttons
                 int p = barOrientation == Orientation.Horizontal ? pt.X : pt.Y;
                 int margin = thumbSize >> 1;
                 p -= margin;
-                float coef = (float)(barMaximum - barMinimum) /
-                             (float)
-                             ((barOrientation == Orientation.Horizontal ? ClientSize.Width : ClientSize.Height) -
-                              2 * margin);
+                float coef = (float)(barMaximum - barMinimum) / (float)((
+                    barOrientation == Orientation.Horizontal ? ClientSize.Width : ClientSize.Height) - 2 * margin);
                 trackerValue = (int)(p * coef + barMinimum);
 
                 if (trackerValue <= barMinimum)
@@ -870,8 +830,8 @@ namespace Iswenzz.UI.Controls.Buttons
                     set = ScrollEventType.Last;
                 }
 
-                if (Scroll != null) Scroll(this, new ScrollEventArgs(set, trackerValue));
-                if (ValueChanged != null) ValueChanged(this, new EventArgs());
+                Scroll?.Invoke(this, new ScrollEventArgs(set, trackerValue));
+                ValueChanged?.Invoke(this, new EventArgs());
             }
             Invalidate();
         }
@@ -885,8 +845,8 @@ namespace Iswenzz.UI.Controls.Buttons
             base.OnMouseUp(e);
             Capture = false;
             mouseInThumbRegion = IsPointInRect(e.Location, thumbRect);
-            if (Scroll != null) Scroll(this, new ScrollEventArgs(ScrollEventType.EndScroll, trackerValue));
-            if (ValueChanged != null) ValueChanged(this, new EventArgs());
+            Scroll?.Invoke(this, new ScrollEventArgs(ScrollEventType.EndScroll, trackerValue));
+            ValueChanged?.Invoke(this, new EventArgs());
             Invalidate();
         }
 
@@ -933,12 +893,12 @@ namespace Iswenzz.UI.Controls.Buttons
                 case Keys.Down:
                 case Keys.Left:
                     SetProperValue(Value - (int)smallChange);
-                    if (Scroll != null) Scroll(this, new ScrollEventArgs(ScrollEventType.SmallDecrement, Value));
+                    Scroll?.Invoke(this, new ScrollEventArgs(ScrollEventType.SmallDecrement, Value));
                     break;
                 case Keys.Up:
                 case Keys.Right:
                     SetProperValue(Value + (int)smallChange);
-                    if (Scroll != null) Scroll(this, new ScrollEventArgs(ScrollEventType.SmallIncrement, Value));
+                    Scroll?.Invoke(this, new ScrollEventArgs(ScrollEventType.SmallIncrement, Value));
                     break;
                 case Keys.Home:
                     Value = barMinimum;
@@ -948,11 +908,11 @@ namespace Iswenzz.UI.Controls.Buttons
                     break;
                 case Keys.PageDown:
                     SetProperValue(Value - (int)largeChange);
-                    if (Scroll != null) Scroll(this, new ScrollEventArgs(ScrollEventType.LargeDecrement, Value));
+                    Scroll?.Invoke(this, new ScrollEventArgs(ScrollEventType.LargeDecrement, Value));
                     break;
                 case Keys.PageUp:
                     SetProperValue(Value + (int)largeChange);
-                    if (Scroll != null) Scroll(this, new ScrollEventArgs(ScrollEventType.LargeIncrement, Value));
+                    Scroll?.Invoke(this, new ScrollEventArgs(ScrollEventType.LargeIncrement, Value));
                     break;
             }
             if (Scroll != null && Value == barMinimum) Scroll(this, new ScrollEventArgs(ScrollEventType.First, Value));
@@ -1013,8 +973,8 @@ namespace Iswenzz.UI.Controls.Buttons
             for (int i = 0; i < colorsToDesaturate.Length; i++)
             {
                 //use NTSC weighted avarage
-                int gray =
-                    (int)(colorsToDesaturate[i].R * 0.3 + colorsToDesaturate[i].G * 0.6 + colorsToDesaturate[i].B * 0.1);
+                int gray = (int)(colorsToDesaturate[i].R * 0.3 + colorsToDesaturate[i].G * 0.6 
+                    + colorsToDesaturate[i].B * 0.1);
                 colorsToReturn[i] = Color.FromArgb(-0x010101 * (255 - gray) - 1);
             }
             return colorsToReturn;
@@ -1029,9 +989,7 @@ namespace Iswenzz.UI.Controls.Buttons
         {
             Color[] colorsToReturn = new Color[colorsToLighten.Length];
             for (int i = 0; i < colorsToLighten.Length; i++)
-            {
                 colorsToReturn[i] = ControlPaint.Light(colorsToLighten[i]);
-            }
             return colorsToReturn;
         }
 

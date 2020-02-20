@@ -1,8 +1,0 @@
-D:\Users\Wenzz\source\repos\VS\Extra Control\bin\Release\Iswenzz.UI.dll
-D:\Users\Wenzz\source\repos\VS\Extra Control\bin\Release\Iswenzz.UI.pdb
-D:\Users\Wenzz\source\repos\VS\Extra Control\obj\Release\Iswenzz.ui.csproj.CoreCompileInputs.cache
-D:\Users\Wenzz\source\repos\VS\Extra Control\obj\Release\Iswenzz.UI.dll
-D:\Users\Wenzz\source\repos\VS\Extra Control\obj\Release\Iswenzz.UI.pdb
-D:\Users\Wenzz\source\repos\VS\Extra Control\obj\Release\Iswenzz.ui.csprojAssemblyReference.cache
-D:\Users\Wenzz\source\repos\VS\Extra Control\obj\Release\Iswenzz.UI.TestUC.resources
-D:\Users\Wenzz\source\repos\VS\Extra Control\obj\Release\Iswenzz.UI.csproj.GenerateResource.cache

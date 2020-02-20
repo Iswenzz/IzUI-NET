@@ -26,10 +26,8 @@ namespace Iswenzz.UI.Controls
         protected override void OnPaint(PaintEventArgs pe)
         {
             base.OnPaint(pe);
-            Rectangle rect = new Rectangle(0, 0, Width, Height);
-
-            pe.Graphics.DrawLine(new Pen(ForeColor, SeparatorThickness), 
-                new Point(0, Height / 2), new Point(Width, Height / 2));
+            using Pen pen = new Pen(ForeColor, SeparatorThickness);
+            pe.Graphics.DrawLine(pen, new Point(0, Height / 2), new Point(Width, Height / 2));
         }
     }
 }

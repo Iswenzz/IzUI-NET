@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Iswenzz.UI.Data;
+using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -54,58 +55,34 @@ namespace Iswenzz.UI.Controls
         {
             base.OnPaint(pe);
             RectangleF rect = new RectangleF(0, 0, Width, Height);
+            using SolidBrush backBrush = new SolidBrush(BackColor);
+            using SolidBrush foreBrush = new SolidBrush(ForeColor);
 
-            if (BackColor != Color.Transparent || roundedCorner != 0)
+            if (BackColor != Color.Transparent || RoundedCorner != 0)
             {
-                GraphicsPath path = GetRoundPath(rect, roundedCorner);
+                GraphicsPath path = rect.GetRoundPath(RoundedCorner);
                 Region = new Region(path);
-                pe.Graphics.FillPath(new SolidBrush(BackColor), path);
+                pe.Graphics.FillPath(backBrush, path);
                 path.Dispose();
             }
 
-            StringFormat sf = new StringFormat
+            using StringFormat sf = new StringFormat
             {
                 Alignment = StringAlignment.Center,
                 LineAlignment = StringAlignment.Center,
             };
 
-            switch (TextAlign)
-            {
-                case ContentAlignment.BottomCenter: sf.LineAlignment = StringAlignment.Far; sf.Alignment = StringAlignment.Center;      break;
-                case ContentAlignment.BottomLeft:   sf.LineAlignment = StringAlignment.Far; sf.Alignment = StringAlignment.Near;        break;
-                case ContentAlignment.BottomRight:  sf.LineAlignment = StringAlignment.Far; sf.Alignment = StringAlignment.Far;         break;
-                case ContentAlignment.MiddleCenter: sf.LineAlignment = StringAlignment.Center; sf.Alignment = StringAlignment.Center;   break;
-                case ContentAlignment.MiddleLeft:   sf.LineAlignment = StringAlignment.Center; sf.Alignment = StringAlignment.Near;     break;
-                case ContentAlignment.MiddleRight:  sf.LineAlignment = StringAlignment.Center; sf.Alignment = StringAlignment.Far;      break;
-                case ContentAlignment.TopCenter:    sf.LineAlignment = StringAlignment.Near; sf.Alignment = StringAlignment.Center;     break;
-                case ContentAlignment.TopLeft:      sf.LineAlignment = StringAlignment.Near; sf.Alignment = StringAlignment.Near;       break;
-                case ContentAlignment.TopRight:     sf.LineAlignment = StringAlignment.Near; sf.Alignment = StringAlignment.Far;        break;
-            }
+            sf.LineAlignment = Alignment.GetLineAlignment(TextAlign);
+            sf.Alignment = Alignment.GetAlignment(TextAlign);
 
             if (IsAngleAllowed)
             {
                 pe.Graphics.TranslateTransform(Width, 0);
                 pe.Graphics.RotateTransform(Angles);
-                pe.Graphics.DrawString(Text, Font, new SolidBrush(ForeColor), new Rectangle(0, 0, Height, Width), sf);
+                pe.Graphics.DrawString(Text, Font, foreBrush, new Rectangle(0, 0, Height, Width), sf);
             }
             else
-                pe.Graphics.DrawString(Text, Font, new SolidBrush(ForeColor), rect, sf);
-        }
-
-        private GraphicsPath GetRoundPath(RectangleF Rect, int radius)
-        {
-            float r2 = radius / 2f;
-            GraphicsPath path = new GraphicsPath();
-            path.AddArc(Rect.X, Rect.Y, radius, radius, 180, 90);
-            path.AddLine(Rect.X + r2, Rect.Y, Rect.Width - r2, Rect.Y);
-            path.AddArc(Rect.X + Rect.Width - radius, Rect.Y, radius, radius, 270, 90);
-            path.AddLine(Rect.Width, Rect.Y + r2, Rect.Width, Rect.Height - r2);
-            path.AddArc(Rect.X + Rect.Width - radius, Rect.Y + Rect.Height - radius, radius, radius, 0, 90);
-            path.AddLine(Rect.Width - r2, Rect.Height, Rect.X + r2, Rect.Height);
-            path.AddArc(Rect.X, Rect.Y + Rect.Height - radius, radius, radius, 90, 90);
-            path.AddLine(Rect.X, Rect.Height - r2, Rect.X, Rect.Y + r2);
-            path.CloseFigure();
-            return path;
+                pe.Graphics.DrawString(Text, Font, foreBrush, rect, sf);
         }
     }
 }

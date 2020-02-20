@@ -51,7 +51,6 @@ namespace Iswenzz.UI.Controls.Containers
         {
             Rectangle nodeRect = e.Node.Bounds;
             Graphics g;
-            IntPtr imgPtr;
 
             // Node Icon
             bool hasImage = false;
@@ -63,7 +62,7 @@ namespace Iswenzz.UI.Controls.Containers
                 if (nodeImg != null)
                 {
                     g = Graphics.FromImage(nodeImg);
-                    imgPtr = g.GetHdc();
+                    _ = g.GetHdc();
                     g.ReleaseHdc();
                     e.Graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
                     e.Graphics.DrawImage(nodeImg, ptNodeIcon);
@@ -76,8 +75,8 @@ namespace Iswenzz.UI.Controls.Containers
                 ptExpand = new Point(nodeRect.Location.X - 20, nodeRect.Location.Y + 2);
             else
                 ptExpand = new Point(nodeRect.Location.X - 40, nodeRect.Location.Y + 2);
-            Image expandImg = null;
 
+            Image expandImg;
             if (e.Node.IsExpanded && e.Node.Nodes.Count > 0)
                 expandImg = MinusIcon;
             else if (!e.Node.IsExpanded && e.Node.Nodes.Count > 0)
@@ -89,9 +88,10 @@ namespace Iswenzz.UI.Controls.Containers
             {
                 expandImg = new Bitmap(expandImg, new Size(nodeRect.Size.Height - 4, nodeRect.Size.Height - 4));
                 g = Graphics.FromImage(expandImg);
-                imgPtr = g.GetHdc();
+                _ = g.GetHdc();
                 g.ReleaseHdc();
                 e.Graphics.DrawImage(expandImg, ptExpand);
+                expandImg.Dispose();
             }
 
             // Node Text
@@ -106,6 +106,7 @@ namespace Iswenzz.UI.Controls.Containers
 
             textRect.Width += 40;
             e.Graphics.DrawString(e.Node.Text, nodeFont, textBrush, textRect);
+            textBrush.Dispose();
         }
     }
 }

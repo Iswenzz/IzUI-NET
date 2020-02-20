@@ -25,14 +25,14 @@ namespace Iswenzz.UI.Controls.Buttons
             base.OnBackColorChanged(e);
         }
 
-        protected override CreateParams CreateParams
-        {
-            get
-            {
-                CreateParams cp = base.CreateParams;
-                cp.ExStyle = cp.ExStyle | 0x20;
-                return cp;
-            }
-        }
+        //protected override CreateParams CreateParams // not supported with rounded corner?
+        //{
+        //    get
+        //    {
+        //        CreateParams cp = base.CreateParams;
+        //        cp.ExStyle |= 0x20;
+        //        return cp;
+        //    }
+        //}
     }
 }

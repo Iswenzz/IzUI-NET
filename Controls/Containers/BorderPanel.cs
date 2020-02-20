@@ -33,7 +33,8 @@ namespace Iswenzz.UI.Controls.Containers
         {
             base.OnPaint(pe);
             Rectangle rect = new Rectangle(0, 0, Width - 1, Height - 1);
-            pe.Graphics.DrawRectangle(new Pen(BorderColor, Thickness), rect);
+            using Pen pen = new Pen(BorderColor, Thickness);
+            pe.Graphics.DrawRectangle(pen, rect);
         }
     }
 }

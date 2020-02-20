@@ -46,22 +46,19 @@ namespace Iswenzz.UI.Controls.Containers
         protected override void OnPaint(PaintEventArgs pe)
         {
             base.OnPaint(pe);
+            using Pen pen = new Pen(BorderColor, Thickness);
 
             if (SeparatorLocation.HasFlag(RectLocation.Top))
-                pe.Graphics.DrawLine(new Pen(BorderColor, Thickness), 
-                    new Point(0, 0), new Point(Width - 1, 0));
+                pe.Graphics.DrawLine(pen, new Point(0, 0), new Point(Width - 1, 0));
 
             if (SeparatorLocation.HasFlag(RectLocation.Right))
-                pe.Graphics.DrawLine(new Pen(BorderColor, Thickness),
-                    new Point(Width - 1, 0), new Point(Width - 1, Height - 1));
+                pe.Graphics.DrawLine(pen, new Point(Width - 1, 0), new Point(Width - 1, Height - 1));
 
             if (SeparatorLocation.HasFlag(RectLocation.Bottom))
-                pe.Graphics.DrawLine(new Pen(BorderColor, Thickness), 
-                    new Point(0, Height - 1), new Point(Width - 1, Height - 1));
+                pe.Graphics.DrawLine(pen, new Point(0, Height - 1), new Point(Width - 1, Height - 1));
 
             if (SeparatorLocation.HasFlag(RectLocation.Left))
-                pe.Graphics.DrawLine(new Pen(BorderColor, Thickness),
-                    new Point(0, 0), new Point(0, Height - 1));
+                pe.Graphics.DrawLine(pen, new Point(0, 0), new Point(0, Height - 1));
         }
     }
 }

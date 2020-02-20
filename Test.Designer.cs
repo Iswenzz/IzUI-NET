@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Test));
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Node3");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Node0", new System.Windows.Forms.TreeNode[] {
-            treeNode1});
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Node1");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Node2");
+            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Node3");
+            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("Node0", new System.Windows.Forms.TreeNode[] {
+            treeNode21});
+            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("Node1");
+            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("Node2");
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.timeTrialCard1 = new Iswenzz.UI.Controls.Game.MKW.TimeTrialCard();
             this.flatButton3 = new Iswenzz.UI.Controls.Buttons.FlatButton();
             this.separatorPanel1 = new Iswenzz.UI.Controls.Containers.SeparatorPanel();
             this.treeViewer1 = new Iswenzz.UI.Controls.Containers.TreeViewer();
@@ -48,6 +49,7 @@
             this.flatButton1 = new Iswenzz.UI.Controls.Buttons.FlatButton();
             this.imageButton1 = new Iswenzz.UI.Controls.Buttons.ImageButton();
             this.slider1 = new Iswenzz.UI.Controls.Buttons.Slider();
+            this.specialLabel3 = new Iswenzz.UI.Controls.SpecialLabel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,20 +60,29 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1189, 73);
+            this.panel1.Size = new System.Drawing.Size(1425, 73);
             this.panel1.TabIndex = 14;
             // 
             // label1
             // 
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Font = new System.Drawing.Font("Open Sans Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Gainsboro;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1189, 73);
+            this.label1.Size = new System.Drawing.Size(1425, 73);
             this.label1.TabIndex = 0;
             this.label1.Text = "Test Control";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // timeTrialCard1
+            // 
+            this.timeTrialCard1.Font = new System.Drawing.Font("Swis721 LtEx BT", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timeTrialCard1.Location = new System.Drawing.Point(475, 97);
+            this.timeTrialCard1.Name = "timeTrialCard1";
+            this.timeTrialCard1.Size = new System.Drawing.Size(892, 498);
+            this.timeTrialCard1.TabIndex = 41;
+            this.timeTrialCard1.Text = "timeTrialCard1";
             // 
             // flatButton3
             // 
@@ -113,23 +124,23 @@
             this.treeViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.treeViewer1.DefaultIcon = null;
             this.treeViewer1.DrawMode = System.Windows.Forms.TreeViewDrawMode.OwnerDrawAll;
-            this.treeViewer1.Font = new System.Drawing.Font("Open Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeViewer1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeViewer1.ForeColor = System.Drawing.Color.Gainsboro;
             this.treeViewer1.Location = new System.Drawing.Point(210, 315);
             this.treeViewer1.MinusIcon = ((System.Drawing.Image)(resources.GetObject("treeViewer1.MinusIcon")));
             this.treeViewer1.Name = "treeViewer1";
-            treeNode1.Name = "Node3";
-            treeNode1.Text = "Node3";
-            treeNode2.Name = "Node0";
-            treeNode2.Text = "Node0";
-            treeNode3.Name = "Node1";
-            treeNode3.Text = "Node1";
-            treeNode4.Name = "Node2";
-            treeNode4.Text = "Node2";
+            treeNode21.Name = "Node3";
+            treeNode21.Text = "Node3";
+            treeNode22.Name = "Node0";
+            treeNode22.Text = "Node0";
+            treeNode23.Name = "Node1";
+            treeNode23.Text = "Node1";
+            treeNode24.Name = "Node2";
+            treeNode24.Text = "Node2";
             this.treeViewer1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode2,
-            treeNode3,
-            treeNode4});
+            treeNode22,
+            treeNode23,
+            treeNode24});
             this.treeViewer1.PlusIcon = ((System.Drawing.Image)(resources.GetObject("treeViewer1.PlusIcon")));
             this.treeViewer1.Size = new System.Drawing.Size(125, 108);
             this.treeViewer1.TabIndex = 22;
@@ -149,7 +160,7 @@
             // 
             this.specialLabel2.Angles = 0;
             this.specialLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.specialLabel2.Font = new System.Drawing.Font("Open Sans", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.specialLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.specialLabel2.ForeColor = System.Drawing.Color.Gainsboro;
             this.specialLabel2.Location = new System.Drawing.Point(15, 273);
             this.specialLabel2.Name = "specialLabel2";
@@ -172,7 +183,7 @@
             // 
             this.specialLabel1.Angles = 0;
             this.specialLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.specialLabel1.Font = new System.Drawing.Font("Open Sans", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.specialLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.specialLabel1.ForeColor = System.Drawing.Color.Gainsboro;
             this.specialLabel1.Location = new System.Drawing.Point(15, 76);
             this.specialLabel1.Name = "specialLabel1";
@@ -237,7 +248,7 @@
             this.flatButton1.Location = new System.Drawing.Point(15, 121);
             this.flatButton1.Name = "flatButton1";
             this.flatButton1.RoundedCorner = 0;
-            this.flatButton1.Size = new System.Drawing.Size(76, 40);
+            this.flatButton1.Size = new System.Drawing.Size(77, 40);
             this.flatButton1.TabIndex = 8;
             this.flatButton1.Text = "Test";
             this.flatButton1.UseVisualStyleBackColor = false;
@@ -292,11 +303,25 @@
             this.slider1.ThumbRoundRectSize = new System.Drawing.Size(10, 10);
             this.slider1.ThumbSize = 22;
             // 
+            // specialLabel3
+            // 
+            this.specialLabel3.Angles = 0;
+            this.specialLabel3.BackColor = System.Drawing.Color.Transparent;
+            this.specialLabel3.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.specialLabel3.Location = new System.Drawing.Point(298, 188);
+            this.specialLabel3.Name = "specialLabel3";
+            this.specialLabel3.RoundedCorner = 0;
+            this.specialLabel3.Size = new System.Drawing.Size(100, 37);
+            this.specialLabel3.TabIndex = 42;
+            this.specialLabel3.Text = "specialLabel3";
+            // 
             // Test
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.Controls.Add(this.specialLabel3);
+            this.Controls.Add(this.timeTrialCard1);
             this.Controls.Add(this.flatButton3);
             this.Controls.Add(this.separatorPanel1);
             this.Controls.Add(this.treeViewer1);
@@ -311,7 +336,7 @@
             this.Controls.Add(this.imageButton1);
             this.Controls.Add(this.slider1);
             this.Name = "Test";
-            this.Size = new System.Drawing.Size(1189, 681);
+            this.Size = new System.Drawing.Size(1425, 809);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -332,5 +357,7 @@
         private Controls.Containers.TreeViewer treeViewer1;
         private Controls.Containers.SeparatorPanel separatorPanel1;
         private Controls.Buttons.FlatButton flatButton3;
+        private Controls.Game.MKW.TimeTrialCard timeTrialCard1;
+        private Controls.SpecialLabel specialLabel3;
     }
 }

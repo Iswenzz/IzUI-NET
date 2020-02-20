@@ -70,7 +70,7 @@ namespace Iswenzz.UI.Controls.Containers
             }
 
             if (cs == CheckState.Unchecked)
-                sum = sum & (~composite.value);
+                sum &= ~composite.value;
             else
                 sum |= composite.value;
 
@@ -141,10 +141,10 @@ namespace Iswenzz.UI.Controls.Containers
 
         public override string ToString() => caption;
 
-        public bool IsFlag { get => ((value & (value - 1)) == 0); }
+        public bool IsFlag { get => (value & (value - 1)) == 0; }
 
         public bool IsMemberFlag(FlagCheckedListBoxItem composite) =>
-            (IsFlag && ((value & composite.value) == value));
+            IsFlag && ((value & composite.value) == value);
 
         public int value;
         public string caption;
