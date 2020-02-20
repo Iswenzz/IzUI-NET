@@ -1,5 +1,4 @@
 ﻿using Iswenzz.UI.Data;
-using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -10,6 +9,9 @@ namespace Iswenzz.UI.Controls
     public partial class SpecialLabel : AlphaControl
     {
         private int angles;
+        /// <summary>
+        /// The angle used to rotate the text.
+        /// </summary>
         [Description("Angle rotation degree.")]
         public int Angles
         {
@@ -18,6 +20,9 @@ namespace Iswenzz.UI.Controls
         }
 
         private bool isAngleAllowed;
+        /// <summary>
+        /// Toggle text rotation.
+        /// </summary>
         [DefaultValue(false)]
         [Description("Allows angled graphics render.")]
         public bool IsAngleAllowed
@@ -27,6 +32,9 @@ namespace Iswenzz.UI.Controls
         }
 
         private int roundedCorner;
+        /// <summary>
+        /// Rounded corner radius.
+        /// </summary>
         [Description("Curved corner amount.")]
         public int RoundedCorner
         {
@@ -35,6 +43,9 @@ namespace Iswenzz.UI.Controls
         }
 
         private ContentAlignment textAlign;
+        /// <summary>
+        /// Text alignment.
+        /// </summary>
         [DefaultValue(ContentAlignment.MiddleCenter)]
         [Description("Text allignement.")]
         public ContentAlignment TextAlign
@@ -43,6 +54,9 @@ namespace Iswenzz.UI.Controls
             set { textAlign = value; Invalidate(); }
         }
 
+        /// <summary>
+        /// Initialize a new <see cref="SpecialLabel"/> object.
+        /// </summary>
         public SpecialLabel()
         {
             InitializeComponent();
@@ -51,6 +65,10 @@ namespace Iswenzz.UI.Controls
             ForeColor = Color.WhiteSmoke;
         }
 
+        /// <summary>
+        /// Render callback.
+        /// </summary>
+        /// <param name="pe">Paint data.</param>
         protected override void OnPaint(PaintEventArgs pe)
         {
             base.OnPaint(pe);

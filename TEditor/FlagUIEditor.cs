@@ -9,12 +9,7 @@ namespace Iswenzz.UI.TEditor
 {
     public class FlagUIEditor : UITypeEditor
     {
-        private FlagCheckedListBox flagListBox;
-
-        public FlagUIEditor()
-        {
-            flagListBox = new FlagCheckedListBox();
-        }
+        private readonly FlagCheckedListBox flagListBox = new FlagCheckedListBox();
 
         public override object EditValue(ITypeDescriptorContext context, IServiceProvider provider, object value)
         {

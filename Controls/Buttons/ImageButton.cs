@@ -8,6 +8,9 @@ namespace Iswenzz.UI.Controls.Buttons
     public partial class ImageButton : FlatButton
     {
         private Image currentImage;
+        /// <summary>
+        /// Default background image.
+        /// </summary>
         [Browsable(false)]
         private Image CurrentImage
         {
@@ -16,6 +19,9 @@ namespace Iswenzz.UI.Controls.Buttons
         }
 
         private Image activeImage;
+        /// <summary>
+        /// Active background image.
+        /// </summary>
         [Description("Change the BackgroundImage when MouseHover")]
         public Image ActiveImage
         {
@@ -23,6 +29,9 @@ namespace Iswenzz.UI.Controls.Buttons
             set { activeImage = value; Invalidate(); }
         }
 
+        /// <summary>
+        /// Initialize a new <see cref="ImageButton"/> object.
+        /// </summary>
         public ImageButton()
         {
             InitializeComponent();
@@ -38,12 +47,20 @@ namespace Iswenzz.UI.Controls.Buttons
             Text = "";
         }
 
+        /// <summary>
+        /// Mouse leave callback.
+        /// </summary>
+        /// <param name="e">Mouse event.</param>
         protected override void OnMouseLeave(EventArgs e)
         {
             BackgroundImage = CurrentImage;
             Invalidate();
         }
 
+        /// <summary>
+        /// Mouse enter callback
+        /// </summary>
+        /// <param name="e">Mouse event.</param>
         protected override void OnMouseEnter(EventArgs e)
         {
             CurrentImage = BackgroundImage;

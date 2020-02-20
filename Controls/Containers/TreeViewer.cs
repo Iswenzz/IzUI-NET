@@ -1,5 +1,4 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -8,7 +7,10 @@ namespace Iswenzz.UI.Controls.Containers
     public partial class TreeViewer : TreeView
     {
         private Image minusIcon;
-        [Description("The minus icon.")]
+        /// <summary>
+        /// Collapase Icon.
+        /// </summary>
+        [Description("The collapase icon.")]
         public Image MinusIcon
         {
             get => minusIcon;
@@ -16,7 +18,7 @@ namespace Iswenzz.UI.Controls.Containers
         }
 
         private Image plusIcon;
-        [Description("The plus icon.")]
+        [Description("The expand icon.")]
         public Image PlusIcon
         {
             get => plusIcon;
@@ -24,6 +26,9 @@ namespace Iswenzz.UI.Controls.Containers
         }
 
         private Image defaultIcon;
+        /// <summary>
+        /// Default icon.
+        /// </summary>
         [Description("The default icon.")]
         public Image DefaultIcon
         {
@@ -31,6 +36,9 @@ namespace Iswenzz.UI.Controls.Containers
             set { defaultIcon = value; Invalidate(); }
         }
 
+        /// <summary>
+        /// Initialize a new <see cref="TreeViewer"/> object.
+        /// </summary>
         public TreeViewer()
         {
             InitializeComponent();
@@ -38,6 +46,10 @@ namespace Iswenzz.UI.Controls.Containers
             DrawNode += Tree_DrawIcons;
         }
 
+        /// <summary>
+        /// Expand callback.
+        /// </summary>
+        /// <param name="e"></param>
         protected override void OnAfterExpand(TreeViewEventArgs e)
         {
             base.OnAfterExpand(e);

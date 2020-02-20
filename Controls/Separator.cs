@@ -7,6 +7,9 @@ namespace Iswenzz.UI.Controls
     public partial class Separator : AlphaControl
     {
         private float separatorThickness;
+        /// <summary>
+        /// Separator stroke thickness.
+        /// </summary>
         [Description("Separator line thickness.")]
         [DefaultValue(1f)]
         public float SeparatorThickness
@@ -15,6 +18,9 @@ namespace Iswenzz.UI.Controls
             set { separatorThickness = value; Invalidate(); }
         }
 
+        /// <summary>
+        /// Initialize a new <see cref="Separator"/> object.
+        /// </summary>
         public Separator()
         {
             InitializeComponent();
@@ -23,6 +29,10 @@ namespace Iswenzz.UI.Controls
             ForeColor = Color.DarkGray;
         }
 
+        /// <summary>
+        /// Render callback.
+        /// </summary>
+        /// <param name="pe">Paint data.</param>
         protected override void OnPaint(PaintEventArgs pe)
         {
             base.OnPaint(pe);

@@ -3,8 +3,14 @@ using System.Windows.Forms;
 
 namespace Iswenzz.UI.Controls.Buttons
 {
+    /// <summary>
+    /// Base button component class that supports alpha.
+    /// </summary>
     public partial class AlphaButton : Button
     {
+        /// <summary>
+        /// Initialize a new <see cref="AlphaButton"/> object.
+        /// </summary>
         public AlphaButton()
         {
             InitializeComponent();
@@ -25,6 +31,9 @@ namespace Iswenzz.UI.Controls.Buttons
             base.OnBackColorChanged(e);
         }
 
+        /// <summary>
+        /// Allow components to be transparent.
+        /// </summary>
         //protected override CreateParams CreateParams // not supported with rounded corner?
         //{
         //    get

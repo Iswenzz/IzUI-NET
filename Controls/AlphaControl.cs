@@ -3,8 +3,14 @@ using System.Windows.Forms;
 
 namespace Iswenzz.UI.Controls
 {
+    /// <summary>
+    /// Base component class that supports alpha.
+    /// </summary>
     public partial class AlphaControl : Control
     {
+        /// <summary>
+        /// Initialize a new <see cref="AlphaControl"/> object.
+        /// </summary>
         public AlphaControl()
         {
             InitializeComponent();
@@ -25,6 +31,9 @@ namespace Iswenzz.UI.Controls
             base.OnBackColorChanged(e);
         }
 
+        /// <summary>
+        /// Allow components to be transparent.
+        /// </summary>
         protected override CreateParams CreateParams
         {
             get

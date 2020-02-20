@@ -2,6 +2,9 @@
 
 namespace Iswenzz.UI.Data
 {
+    /// <summary>
+    /// Rect location flags.
+    /// </summary>
     [Flags]
     public enum RectLocation
     {

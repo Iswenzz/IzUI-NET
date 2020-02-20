@@ -7,6 +7,9 @@ namespace Iswenzz.UI.Controls.Containers
     public partial class BorderPanel : Panel
     {
         private Color borderColor;
+        /// <summary>
+        /// Panel border color.
+        /// </summary>
         [Description("Change the border color.")]
         public Color BorderColor
         {
@@ -15,6 +18,9 @@ namespace Iswenzz.UI.Controls.Containers
         }
 
         private float thickness;
+        /// <summary>
+        /// Panel border thickness.
+        /// </summary>
         [DefaultValue(1f)]
         [Description("Change the border thickness.")]
         public float Thickness
@@ -23,12 +29,19 @@ namespace Iswenzz.UI.Controls.Containers
             set { thickness = value; Invalidate(); }
         }
 
+        /// <summary>
+        /// Initialize a new <see cref="BorderPanel"/> object.
+        /// </summary>
         public BorderPanel()
         {
             InitializeComponent();
             BorderColor = Color.DimGray;
         }
 
+        /// <summary>
+        /// Render callback.
+        /// </summary>
+        /// <param name="pe">Render data.</param>
         protected override void OnPaint(PaintEventArgs pe)
         {
             base.OnPaint(pe);

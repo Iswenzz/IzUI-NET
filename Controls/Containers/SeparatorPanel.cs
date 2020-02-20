@@ -11,6 +11,9 @@ namespace Iswenzz.UI.Controls.Containers
     public partial class SeparatorPanel : Panel
     {
         private Color borderColor;
+        /// <summary>
+        /// Panel border color.
+        /// </summary>
         [Description("Change the border color.")]
         public Color BorderColor
         {
@@ -19,6 +22,9 @@ namespace Iswenzz.UI.Controls.Containers
         }
 
         private float thickness;
+        /// <summary>
+        /// Panel border thickness.
+        /// </summary>
         [DefaultValue(1f)]
         [Description("Change the border thickness.")]
         public float Thickness
@@ -28,6 +34,9 @@ namespace Iswenzz.UI.Controls.Containers
         }
 
         private RectLocation separatorLocation;
+        /// <summary>
+        /// Separator location flags.
+        /// </summary>
         [Editor(typeof(FlagUIEditor), typeof(UITypeEditor))]
         [DefaultValue(RectLocation.Bottom | RectLocation.Top)]
         [Description("Draw separator line at the location.")]
@@ -37,12 +46,19 @@ namespace Iswenzz.UI.Controls.Containers
             set { separatorLocation = value; Invalidate(); }
         }
 
+        /// <summary>
+        /// Initialize a new <see cref="SeparatorPanel"/> object.
+        /// </summary>
         public SeparatorPanel()
         {
             InitializeComponent();
             BorderColor = Color.DimGray;
         }
 
+        /// <summary>
+        /// Render callback.
+        /// </summary>
+        /// <param name="pe">Render data.</param>
         protected override void OnPaint(PaintEventArgs pe)
         {
             base.OnPaint(pe);

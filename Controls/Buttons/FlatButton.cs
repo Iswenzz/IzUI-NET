@@ -10,6 +10,9 @@ namespace Iswenzz.UI.Controls.Buttons
     public partial class FlatButton : AlphaButton
     {
         private Image icon;
+        /// <summary>
+        /// Button icon.
+        /// </summary>
         [Description("Button icon.")]
         public Image Icon
         {
@@ -18,6 +21,9 @@ namespace Iswenzz.UI.Controls.Buttons
         }
 
         private bool iconAutoPlacement;
+        /// <summary>
+        /// Icon placement.
+        /// </summary>
         [Description("Button icon placement (true = auto, false = stuck).")]
         public bool IconAutoPlacement
         {
@@ -26,6 +32,9 @@ namespace Iswenzz.UI.Controls.Buttons
         }
 
         private int iconSize;
+        /// <summary>
+        /// Icon size.
+        /// </summary>
         [Description("Button icon size (0 = Auto).")]
         public int IconSize
         {
@@ -34,6 +43,9 @@ namespace Iswenzz.UI.Controls.Buttons
         }
 
         private int angles;
+        /// <summary>
+        /// Rotation angle.
+        /// </summary>
         [Description("Angle rotation degree.")]
         public int Angles
         {
@@ -42,6 +54,9 @@ namespace Iswenzz.UI.Controls.Buttons
         }
 
         private bool isAngleAllowed;
+        /// <summary>
+        /// Toggle rotation.
+        /// </summary>
         [DefaultValue(false)]
         [Description("Allows angled graphics render.")]
         public bool IsAngleAllowed
@@ -51,6 +66,9 @@ namespace Iswenzz.UI.Controls.Buttons
         }
 
         private int roundedCorner;
+        /// <summary>
+        /// Rounded corner radius.
+        /// </summary>
         [Description("Curved corner amount.")]
         public int RoundedCorner
         {
@@ -59,6 +77,9 @@ namespace Iswenzz.UI.Controls.Buttons
         }
 
         private Color hoverColor;
+        /// <summary>
+        /// Color when mouse hover the button.
+        /// </summary>
         [Description("Change the color when mouse hover the button.")]
         public Color HoverColor
         {
@@ -67,6 +88,9 @@ namespace Iswenzz.UI.Controls.Buttons
         }
 
         private Color hoverColor_leave;
+        /// <summary>
+        /// Color when mouse leave the button.
+        /// </summary>
         [Description("Change the color when mouse leave the button.")]
         public Color HoverColorLeave
         {
@@ -75,6 +99,9 @@ namespace Iswenzz.UI.Controls.Buttons
         }
 
         private Color hoverColorText;
+        /// <summary>
+        /// Text color when mouse hover the button.
+        /// </summary>
         [Description("Change the color when mouse hover the button.")]
         public Color HoverColorText
         {
@@ -83,6 +110,9 @@ namespace Iswenzz.UI.Controls.Buttons
         }
 
         private Color hoverColorText_leave;
+        /// <summary>
+        /// Text color when mouse leave the button.
+        /// </summary>
         [Description("Change the color when mouse leave the button.")]
         public Color HoverColorTextLeave
         {
@@ -90,6 +120,9 @@ namespace Iswenzz.UI.Controls.Buttons
             set { hoverColorText_leave = value; Invalidate(); }
         }
 
+        /// <summary>
+        /// Initialize a new <see cref="FlatButton"/> object.
+        /// </summary>
         public FlatButton()
         {
             InitializeComponent();
@@ -105,6 +138,12 @@ namespace Iswenzz.UI.Controls.Buttons
             HoverColorText = Color.DarkOrange;
         }
 
+        /// <summary>
+        /// Set button icon.
+        /// </summary>
+        /// <param name="icon">Icon Image</param>
+        /// <param name="size">Icon size</param>
+        /// <param name="autoPlace">Toggle automatic placement</param>
         public virtual void SetIcon(Image icon, int size, bool autoPlace)
         {
             Icon = icon;
@@ -112,6 +151,10 @@ namespace Iswenzz.UI.Controls.Buttons
             IconAutoPlacement = autoPlace;
         }
 
+        /// <summary>
+        /// Mouse leave callback.
+        /// </summary>
+        /// <param name="e">Mouse event</param>
         protected override void OnMouseLeave(EventArgs e)
         {
             base.OnMouseLeave(e);
@@ -120,6 +163,10 @@ namespace Iswenzz.UI.Controls.Buttons
             Invalidate();
         }
 
+        /// <summary>
+        /// Mouse enter callback
+        /// </summary>
+        /// <param name="e">Mouse event</param>
         protected override void OnMouseEnter(EventArgs e)
         {
             base.OnMouseEnter(e);
@@ -130,6 +177,10 @@ namespace Iswenzz.UI.Controls.Buttons
             Invalidate();
         }
 
+        /// <summary>
+        /// Render callback
+        /// </summary>
+        /// <param name="pevent">Render data</param>
         protected override void OnPaint(PaintEventArgs pevent)
         {
             base.OnPaint(pevent);

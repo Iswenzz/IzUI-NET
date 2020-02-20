@@ -7,6 +7,9 @@ namespace Iswenzz.UI.Controls.Game.MKW
     public partial class TimeTrialCard : Control
     {
         private string circuitName = "Luigi Circui";
+        /// <summary>
+        /// Circuit name.
+        /// </summary>
         [DefaultValue("Luigi Circui")]
         [Description("The circuit name.")]
         public string CircuitName
@@ -16,6 +19,9 @@ namespace Iswenzz.UI.Controls.Game.MKW
         }
 
         private string timeText = "1:08.774";
+        /// <summary>
+        /// Time string.
+        /// </summary>
         [Description("The record time.")]
         public string TimeText
         {
@@ -24,6 +30,9 @@ namespace Iswenzz.UI.Controls.Game.MKW
         }
 
         private string playerName = "Player";
+        /// <summary>
+        /// Player name.
+        /// </summary>
         [Description("The player name.")]
         public string PlayerName
         {
@@ -32,6 +41,9 @@ namespace Iswenzz.UI.Controls.Game.MKW
         }
 
         private Bitmap backgroundImage = Resources.bg;
+        /// <summary>
+        /// Background image.
+        /// </summary>
         [Description("The background image.")]
         public new Bitmap BackgroundImage
         {
@@ -40,7 +52,10 @@ namespace Iswenzz.UI.Controls.Game.MKW
         }
 
         private Bitmap comboImage = Resources.funky_flame;
-        [Description("The record time.")]
+        /// <summary>
+        /// Combo Image
+        /// </summary>
+        [Description("The character and vehicle used.")]
         public Bitmap ComboImage
         {
             get => comboImage;
@@ -48,6 +63,9 @@ namespace Iswenzz.UI.Controls.Game.MKW
         }
 
         private Bitmap controllerImage = Resources.gamecube;
+        /// <summary>
+        /// Controller image.
+        /// </summary>
         [Description("The controller image.")]
         public Bitmap ControllerImage
         {
@@ -56,6 +74,9 @@ namespace Iswenzz.UI.Controls.Game.MKW
         }
 
         private Bitmap cardImage = Resources.ttcard;
+        /// <summary>
+        /// Card image.
+        /// </summary>
         [Description("The card image.")]
         public Bitmap CardImage
         {
@@ -63,12 +84,19 @@ namespace Iswenzz.UI.Controls.Game.MKW
             set { cardImage = value; Invalidate(); }
         }
 
+        /// <summary>
+        /// Initialize a new <see cref="TimeTrialCard"/> object.
+        /// </summary>
         public TimeTrialCard()
         {
             InitializeComponent();
             DoubleBuffered = true;
         }
 
+        /// <summary>
+        /// Render callback.
+        /// </summary>
+        /// <param name="pe">Render data.</param>
         protected override void OnPaint(PaintEventArgs pe)
         {
             using StringFormat sfCenter = new StringFormat

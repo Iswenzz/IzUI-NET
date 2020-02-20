@@ -4,6 +4,11 @@ namespace Iswenzz.UI.Data
 {
     public static class Alignment
     {
+        /// <summary>
+        /// Get string vertical alignment.
+        /// </summary>
+        /// <param name="textAlign">Content alignment.</param>
+        /// <returns></returns>
         public static StringAlignment GetAlignment(ContentAlignment textAlign) => textAlign switch
         {
             ContentAlignment.BottomCenter   => StringAlignment.Far,
@@ -17,7 +22,12 @@ namespace Iswenzz.UI.Data
             ContentAlignment.TopRight       => StringAlignment.Near,
             _                               => StringAlignment.Center
         };
-            
+
+        /// <summary>
+        /// Get string horizontal alignment.
+        /// </summary>
+        /// <param name="textAlign">Content alignment.</param>
+        /// <returns></returns>
         public static StringAlignment GetLineAlignment(ContentAlignment textAlign) => textAlign switch
         {
             ContentAlignment.BottomCenter   => StringAlignment.Center,
