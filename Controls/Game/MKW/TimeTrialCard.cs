@@ -1,6 +1,7 @@
 ﻿using System.Windows.Forms;
 using System.Drawing;
 using System.ComponentModel;
+using System.Drawing.Drawing2D;
 
 namespace Iswenzz.UI.Controls.Game.MKW
 {
@@ -29,7 +30,7 @@ namespace Iswenzz.UI.Controls.Game.MKW
             set { timeText = value; Invalidate(); }
         }
 
-        private string playerName = "Player";
+        private string playerName = "Cole";
         /// <summary>
         /// Player name.
         /// </summary>
@@ -51,7 +52,18 @@ namespace Iswenzz.UI.Controls.Game.MKW
             set { backgroundImage = value; Invalidate(); }
         }
 
-        private Bitmap comboImage = Resources.funky_flame;
+        private Bitmap flagImage;
+        /// <summary>
+        /// Atlas image.
+        /// </summary>
+        [Description("The flag image.")]
+        public Bitmap FlagImage
+        {
+            get => flagImage;
+            set { flagImage = value; Invalidate(); }
+        }
+
+        private Bitmap comboImage = Resources.Spear_FunkyKong;
         /// <summary>
         /// Combo Image
         /// </summary>
@@ -84,6 +96,17 @@ namespace Iswenzz.UI.Controls.Game.MKW
             set { cardImage = value; Invalidate(); }
         }
 
+        private int countryCode = 18;
+        /// <summary>
+        /// Country code.
+        /// </summary>
+        [Description("The country code.")]
+        public int CountryCode
+        {
+            get => countryCode;
+            set { countryCode = value; Invalidate(); }
+        }
+
         /// <summary>
         /// Initialize a new <see cref="TimeTrialCard"/> object.
         /// </summary>
@@ -99,11 +122,19 @@ namespace Iswenzz.UI.Controls.Game.MKW
         /// <param name="pe">Render data.</param>
         protected override void OnPaint(PaintEventArgs pe)
         {
+            BitmapAtlas atlas = new BitmapAtlas(16, 16) 
+            {
+                Bitmap = Resources.flags_32,
+                Size = new Size(512, 512)
+            };
+
             using StringFormat sfCenter = new StringFormat
             {
                 Alignment = StringAlignment.Center,
                 LineAlignment = StringAlignment.Center,
             };
+
+            pe.Graphics.InterpolationMode = InterpolationMode.NearestNeighbor;
 
             // BG
             RectangleF bgRect = new RectangleF(PointF.Empty, Size);
@@ -123,7 +154,7 @@ namespace Iswenzz.UI.Controls.Game.MKW
             pe.Graphics.DrawString(TimeText, Font, Brushes.Gainsboro, pTime, sfCenter);
 
             // Name
-            PointF pName = new PointF(cardRect.X + (cardRect.Width / 1.48f), cardRect.Y + (cardRect.Height / 1.55f));
+            PointF pName = new PointF(cardRect.X + (cardRect.Width / 1.48f), cardRect.Y + (cardRect.Height / 1.35f));
             pe.Graphics.DrawString(PlayerName, Font, Brushes.Gainsboro, pName, sfCenter);
 
             // Controller
@@ -135,6 +166,12 @@ namespace Iswenzz.UI.Controls.Game.MKW
             RectangleF comboRect = new RectangleF(cardRect.X + (cardRect.Width / 7.8f),
                 cardRect.Y + (cardRect.Height / 2.05f), cardRect.Width / 5, cardRect.Height / 3);
             pe.Graphics.DrawImage(ComboImage, comboRect);
+
+            // Flag
+            using Bitmap flag = atlas.GetBitmapFromIndex(CountryCode);
+            RectangleF flagRect = new RectangleF(cardRect.X + (cardRect.Width / 1.515f) - (flag.Width / 2), 
+                cardRect.Y + (cardRect.Height / 2f), cardRect.Height / 5, cardRect.Height / 5);
+            pe.Graphics.DrawImage(flag, flagRect);
 
             base.OnPaint(pe);
         }

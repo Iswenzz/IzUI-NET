@@ -73,9 +73,9 @@ namespace Iswenzz.UI.Controls.Game.MKW {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap funky_flame {
+        internal static System.Drawing.Bitmap flags_32 {
             get {
-                object obj = ResourceManager.GetObject("funky_flame", resourceCulture);
+                object obj = ResourceManager.GetObject("flags_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -86,6 +86,16 @@ namespace Iswenzz.UI.Controls.Game.MKW {
         internal static System.Drawing.Bitmap gamecube {
             get {
                 object obj = ResourceManager.GetObject("gamecube", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Spear_FunkyKong {
+            get {
+                object obj = ResourceManager.GetObject("Spear_FunkyKong", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

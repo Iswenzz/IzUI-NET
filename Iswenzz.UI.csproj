@@ -56,6 +56,7 @@
     <Compile Include="Controls\AlphaControl.Designer.cs">
       <DependentUpon>AlphaControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\BitmapAtlas.cs" />
     <Compile Include="Controls\Buttons\AlphaButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -169,9 +170,6 @@
     <None Include="Resources\ttcard.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\160px-FlameRunner-FunkyKong.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\nunchuck.png" />
   </ItemGroup>
   <ItemGroup>
@@ -179,6 +177,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Image1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flags_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Spear-FunkyKong.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
