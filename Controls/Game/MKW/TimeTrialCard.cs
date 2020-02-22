@@ -122,7 +122,7 @@ namespace Iswenzz.UI.Controls.Game.MKW
         /// <param name="pe">Render data.</param>
         protected override void OnPaint(PaintEventArgs pe)
         {
-            BitmapAtlas atlas = new BitmapAtlas(16, 16) 
+            using BitmapAtlas atlas = new BitmapAtlas(16, 16) 
             {
                 Bitmap = Resources.flags_32,
                 Size = new Size(512, 512)
@@ -154,7 +154,7 @@ namespace Iswenzz.UI.Controls.Game.MKW
             pe.Graphics.DrawString(TimeText, Font, Brushes.Gainsboro, pTime, sfCenter);
 
             // Name
-            PointF pName = new PointF(cardRect.X + (cardRect.Width / 1.48f), cardRect.Y + (cardRect.Height / 1.35f));
+            PointF pName = new PointF(cardRect.X + (cardRect.Width / 1.475f), cardRect.Y + (cardRect.Height / 1.35f));
             pe.Graphics.DrawString(PlayerName, Font, Brushes.Gainsboro, pName, sfCenter);
 
             // Controller
@@ -169,7 +169,7 @@ namespace Iswenzz.UI.Controls.Game.MKW
 
             // Flag
             using Bitmap flag = atlas.GetBitmapFromIndex(CountryCode);
-            RectangleF flagRect = new RectangleF(cardRect.X + (cardRect.Width / 1.515f) - (flag.Width / 2), 
+            RectangleF flagRect = new RectangleF(cardRect.X + (cardRect.Width / 1.6f), 
                 cardRect.Y + (cardRect.Height / 2f), cardRect.Height / 5, cardRect.Height / 5);
             pe.Graphics.DrawImage(flag, flagRect);
 

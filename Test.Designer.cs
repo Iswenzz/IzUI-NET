@@ -60,7 +60,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1425, 73);
+            this.panel1.Size = new System.Drawing.Size(1567, 73);
             this.panel1.TabIndex = 14;
             // 
             // label1
@@ -70,7 +70,7 @@
             this.label1.ForeColor = System.Drawing.Color.Gainsboro;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1425, 73);
+            this.label1.Size = new System.Drawing.Size(1567, 73);
             this.label1.TabIndex = 0;
             this.label1.Text = "Test Control";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -84,10 +84,10 @@
             this.timeTrialCard1.CountryCode = 18;
             this.timeTrialCard1.FlagImage = null;
             this.timeTrialCard1.Font = new System.Drawing.Font("Monospac821 BT", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timeTrialCard1.Location = new System.Drawing.Point(481, 179);
+            this.timeTrialCard1.Location = new System.Drawing.Point(457, 112);
             this.timeTrialCard1.Name = "timeTrialCard1";
             this.timeTrialCard1.PlayerName = "Player";
-            this.timeTrialCard1.Size = new System.Drawing.Size(835, 472);
+            this.timeTrialCard1.Size = new System.Drawing.Size(1024, 574);
             this.timeTrialCard1.TabIndex = 43;
             this.timeTrialCard1.Text = "timeTrialCard1";
             this.timeTrialCard1.TimeText = "1:08.774";
@@ -344,7 +344,7 @@
             this.Controls.Add(this.imageButton1);
             this.Controls.Add(this.slider1);
             this.Name = "Test";
-            this.Size = new System.Drawing.Size(1425, 809);
+            this.Size = new System.Drawing.Size(1567, 843);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
