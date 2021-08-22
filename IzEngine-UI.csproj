@@ -7,7 +7,7 @@
     <ProjectGuid>{717E4503-F602-4A0C-8377-F792A3A2F74E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>Iswenzz.UI</RootNamespace>
-    <AssemblyName>Iswenzz.UI</AssemblyName>
+    <AssemblyName>IzEngine-UI</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
