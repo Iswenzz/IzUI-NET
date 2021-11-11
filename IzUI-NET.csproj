@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net5.0-windows</TargetFramework>
+    <TargetFramework>net6.0-windows</TargetFramework>
     <OutputType>Library</OutputType>
     <RootNamespace>Iswenzz</RootNamespace>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
@@ -15,25 +15,23 @@
     <ApplicationIcon />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System.Windows" />
-    <Reference Include="System.Windows.Controls.Ribbon" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Update="UI\Controls\AlphaControl.cs">
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Update="UI\Controls\BasePanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="UI\Controls\Layout\_TEST_.cs">
+    <Compile Update="UI\Controls\BaseControl.cs" />
+    <Compile Update="Fixtures\Layout.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="UI\Controls\Inputs\ButtonBase.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="UI\Controls\Layout\PanelBorder.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="UI\Controls\Layout\PanelSeparator.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Update="UI\Controls\Layout\PanelBorder.cs" />
+    <Compile Update="UI\Controls\Layout\PanelSeparator.cs" />
     <Compile Update="UI\Controls\Data\FlagCheckedListBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -57,10 +55,16 @@
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-    <PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.3.252501">
+    <PackageReference Include="Fody" Version="6.6.0">
       <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.Windows.Compatibility" Version="5.0.2" />
+    <PackageReference Include="PropertyChanged.Fody" Version="3.4.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 </Project>
