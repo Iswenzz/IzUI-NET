@@ -1,41 +1,22 @@
-﻿using System.Drawing;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Windows.Forms;
+
+using Iswenzz.UI.Data;
 
 namespace Iswenzz.UI.Controls.Layout
 {
-    public partial class PanelBorder : Panel
+    /// <summary>
+    /// Panel control with borders.
+    /// </summary>
+    public partial class PanelBorder : BasePanel, INotifyPropertyChanged
     {
-        private Color borderColor;
-        /// <summary>
-        /// Panel border color.
-        /// </summary>
-        [Description("Change the border color.")]
-        public Color BorderColor
-        {
-            get => borderColor;
-            set { borderColor = value; Invalidate(); }
-        }
-
-        private float thickness;
-        /// <summary>
-        /// Panel border thickness.
-        /// </summary>
-        [DefaultValue(1f)]
-        [Description("Change the border thickness.")]
-        public float Thickness
-        {
-            get => thickness;
-            set { thickness = value; Invalidate(); }
-        }
-
         /// <summary>
         /// Initialize a new <see cref="PanelBorder"/> object.
         /// </summary>
-        public PanelBorder()
+        public PanelBorder() : base()
         {
-            InitializeComponent();
-            BorderColor = Color.DimGray;
+            Border.Locations = RectLocation.Top | RectLocation.Left |
+                RectLocation.Bottom | RectLocation.Right;
         }
 
         /// <summary>
@@ -45,9 +26,7 @@ namespace Iswenzz.UI.Controls.Layout
         protected override void OnPaint(PaintEventArgs pe)
         {
             base.OnPaint(pe);
-            Rectangle rect = new Rectangle(0, 0, Width - 1, Height - 1);
-            using Pen pen = new Pen(BorderColor, Thickness);
-            pe.Graphics.DrawRectangle(pen, rect);
+            Border.OnPaint(pe);
         }
     }
 }
