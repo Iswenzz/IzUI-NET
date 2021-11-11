@@ -1,6 +1,6 @@
-﻿namespace Iswenzz.UI.Controls.Inputs
+﻿namespace Iswenzz.UI.Controls
 {
-    partial class ButtonBase
+    partial class BaseButton
     {
         /// <summary>
         /// Required designer variable.

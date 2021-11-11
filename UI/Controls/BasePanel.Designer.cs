@@ -1,6 +1,6 @@
 ﻿namespace Iswenzz.UI.Controls
 {
-    partial class AlphaControl
+    partial class BasePanel
     {
         /// <summary>
         /// Required designer variable.
