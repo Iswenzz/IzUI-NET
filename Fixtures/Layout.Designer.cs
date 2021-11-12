@@ -92,14 +92,14 @@
             this.labelSpecial1.Border.Radius = 0;
             this.labelSpecial1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelSpecial1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelSpecial1.Layouts.Angle = 0;
-            this.labelSpecial1.Layouts.ContentAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.labelSpecial1.Location = new System.Drawing.Point(15, 74);
             this.labelSpecial1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelSpecial1.Name = "labelSpecial1";
             this.labelSpecial1.Size = new System.Drawing.Size(144, 30);
             this.labelSpecial1.TabIndex = 25;
             this.labelSpecial1.Text = "Separator";
+            this.labelSpecial1.TextLayouts.Angle = 0;
+            this.labelSpecial1.TextLayouts.ContentAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelSpecial2
             // 
@@ -111,14 +111,14 @@
             this.labelSpecial2.Border.Radius = 0;
             this.labelSpecial2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelSpecial2.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelSpecial2.Layouts.Angle = 0;
-            this.labelSpecial2.Layouts.ContentAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.labelSpecial2.Location = new System.Drawing.Point(15, 172);
             this.labelSpecial2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelSpecial2.Name = "labelSpecial2";
             this.labelSpecial2.Size = new System.Drawing.Size(144, 30);
             this.labelSpecial2.TabIndex = 26;
             this.labelSpecial2.Text = "PanelBorder";
+            this.labelSpecial2.TextLayouts.Angle = 0;
+            this.labelSpecial2.TextLayouts.ContentAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelSpecial3
             // 
@@ -130,14 +130,14 @@
             this.labelSpecial3.Border.Radius = 0;
             this.labelSpecial3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelSpecial3.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelSpecial3.Layouts.Angle = 0;
-            this.labelSpecial3.Layouts.ContentAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.labelSpecial3.Location = new System.Drawing.Point(15, 283);
             this.labelSpecial3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelSpecial3.Name = "labelSpecial3";
             this.labelSpecial3.Size = new System.Drawing.Size(144, 30);
             this.labelSpecial3.TabIndex = 27;
             this.labelSpecial3.Text = "PanelSeparator";
+            this.labelSpecial3.TextLayouts.Angle = 0;
+            this.labelSpecial3.TextLayouts.ContentAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // separator1
             // 

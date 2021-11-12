@@ -15,6 +15,9 @@
     <ApplicationIcon />
   </PropertyGroup>
   <ItemGroup>
+    <Compile Update="Fixtures\MKW.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Fixtures\Inputs.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -26,6 +29,7 @@
     <Compile Update="UI\Controls\AbstractButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Update="UI\Controls\AbstractText.cs" />
     <Compile Update="UI\Controls\AbstractTreeView.cs">
       <SubType>Component</SubType>
     </Compile>

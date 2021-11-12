@@ -18,21 +18,21 @@ namespace Iswenzz.UI.Controls.Game.MKW
         /// </summary>
         [DefaultValue("Luigi Circui")]
         [Category("Game"), Description("The circuit name.")]
-        public virtual string CircuitName { get; set; }
+        public virtual string CircuitName { get; set; } = "Luigi Circui";
 
         /// <summary>
         /// Time string.
         /// </summary>
         [DefaultValue("1:08.774")]
         [Category("Game"), Description("The record time.")]
-        public virtual string TimeText { get; set; }
+        public virtual string TimeText { get; set; } = "1:08.774";
 
         /// <summary>
         /// Player name.
         /// </summary>
         [DefaultValue("Cole")]
         [Category("Game"), Description("The player name.")]
-        public virtual string PlayerName { get; set; }
+        public virtual string PlayerName { get; set; } = "Cole";
 
         /// <summary>
         /// Background image.
@@ -69,7 +69,7 @@ namespace Iswenzz.UI.Controls.Game.MKW
         /// </summary>
         [DefaultValue(18)]
         [Category("Game"), Description("The country code.")]
-        public virtual int CountryCode { get; set; }
+        public virtual int CountryCode { get; set; } = 18;
 
         /// <summary>
         /// Initialize a new <see cref="TimeTrialCard"/> object.

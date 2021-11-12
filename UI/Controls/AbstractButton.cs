@@ -14,14 +14,14 @@ namespace Iswenzz.UI.Controls
     {
         public event PropertyChangedEventHandler PropertyChanged;
         protected CreateParams BaseCreateParams { get => base.CreateParams; }
-        protected bool BaseCallDisabled { get; set; }
+        protected bool BasePainting { get; set; } = true;
 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         [Browsable(false)] public override System.Drawing.ContentAlignment TextAlign { get; set; }
 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [Category("Appearance"), Description("Layout alignment and rotation angle.")]
-        public virtual Layouts Layouts { get; set; }
+        public virtual TextLayouts TextLayouts { get; set; }
 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [Category("Appearance"), Description("Border styles.")]
@@ -40,7 +40,7 @@ namespace Iswenzz.UI.Controls
         /// </summary>
         protected AbstractButton()
         {
-            Layouts = new Layouts(this);
+            TextLayouts = new TextLayouts(this);
             Border = new Border(this);
             Icon = new Icon(this);
             Animations = new Animations(this);
@@ -72,13 +72,13 @@ namespace Iswenzz.UI.Controls
         /// <param name="pe">Paint data.</param>
         protected override void OnPaint(PaintEventArgs pe)
         {
-            if (!BaseCallDisabled)
+            if (BasePainting)
                 base.OnPaint(pe);
 
             Border.OnPaint(pe);
             Icon.OnPaint(pe);
             Animations.OnPaint(pe);
-            Layouts.OnPaint(pe);
+            TextLayouts.OnPaint(pe);
         }
 
         /// <summary>

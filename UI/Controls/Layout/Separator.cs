@@ -14,7 +14,7 @@ namespace Iswenzz.UI.Controls.Layout
         /// </summary>
         [DefaultValue(1f)]
         [Category("Appearance"), Description("Separator line thickness.")]
-        public virtual float Thickness { get; set; }
+        public virtual float Thickness { get; set; } = 1f;
 
         [Browsable(false)]
         public override string Text { get => string.Empty; set => base.Text = string.Empty; }

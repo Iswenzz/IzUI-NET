@@ -7,6 +7,9 @@
     <Compile Update="UI\Controls\AbstractControl.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Update="UI\Controls\AbstractText.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Update="UI\Controls\Data\FlagCheckedListBox.cs">
       <SubType>Component</SubType>
     </Compile>

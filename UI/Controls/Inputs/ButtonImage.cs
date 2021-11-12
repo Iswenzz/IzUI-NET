@@ -29,7 +29,7 @@ namespace Iswenzz.UI.Controls.Inputs
         /// </summary>
         public ButtonImage() : base()
         {
-            BaseCallDisabled = true;
+            BasePainting = false;
             Size = new Size(125, 40);
             FlatStyle = FlatStyle.Flat;
 

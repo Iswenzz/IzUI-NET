@@ -31,9 +31,9 @@ namespace Iswenzz.UI.Models.Editors
                 if (edSvc != null)
                 {
                     Enum e = (Enum)Convert.ChangeType(value, context.PropertyDescriptor.PropertyType);
-                    FlagListBox.EnumValue = e;
+                    FlagListBox.Enum = e;
                     edSvc.DropDownControl(FlagListBox);
-                    return FlagListBox.EnumValue;
+                    return FlagListBox.Enum;
                 }
             }
             return null;

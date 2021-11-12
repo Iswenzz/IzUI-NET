@@ -6,7 +6,7 @@ namespace Iswenzz.UI.Controls.Data
     /// <summary>
     /// Label control.
     /// </summary>
-    public class LabelSpecial : AbstractControl, INotifyPropertyChanged
+    public class LabelSpecial : AbstractText, INotifyPropertyChanged
     {
         /// <summary>
         /// Initialize a new <see cref="LabelSpecial"/> object.

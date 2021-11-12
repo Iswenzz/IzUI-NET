@@ -66,12 +66,12 @@
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.button1.Layouts.Angle = 0;
             this.button1.Location = new System.Drawing.Point(181, 89);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(179, 46);
             this.button1.TabIndex = 25;
             this.button1.Text = "button1";
+            this.button1.TextLayouts.Angle = 0;
             this.button1.UseVisualStyleBackColor = false;
             // 
             // labelSpecial1
@@ -84,14 +84,14 @@
             this.labelSpecial1.Border.Radius = 0;
             this.labelSpecial1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelSpecial1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelSpecial1.Layouts.Angle = 0;
-            this.labelSpecial1.Layouts.ContentAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.labelSpecial1.Location = new System.Drawing.Point(22, 89);
             this.labelSpecial1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelSpecial1.Name = "labelSpecial1";
             this.labelSpecial1.Size = new System.Drawing.Size(144, 46);
             this.labelSpecial1.TabIndex = 29;
             this.labelSpecial1.Text = "Button";
+            this.labelSpecial1.TextLayouts.Angle = 0;
+            this.labelSpecial1.TextLayouts.ContentAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelSpecial2
             // 
@@ -103,14 +103,14 @@
             this.labelSpecial2.Border.Radius = 0;
             this.labelSpecial2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelSpecial2.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelSpecial2.Layouts.Angle = 0;
-            this.labelSpecial2.Layouts.ContentAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.labelSpecial2.Location = new System.Drawing.Point(22, 172);
             this.labelSpecial2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelSpecial2.Name = "labelSpecial2";
             this.labelSpecial2.Size = new System.Drawing.Size(144, 46);
             this.labelSpecial2.TabIndex = 31;
             this.labelSpecial2.Text = "ButtonImage";
+            this.labelSpecial2.TextLayouts.Angle = 0;
+            this.labelSpecial2.TextLayouts.ContentAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // buttonImage1
             // 
@@ -129,12 +129,12 @@
             this.buttonImage1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.buttonImage1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonImage1.ForeColor = System.Drawing.Color.SteelBlue;
-            this.buttonImage1.Layouts.Angle = 0;
             this.buttonImage1.Location = new System.Drawing.Point(181, 172);
             this.buttonImage1.Name = "buttonImage1";
             this.buttonImage1.Size = new System.Drawing.Size(179, 46);
             this.buttonImage1.TabIndex = 32;
             this.buttonImage1.Text = "buttonImage1";
+            this.buttonImage1.TextLayouts.Angle = 0;
             this.buttonImage1.UseVisualStyleBackColor = false;
             // 
             // labelSpecial3
@@ -147,14 +147,14 @@
             this.labelSpecial3.Border.Radius = 0;
             this.labelSpecial3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelSpecial3.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelSpecial3.Layouts.Angle = 0;
-            this.labelSpecial3.Layouts.ContentAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.labelSpecial3.Location = new System.Drawing.Point(22, 260);
             this.labelSpecial3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelSpecial3.Name = "labelSpecial3";
             this.labelSpecial3.Size = new System.Drawing.Size(144, 24);
             this.labelSpecial3.TabIndex = 33;
             this.labelSpecial3.Text = "Slider";
+            this.labelSpecial3.TextLayouts.Angle = 0;
+            this.labelSpecial3.TextLayouts.ContentAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // slider1
             // 

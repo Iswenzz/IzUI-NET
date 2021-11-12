@@ -15,7 +15,7 @@ namespace Iswenzz.UI.Controls
         public event PropertyChangedEventHandler PropertyChanged;
         protected CreateParams BaseCreateParams { get => base.CreateParams; }
         protected override CreateParams CreateParams { get => Alpha.CreateParams(base.CreateParams); }
-        protected bool BaseCallDisabled { get; set; }
+        protected bool BasePainting { get; set; } = true;
 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [Category("Appearance"), Description("Transparency settings.")]
@@ -93,7 +93,7 @@ namespace Iswenzz.UI.Controls
         /// <param name="pe">Paint data.</param>
         protected override void OnPaint(PaintEventArgs pe)
         {
-            if (!BaseCallDisabled)
+            if (BasePainting)
                 base.OnPaint(pe);
 
             Border.OnPaint(pe);

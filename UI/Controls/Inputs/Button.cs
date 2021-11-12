@@ -14,7 +14,7 @@ namespace Iswenzz.UI.Controls.Inputs
         /// </summary>
         public Button() : base()
         {
-            BaseCallDisabled = true;
+            BasePainting = false;
             FlatStyle = FlatStyle.Flat;
             Size = new Size(125, 40);
 

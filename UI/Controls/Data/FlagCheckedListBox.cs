@@ -9,26 +9,22 @@ namespace Iswenzz.UI.Controls.Data
     /// </summary>
     public class FlagCheckedListBox : CheckedListBox
     {
-        private Enum enumValue;
         protected virtual bool IsUpdatingCheckStates { get; set; }
-
-        /// <summary>
-        /// The enum type.
-        /// </summary>
         protected virtual Type EnumType { get; set; }
+        protected virtual Enum EnumValue { get; set; }
 
         /// <summary>
         /// The enum value.
         /// </summary>
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public virtual Enum EnumValue
+        public virtual Enum Enum
         {
             get => (Enum)Enum.ToObject(EnumType, GetCurrentValue());
             set
             {
                 Items.Clear();
 
-                enumValue = value;
+                EnumValue = value;
                 EnumType = value.GetType();
 
                 FillEnumMembers();
@@ -167,7 +163,7 @@ namespace Iswenzz.UI.Controls.Data
         /// </summary>
         protected virtual void ApplyEnumValue()
         {
-            int intVal = (int)Convert.ChangeType(EnumValue, typeof(int));
+            int intVal = (int)Convert.ChangeType(Enum, typeof(int));
             UpdateCheckedItems(intVal);
         }
     }
