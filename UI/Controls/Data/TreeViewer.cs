@@ -4,46 +4,36 @@ using System.Windows.Forms;
 
 namespace Iswenzz.UI.Controls.Data
 {
-    public partial class TreeViewer : TreeView
+    /// <summary>
+    /// Tree viewer control.
+    /// </summary>
+    public partial class TreeViewer : AbstractTreeView, INotifyPropertyChanged
     {
-        private Image minusIcon;
         /// <summary>
-        /// Collapase Icon.
+        /// Collapase icon.
         /// </summary>
-        [Description("The collapase icon.")]
-        public Image MinusIcon
-        {
-            get => minusIcon;
-            set { minusIcon = value; Invalidate(); }
-        }
+        [Category("Appearance"), Description("The collapase icon.")]
+        public virtual Image MinusIcon { get; set; }
 
-        private Image plusIcon;
-        [Description("The expand icon.")]
-        public Image PlusIcon
-        {
-            get => plusIcon;
-            set { plusIcon = value; Invalidate(); }
-        }
+        /// <summary>
+        /// Expand icon.
+        /// </summary>
+        [Category("Appearance"), Description("The expand icon.")]
+        public virtual Image PlusIcon { get; set; }
 
-        private Image defaultIcon;
         /// <summary>
         /// Default icon.
         /// </summary>
-        [Description("The default icon.")]
-        public Image DefaultIcon
-        {
-            get => defaultIcon;
-            set { defaultIcon = value; Invalidate(); }
-        }
+        [Category("Appearance"), Description("The default icon.")]
+        public virtual Image DefaultIcon { get; set; }
 
         /// <summary>
         /// Initialize a new <see cref="TreeViewer"/> object.
         /// </summary>
         public TreeViewer()
         {
-            InitializeComponent();
             DrawMode = TreeViewDrawMode.OwnerDrawAll;
-            DrawNode += Tree_DrawIcons;
+            DrawNode += OnDrawIcons;
         }
 
         /// <summary>
@@ -57,16 +47,16 @@ namespace Iswenzz.UI.Controls.Data
         }
 
         /// <summary>
-        /// Drawing of all <see cref="TreeNode"/>.
+        /// Render all <see cref="TreeNode"/>.
         /// </summary>
-        public virtual void Tree_DrawIcons(object sender, DrawTreeNodeEventArgs e)
+        public virtual void OnDrawIcons(object sender, DrawTreeNodeEventArgs e)
         {
             Rectangle nodeRect = e.Node.Bounds;
             Graphics g;
 
             // Node Icon
             bool hasImage = false;
-            Point ptNodeIcon = new Point(nodeRect.Location.X - 18, nodeRect.Location.Y + 2);
+            Point ptNodeIcon = new(nodeRect.Location.X - 18, nodeRect.Location.Y + 2);
             if (e.Node.ImageKey != null && e.Node.TreeView.ImageList != null)
             {
                 hasImage = true;
@@ -81,13 +71,10 @@ namespace Iswenzz.UI.Controls.Data
                 }
             }
 
-            // Plus / Minus Icon
-            Point ptExpand;
-            if (!hasImage)
-                ptExpand = new Point(nodeRect.Location.X - 20, nodeRect.Location.Y + 2);
-            else
-                ptExpand = new Point(nodeRect.Location.X - 40, nodeRect.Location.Y + 2);
+            // Plus / Minus icon
+            Point ptExpand = new(nodeRect.Location.X - (hasImage ? 40 : 20), nodeRect.Location.Y + 2);
 
+            // Expand icon
             Image expandImg;
             if (e.Node.IsExpanded && e.Node.Nodes.Count > 0)
                 expandImg = MinusIcon;
@@ -96,6 +83,7 @@ namespace Iswenzz.UI.Controls.Data
             else
                 expandImg = DefaultIcon;
 
+            // Render icon
             if (expandImg != null)
             {
                 expandImg = new Bitmap(expandImg, new Size(nodeRect.Size.Height - 4, nodeRect.Size.Height - 4));

@@ -28,30 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.separator1 = new Iswenzz.UI.Controls.Layout.Separator();
             this.panelSeparator1 = new Iswenzz.UI.Controls.Layout.PanelSeparator();
             this.panelBorder1 = new Iswenzz.UI.Controls.Layout.PanelBorder();
             this.label1 = new System.Windows.Forms.Label();
             this.labelSpecial1 = new Iswenzz.UI.Controls.Data.LabelSpecial();
             this.labelSpecial2 = new Iswenzz.UI.Controls.Data.LabelSpecial();
             this.labelSpecial3 = new Iswenzz.UI.Controls.Data.LabelSpecial();
+            this.separator1 = new Iswenzz.UI.Controls.Layout.Separator();
             this.SuspendLayout();
-            // 
-            // separator1
-            // 
-            this.separator1.BackColor = System.Drawing.Color.Transparent;
-            this.separator1.Border.Radius = 0;
-            this.separator1.ForeColor = System.Drawing.Color.DimGray;
-            this.separator1.Layouts.Angle = 0;
-            this.separator1.Location = new System.Drawing.Point(15, 111);
-            this.separator1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.separator1.Name = "separator1";
-            this.separator1.Size = new System.Drawing.Size(276, 18);
-            this.separator1.TabIndex = 18;
-            this.separator1.Text = "separator1";
             // 
             // panelSeparator1
             // 
+            this.panelSeparator1.Animations.HoverColor = System.Drawing.Color.Empty;
+            this.panelSeparator1.Animations.HoverColorLeave = System.Drawing.Color.Empty;
+            this.panelSeparator1.Animations.HoverColorText = System.Drawing.Color.Empty;
+            this.panelSeparator1.Animations.HoverColorTextLeave = System.Drawing.Color.Empty;
             this.panelSeparator1.Border.Locations = ((Iswenzz.UI.Data.RectLocation)((Iswenzz.UI.Data.RectLocation.Right | Iswenzz.UI.Data.RectLocation.Left)));
             this.panelSeparator1.Border.Radius = 0;
             this.panelSeparator1.Layouts.Angle = 0;
@@ -63,6 +54,10 @@
             // 
             // panelBorder1
             // 
+            this.panelBorder1.Animations.HoverColor = System.Drawing.Color.Empty;
+            this.panelBorder1.Animations.HoverColorLeave = System.Drawing.Color.Empty;
+            this.panelBorder1.Animations.HoverColorText = System.Drawing.Color.Empty;
+            this.panelBorder1.Animations.HoverColorTextLeave = System.Drawing.Color.Empty;
             this.panelBorder1.Border.Locations = ((Iswenzz.UI.Data.RectLocation)((((Iswenzz.UI.Data.RectLocation.Top | Iswenzz.UI.Data.RectLocation.Right) 
             | Iswenzz.UI.Data.RectLocation.Bottom) 
             | Iswenzz.UI.Data.RectLocation.Left)));
@@ -89,6 +84,10 @@
             // 
             // labelSpecial1
             // 
+            this.labelSpecial1.Animations.HoverColor = System.Drawing.Color.Empty;
+            this.labelSpecial1.Animations.HoverColorLeave = System.Drawing.Color.Empty;
+            this.labelSpecial1.Animations.HoverColorText = System.Drawing.Color.Empty;
+            this.labelSpecial1.Animations.HoverColorTextLeave = System.Drawing.Color.Empty;
             this.labelSpecial1.BackColor = System.Drawing.Color.Transparent;
             this.labelSpecial1.Border.Radius = 0;
             this.labelSpecial1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -104,6 +103,10 @@
             // 
             // labelSpecial2
             // 
+            this.labelSpecial2.Animations.HoverColor = System.Drawing.Color.Empty;
+            this.labelSpecial2.Animations.HoverColorLeave = System.Drawing.Color.Empty;
+            this.labelSpecial2.Animations.HoverColorText = System.Drawing.Color.Empty;
+            this.labelSpecial2.Animations.HoverColorTextLeave = System.Drawing.Color.Empty;
             this.labelSpecial2.BackColor = System.Drawing.Color.Transparent;
             this.labelSpecial2.Border.Radius = 0;
             this.labelSpecial2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -119,6 +122,10 @@
             // 
             // labelSpecial3
             // 
+            this.labelSpecial3.Animations.HoverColor = System.Drawing.Color.Empty;
+            this.labelSpecial3.Animations.HoverColorLeave = System.Drawing.Color.Empty;
+            this.labelSpecial3.Animations.HoverColorText = System.Drawing.Color.Empty;
+            this.labelSpecial3.Animations.HoverColorTextLeave = System.Drawing.Color.Empty;
             this.labelSpecial3.BackColor = System.Drawing.Color.Transparent;
             this.labelSpecial3.Border.Radius = 0;
             this.labelSpecial3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -132,17 +139,35 @@
             this.labelSpecial3.TabIndex = 27;
             this.labelSpecial3.Text = "PanelSeparator";
             // 
+            // separator1
+            // 
+            this.separator1.Animations.HoverColor = System.Drawing.Color.Empty;
+            this.separator1.Animations.HoverColorLeave = System.Drawing.Color.Empty;
+            this.separator1.Animations.HoverColorText = System.Drawing.Color.Empty;
+            this.separator1.Animations.HoverColorTextLeave = System.Drawing.Color.Empty;
+            this.separator1.BackColor = System.Drawing.Color.Transparent;
+            this.separator1.Border.Color = System.Drawing.Color.Empty;
+            this.separator1.Border.Radius = 0;
+            this.separator1.Border.Width = 0F;
+            this.separator1.ForeColor = System.Drawing.Color.DarkGray;
+            this.separator1.Layouts.Angle = 0;
+            this.separator1.Location = new System.Drawing.Point(185, 74);
+            this.separator1.Name = "separator1";
+            this.separator1.Size = new System.Drawing.Size(106, 30);
+            this.separator1.TabIndex = 28;
+            this.separator1.Thickness = 0F;
+            // 
             // Layout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.Controls.Add(this.separator1);
             this.Controls.Add(this.labelSpecial3);
             this.Controls.Add(this.labelSpecial2);
             this.Controls.Add(this.labelSpecial1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panelSeparator1);
-            this.Controls.Add(this.separator1);
             this.Controls.Add(this.panelBorder1);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Layout";
@@ -153,11 +178,11 @@
 
         #endregion
         private Controls.Layout.PanelBorder panelBorder1;
-        private Controls.Layout.Separator separator1;
         private Controls.Layout.PanelSeparator panelSeparator1;
         private System.Windows.Forms.Label label1;
         private Data.LabelSpecial labelSpecial1;
         private Data.LabelSpecial labelSpecial2;
         private Data.LabelSpecial labelSpecial3;
+        private Separator separator1;
     }
 }

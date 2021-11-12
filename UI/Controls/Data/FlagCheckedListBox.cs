@@ -4,25 +4,33 @@ using System.Windows.Forms;
 
 namespace Iswenzz.UI.Controls.Data
 {
-    public partial class FlagCheckedListBox : CheckedListBox
+    /// <summary>
+    /// Flag checked list box control.
+    /// </summary>
+    public class FlagCheckedListBox : CheckedListBox
     {
-        private bool isUpdatingCheckStates = false;
-        private Type enumType;
         private Enum enumValue;
+        protected virtual bool IsUpdatingCheckStates { get; set; }
 
+        /// <summary>
+        /// The enum type.
+        /// </summary>
+        protected virtual Type EnumType { get; set; }
+
+        /// <summary>
+        /// The enum value.
+        /// </summary>
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public Enum EnumValue
+        public virtual Enum EnumValue
         {
-            get
-            {
-                object e = Enum.ToObject(enumType, GetCurrentValue());
-                return (Enum)e;
-            }
+            get => (Enum)Enum.ToObject(EnumType, GetCurrentValue());
             set
             {
                 Items.Clear();
+
                 enumValue = value;
-                enumType = value.GetType();
+                EnumType = value.GetType();
+
                 FillEnumMembers();
                 ApplyEnumValue();
             }
@@ -33,19 +41,18 @@ namespace Iswenzz.UI.Controls.Data
         /// </summary>
         public FlagCheckedListBox()
         {
-            InitializeComponent();
             CheckOnClick = true;
         }
 
         /// <summary>
         /// Add a new element.
         /// </summary>
-        /// <param name="v">Value</param>
-        /// <param name="c">Caption string</param>
+        /// <param name="v">Value.</param>
+        /// <param name="c">Caption string.</param>
         /// <returns></returns>
-        public FlagCheckedListBoxItem Add(int v, string c)
+        public virtual FlagCheckedListBoxItem Add(int v, string c)
         {
-            FlagCheckedListBoxItem item = new FlagCheckedListBoxItem(v, c);
+            FlagCheckedListBoxItem item = new(v, c);
             Items.Add(item);
             return item;
         }
@@ -53,9 +60,9 @@ namespace Iswenzz.UI.Controls.Data
         /// <summary>
         /// Add a new element.
         /// </summary>
-        /// <param name="item">Item object</param>
+        /// <param name="item">Item object.</param>
         /// <returns></returns>
-        public FlagCheckedListBoxItem Add(FlagCheckedListBoxItem item)
+        public virtual FlagCheckedListBoxItem Add(FlagCheckedListBoxItem item)
         {
             Items.Add(item);
             return item;
@@ -64,11 +71,11 @@ namespace Iswenzz.UI.Controls.Data
         /// <summary>
         /// Item check callback.
         /// </summary>
-        /// <param name="e">Callback data</param>
+        /// <param name="e">Callback data.</param>
         protected override void OnItemCheck(ItemCheckEventArgs e)
         {
             base.OnItemCheck(e);
-            if (isUpdatingCheckStates) return;
+            if (IsUpdatingCheckStates) return;
 
             FlagCheckedListBoxItem item = Items[e.Index] as FlagCheckedListBoxItem;
             UpdateCheckedItems(item, e.NewValue);
@@ -77,10 +84,10 @@ namespace Iswenzz.UI.Controls.Data
         /// <summary>
         /// Update flags.
         /// </summary>
-        /// <param name="value">Item value</param>
-        protected void UpdateCheckedItems(int value)
+        /// <param name="value">Item value.</param>
+        protected virtual void UpdateCheckedItems(int value)
         {
-            isUpdatingCheckStates = true;
+            IsUpdatingCheckStates = true;
 
             for (int i = 0; i < Items.Count; i++)
             {
@@ -96,15 +103,15 @@ namespace Iswenzz.UI.Controls.Data
                         SetItemChecked(i, false);
                 }
             }
-            isUpdatingCheckStates = false;
+            IsUpdatingCheckStates = false;
         }
 
         /// <summary>
-        /// Update flags
+        /// Update flags.
         /// </summary>
-        /// <param name="composite"></param>
-        /// <param name="cs"></param>
-        protected void UpdateCheckedItems(FlagCheckedListBoxItem composite, CheckState cs)
+        /// <param name="composite">Composite item.</param>
+        /// <param name="cs">Checked state.</param>
+        protected virtual void UpdateCheckedItems(FlagCheckedListBoxItem composite, CheckState cs)
         {
             if (composite.Value == 0)
                 UpdateCheckedItems(0);
@@ -117,12 +124,10 @@ namespace Iswenzz.UI.Controls.Data
                 if (GetItemChecked(i))
                     sum |= item.Value;
             }
-
             if (cs == CheckState.Unchecked)
                 sum &= ~composite.Value;
             else
                 sum |= composite.Value;
-
             UpdateCheckedItems(sum);
         }
 
@@ -130,10 +135,9 @@ namespace Iswenzz.UI.Controls.Data
         /// Get flags value.
         /// </summary>
         /// <returns></returns>
-        public int GetCurrentValue()
+        public virtual int GetCurrentValue()
         {
             int sum = 0;
-
             for (int i = 0; i < Items.Count; i++)
             {
                 FlagCheckedListBoxItem item = Items[i] as FlagCheckedListBoxItem;
@@ -147,11 +151,11 @@ namespace Iswenzz.UI.Controls.Data
         /// <summary>
         /// Fill the listbox.
         /// </summary>
-        private void FillEnumMembers()
+        protected virtual void FillEnumMembers()
         {
-            foreach (string name in Enum.GetNames(enumType))
+            foreach (string name in Enum.GetNames(EnumType))
             {
-                object val = Enum.Parse(enumType, name);
+                object val = Enum.Parse(EnumType, name);
                 int intVal = (int)Convert.ChangeType(val, typeof(int));
 
                 Add(intVal, name);
@@ -161,9 +165,9 @@ namespace Iswenzz.UI.Controls.Data
         /// <summary>
         /// Update flags.
         /// </summary>
-        private void ApplyEnumValue()
+        protected virtual void ApplyEnumValue()
         {
-            int intVal = (int)Convert.ChangeType(enumValue, typeof(int));
+            int intVal = (int)Convert.ChangeType(EnumValue, typeof(int));
             UpdateCheckedItems(intVal);
         }
     }

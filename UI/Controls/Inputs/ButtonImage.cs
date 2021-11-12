@@ -3,48 +3,47 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
+using Iswenzz.UI.Controls.Resources;
+
 namespace Iswenzz.UI.Controls.Inputs
 {
-    public partial class ButtonImage : Button
+    /// <summary>
+    /// Button image control.
+    /// </summary>
+    public class ButtonImage : AbstractButton, INotifyPropertyChanged
     {
-        private Image currentImage;
         /// <summary>
         /// Default background image.
         /// </summary>
         [Browsable(false)]
-        private Image CurrentImage
-        {
-            get => currentImage;
-            set { currentImage = value; Invalidate(); }
-        }
+        protected virtual Image DefaultImage { get; set; }
 
-        private Image activeImage;
         /// <summary>
         /// Active background image.
         /// </summary>
-        [Description("Change the BackgroundImage when MouseHover")]
-        public Image ActiveImage
-        {
-            get => activeImage;
-            set { activeImage = value; Invalidate(); }
-        }
+        [Category("Appearance"), Description("Change the BackgroundImage on mouse hover.")]
+        public virtual Image ActiveImage { get; set; }
 
         /// <summary>
         /// Initialize a new <see cref="ButtonImage"/> object.
         /// </summary>
-        public ButtonImage()
+        public ButtonImage() : base()
         {
-            InitializeComponent();
-            TextAlign = ContentAlignment.MiddleCenter;
+            BaseCallDisabled = true;
+            Size = new Size(125, 40);
             FlatStyle = FlatStyle.Flat;
-            Size = new Size(60, 60);
-            BackColor = Color.Transparent;
-            ForeColor = Color.WhiteSmoke;
+
             FlatAppearance.BorderSize = 0;
             FlatAppearance.MouseDownBackColor = Color.Transparent;
             FlatAppearance.MouseOverBackColor = Color.Transparent;
-            CurrentImage = BackgroundImage;
-            Text = "";
+
+            BackColor = Color.Transparent;
+            ForeColor = Color.SteelBlue;
+            Animations.HoverColor = Color.Transparent;
+            Animations.HoverColorText = Color.DarkOrange;
+
+            BackgroundImage = ControlResources.Inputs_PlaceHolder;
+            DefaultImage = BackgroundImage;
         }
 
         /// <summary>
@@ -53,19 +52,30 @@ namespace Iswenzz.UI.Controls.Inputs
         /// <param name="e">Mouse event.</param>
         protected override void OnMouseLeave(EventArgs e)
         {
-            BackgroundImage = CurrentImage;
+            BackgroundImage = DefaultImage;
             Invalidate();
         }
 
         /// <summary>
-        /// Mouse enter callback
+        /// Mouse enter callback.
         /// </summary>
         /// <param name="e">Mouse event.</param>
         protected override void OnMouseEnter(EventArgs e)
         {
-            CurrentImage = BackgroundImage;
-            BackgroundImage = ActiveImage;
+            DefaultImage = BackgroundImage;
+            if (ActiveImage != null)
+                BackgroundImage = ActiveImage;
             Invalidate();
+        }
+
+        /// <summary>
+        /// Render callback.
+        /// </summary>
+        /// <param name="pe">Paint data.</param>
+        protected override void OnPaint(PaintEventArgs pe)
+        {
+            pe.Graphics.DrawImage(BackgroundImage, ClientRectangle);
+            base.OnPaint(pe);
         }
     }
 }

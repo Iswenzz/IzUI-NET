@@ -7,67 +7,54 @@ using System.Windows.Forms;
 namespace Iswenzz.UI.Controls.Inputs
 {
     /// <summary>
-    /// Made by Michal Brylka.
+    /// Slider control.
+    /// Credits: Michal Brylka
     /// </summary>
     [ToolboxBitmap(typeof(TrackBar))]
     [DefaultEvent("Scroll"), DefaultProperty("BarInnerColor")]
-    public partial class Slider : Control
+    public class Slider : AbstractControl, INotifyPropertyChanged
     {
+        private bool MouseInRegion { get; set; }
+        private bool MouseInThumbRegion { get; set; }
+
         /// <summary>
-        /// Fires when Slider position has changed
+        /// Fires when Slider position has changed.
         /// </summary>
-        [Description("Event fires when the Value property changes")]
-        [Category("Action")]
+        [Category("Action"), Description("Event fires when the Value property changes.")]
         public event EventHandler ValueChanged;
 
         /// <summary>
-        /// Fires when user scrolls the Slider
+        /// Fires when user scrolls the Slider.
         /// </summary>
-        [Description("Event fires when the Slider position is changed")]
-        [Category("Behavior")]
+        [Category("Behavior"), Description("Event fires when the Slider position is changed.")]
         public event ScrollEventHandler Scroll;
 
-        protected override void OnCreateControl()
-        {
-            base.OnCreateControl();
-        }
-
-        private Rectangle thumbRect; //bounding rectangle of thumb area
         /// <summary>
         /// Gets the thumb rect. Usefull to determine bounding rectangle when creating custom thumb shape.
         /// </summary>
         /// <value>The thumb rect.</value>
-        [Browsable(false)]
-        public Rectangle ThumbRect
-        {
-            get { return thumbRect; }
-        }
-
-        private Rectangle barRect; //bounding rectangle of bar area
-        private Rectangle barHalfRect;
-        private Rectangle thumbHalfRect;
-        private Rectangle elapsedRect; //bounding rectangle of elapsed area
+        [Browsable(false)] public Rectangle ThumbRect { get; set; }
 
         private int thumbSize = 15;
         /// <summary>
         /// Gets or sets the size of the thumb.
         /// </summary>
         /// <value>The size of the thumb.</value>
-        /// <exception cref="T:System.ArgumentOutOfRangeException">exception thrown when value is lower than zero or grather than half of appropiate dimension</exception>
-        [Description("Set Slider thumb size")]
-        [Category("Slider")]
         [DefaultValue(15)]
+        [Category("Slider"), Description("Set Slider thumb size.")]
         public int ThumbSize
         {
-            get { return thumbSize; }
+            get => thumbSize;
             set
             {
-                if (value > 0 &
-                    value < (barOrientation == Orientation.Horizontal ? ClientRectangle.Width : ClientRectangle.Height))
+                if (value > 0 & value < (barOrientation == Orientation.Horizontal 
+                    ? ClientRectangle.Width : ClientRectangle.Height))
                     thumbSize = value;
                 else
+                {
                     throw new ArgumentOutOfRangeException(
-                        "TrackSize has to be greather than zero and lower than half of Slider width");
+                        "TrackSize has to be greather than zero and lower than half of Slider width.");
+                }
                 Invalidate();
             }
         }
@@ -76,33 +63,31 @@ namespace Iswenzz.UI.Controls.Inputs
         /// <summary>
         /// Gets or sets the thumb custom shape. Use ThumbRect property to determine bounding rectangle.
         /// </summary>
-        /// <value>The thumb custom shape. null means default shape</value>
-        [Description("Set Slider's thumb's custom shape")]
-        [Category("Slider")]
-        [Browsable(false)]
-        [DefaultValue(typeof(GraphicsPath), "null")]
+        /// <value>The thumb custom shape. null means default shape.</value>
+        [Browsable(false), DefaultValue(typeof(GraphicsPath), "null")]
+        [Category("Slider"), Description("Set Slider's thumb's custom shape.")]
         public GraphicsPath ThumbCustomShape
         {
-            get { return thumbCustomShape; }
+            get => thumbCustomShape;
             set
             {
                 thumbCustomShape = value;
-                thumbSize = (int) (barOrientation == Orientation.Horizontal ? value.GetBounds().Width : value.GetBounds().Height) + 1;
+                thumbSize = (int)(barOrientation == Orientation.Horizontal 
+                    ? value.GetBounds().Width : value.GetBounds().Height) + 1;
                 Invalidate();
             }
         }
 
-        private Size thumbRoundRectSize = new Size(8, 8);
+        private Size thumbRoundRectSize = new(8, 8);
         /// <summary>
         /// Gets or sets the size of the thumb round rectangle edges.
         /// </summary>
         /// <value>The size of the thumb round rectangle edges.</value>
-        [Description("Set Slider's thumb round rect size")]
-        [Category("Slider")]
         [DefaultValue(typeof(Size), "8; 8")]
+        [Category("Slider"), Description("Set Slider's thumb round rect size.")]
         public Size ThumbRoundRectSize
         {
-            get { return thumbRoundRectSize; }
+            get => thumbRoundRectSize;
             set
             {
                 int h = value.Height, w = value.Width;
@@ -113,17 +98,16 @@ namespace Iswenzz.UI.Controls.Inputs
             }
         }
 
-        private Size borderRoundRectSize = new Size(8, 8);
+        private Size borderRoundRectSize = new(8, 8);
         /// <summary>
         /// Gets or sets the size of the border round rect.
         /// </summary>
         /// <value>The size of the border round rect.</value>
-        [Description("Set Slider's border round rect size")]
-        [Category("Slider")]
         [DefaultValue(typeof(Size), "8; 8")]
+        [Category("Slider"), Description("Set Slider's border round rect size.")]
         public Size BorderRoundRectSize
         {
-            get { return borderRoundRectSize; }
+            get => borderRoundRectSize;
             set
             {
                 int h = value.Height, w = value.Width;
@@ -139,12 +123,11 @@ namespace Iswenzz.UI.Controls.Inputs
         /// Gets or sets the orientation of Slider.
         /// </summary>
         /// <value>The orientation.</value>
-        [Description("Set Slider orientation")]
-        [Category("Slider")]
         [DefaultValue(Orientation.Horizontal)]
+        [Category("Slider"), Description("Set Slider orientation.")]
         public Orientation Orientation
         {
-            get { return barOrientation; }
+            get => barOrientation;
             set
             {
                 if (barOrientation != value)
@@ -153,12 +136,13 @@ namespace Iswenzz.UI.Controls.Inputs
                     int temp = Width;
                     Width = Height;
                     Height = temp;
+
                     if (thumbCustomShape != null)
-                        thumbSize =
-                            (int)
-                            (barOrientation == Orientation.Horizontal
-                                 ? thumbCustomShape.GetBounds().Width
-                                 : thumbCustomShape.GetBounds().Height) + 1;
+                    {
+                        thumbSize = (int)(barOrientation == Orientation.Horizontal
+                            ? thumbCustomShape.GetBounds().Width
+                            : thumbCustomShape.GetBounds().Height) + 1;
+                    }
                     Invalidate();
                 }
             }
@@ -169,13 +153,11 @@ namespace Iswenzz.UI.Controls.Inputs
         /// Gets or sets the value of Slider.
         /// </summary>
         /// <value>The value.</value>
-        /// <exception cref="T:System.ArgumentOutOfRangeException">exception thrown when value is outside appropriate range (min, max)</exception>
-        [Description("Set Slider value")]
-        [Category("Slider")]
         [DefaultValue(50)]
+        [Category("Slider"), Description("Set Slider value.")]
         public int Value
         {
-            get { return trackerValue; }
+            get => trackerValue;
             set
             {
                 if (value >= barMinimum && value <= barMaximum)
@@ -184,23 +166,20 @@ namespace Iswenzz.UI.Controls.Inputs
                     ValueChanged?.Invoke(this, new EventArgs());
                     Invalidate();
                 }
-                else throw new ArgumentOutOfRangeException("Value is outside appropriate range (min, max)");
+                else throw new ArgumentOutOfRangeException("Value is outside appropriate range (min, max).");
             }
         }
-
 
         private int barMinimum = 0;
         /// <summary>
         /// Gets or sets the minimum value.
         /// </summary>
         /// <value>The minimum value.</value>
-        /// <exception cref="T:System.ArgumentOutOfRangeException">exception thrown when minimal value is greather than maximal one</exception>
-        [Description("Set Slider minimal point")]
-        [Category("Slider")]
         [DefaultValue(0)]
+        [Category("Slider"), Description("Set Slider minimal point.")]
         public int Minimum
         {
-            get { return barMinimum; }
+            get => barMinimum;
             set
             {
                 if (value < barMaximum)
@@ -213,23 +192,20 @@ namespace Iswenzz.UI.Controls.Inputs
                     }
                     Invalidate();
                 }
-                else throw new ArgumentOutOfRangeException("Minimal value is greather than maximal one");
+                else throw new ArgumentOutOfRangeException("Minimal value is greather than maximal one.");
             }
         }
-
 
         private int barMaximum = 100;
         /// <summary>
         /// Gets or sets the maximum value.
         /// </summary>
         /// <value>The maximum value.</value>
-        /// <exception cref="T:System.ArgumentOutOfRangeException">exception thrown when maximal value is lower than minimal one</exception>
-        [Description("Set Slider maximal point")]
-        [Category("Slider")]
         [DefaultValue(100)]
+        [Category("Slider"), Description("Set Slider maximal point.")]
         public int Maximum
         {
-            get { return barMaximum; }
+            get => barMaximum;
             set
             {
                 if (value > barMinimum)
@@ -242,373 +218,246 @@ namespace Iswenzz.UI.Controls.Inputs
                     }
                     Invalidate();
                 }
-                else throw new ArgumentOutOfRangeException("Maximal value is lower than minimal one");
+                else throw new ArgumentOutOfRangeException("Maximal value is lower than minimal one.");
             }
         }
 
-        private uint smallChange = 1;
         /// <summary>
-        /// Gets or sets trackbar's small change. It affects how to behave when directional keys are pressed
+        /// Gets or sets trackbar's small change. It affects how to behave when directional keys are pressed.
         /// </summary>
         /// <value>The small change value.</value>
-        [Description("Set trackbar's small change")]
-        [Category("Slider")]
         [DefaultValue(1)]
-        public uint SmallChange
-        {
-            get { return smallChange; }
-            set { smallChange = value; }
-        }
+        [Category("Slider"), Description("Set trackbar's small change.")]
+        public uint SmallChange { get; set; } = 1;
 
-        private uint largeChange = 5;
         /// <summary>
-        /// Gets or sets trackbar's large change. It affects how to behave when PageUp/PageDown keys are pressed
+        /// Gets or sets trackbar's large change. It affects how to behave when PageUp/PageDown keys are pressed.
         /// </summary>
         /// <value>The large change value.</value>
-        [Description("Set trackbar's large change")]
-        [Category("Slider")]
         [DefaultValue(5)]
-        public uint LargeChange
-        {
-            get { return largeChange; }
-            set { largeChange = value; }
-        }
+        [Category("Slider"), Description("Set trackbar's large change.")]
+        public uint LargeChange { get; set; } = 5;
 
-        private bool drawFocusRectangle = true;
         /// <summary>
         /// Gets or sets a value indicating whether to draw focus rectangle.
         /// </summary>
-        /// <value><c>true</c> if focus rectangle should be drawn; otherwise, <c>false</c>.</value>
-        [Description("Set whether to draw focus rectangle")]
-        [Category("Slider")]
+        /// <value>true if focus rectangle should be drawn.</value>
         [DefaultValue(true)]
-        public bool DrawFocusRectangle
-        {
-            get { return drawFocusRectangle; }
-            set
-            {
-                drawFocusRectangle = value;
-                Invalidate();
-            }
-        }
+        [Category("Slider"), Description("Set whether to draw focus rectangle.")]
+        public bool DrawFocusRectangle { get; set; } = true;
 
-        private bool drawSemitransparentThumb = true;
         /// <summary>
         /// Gets or sets a value indicating whether to draw semitransparent thumb.
         /// </summary>
-        /// <value><c>true</c> if semitransparent thumb should be drawn; otherwise, <c>false</c>.</value>
-        [Description("Set whether to draw semitransparent thumb")]
-        [Category("Slider")]
+        /// <value>true if semitransparent thumb should be drawn.</value>
         [DefaultValue(true)]
-        public bool DrawSemitransparentThumb
-        {
-            get { return drawSemitransparentThumb; }
-            set
-            {
-                drawSemitransparentThumb = value;
-                Invalidate();
-            }
-        }
+        [Category("Slider"), Description("Set whether to draw semitransparent thumb.")]
+        public bool DrawSemitransparentThumb { get; set; } = true;
 
-        private bool mouseEffects = true;
         /// <summary>
         /// Gets or sets whether mouse entry and exit actions have impact on how control look.
         /// </summary>
-        /// <value><c>true</c> if mouse entry and exit actions have impact on how control look; otherwise, <c>false</c>.</value>
-        [Description("Set whether mouse entry and exit actions have impact on how control look")]
-        [Category("Slider")]
+        /// <value>true if mouse entry and exit actions have impact on how control look.</value>
         [DefaultValue(true)]
-        public bool MouseEffects
-        {
-            get { return mouseEffects; }
-            set
-            {
-                mouseEffects = value;
-                Invalidate();
-            }
-        }
+        [Category("Slider"), Description("Set whether mouse entry and exit actions have impact.")]
+        public bool MouseEffects { get; set; } = true;
 
         private int mouseWheelBarPartitions = 10;
         /// <summary>
         /// Gets or sets the mouse wheel bar partitions.
         /// </summary>
         /// <value>The mouse wheel bar partitions.</value>
-        /// <exception cref="T:System.ArgumentOutOfRangeException">exception thrown when value isn't greather than zero</exception>
-        [Description("Set to how many parts is bar divided when using mouse wheel")]
-        [Category("Slider")]
         [DefaultValue(10)]
+        [Category("Slider"), Description("Set to how many parts is bar divided when using mouse wheel.")]
         public int MouseWheelBarPartitions
         {
-            get { return mouseWheelBarPartitions; }
+            get => mouseWheelBarPartitions;
             set
             {
                 if (value > 0)
                     mouseWheelBarPartitions = value;
-                else throw new ArgumentOutOfRangeException("MouseWheelBarPartitions has to be greather than zero");
+                else 
+                    throw new ArgumentOutOfRangeException("MouseWheelBarPartitions has to be greather than zero.");
             }
         }
         
-        private Color thumbOuterColor = Color.White;
         /// <summary>
-        /// Gets or sets the thumb outer color .
+        /// Gets or sets the thumb outer color.
         /// </summary>
         /// <value>The thumb outer color.</value>
-        [Description("Set Slider thumb outer color")]
-        [Category("Slider")]
         [DefaultValue(typeof(Color), "White")]
-        public Color ThumbOuterColor
-        {
-            get { return thumbOuterColor; }
-            set
-            {
-                thumbOuterColor = value;
-                Invalidate();
-            }
-        }
+        [Category("Slider"), Description("Set Slider thumb outer color.")]
+        public Color ThumbOuterColor { get; set; } = Color.White;
 
-        private Color thumbInnerColor = Color.Gainsboro;
         /// <summary>
         /// Gets or sets the inner color of the thumb.
         /// </summary>
         /// <value>The inner color of the thumb.</value>
-        [Description("Set Slider thumb inner color")]
-        [Category("Slider")]
         [DefaultValue(typeof(Color), "Gainsboro")]
-        public Color ThumbInnerColor
-        {
-            get { return thumbInnerColor; }
-            set
-            {
-                thumbInnerColor = value;
-                Invalidate();
-            }
-        }
+        [Category("Slider"), Description("Set Slider thumb inner color.")]
+        public Color ThumbInnerColor { get; set; } = Color.Gainsboro;
 
-        private Color thumbPenColor = Color.Silver;
         /// <summary>
         /// Gets or sets the color of the thumb pen.
         /// </summary>
         /// <value>The color of the thumb pen.</value>
-        [Description("Set Slider thumb pen color")]
+        [Description("Set Slider thumb pen color.")]
         [Category("Slider")]
         [DefaultValue(typeof(Color), "Silver")]
-        public Color ThumbPenColor
-        {
-            get { return thumbPenColor; }
-            set
-            {
-                thumbPenColor = value;
-                Invalidate();
-            }
-        }
+        public Color ThumbPenColor { get; set; } = Color.Silver;
 
-        private Color barOuterColor = Color.SkyBlue;
         /// <summary>
         /// Gets or sets the outer color of the bar.
         /// </summary>
         /// <value>The outer color of the bar.</value>
-        [Description("Set Slider bar outer color")]
-        [Category("Slider")]
         [DefaultValue(typeof(Color), "SkyBlue")]
-        public Color BarOuterColor
-        {
-            get { return barOuterColor; }
-            set
-            {
-                barOuterColor = value;
-                Invalidate();
-            }
-        }
+        [Category("Slider"), Description("Set Slider bar outer color.")]
+        public Color BarOuterColor { get; set; } = Color.SkyBlue;
 
-        private Color barInnerColor = Color.DarkSlateBlue;
         /// <summary>
         /// Gets or sets the inner color of the bar.
         /// </summary>
         /// <value>The inner color of the bar.</value>
-        [Description("Set Slider bar inner color")]
-        [Category("Slider")]
         [DefaultValue(typeof(Color), "DarkSlateBlue")]
-        public Color BarInnerColor
-        {
-            get { return barInnerColor; }
-            set
-            {
-                barInnerColor = value;
-                Invalidate();
-            }
-        }
+        [Category("Slider"), Description("Set Slider bar inner color.")]
+        public Color BarInnerColor { get; set; } = Color.DarkSlateBlue;
 
-        private Color barPenColor = Color.Gainsboro;
         /// <summary>
         /// Gets or sets the color of the bar pen.
         /// </summary>
         /// <value>The color of the bar pen.</value>
-        [Description("Set Slider bar pen color")]
-        [Category("Slider")]
         [DefaultValue(typeof(Color), "Gainsboro")]
-        public Color BarPenColor
-        {
-            get { return barPenColor; }
-            set
-            {
-                barPenColor = value;
-                Invalidate();
-            }
-        }
+        [Category("Slider"), Description("Set Slider bar pen color.")]
+        public Color BarPenColor { get; set; } = Color.Gainsboro;
 
-        private Color elapsedOuterColor = Color.DarkGreen;
         /// <summary>
         /// Gets or sets the outer color of the elapsed.
         /// </summary>
         /// <value>The outer color of the elapsed.</value>
-        [Description("Set Slider's elapsed part outer color")]
-        [Category("Slider")]
         [DefaultValue(typeof(Color), "DarkGreen")]
-        public Color ElapsedOuterColor
-        {
-            get { return elapsedOuterColor; }
-            set
-            {
-                elapsedOuterColor = value;
-                Invalidate();
-            }
-        }
+        [Category("Slider"), Description("Set Slider's elapsed part outer color.")]
+        public Color ElapsedOuterColor { get; set; } = Color.DarkGreen;
 
-        private Color elapsedInnerColor = Color.Chartreuse;
         /// <summary>
         /// Gets or sets the inner color of the elapsed.
         /// </summary>
         /// <value>The inner color of the elapsed.</value>
-        [Description("Set Slider's elapsed part inner color")]
-        [Category("Slider")]
         [DefaultValue(typeof(Color), "Chartreuse")]
-        public Color ElapsedInnerColor
+        [Category("Slider"), Description("Set Slider's elapsed part inner color.")]
+        public Color ElapsedInnerColor { get; set; } = Color.Chartreuse;
+
+        private Rectangle barRect;
+        /// <summary>
+        /// The bar rectangle.
+        /// </summary>
+        protected Rectangle BarRect
         {
-            get { return elapsedInnerColor; }
-            set
-            {
-                elapsedInnerColor = value;
-                Invalidate();
-            }
+            get => barRect;
+            set => barRect = value;
         }
 
-        //define own color schemas
-        private readonly Color[,] aColorSchema = new Color[,]
+        private Rectangle barHalfRect;
+        /// <summary>
+        /// The bar half rectangle.
+        /// </summary>
+        protected Rectangle BarHalfRect
         {
-            {
-                Color.White, Color.Gainsboro, Color.Silver, Color.SkyBlue, Color.DarkSlateBlue, Color.Gainsboro,
-                Color.DarkGreen, Color.Chartreuse
-            },
-            {
-                Color.White, Color.Gainsboro, Color.Silver, Color.Red, Color.DarkRed, Color.Gainsboro, Color.Coral,
-                Color.LightCoral
-            },
-            {
-                Color.White, Color.Gainsboro, Color.Silver, Color.GreenYellow, Color.Yellow, Color.Gold, Color.Orange,
-                Color.OrangeRed
-            },
-            {
-                Color.White, Color.Gainsboro, Color.Silver, Color.Red, Color.Crimson, Color.Gainsboro, 
-                Color.DarkViolet, Color.Violet
-            }
-        };
-
-        public enum ColorSchemas
-        {
-            PerlBlueGreen,
-            PerlRedCoral,
-            PerlGold,
-            PerlRoyalColors
+            get => barHalfRect;
+            set => barHalfRect = value;
         }
 
-        private ColorSchemas colorSchema = ColorSchemas.PerlBlueGreen;
-        [Description("Set Slider color schema. Has no effect when slider colors are changed manually after schema was applied.")]
-        [Category("Slider")]
-        [DefaultValue(typeof(ColorSchemas), "PerlBlueGreen")]
-        public ColorSchemas ColorSchema
+        private Rectangle elapsedRect;
+        /// <summary>
+        /// The elasped rectangle.
+        /// </summary>
+        protected Rectangle ElapsedRect
         {
-            get { return colorSchema; }
-            set
-            {
-                colorSchema = value;
-                byte sn = (byte)value;
-                thumbOuterColor = aColorSchema[sn, 0];
-                thumbInnerColor = aColorSchema[sn, 1];
-                thumbPenColor = aColorSchema[sn, 2];
-                barOuterColor = aColorSchema[sn, 3];
-                barInnerColor = aColorSchema[sn, 4];
-                barPenColor = aColorSchema[sn, 5];
-                elapsedOuterColor = aColorSchema[sn, 6];
-                elapsedInnerColor = aColorSchema[sn, 7];
+            get => elapsedRect;
+            set => elapsedRect = value;
+        }
 
-                Invalidate();
-            }
+        private Rectangle thumbHalfRect;
+        /// <summary>
+        /// The thumb half rectangle.
+        /// </summary>
+        protected Rectangle ThumbHalfRect
+        {
+            get => thumbHalfRect;
+            set => thumbHalfRect = value;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Slider"/> class.
+        /// Initialize a new <see cref="Slider"/> object.
+        /// </summary>
+        public Slider() : this(0, 100, 50) { }
+
+        /// <summary>
+        /// Initialize a new <see cref="Slider"/> object.
         /// </summary>
         /// <param name="min">The minimum value.</param>
         /// <param name="max">The maximum value.</param>
         /// <param name="value">The current value.</param>
-        public Slider(int min, int max, int value)
+        public Slider(int min, int max, int value) : base()
         {
-            InitializeComponent();
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer |
                 ControlStyles.ResizeRedraw | ControlStyles.Selectable |
                 ControlStyles.SupportsTransparentBackColor | ControlStyles.UserMouse |
                 ControlStyles.UserPaint, true);
-            BackColor = Color.Transparent;
+            SetStyle(ControlStyles.Opaque, false);
 
             Minimum = min;
             Maximum = max;
             Value = value;
 
-            Size = new Size(314, 26);
+            Size = new Size(180, 24);
+
+            BackColor = Color.Transparent;
+            BarPenColor = Color.Transparent;
             BarInnerColor = Color.DimGray;
             BarOuterColor = Color.DimGray;
             ElapsedInnerColor = Color.SteelBlue;
             ElapsedOuterColor = Color.SteelBlue;
-            DrawFocusRectangle = false;
-            DrawSemitransparentThumb = false;
-            MouseEffects = false;
             ThumbInnerColor = Color.Gainsboro;
             ThumbOuterColor = Color.Gainsboro;
             ThumbPenColor = Color.Gainsboro;
-            ThumbRoundRectSize = new Size(10, 10);
-            ThumbSize = 22;
+
+            DrawFocusRectangle = false;
+            DrawSemitransparentThumb = false;
+            MouseEffects = false;
+
+            ThumbSize = 20;
+            ThumbRoundRectSize = new Size(20, 20);
             BorderRoundRectSize = new Size(20, 20);
         }
 
-        public Slider() : this(0, 100, 50) { }
         /// <summary>
-        /// Raises the <see cref="E:System.Windows.Forms.Control.Paint"></see> event.
+        /// Raises the <see cref="Control.Paint"></see> event.
         /// </summary>
-        /// <param name="e">A <see cref="T:System.Windows.Forms.PaintEventArgs"></see> that contains the event data.</param>
+        /// <param name="e">A <see cref="PaintEventArgs"></see> that contains the event data.</param>
         protected override void OnPaint(PaintEventArgs e)
         {
             if (!Enabled)
             {
-                Color[] desaturatedColors = DesaturateColors(thumbOuterColor, thumbInnerColor, thumbPenColor,
-                    barOuterColor, barInnerColor, barPenColor, elapsedOuterColor, elapsedInnerColor);
+                Color[] desaturatedColors = DesaturateColors(ThumbOuterColor, ThumbInnerColor, ThumbPenColor,
+                    BarOuterColor, BarInnerColor, BarPenColor, ElapsedOuterColor, ElapsedInnerColor);
                 DrawSlider(e, desaturatedColors[0], desaturatedColors[1], desaturatedColors[2],
                     desaturatedColors[3], desaturatedColors[4], desaturatedColors[5], desaturatedColors[6], 
                     desaturatedColors[7]);
             }
             else
             {
-                if (mouseEffects && mouseInRegion)
+                if (MouseEffects && MouseInRegion)
                 {
-                    Color[] lightenedColors = LightenColors(thumbOuterColor, thumbInnerColor, thumbPenColor,
-                        barOuterColor, barInnerColor, barPenColor, elapsedOuterColor, elapsedInnerColor);
+                    Color[] lightenedColors = LightenColors(ThumbOuterColor, ThumbInnerColor, ThumbPenColor,
+                        BarOuterColor, BarInnerColor, BarPenColor, ElapsedOuterColor, ElapsedInnerColor);
                     DrawSlider(e, lightenedColors[0], lightenedColors[1], lightenedColors[2], lightenedColors[3],
                         lightenedColors[4], lightenedColors[5], lightenedColors[6], lightenedColors[7]);
                 }
                 else
                 {
-                    DrawSlider(e, thumbOuterColor, thumbInnerColor, thumbPenColor,
-                        barOuterColor, barInnerColor, barPenColor,
-                        elapsedOuterColor, elapsedInnerColor);
+                    DrawSlider(e, ThumbOuterColor, ThumbInnerColor, ThumbPenColor,
+                        BarOuterColor, BarInnerColor, BarPenColor,
+                        ElapsedOuterColor, ElapsedInnerColor);
                 }
             }
         }
@@ -616,7 +465,7 @@ namespace Iswenzz.UI.Controls.Inputs
         /// <summary>
         /// Draws the Slider control using passed colors.
         /// </summary>
-        /// <param name="e">The <see cref="T:System.Windows.Forms.PaintEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="PaintEventArgs"/> instance containing the event data.</param>
         /// <param name="thumbOuterColorPaint">The thumb outer color paint.</param>
         /// <param name="thumbInnerColorPaint">The thumb inner color paint.</param>
         /// <param name="thumbPenColorPaint">The thumb pen color paint.</param>
@@ -631,24 +480,25 @@ namespace Iswenzz.UI.Controls.Inputs
         {
             try
             {
-                //set up thumbRect aproprietly
+                // Set up thumbRect aproprietly
                 if (barOrientation == Orientation.Horizontal)
                 {
-                    int TrackX = (trackerValue - barMinimum) * (ClientRectangle.Width - thumbSize) 
+                    int TrackX = (trackerValue - barMinimum) * (ClientRectangle.Width - thumbSize)
                         / (barMaximum - barMinimum);
-                    thumbRect = new Rectangle(TrackX, 1, thumbSize - 1, ClientRectangle.Height - 3);
+                    ThumbRect = new Rectangle(TrackX, 1, thumbSize - 1, ClientRectangle.Height - 3);
                 }
                 else
                 {
-                    int TrackY = (trackerValue - barMinimum) * (ClientRectangle.Height - thumbSize) 
+                    int TrackY = (trackerValue - barMinimum) * (ClientRectangle.Height - thumbSize)
                         / (barMaximum - barMinimum);
-                    thumbRect = new Rectangle(1, TrackY, ClientRectangle.Width - 3, thumbSize - 1);
+                    ThumbRect = new Rectangle(1, TrackY, ClientRectangle.Width - 3, thumbSize - 1);
                 }
 
-                //adjust drawing rects
-                barRect = ClientRectangle;
-                thumbHalfRect = thumbRect;
+                // Adjust drawing rects
                 LinearGradientMode gradientOrientation;
+                barRect = ClientRectangle;
+                thumbHalfRect = ThumbRect;
+
                 if (barOrientation == Orientation.Horizontal)
                 {
                     barRect.Inflate(-1, -barRect.Height / 3);
@@ -657,7 +507,7 @@ namespace Iswenzz.UI.Controls.Inputs
                     gradientOrientation = LinearGradientMode.Vertical;
                     thumbHalfRect.Height /= 2;
                     elapsedRect = barRect;
-                    elapsedRect.Width = thumbRect.Left + thumbSize / 2;
+                    elapsedRect.Width = ThumbRect.Left + thumbSize / 2;
                 }
                 else
                 {
@@ -667,92 +517,93 @@ namespace Iswenzz.UI.Controls.Inputs
                     gradientOrientation = LinearGradientMode.Horizontal;
                     thumbHalfRect.Width /= 2;
                     elapsedRect = barRect;
-                    elapsedRect.Height = thumbRect.Top + thumbSize / 2;
+                    elapsedRect.Height = ThumbRect.Top + thumbSize / 2;
                 }
-                //get thumb shape path 
+
+                // Get thumb shape path 
                 GraphicsPath thumbPath;
                 if (thumbCustomShape == null)
-                    thumbPath = CreateRoundRectPath(thumbRect, thumbRoundRectSize);
+                    thumbPath = CreateRoundRectPath(ThumbRect, thumbRoundRectSize);
                 else
                 {
                     thumbPath = thumbCustomShape;
-                    Matrix m = new Matrix();
-                    m.Translate(thumbRect.Left - thumbPath.GetBounds().Left, thumbRect.Top - thumbPath.GetBounds().Top);
+                    Matrix m = new();
+                    m.Translate(ThumbRect.Left - thumbPath.GetBounds().Left, ThumbRect.Top - thumbPath.GetBounds().Top);
                     thumbPath.Transform(m);
                 }
 
                 //draw bar
-                using (LinearGradientBrush lgbBar = new LinearGradientBrush(
-                    barHalfRect, barOuterColorPaint, barInnerColorPaint, gradientOrientation))
+                using (LinearGradientBrush lgbBar = new(barHalfRect, barOuterColorPaint, 
+                    barInnerColorPaint, gradientOrientation))
                 {
                     lgbBar.WrapMode = WrapMode.TileFlipXY;
                     e.Graphics.FillRectangle(lgbBar, barRect);
-                    //draw elapsed bar
-                    using (LinearGradientBrush lgbElapsed = new LinearGradientBrush(
-                        barHalfRect, elapsedOuterColorPaint, elapsedInnerColorPaint, gradientOrientation))
+                    // Draw elapsed bar
+                    using (LinearGradientBrush lgbElapsed = new(barHalfRect, elapsedOuterColorPaint,
+                        elapsedInnerColorPaint, gradientOrientation))
                     {
                         lgbElapsed.WrapMode = WrapMode.TileFlipXY;
-                        if (Capture && drawSemitransparentThumb)
+                        if (Capture && DrawSemitransparentThumb)
                         {
-                            Region elapsedReg = new Region(elapsedRect);
+                            Region elapsedReg = new(elapsedRect);
                             elapsedReg.Exclude(thumbPath);
                             e.Graphics.FillRegion(lgbElapsed, elapsedReg);
                         }
                         else
                             e.Graphics.FillRectangle(lgbElapsed, elapsedRect);
                     }
-                    //draw bar band                    
-                    using Pen barPen = new Pen(barPenColorPaint, 0.5f);
+                    // Draw bar band                    
+                    using Pen barPen = new(barPenColorPaint, 0.5f);
                     e.Graphics.DrawRectangle(barPen, barRect);
                 }
 
-                //draw thumb
-                Color newthumbOuterColorPaint = thumbOuterColorPaint, newthumbInnerColorPaint = thumbInnerColorPaint;
-                if (Capture && drawSemitransparentThumb)
+                // Draw thumb
+                Color newthumbOuterColorPaint = thumbOuterColorPaint, 
+                    newthumbInnerColorPaint = thumbInnerColorPaint;
+                if (Capture && DrawSemitransparentThumb)
                 {
                     newthumbOuterColorPaint = Color.FromArgb(175, thumbOuterColorPaint);
                     newthumbInnerColorPaint = Color.FromArgb(175, thumbInnerColorPaint);
                 }
-                using (LinearGradientBrush lgbThumb = new LinearGradientBrush(
-                    thumbHalfRect, newthumbOuterColorPaint, newthumbInnerColorPaint, gradientOrientation))
+                using (LinearGradientBrush lgbThumb = new(thumbHalfRect, newthumbOuterColorPaint,
+                    newthumbInnerColorPaint, gradientOrientation))
                 {
                     lgbThumb.WrapMode = WrapMode.TileFlipXY;
                     e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
                     e.Graphics.FillPath(lgbThumb, thumbPath);
-                    //draw thumb band
+
+                    // Draw thumb band
                     Color newThumbPenColor = thumbPenColorPaint;
-                    if (mouseEffects && (Capture || mouseInThumbRegion))
+                    if (MouseEffects && (Capture || MouseInThumbRegion))
                         newThumbPenColor = ControlPaint.Dark(newThumbPenColor);
-                    using Pen thumbPen = new Pen(newThumbPenColor);
+
+                    using Pen thumbPen = new(newThumbPenColor);
                     e.Graphics.DrawPath(thumbPen, thumbPath);
                 }
 
-                //draw focusing rectangle
-                if (Focused & drawFocusRectangle)
-                    using (Pen p = new Pen(Color.FromArgb(200, barPenColorPaint)))
-                    {
-                        p.DashStyle = DashStyle.Dot;
-                        Rectangle r = ClientRectangle;
-                        r.Width -= 2;
-                        r.Height--;
-                        r.X++;
-                        //ControlPaint.DrawFocusRectangle(e.Graphics, r);                        
-                        using GraphicsPath gpBorder = CreateRoundRectPath(r, borderRoundRectSize);
-                        e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-                        e.Graphics.DrawPath(p, gpBorder);
-                    }
+                // Draw focusing rectangle
+                if (Focused & DrawFocusRectangle)
+                {
+                    using Pen p = new(Color.FromArgb(200, barPenColorPaint));
+                    Rectangle r = ClientRectangle;
+
+                    p.DashStyle = DashStyle.Dot;
+                    r.Width -= 2;
+                    r.Height--;
+                    r.X++;
+                       
+                    using GraphicsPath gpBorder = CreateRoundRectPath(r, borderRoundRectSize);
+                    e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+                    e.Graphics.DrawPath(p, gpBorder);
+                }
             }
-            catch (Exception Err)
-            {
-                Console.WriteLine("DrawBackGround Error in " + Name + ":" + Err.Message);
-            }
+            catch (Exception) { }
         }
 
-        private bool mouseInRegion = false;
         /// <summary>
-        /// Raises the <see cref="E:System.Windows.Forms.Control.EnabledChanged"></see> event.
+        /// Raises the <see cref="Control.EnabledChanged"></see> event.
         /// </summary>
-        /// <param name="e">An <see cref="T:System.EventArgs"></see> that contains the event data.</param>
+        /// <param name="e">An <see cref="EventArgs"></see> that contains the event data.</param>
         protected override void OnEnabledChanged(EventArgs e)
         {
             base.OnEnabledChanged(e);
@@ -760,32 +611,32 @@ namespace Iswenzz.UI.Controls.Inputs
         }
 
         /// <summary>
-        /// Raises the <see cref="E:System.Windows.Forms.Control.MouseEnter"></see> event.
+        /// Raises the <see cref="Control.MouseEnter"></see> event.
         /// </summary>
-        /// <param name="e">An <see cref="T:System.EventArgs"></see> that contains the event data.</param>
+        /// <param name="e">An <see cref="EventArgs"></see> that contains the event data.</param>
         protected override void OnMouseEnter(EventArgs e)
         {
             base.OnMouseEnter(e);
-            mouseInRegion = true;
+            MouseInRegion = true;
             Invalidate();
         }
 
         /// <summary>
-        /// Raises the <see cref="E:System.Windows.Forms.Control.MouseLeave"></see> event.
+        /// Raises the <see cref="Control.MouseLeave"></see> event.
         /// </summary>
-        /// <param name="e">An <see cref="T:System.EventArgs"></see> that contains the event data.</param>
+        /// <param name="e">An <see cref="EventArgs"></see> that contains the event data.</param>
         protected override void OnMouseLeave(EventArgs e)
         {
             base.OnMouseLeave(e);
-            mouseInRegion = false;
-            mouseInThumbRegion = false;
+            MouseInRegion = false;
+            MouseInThumbRegion = false;
             Invalidate();
         }
 
         /// <summary>
-        /// Raises the <see cref="E:System.Windows.Forms.Control.MouseDown"></see> event.
+        /// Raises the <see cref="Control.MouseDown"></see> event.
         /// </summary>
-        /// <param name="e">A <see cref="T:System.Windows.Forms.MouseEventArgs"></see> that contains the event data.</param>
+        /// <param name="e">A <see cref="MouseEventArgs"></see> that contains the event data.</param>
         protected override void OnMouseDown(MouseEventArgs e)
         {
             base.OnMouseDown(e);
@@ -798,27 +649,27 @@ namespace Iswenzz.UI.Controls.Inputs
             }
         }
 
-        private bool mouseInThumbRegion = false;
-
         /// <summary>
-        /// Raises the <see cref="E:System.Windows.Forms.Control.MouseMove"></see> event.
+        /// Raises the <see cref="Control.MouseMove"></see> event.
         /// </summary>
-        /// <param name="e">A <see cref="T:System.Windows.Forms.MouseEventArgs"></see> that contains the event data.</param>
+        /// <param name="e">A <see cref="MouseEventArgs"></see> that contains the event data.</param>
         protected override void OnMouseMove(MouseEventArgs e)
         {
             base.OnMouseMove(e);
-            mouseInThumbRegion = IsPointInRect(e.Location, thumbRect);
+            MouseInThumbRegion = IsPointInRect(e.Location, ThumbRect);
             if (Capture & e.Button == MouseButtons.Left)
             {
                 ScrollEventType set = ScrollEventType.ThumbPosition;
                 Point pt = e.Location;
+
                 int p = barOrientation == Orientation.Horizontal ? pt.X : pt.Y;
                 int margin = thumbSize >> 1;
                 p -= margin;
-                float coef = (float)(barMaximum - barMinimum) / (float)((
-                    barOrientation == Orientation.Horizontal ? ClientSize.Width : ClientSize.Height) - 2 * margin);
-                trackerValue = (int)(p * coef + barMinimum);
+                float coef = (barMaximum - barMinimum) / 
+                    (float)((barOrientation == Orientation.Horizontal 
+                    ? ClientSize.Width : ClientSize.Height) - 2 * margin);
 
+                trackerValue = (int)(p * coef + barMinimum);
                 if (trackerValue <= barMinimum)
                 {
                     trackerValue = barMinimum;
@@ -837,23 +688,23 @@ namespace Iswenzz.UI.Controls.Inputs
         }
 
         /// <summary>
-        /// Raises the <see cref="E:System.Windows.Forms.Control.MouseUp"></see> event.
+        /// Raises the <see cref="Control.MouseUp"></see> event.
         /// </summary>
-        /// <param name="e">A <see cref="T:System.Windows.Forms.MouseEventArgs"></see> that contains the event data.</param>
+        /// <param name="e">A <see cref="MouseEventArgs"></see> that contains the event data.</param>
         protected override void OnMouseUp(MouseEventArgs e)
         {
             base.OnMouseUp(e);
             Capture = false;
-            mouseInThumbRegion = IsPointInRect(e.Location, thumbRect);
+            MouseInThumbRegion = IsPointInRect(e.Location, ThumbRect);
             Scroll?.Invoke(this, new ScrollEventArgs(ScrollEventType.EndScroll, trackerValue));
             ValueChanged?.Invoke(this, new EventArgs());
             Invalidate();
         }
 
         /// <summary>
-        /// Raises the <see cref="E:System.Windows.Forms.Control.MouseWheel"></see> event.
+        /// Raises the <see cref="Control.MouseWheel"></see> event.
         /// </summary>
-        /// <param name="e">A <see cref="T:System.Windows.Forms.MouseEventArgs"></see> that contains the event data.</param>
+        /// <param name="e">A <see cref="MouseEventArgs"></see> that contains the event data.</param>
         protected override void OnMouseWheel(MouseEventArgs e)
         {
             base.OnMouseWheel(e);
@@ -862,9 +713,9 @@ namespace Iswenzz.UI.Controls.Inputs
         }
 
         /// <summary>
-        /// Raises the <see cref="E:System.Windows.Forms.Control.GotFocus"></see> event.
+        /// Raises the <see cref="Control.GotFocus"></see> event.
         /// </summary>
-        /// <param name="e">An <see cref="T:System.EventArgs"></see> that contains the event data.</param>
+        /// <param name="e">An <see cref="EventArgs"></see> that contains the event data.</param>
         protected override void OnGotFocus(EventArgs e)
         {
             base.OnGotFocus(e);
@@ -872,9 +723,9 @@ namespace Iswenzz.UI.Controls.Inputs
         }
 
         /// <summary>
-        /// Raises the <see cref="E:System.Windows.Forms.Control.LostFocus"></see> event.
+        /// Raises the <see cref="Control.LostFocus"></see> event.
         /// </summary>
-        /// <param name="e">An <see cref="T:System.EventArgs"></see> that contains the event data.</param>
+        /// <param name="e">An <see cref="EventArgs"></see> that contains the event data.</param>
         protected override void OnLostFocus(EventArgs e)
         {
             base.OnLostFocus(e);
@@ -882,9 +733,9 @@ namespace Iswenzz.UI.Controls.Inputs
         }
 
         /// <summary>
-        /// Raises the <see cref="E:System.Windows.Forms.Control.KeyUp"></see> event.
+        /// Raises the <see cref="Control.KeyUp"></see> event.
         /// </summary>
-        /// <param name="e">A <see cref="T:System.Windows.Forms.KeyEventArgs"></see> that contains the event data.</param>
+        /// <param name="e">A <see cref="KeyEventArgs"></see> that contains the event data.</param>
         protected override void OnKeyUp(KeyEventArgs e)
         {
             base.OnKeyUp(e);
@@ -892,12 +743,12 @@ namespace Iswenzz.UI.Controls.Inputs
             {
                 case Keys.Down:
                 case Keys.Left:
-                    SetProperValue(Value - (int)smallChange);
+                    SetProperValue(Value - (int)SmallChange);
                     Scroll?.Invoke(this, new ScrollEventArgs(ScrollEventType.SmallDecrement, Value));
                     break;
                 case Keys.Up:
                 case Keys.Right:
-                    SetProperValue(Value + (int)smallChange);
+                    SetProperValue(Value + (int)SmallChange);
                     Scroll?.Invoke(this, new ScrollEventArgs(ScrollEventType.SmallIncrement, Value));
                     break;
                 case Keys.Home:
@@ -907,16 +758,19 @@ namespace Iswenzz.UI.Controls.Inputs
                     Value = barMaximum;
                     break;
                 case Keys.PageDown:
-                    SetProperValue(Value - (int)largeChange);
+                    SetProperValue(Value - (int)LargeChange);
                     Scroll?.Invoke(this, new ScrollEventArgs(ScrollEventType.LargeDecrement, Value));
                     break;
                 case Keys.PageUp:
-                    SetProperValue(Value + (int)largeChange);
+                    SetProperValue(Value + (int)LargeChange);
                     Scroll?.Invoke(this, new ScrollEventArgs(ScrollEventType.LargeIncrement, Value));
                     break;
             }
-            if (Scroll != null && Value == barMinimum) Scroll(this, new ScrollEventArgs(ScrollEventType.First, Value));
-            if (Scroll != null && Value == barMaximum) Scroll(this, new ScrollEventArgs(ScrollEventType.Last, Value));
+            if (Scroll != null && Value == barMinimum) 
+                Scroll(this, new ScrollEventArgs(ScrollEventType.First, Value));
+            if (Scroll != null && Value == barMaximum) 
+                Scroll(this, new ScrollEventArgs(ScrollEventType.Last, Value));
+
             Point pt = PointToClient(Cursor.Position);
             OnMouseMove(new MouseEventArgs(MouseButtons.None, 0, pt.X, pt.Y, 0));
         }
@@ -924,9 +778,10 @@ namespace Iswenzz.UI.Controls.Inputs
         /// <summary>
         /// Processes a dialog key.
         /// </summary>
-        /// <param name="keyData">One of the <see cref="T:System.Windows.Forms.Keys"></see> values that represents the key to process.</param>
+        /// <param name="keyData">One of the <see cref="Keys"></see> 
+        /// values that represents the key to process.</param>
         /// <returns>
-        /// true if the key was processed by the control; otherwise, false.
+        /// true if the key was processed by the control.
         /// </returns>
         protected override bool ProcessDialogKey(Keys keyData)
         {
@@ -947,7 +802,7 @@ namespace Iswenzz.UI.Controls.Inputs
         /// <returns></returns>
         public static GraphicsPath CreateRoundRectPath(Rectangle rect, Size size)
         {
-            GraphicsPath gp = new GraphicsPath();
+            GraphicsPath gp = new();
             gp.AddLine(rect.Left + size.Width / 2, rect.Top, rect.Right - size.Width / 2, rect.Top);
             gp.AddArc(rect.Right - size.Width, rect.Top, size.Width, size.Height, 270, 90);
 
@@ -972,7 +827,7 @@ namespace Iswenzz.UI.Controls.Inputs
             Color[] colorsToReturn = new Color[colorsToDesaturate.Length];
             for (int i = 0; i < colorsToDesaturate.Length; i++)
             {
-                //use NTSC weighted avarage
+                // Use NTSC weighted avarage
                 int gray = (int)(colorsToDesaturate[i].R * 0.3 + colorsToDesaturate[i].G * 0.6 
                     + colorsToDesaturate[i].B * 0.1);
                 colorsToReturn[i] = Color.FromArgb(-0x010101 * (255 - gray) - 1);
@@ -999,9 +854,12 @@ namespace Iswenzz.UI.Controls.Inputs
         /// <param name="val">The value.</param>
         private void SetProperValue(int val)
         {
-            if (val < barMinimum) Value = barMinimum;
-            else if (val > barMaximum) Value = barMaximum;
-            else Value = val;
+            if (val < barMinimum) 
+                Value = barMinimum;
+            else if (val > barMaximum) 
+                Value = barMaximum;
+            else 
+                Value = val;
         }
 
         /// <summary>
@@ -1010,13 +868,9 @@ namespace Iswenzz.UI.Controls.Inputs
         /// <param name="pt">The point to test.</param>
         /// <param name="rect">The base rectangle.</param>
         /// <returns>
-        /// 	<c>true</c> if rectangle contains given point; otherwise, <c>false</c>.
+        /// True if rectangle contains given point.
         /// </returns>
-        private static bool IsPointInRect(Point pt, Rectangle rect)
-        {
-            if (pt.X > rect.Left & pt.X < rect.Right & pt.Y > rect.Top & pt.Y < rect.Bottom)
-                return true;
-            else return false;
-        }
+        private static bool IsPointInRect(Point pt, Rectangle rect) =>
+            pt.X > rect.Left & pt.X < rect.Right & pt.Y > rect.Top & pt.Y < rect.Bottom;
     }
 }

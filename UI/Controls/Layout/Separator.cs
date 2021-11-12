@@ -7,14 +7,17 @@ namespace Iswenzz.UI.Controls.Layout
     /// <summary>
     /// Separator line control.
     /// </summary>
-    public partial class Separator : BaseControl, INotifyPropertyChanged
+    public class Separator : AbstractControl, INotifyPropertyChanged
     {
         /// <summary>
         /// Separator stroke thickness.
         /// </summary>
         [DefaultValue(1f)]
-        [Description("Separator line thickness.")]
-        public float Thickness { get; set; }
+        [Category("Appearance"), Description("Separator line thickness.")]
+        public virtual float Thickness { get; set; }
+
+        [Browsable(false)]
+        public override string Text { get => string.Empty; set => base.Text = string.Empty; }
 
         /// <summary>
         /// Initialize a new <see cref="Separator"/> object.
@@ -25,6 +28,7 @@ namespace Iswenzz.UI.Controls.Layout
 
             BackColor = Color.Transparent;
             ForeColor = Color.DarkGray;
+            Text = string.Empty;
         }
 
         /// <summary>
@@ -33,10 +37,10 @@ namespace Iswenzz.UI.Controls.Layout
         /// <param name="pe">Paint data.</param>
         protected override void OnPaint(PaintEventArgs pe)
         {
-            base.OnPaint(pe);
-
             using Pen pen = new(ForeColor, Thickness);
             pe.Graphics.DrawLine(pen, new Point(0, Height / 2), new Point(Width, Height / 2));
+
+            base.OnPaint(pe);
         }
     }
 }

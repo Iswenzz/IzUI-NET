@@ -1,120 +1,81 @@
-﻿using System.Windows.Forms;
+﻿using System.ComponentModel;
 using System.Drawing;
-using System.ComponentModel;
 using System.Drawing.Drawing2D;
+using System.Windows.Forms;
 
 using Iswenzz.UI.Data;
+using Iswenzz.UI.Controls.Game.MKW.Resources;
 
 namespace Iswenzz.UI.Controls.Game.MKW
 {
-    public partial class TimeTrialCard : Control
+    /// <summary>
+    /// MK Time trial card control.
+    /// </summary>
+    public class TimeTrialCard : AbstractControl, INotifyPropertyChanged
     {
-        private string circuitName = "Luigi Circui";
         /// <summary>
         /// Circuit name.
         /// </summary>
         [DefaultValue("Luigi Circui")]
-        [Description("The circuit name.")]
-        public string CircuitName
-        {
-            get => circuitName;
-            set { circuitName = value; Invalidate(); }
-        }
+        [Category("Game"), Description("The circuit name.")]
+        public virtual string CircuitName { get; set; }
 
-        private string timeText = "1:08.774";
         /// <summary>
         /// Time string.
         /// </summary>
-        [Description("The record time.")]
-        public string TimeText
-        {
-            get => timeText;
-            set { timeText = value; Invalidate(); }
-        }
+        [DefaultValue("1:08.774")]
+        [Category("Game"), Description("The record time.")]
+        public virtual string TimeText { get; set; }
 
-        private string playerName = "Cole";
         /// <summary>
         /// Player name.
         /// </summary>
-        [Description("The player name.")]
-        public string PlayerName
-        {
-            get => playerName;
-            set { playerName = value; Invalidate(); }
-        }
+        [DefaultValue("Cole")]
+        [Category("Game"), Description("The player name.")]
+        public virtual string PlayerName { get; set; }
 
-        private Bitmap backgroundImage = Resources.MKW_BG;
         /// <summary>
         /// Background image.
         /// </summary>
-        [Description("The background image.")]
-        public new Bitmap BackgroundImage
-        {
-            get => backgroundImage;
-            set { backgroundImage = value; Invalidate(); }
-        }
+        [Category("Game"), Description("The background image.")]
+        public virtual new Bitmap BackgroundImage { get; set; } = MKWResources.MKW_BG;
 
-        private Bitmap flagImage;
         /// <summary>
         /// Atlas image.
         /// </summary>
-        [Description("The flag image.")]
-        public Bitmap FlagImage
-        {
-            get => flagImage;
-            set { flagImage = value; Invalidate(); }
-        }
+        [Category("Game"), Description("The flag image.")]
+        public virtual Bitmap FlagImage { get; set; } = MKWResources.MKW_Flags;
 
-        private Bitmap comboImage = Resources.MKW_FunkyKong_Spear;
         /// <summary>
-        /// Combo Image
+        /// Combo Image.
         /// </summary>
-        [Description("The character and vehicle used.")]
-        public Bitmap ComboImage
-        {
-            get => comboImage;
-            set { comboImage = value; Invalidate(); }
-        }
+        [Category("Game"), Description("The character and vehicle used.")]
+        public virtual Bitmap ComboImage { get; set; } = MKWResources.MKW_FunkyKong_Spear;
 
-        private Bitmap controllerImage = Resources.MKW_Gamecube;
         /// <summary>
         /// Controller image.
         /// </summary>
-        [Description("The controller image.")]
-        public Bitmap ControllerImage
-        {
-            get => controllerImage;
-            set { controllerImage = value; Invalidate(); }
-        }
+        [Category("Game"), Description("The controller image.")]
+        public virtual Bitmap ControllerImage { get; set; } = MKWResources.MKW_Gamecube;
 
-        private Bitmap cardImage = Resources.MKW_TTCard;
         /// <summary>
         /// Card image.
         /// </summary>
-        [Description("The card image.")]
-        public Bitmap CardImage
-        {
-            get => cardImage;
-            set { cardImage = value; Invalidate(); }
-        }
+        [Category("Game"), Description("The card image.")]
+        public virtual Bitmap CardImage { get; set; } = MKWResources.MKW_TTCard;
 
-        private int countryCode = 18;
         /// <summary>
         /// Country code.
         /// </summary>
-        [Description("The country code.")]
-        public int CountryCode
-        {
-            get => countryCode;
-            set { countryCode = value; Invalidate(); }
-        }
+        [DefaultValue(18)]
+        [Category("Game"), Description("The country code.")]
+        public virtual int CountryCode { get; set; }
 
         /// <summary>
         /// Initialize a new <see cref="TimeTrialCard"/> object.
         /// </summary>
-        public TimeTrialCard()
+        public TimeTrialCard() : base()
         {
-            InitializeComponent();
             DoubleBuffered = true;
         }
 
@@ -124,54 +85,49 @@ namespace Iswenzz.UI.Controls.Game.MKW
         /// <param name="pe">Render data.</param>
         protected override void OnPaint(PaintEventArgs pe)
         {
-            using BitmapAtlas atlas = new BitmapAtlas(16, 16) 
+            pe.Graphics.InterpolationMode = InterpolationMode.NearestNeighbor;
+            using BitmapAtlas atlas = new(16, 16)
             {
-                Bitmap = Resources.MKW_Flags,
+                Bitmap = MKWResources.MKW_Flags,
                 Size = new Size(512, 512)
             };
-
-            using StringFormat sfCenter = new StringFormat
-            {
-                Alignment = StringAlignment.Center,
-                LineAlignment = StringAlignment.Center,
-            };
-
-            pe.Graphics.InterpolationMode = InterpolationMode.NearestNeighbor;
+            using StringFormat sfCenter = Alignment.GetStringFormat(ContentAlignment.MiddleCenter);
 
             // BG
-            RectangleF bgRect = new RectangleF(PointF.Empty, Size);
+            RectangleF bgRect = new(PointF.Empty, Size);
             pe.Graphics.DrawImage(BackgroundImage, bgRect);
 
             // Card
-            RectangleF cardRect = new RectangleF(bgRect.Size.Width / 4, bgRect.Size.Height / 4,
+            RectangleF cardRect = new(
+                bgRect.Size.Width / 4, bgRect.Size.Height / 4,
                 bgRect.Width / 2, bgRect.Height / 2);
             pe.Graphics.DrawImage(CardImage, cardRect);
 
-            // Map name
-            PointF pMap = new PointF(cardRect.X + (cardRect.Width / 2f), cardRect.Y + (cardRect.Height / 5.5f));
+            // Map
+            PointF pMap = new(cardRect.X + (cardRect.Width / 2f), cardRect.Y + (cardRect.Height / 5.5f));
             pe.Graphics.DrawString(CircuitName, Font, Brushes.Gainsboro, pMap, sfCenter);
 
             // Time
-            PointF pTime = new PointF(cardRect.X + (cardRect.Width / 2f), cardRect.Y + (cardRect.Height / 2.8f));
+            PointF pTime = new(cardRect.X + (cardRect.Width / 2f), cardRect.Y + (cardRect.Height / 2.8f));
             pe.Graphics.DrawString(TimeText, Font, Brushes.Gainsboro, pTime, sfCenter);
 
             // Name
-            PointF pName = new PointF(cardRect.X + (cardRect.Width / 1.475f), cardRect.Y + (cardRect.Height / 1.35f));
+            PointF pName = new(cardRect.X + (cardRect.Width / 1.475f), cardRect.Y + (cardRect.Height / 1.35f));
             pe.Graphics.DrawString(PlayerName, Font, Brushes.Gainsboro, pName, sfCenter);
 
             // Controller
-            RectangleF pController = new RectangleF(cardRect.X + (cardRect.Width / 1.4f),
+            RectangleF pController = new(cardRect.X + (cardRect.Width / 1.4f),
                 cardRect.Y + (cardRect.Height / 3.9f), cardRect.Height / 5, cardRect.Height / 5);
             pe.Graphics.DrawImage(ControllerImage, pController);
 
             // Combo
-            RectangleF comboRect = new RectangleF(cardRect.X + (cardRect.Width / 7.8f),
+            RectangleF comboRect = new(cardRect.X + (cardRect.Width / 7.8f),
                 cardRect.Y + (cardRect.Height / 2.05f), cardRect.Width / 5, cardRect.Height / 3);
             pe.Graphics.DrawImage(ComboImage, comboRect);
 
             // Flag
             using Bitmap flag = atlas.GetBitmapFromIndex(CountryCode);
-            RectangleF flagRect = new RectangleF(cardRect.X + (cardRect.Width / 1.6f), 
+            RectangleF flagRect = new(cardRect.X + (cardRect.Width / 1.6f),
                 cardRect.Y + (cardRect.Height / 2f), cardRect.Height / 5, cardRect.Height / 5);
             pe.Graphics.DrawImage(flag, flagRect);
 

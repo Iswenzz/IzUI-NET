@@ -4,12 +4,12 @@ using System.Windows.Forms;
 namespace Iswenzz.UI.Controls.Layout
 {
     /// <summary>
-    /// Layout fixtures.
+    /// Inputs fixtures.
     /// </summary>
     [ToolboxItem(false)]
-    public partial class Layout : UserControl
+    public partial class Inputs : UserControl
     {
-        public Layout()
+        public Inputs()
         {
             InitializeComponent();
         }
