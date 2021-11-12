@@ -5,20 +5,23 @@ using System.Windows.Forms;
 
 namespace Iswenzz.UI.Design
 {
-    public class Layouts : BaseDesign, INotifyPropertyChanged
+    /// <summary>
+    /// Layout settings.
+    /// </summary>
+    public class Layouts : AbstractDesign, INotifyPropertyChanged
     {
         /// <summary>
         /// The angle used to rotate the text.
         /// </summary>
         [Description("Angle rotation degree.")]
-        public int Angle { get; set; }
+        public virtual int Angle { get; set; }
 
         /// <summary>
         /// The content alignment.
         /// </summary>
         [DefaultValue(ContentAlignment.MiddleCenter)]
         [Description("Content alignment.")]
-        public ContentAlignment ContentAlign { get; set; }
+        public virtual ContentAlignment ContentAlign { get; set; }
 
         /// <summary>
         /// Create a new <see cref="Layouts"/>.
@@ -30,11 +33,11 @@ namespace Iswenzz.UI.Design
         /// Render callback.
         /// </summary>
         /// <param name="pe">Paint data.</param>
-        public void OnPaint(PaintEventArgs pe)
+        public override void OnPaint(PaintEventArgs pe)
         {
-            RectangleF rect = new(0, 0, Owner.Width, Owner.Height);
-            using SolidBrush foreBrush = new(Owner.ForeColor);
+            if (DisableRender) return;
 
+            using SolidBrush foreBrush = new(Owner.ForeColor);
             using StringFormat sf = Alignment.GetStringFormat(ContentAlign);
             if (Angle > 0)
             {
@@ -44,7 +47,7 @@ namespace Iswenzz.UI.Design
                     new Rectangle(0, 0, Owner.Height, Owner.Width), sf);
             }
             else
-                pe.Graphics.DrawString(Owner.Text, Owner.Font, foreBrush, rect, sf);
+                pe.Graphics.DrawString(Owner.Text, Owner.Font, foreBrush, Owner.ClientRectangle, sf);
         }
     }
 }

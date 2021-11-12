@@ -9,11 +9,11 @@ namespace Iswenzz.UI.Design
     /// Base design class that supports alpha.
     /// </summary>
     [Browsable(false)]
-    public class Alpha : BaseDesign, INotifyPropertyChanged
+    public class Alpha : AbstractDesign, INotifyPropertyChanged
     {
         public const int WS_EX_TRANSPARENT = 0x20;
 
-        private bool IsTransparent { get; set; }
+        protected virtual bool IsTransparent { get; set; }
 
         public override ControlStyles ControlStylesToEnable 
         {
@@ -32,7 +32,7 @@ namespace Iswenzz.UI.Design
         /// </summary>
         /// <param name="controlParams">The <see cref="Control"/> owner.</param>
         /// <returns></returns>
-        public CreateParams CreateParams(CreateParams controlParams)
+        public virtual CreateParams CreateParams(CreateParams controlParams)
         {
             if (IsTransparent)
                 controlParams.ExStyle |= WS_EX_TRANSPARENT;
@@ -43,7 +43,7 @@ namespace Iswenzz.UI.Design
         /// Update the transparency when parent back color changes.
         /// </summary>
         /// <param name="e"></param>
-        public void OnParentBackColorChanged(EventArgs e)
+        public virtual void OnParentBackColorChanged(EventArgs e)
         {
             if (IsTransparent)
                 Owner.Invalidate();
@@ -53,11 +53,17 @@ namespace Iswenzz.UI.Design
         /// Update the parent when back color changes.
         /// </summary>
         /// <param name="e"></param>
-        public void OnBackColorChanged(EventArgs e)
+        public virtual void OnBackColorChanged(EventArgs e)
         {
             IsTransparent = Owner.BackColor == Color.Transparent;
             if (IsTransparent && Owner.Parent != null)
                 Owner.Parent.Invalidate(Owner.Bounds, true);
         }
+
+        /// <summary>
+        /// Render callback.
+        /// </summary>
+        /// <param name="pe">Paint data.</param>
+        public override void OnPaint(PaintEventArgs pe) { }
     }
 }

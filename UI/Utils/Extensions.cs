@@ -47,12 +47,12 @@ namespace Iswenzz.UI.Data
         }
 
         /// <summary>
-        /// Create a <see cref="GraphicsPath"/> from a <see cref="RectangleF"/> with the specified radius.
+        /// Create a <see cref="GraphicsPath"/> from a <see cref="Rectangle"/> with the specified radius.
         /// </summary>
         /// <param name="Rect">The rectangle.</param>
         /// <param name="radius">Rounded radius.</param>
         /// <returns></returns>
-        public static GraphicsPath GetRoundPath(this RectangleF Rect, int radius)
+        public static GraphicsPath GetRoundPath(this Rectangle Rect, int radius)
         {
             GraphicsPath path = new();
 

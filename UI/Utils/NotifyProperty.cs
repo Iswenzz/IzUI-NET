@@ -23,8 +23,8 @@ namespace Iswenzz.UI.Utils
 
             if (instance is Control)
                 (instance as Control).Invalidate();
-            if (instance is BaseDesign)
-                (instance as BaseDesign).Owner.Invalidate();
+            if (instance is Design.AbstractDesign)
+                (instance as Design.AbstractDesign).Owner.Invalidate();
         }
     }
 }

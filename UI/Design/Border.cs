@@ -8,34 +8,37 @@ using System.Windows.Forms;
 
 namespace Iswenzz.UI.Design
 {
-    public class Border : BaseDesign, INotifyPropertyChanged
+    /// <summary>
+    /// Border styles.
+    /// </summary>
+    public class Border : AbstractDesign, INotifyPropertyChanged
     {
         /// <summary>
         /// Border corner radius.
         /// </summary>
         [Description("Border radius degree.")]
-        public int Radius { get; set; }
+        public virtual int Radius { get; set; }
 
         /// <summary>
         /// Border color.
         /// </summary>
         [DefaultValue(typeof(Color), "SteelBlue")]
         [Description("Change the border color.")]
-        public Color Color { get; set; }
+        public virtual Color Color { get; set; }
 
         /// <summary>
         /// Border width.
         /// </summary>
         [DefaultValue(4f)]
         [Description("Change the border thickness.")]
-        public float Width { get; set; }
+        public virtual float Width { get; set; }
 
         /// <summary>
         /// Border locations.
         /// </summary>
         [Editor(typeof(FlagEditor), typeof(UITypeEditor))]
         [Description("Draw borders at rectangle locations.")]
-        public RectLocation Locations { get; set; }
+        public virtual RectLocation Locations { get; set; }
 
         /// <summary>
         /// Create a new <see cref="Border"/>.
@@ -47,31 +50,31 @@ namespace Iswenzz.UI.Design
         /// Render callback.
         /// </summary>
         /// <param name="pe">Paint data.</param>
-        public void OnPaint(PaintEventArgs pe)
+        public override void OnPaint(PaintEventArgs pe)
         {
-            RectangleF rect = new(0, 0, Owner.Width, Owner.Height);
+            if (DisableRender) return;
+
             using SolidBrush backBrush = new(Owner.BackColor);
             using Pen borderPen = new(Color, Width);
-            pe.Graphics.FillRectangle(backBrush, rect);
 
             // Borders
             if (Locations.HasFlag(RectLocation.Top))
-                pe.Graphics.DrawLine(borderPen, new Point(0, 0),
-                    new Point(Owner.Width - 1, 0));
+                pe.Graphics.DrawLine(borderPen, new PointF(0, Width - 1),
+                    new PointF(Owner.Width - 1, Width - 1));
             if (Locations.HasFlag(RectLocation.Right))
-                pe.Graphics.DrawLine(borderPen, new Point(Owner.Width - 1, 0),
-                    new Point(Owner.Width - 1, Owner.Height - 1));
+                pe.Graphics.DrawLine(borderPen, new PointF(Owner.Width - Width + 1, 0),
+                    new PointF(Owner.Width - Width + 1, Owner.Height - 1));
             if (Locations.HasFlag(RectLocation.Bottom))
-                pe.Graphics.DrawLine(borderPen, new Point(0, Owner.Height - 1),
-                    new Point(Owner.Width - 1, Owner.Height - 1));
+                pe.Graphics.DrawLine(borderPen, new PointF(0, Owner.Height - Width + 1),
+                    new PointF(Owner.Width - 1, Owner.Height - Width + 1));
             if (Locations.HasFlag(RectLocation.Left))
-                pe.Graphics.DrawLine(borderPen, new Point(0, 0),
-                    new Point(0, Owner.Height - 1));
+                pe.Graphics.DrawLine(borderPen, new PointF(Width - 1, 0),
+                    new PointF(Width - 1, Owner.Height - 1));
 
             // Rounded
             if (Radius > 0 && Owner.BackColor != Color.Transparent)
             {
-                GraphicsPath path = rect.GetRoundPath(Radius);
+                GraphicsPath path = Owner.ClientRectangle.GetRoundPath(Radius);
                 Owner.Region = new Region(path);
                 pe.Graphics.FillPath(backBrush, path);
                 path.Dispose();

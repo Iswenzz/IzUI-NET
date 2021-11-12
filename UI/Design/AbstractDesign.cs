@@ -9,27 +9,31 @@ using Iswenzz.UI.Utils;
 namespace Iswenzz.UI.Design
 {
     /// <summary>
-    /// Represent an object in a <see cref="Control"/> designer.
+    /// Represent a designer object.
     /// </summary>
     [TypeConverter(typeof(ExpandableObjectConverter))]
-    public abstract class BaseDesign : INotifyPropertyChanged
+    public abstract class AbstractDesign : INotifyPropertyChanged
     {
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         [Browsable(false)] 
-        public Control Owner { get; set; }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public Control Owner { get; protected set; }
 
+        [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public bool DisableRender { get; set; }
+
         [Browsable(false)] 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public event PropertyChangedEventHandler PropertyChanged;
 
         [Browsable(false)] public virtual ControlStyles ControlStylesToEnable { get; }
         [Browsable(false)] public virtual ControlStyles ControlStylesToDisable { get; }
 
         /// <summary>
-        /// Create a new <see cref="BaseDesign"/>.
+        /// Create a new <see cref="AbstractDesign"/>.
         /// </summary>
         /// <param name="owner">The <see cref="Control"/> owner.</param>
-        protected BaseDesign(Control owner)
+        protected AbstractDesign(Control owner)
         {
             Owner = owner;
         }
@@ -40,6 +44,12 @@ namespace Iswenzz.UI.Design
         /// <param name="eventArgs">Property event args.</param>
         protected virtual void OnPropertyChanged(PropertyChangedEventArgs eventArgs) =>
             NotifyProperty.Callback(this, PropertyChanged, eventArgs);
+
+        /// <summary>
+        /// Render callback.
+        /// </summary>
+        /// <param name="pe">Paint data.</param>
+        public abstract void OnPaint(PaintEventArgs pe);
 
         /// <summary>
         /// Override the grid view display value.
