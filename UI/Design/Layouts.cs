@@ -21,7 +21,7 @@ namespace Iswenzz.UI.Design
         /// </summary>
         [DefaultValue(ContentAlignment.MiddleCenter)]
         [Description("Content alignment.")]
-        public virtual ContentAlignment ContentAlign { get; set; }
+        public virtual ContentAlignment ContentAlign { get; set; } = ContentAlignment.MiddleCenter;
 
         /// <summary>
         /// Create a new <see cref="Layouts"/>.
@@ -35,19 +35,13 @@ namespace Iswenzz.UI.Design
         /// <param name="pe">Paint data.</param>
         public override void OnPaint(PaintEventArgs pe)
         {
-            if (DisableRender) return;
+            if (!Renderable) return;
 
-            using SolidBrush foreBrush = new(Owner.ForeColor);
-            using StringFormat sf = Alignment.GetStringFormat(ContentAlign);
             if (Angle > 0)
             {
                 pe.Graphics.TranslateTransform(Owner.Width, 0);
                 pe.Graphics.RotateTransform(Angle);
-                pe.Graphics.DrawString(Owner.Text, Owner.Font, foreBrush, 
-                    new Rectangle(0, 0, Owner.Height, Owner.Width), sf);
             }
-            else
-                pe.Graphics.DrawString(Owner.Text, Owner.Font, foreBrush, Owner.ClientRectangle, sf);
         }
     }
 }

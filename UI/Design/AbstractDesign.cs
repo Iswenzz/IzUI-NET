@@ -20,7 +20,7 @@ namespace Iswenzz.UI.Design
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public bool DisableRender { get; set; }
+        public bool Renderable { get; set; } = true;
 
         [Browsable(false)] 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -37,6 +37,16 @@ namespace Iswenzz.UI.Design
         {
             Owner = owner;
         }
+
+        /// <summary>
+        /// Disable rendering.
+        /// </summary>
+        public virtual void Disable() => Renderable = false;
+
+        /// <summary>
+        /// Enable rendering.
+        /// </summary>
+        public virtual void Enable() => Renderable = true;
 
         /// <summary>
         /// Invalidate on class property changes.

@@ -24,14 +24,14 @@ namespace Iswenzz.UI.Design
         /// </summary>
         [DefaultValue(typeof(Color), "SteelBlue")]
         [Description("Change the border color.")]
-        public virtual Color Color { get; set; }
+        public virtual Color Color { get; set; } = Color.SteelBlue;
 
         /// <summary>
         /// Border width.
         /// </summary>
         [DefaultValue(4f)]
         [Description("Change the border thickness.")]
-        public virtual float Width { get; set; }
+        public virtual float Width { get; set; } = 4f;
 
         /// <summary>
         /// Border locations.
@@ -52,7 +52,7 @@ namespace Iswenzz.UI.Design
         /// <param name="pe">Paint data.</param>
         public override void OnPaint(PaintEventArgs pe)
         {
-            if (DisableRender) return;
+            if (!Renderable) return;
 
             using SolidBrush backBrush = new(Owner.BackColor);
             using Pen borderPen = new(Color, Width);

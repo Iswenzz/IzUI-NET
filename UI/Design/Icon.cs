@@ -52,7 +52,7 @@ namespace Iswenzz.UI.Design
         /// <param name="pe">Paint data.</param>
         public override void OnPaint(PaintEventArgs pe)
         {
-            if (DisableRender || IconImage == null) return;
+            if (!Renderable || IconImage == null) return;
 
             // Icon render
             if (IconSize == 0 && IconAutoPlacement)
