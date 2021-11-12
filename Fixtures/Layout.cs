@@ -2,9 +2,9 @@
 
 namespace Iswenzz.UI.Controls.Layout
 {
-    public partial class Test : UserControl
+    public partial class Layout : UserControl
     {
-        public Test()
+        public Layout()
         {
             InitializeComponent();
         }

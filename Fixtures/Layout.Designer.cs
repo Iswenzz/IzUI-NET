@@ -1,6 +1,6 @@
 ﻿namespace Iswenzz.UI.Controls.Layout
 {
-    partial class Test
+    partial class Layout
     {
         /// <summary> 
         /// Required designer variable.
@@ -132,7 +132,7 @@
             this.labelSpecial3.TabIndex = 27;
             this.labelSpecial3.Text = "PanelSeparator";
             // 
-            // Test
+            // Layout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -145,7 +145,7 @@
             this.Controls.Add(this.separator1);
             this.Controls.Add(this.panelBorder1);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "Test";
+            this.Name = "Layout";
             this.Size = new System.Drawing.Size(315, 365);
             this.ResumeLayout(false);
 

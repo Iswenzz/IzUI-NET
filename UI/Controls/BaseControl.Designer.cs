@@ -1,6 +1,6 @@
 ﻿namespace Iswenzz.UI.Controls
 {
-    partial class BaseControl
+    public abstract partial class BaseControl
     {
         /// <summary>
         /// Required designer variable.

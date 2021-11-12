@@ -7,9 +7,9 @@ using Iswenzz.UI.Utils;
 namespace Iswenzz.UI.Controls
 {
     /// <summary>
-    /// Base panel class.
+    /// Base tree view class.
     /// </summary>
-    public abstract class BasePanel : Panel, INotifyPropertyChanged
+    public abstract class BaseTreeView : TreeView, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -22,9 +22,9 @@ namespace Iswenzz.UI.Controls
         public Border Border { get; set; }
 
         /// <summary>
-        /// Initialize a new <see cref="BasePanel"/> object.
+        /// Initialize a new <see cref="BaseTreeView"/> object.
         /// </summary>
-        protected BasePanel() : base()
+        protected BaseTreeView() : base()
         {
             Layouts = new Layouts(this);
             Border = new Border(this);

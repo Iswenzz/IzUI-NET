@@ -10,7 +10,7 @@ namespace Iswenzz.UI.Controls
     /// <summary>
     /// Base control class.
     /// </summary>
-    public partial class BaseControl : Control, INotifyPropertyChanged
+    public abstract partial class BaseControl : Control, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         protected override CreateParams CreateParams { get => Alpha.CreateParams(base.CreateParams); }
@@ -30,7 +30,7 @@ namespace Iswenzz.UI.Controls
         /// <summary>
         /// Initialize a new <see cref="BaseControl"/> object.
         /// </summary>
-        public BaseControl()
+        protected BaseControl()
         {
             InitializeComponent();
             Layouts = new Layouts(this);

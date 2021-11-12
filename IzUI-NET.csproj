@@ -20,6 +20,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Update="UI\Controls\BaseButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="UI\Controls\BaseTreeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Update="UI\Controls\BasePanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -27,14 +33,9 @@
     <Compile Update="Fixtures\Layout.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UI\Controls\Inputs\ButtonBase.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Update="UI\Controls\Layout\PanelBorder.cs" />
     <Compile Update="UI\Controls\Layout\PanelSeparator.cs" />
-    <Compile Update="UI\Controls\Data\FlagCheckedListBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Update="UI\Controls\Data\FlagCheckedListBox.cs" />
     <Compile Update="UI\Controls\Data\TreeViewer.cs">
       <SubType>Component</SubType>
     </Compile>

@@ -47,8 +47,9 @@ namespace Iswenzz.UI.Design
         /// <returns></returns>
         public override string ToString()
         {
-            PropertyInfo[] properties = GetType().GetProperties(
-                BindingFlags.Public | BindingFlags.Instance);
+            IEnumerable<PropertyInfo> properties = GetType()
+                .GetProperties(BindingFlags.Public | BindingFlags.Instance)
+                .OrderBy(p => p.Name);
 
             List<string> propertyValues = new();
             foreach (PropertyInfo property in properties)
