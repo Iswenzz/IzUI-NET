@@ -103,6 +103,16 @@ namespace Iswenzz.UI.Controls.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Iswenzz {
+            get {
+                object obj = ResourceManager.GetObject("Iswenzz", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap VS_Button {
             get {
                 object obj = ResourceManager.GetObject("VS_Button", resourceCulture);
