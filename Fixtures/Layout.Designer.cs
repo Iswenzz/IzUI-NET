@@ -44,7 +44,6 @@
             this.panelSeparator1.Animations.HoverColorText = System.Drawing.Color.Empty;
             this.panelSeparator1.Animations.HoverColorTextLeave = System.Drawing.Color.Empty;
             this.panelSeparator1.Border.Locations = ((Iswenzz.UI.Data.RectLocation)((Iswenzz.UI.Data.RectLocation.Right | Iswenzz.UI.Data.RectLocation.Left)));
-            this.panelSeparator1.Border.Radius = 0;
             this.panelSeparator1.Layouts.Angle = 0;
             this.panelSeparator1.Location = new System.Drawing.Point(185, 257);
             this.panelSeparator1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -61,7 +60,6 @@
             this.panelBorder1.Border.Locations = ((Iswenzz.UI.Data.RectLocation)((((Iswenzz.UI.Data.RectLocation.Top | Iswenzz.UI.Data.RectLocation.Right) 
             | Iswenzz.UI.Data.RectLocation.Bottom) 
             | Iswenzz.UI.Data.RectLocation.Left)));
-            this.panelBorder1.Border.Radius = 0;
             this.panelBorder1.Layouts.Angle = 0;
             this.panelBorder1.Location = new System.Drawing.Point(185, 147);
             this.panelBorder1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -89,7 +87,6 @@
             this.labelSpecial1.Animations.HoverColorText = System.Drawing.Color.Empty;
             this.labelSpecial1.Animations.HoverColorTextLeave = System.Drawing.Color.Empty;
             this.labelSpecial1.BackColor = System.Drawing.Color.Transparent;
-            this.labelSpecial1.Border.Radius = 0;
             this.labelSpecial1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelSpecial1.ForeColor = System.Drawing.Color.Gainsboro;
             this.labelSpecial1.Location = new System.Drawing.Point(15, 74);
@@ -108,7 +105,6 @@
             this.labelSpecial2.Animations.HoverColorText = System.Drawing.Color.Empty;
             this.labelSpecial2.Animations.HoverColorTextLeave = System.Drawing.Color.Empty;
             this.labelSpecial2.BackColor = System.Drawing.Color.Transparent;
-            this.labelSpecial2.Border.Radius = 0;
             this.labelSpecial2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelSpecial2.ForeColor = System.Drawing.Color.Gainsboro;
             this.labelSpecial2.Location = new System.Drawing.Point(15, 172);
@@ -127,7 +123,6 @@
             this.labelSpecial3.Animations.HoverColorText = System.Drawing.Color.Empty;
             this.labelSpecial3.Animations.HoverColorTextLeave = System.Drawing.Color.Empty;
             this.labelSpecial3.BackColor = System.Drawing.Color.Transparent;
-            this.labelSpecial3.Border.Radius = 0;
             this.labelSpecial3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelSpecial3.ForeColor = System.Drawing.Color.Gainsboro;
             this.labelSpecial3.Location = new System.Drawing.Point(15, 283);
@@ -147,7 +142,6 @@
             this.separator1.Animations.HoverColorTextLeave = System.Drawing.Color.Empty;
             this.separator1.BackColor = System.Drawing.Color.Transparent;
             this.separator1.Border.Color = System.Drawing.Color.Empty;
-            this.separator1.Border.Radius = 0;
             this.separator1.Border.Width = 0F;
             this.separator1.ForeColor = System.Drawing.Color.DarkGray;
             this.separator1.Layouts.Angle = 0;

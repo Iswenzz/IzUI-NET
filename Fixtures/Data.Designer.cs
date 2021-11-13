@@ -67,7 +67,6 @@
             this.labelSpecial2.Border.Locations = ((Iswenzz.UI.Data.RectLocation)((((Iswenzz.UI.Data.RectLocation.Top | Iswenzz.UI.Data.RectLocation.Right) 
             | Iswenzz.UI.Data.RectLocation.Bottom) 
             | Iswenzz.UI.Data.RectLocation.Left)));
-            this.labelSpecial2.Border.Radius = 0;
             this.labelSpecial2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelSpecial2.ForeColor = System.Drawing.Color.MediumBlue;
             this.labelSpecial2.Icon.IconImage = global::Iswenzz.UI.Controls.Resources.ControlResources.Icon_Colors;
@@ -87,7 +86,6 @@
             this.treeViewer1.Animations.HoverColorText = System.Drawing.Color.Empty;
             this.treeViewer1.Animations.HoverColorTextLeave = System.Drawing.Color.Empty;
             this.treeViewer1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.treeViewer1.Border.Radius = 0;
             this.treeViewer1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.treeViewer1.Cursor = System.Windows.Forms.Cursors.Default;
             this.treeViewer1.DefaultIcon = null;
@@ -125,7 +123,6 @@
             this.labelSpecial3.Border.Locations = ((Iswenzz.UI.Data.RectLocation)((((Iswenzz.UI.Data.RectLocation.Top | Iswenzz.UI.Data.RectLocation.Right) 
             | Iswenzz.UI.Data.RectLocation.Bottom) 
             | Iswenzz.UI.Data.RectLocation.Left)));
-            this.labelSpecial3.Border.Radius = 0;
             this.labelSpecial3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelSpecial3.ForeColor = System.Drawing.Color.Gainsboro;
             this.labelSpecial3.Icon.IconImage = global::Iswenzz.UI.Controls.Resources.ControlResources.Icon_Colors;
@@ -148,7 +145,6 @@
             this.labelSpecial1.Border.Locations = ((Iswenzz.UI.Data.RectLocation)((((Iswenzz.UI.Data.RectLocation.Top | Iswenzz.UI.Data.RectLocation.Right) 
             | Iswenzz.UI.Data.RectLocation.Bottom) 
             | Iswenzz.UI.Data.RectLocation.Left)));
-            this.labelSpecial1.Border.Radius = 0;
             this.labelSpecial1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelSpecial1.ForeColor = System.Drawing.Color.Gainsboro;
             this.labelSpecial1.Location = new System.Drawing.Point(446, 79);
@@ -166,7 +162,6 @@
             this.labelSpecial4.Animations.HoverColorText = System.Drawing.Color.Empty;
             this.labelSpecial4.Animations.HoverColorTextLeave = System.Drawing.Color.Empty;
             this.labelSpecial4.BackColor = System.Drawing.Color.Transparent;
-            this.labelSpecial4.Border.Radius = 0;
             this.labelSpecial4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelSpecial4.ForeColor = System.Drawing.Color.Gainsboro;
             this.labelSpecial4.Location = new System.Drawing.Point(23, 177);
@@ -185,7 +180,6 @@
             this.labelSpecial5.Animations.HoverColorText = System.Drawing.Color.Empty;
             this.labelSpecial5.Animations.HoverColorTextLeave = System.Drawing.Color.Empty;
             this.labelSpecial5.BackColor = System.Drawing.Color.Transparent;
-            this.labelSpecial5.Border.Radius = 0;
             this.labelSpecial5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelSpecial5.ForeColor = System.Drawing.Color.Gainsboro;
             this.labelSpecial5.Location = new System.Drawing.Point(23, 79);

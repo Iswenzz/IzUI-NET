@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Drawing.Design;
 
 using Iswenzz.UI.Data;
+using Iswenzz.UI.Utils;
 
 namespace Iswenzz.UI.Models.Editors
 {

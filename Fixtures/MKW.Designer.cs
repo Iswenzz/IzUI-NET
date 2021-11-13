@@ -54,7 +54,6 @@
             this.labelSpecial1.Animations.HoverColorText = System.Drawing.Color.Empty;
             this.labelSpecial1.Animations.HoverColorTextLeave = System.Drawing.Color.Empty;
             this.labelSpecial1.BackColor = System.Drawing.Color.Transparent;
-            this.labelSpecial1.Border.Radius = 0;
             this.labelSpecial1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelSpecial1.ForeColor = System.Drawing.Color.Gainsboro;
             this.labelSpecial1.Location = new System.Drawing.Point(22, 89);
@@ -73,7 +72,6 @@
             this.timeTrialCard1.Animations.HoverColorText = System.Drawing.Color.Empty;
             this.timeTrialCard1.Animations.HoverColorTextLeave = System.Drawing.Color.Empty;
             this.timeTrialCard1.BackgroundImage = ((System.Drawing.Bitmap)(resources.GetObject("timeTrialCard1.BackgroundImage")));
-            this.timeTrialCard1.Border.Radius = 0;
             this.timeTrialCard1.CardImage = ((System.Drawing.Bitmap)(resources.GetObject("timeTrialCard1.CardImage")));
             this.timeTrialCard1.ComboImage = ((System.Drawing.Bitmap)(resources.GetObject("timeTrialCard1.ComboImage")));
             this.timeTrialCard1.ControllerImage = ((System.Drawing.Bitmap)(resources.GetObject("timeTrialCard1.ControllerImage")));

@@ -1,10 +1,12 @@
-﻿using Iswenzz.UI.Data;
-using Iswenzz.UI.Models.Editors;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Design;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
+
+using Iswenzz.UI.Data;
+using Iswenzz.UI.Maths;
+using Iswenzz.UI.Models.Editors;
 
 namespace Iswenzz.UI.Design
 {
@@ -17,7 +19,7 @@ namespace Iswenzz.UI.Design
         /// Border corner radius.
         /// </summary>
         [Description("Border radius degree.")]
-        public virtual int Radius { get; set; }
+        public virtual Size Radius { get; set; }
 
         /// <summary>
         /// Border color.
@@ -72,11 +74,10 @@ namespace Iswenzz.UI.Design
                     new PointF(Width / 2, Owner.Height));
 
             // Rounded
-            if (Radius > 0 && Owner.BackColor != Color.Transparent)
+            if (Radius.Width > 0 && Radius.Height > 0 && Owner.BackColor != Color.Transparent)
             {
-                GraphicsPath path = Owner.ClientRectangle.GetRoundPath(Radius);
+                GraphicsPath path = Owner.ClientRectangle.CreateRoundRectPath(Radius);
                 Owner.Region = new Region(path);
-                pe.Graphics.FillPath(backBrush, path);
                 path.Dispose();
             }
         }

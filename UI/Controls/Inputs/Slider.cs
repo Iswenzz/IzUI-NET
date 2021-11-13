@@ -4,6 +4,9 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
+using Iswenzz.UI.Maths;
+using Iswenzz.UI.Utils;
+
 namespace Iswenzz.UI.Controls.Inputs
 {
     /// <summary>
@@ -438,8 +441,9 @@ namespace Iswenzz.UI.Controls.Inputs
         {
             if (!Enabled)
             {
-                Color[] desaturatedColors = DesaturateColors(ThumbOuterColor, ThumbInnerColor, ThumbPenColor,
-                    BarOuterColor, BarInnerColor, BarPenColor, ElapsedOuterColor, ElapsedInnerColor);
+                Color[] desaturatedColors = ColorUtils.DesaturateColors(ThumbOuterColor, 
+                    ThumbInnerColor, ThumbPenColor, BarOuterColor, BarInnerColor, BarPenColor, 
+                    ElapsedOuterColor, ElapsedInnerColor);
                 DrawSlider(e, desaturatedColors[0], desaturatedColors[1], desaturatedColors[2],
                     desaturatedColors[3], desaturatedColors[4], desaturatedColors[5], desaturatedColors[6], 
                     desaturatedColors[7]);
@@ -448,8 +452,9 @@ namespace Iswenzz.UI.Controls.Inputs
             {
                 if (MouseEffects && MouseInRegion)
                 {
-                    Color[] lightenedColors = LightenColors(ThumbOuterColor, ThumbInnerColor, ThumbPenColor,
-                        BarOuterColor, BarInnerColor, BarPenColor, ElapsedOuterColor, ElapsedInnerColor);
+                    Color[] lightenedColors = ColorUtils.LightenColors(ThumbOuterColor, 
+                        ThumbInnerColor, ThumbPenColor, BarOuterColor, BarInnerColor, BarPenColor, 
+                        ElapsedOuterColor, ElapsedInnerColor);
                     DrawSlider(e, lightenedColors[0], lightenedColors[1], lightenedColors[2], lightenedColors[3],
                         lightenedColors[4], lightenedColors[5], lightenedColors[6], lightenedColors[7]);
                 }
@@ -523,7 +528,7 @@ namespace Iswenzz.UI.Controls.Inputs
                 // Get thumb shape path 
                 GraphicsPath thumbPath;
                 if (thumbCustomShape == null)
-                    thumbPath = CreateRoundRectPath(ThumbRect, thumbRoundRectSize);
+                    thumbPath = ThumbRect.CreateRoundRectPath(thumbRoundRectSize);
                 else
                 {
                     thumbPath = thumbCustomShape;
@@ -592,7 +597,7 @@ namespace Iswenzz.UI.Controls.Inputs
                     r.Height--;
                     r.X++;
                        
-                    using GraphicsPath gpBorder = CreateRoundRectPath(r, borderRoundRectSize);
+                    using GraphicsPath gpBorder = r.CreateRoundRectPath(borderRoundRectSize);
                     e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
                     e.Graphics.DrawPath(p, gpBorder);
                 }
@@ -656,7 +661,7 @@ namespace Iswenzz.UI.Controls.Inputs
         protected override void OnMouseMove(MouseEventArgs e)
         {
             base.OnMouseMove(e);
-            MouseInThumbRegion = IsPointInRect(e.Location, ThumbRect);
+            MouseInThumbRegion = e.Location.ContainsRect(ThumbRect);
             if (Capture & e.Button == MouseButtons.Left)
             {
                 ScrollEventType set = ScrollEventType.ThumbPosition;
@@ -695,7 +700,7 @@ namespace Iswenzz.UI.Controls.Inputs
         {
             base.OnMouseUp(e);
             Capture = false;
-            MouseInThumbRegion = IsPointInRect(e.Location, ThumbRect);
+            MouseInThumbRegion = e.Location.ContainsRect(ThumbRect);
             Scroll?.Invoke(this, new ScrollEventArgs(ScrollEventType.EndScroll, trackerValue));
             ValueChanged?.Invoke(this, new EventArgs());
             Invalidate();
@@ -795,60 +800,6 @@ namespace Iswenzz.UI.Controls.Inputs
         }
 
         /// <summary>
-        /// Creates the round rect path.
-        /// </summary>
-        /// <param name="rect">The rectangle on which graphics path will be spanned.</param>
-        /// <param name="size">The size of rounded rectangle edges.</param>
-        /// <returns></returns>
-        public static GraphicsPath CreateRoundRectPath(Rectangle rect, Size size)
-        {
-            GraphicsPath gp = new();
-            gp.AddLine(rect.Left + size.Width / 2, rect.Top, rect.Right - size.Width / 2, rect.Top);
-            gp.AddArc(rect.Right - size.Width, rect.Top, size.Width, size.Height, 270, 90);
-
-            gp.AddLine(rect.Right, rect.Top + size.Height / 2, rect.Right, rect.Bottom - size.Width / 2);
-            gp.AddArc(rect.Right - size.Width, rect.Bottom - size.Height, size.Width, size.Height, 0, 90);
-
-            gp.AddLine(rect.Right - size.Width / 2, rect.Bottom, rect.Left + size.Width / 2, rect.Bottom);
-            gp.AddArc(rect.Left, rect.Bottom - size.Height, size.Width, size.Height, 90, 90);
-
-            gp.AddLine(rect.Left, rect.Bottom - size.Height / 2, rect.Left, rect.Top + size.Height / 2);
-            gp.AddArc(rect.Left, rect.Top, size.Width, size.Height, 180, 90);
-            return gp;
-        }
-
-        /// <summary>
-        /// Desaturates colors from given array.
-        /// </summary>
-        /// <param name="colorsToDesaturate">The colors to be desaturated.</param>
-        /// <returns></returns>
-        public static Color[] DesaturateColors(params Color[] colorsToDesaturate)
-        {
-            Color[] colorsToReturn = new Color[colorsToDesaturate.Length];
-            for (int i = 0; i < colorsToDesaturate.Length; i++)
-            {
-                // Use NTSC weighted avarage
-                int gray = (int)(colorsToDesaturate[i].R * 0.3 + colorsToDesaturate[i].G * 0.6 
-                    + colorsToDesaturate[i].B * 0.1);
-                colorsToReturn[i] = Color.FromArgb(-0x010101 * (255 - gray) - 1);
-            }
-            return colorsToReturn;
-        }
-
-        /// <summary>
-        /// Lightens colors from given array.
-        /// </summary>
-        /// <param name="colorsToLighten">The colors to lighten.</param>
-        /// <returns></returns>
-        public static Color[] LightenColors(params Color[] colorsToLighten)
-        {
-            Color[] colorsToReturn = new Color[colorsToLighten.Length];
-            for (int i = 0; i < colorsToLighten.Length; i++)
-                colorsToReturn[i] = ControlPaint.Light(colorsToLighten[i]);
-            return colorsToReturn;
-        }
-
-        /// <summary>
         /// Sets the trackbar value so that it wont exceed allowed range.
         /// </summary>
         /// <param name="val">The value.</param>
@@ -861,16 +812,5 @@ namespace Iswenzz.UI.Controls.Inputs
             else 
                 Value = val;
         }
-
-        /// <summary>
-        /// Determines whether rectangle contains given point.
-        /// </summary>
-        /// <param name="pt">The point to test.</param>
-        /// <param name="rect">The base rectangle.</param>
-        /// <returns>
-        /// True if rectangle contains given point.
-        /// </returns>
-        private static bool IsPointInRect(Point pt, Rectangle rect) =>
-            pt.X > rect.Left & pt.X < rect.Right & pt.Y > rect.Top & pt.Y < rect.Bottom;
     }
 }

@@ -61,7 +61,7 @@
             this.button1.Animations.HoverColorTextLeave = System.Drawing.Color.Empty;
             this.button1.BackColor = System.Drawing.Color.SteelBlue;
             this.button1.Border.Color = System.Drawing.Color.Empty;
-            this.button1.Border.Radius = 0;
+            this.button1.Border.Radius = new System.Drawing.Size(0, 0);
             this.button1.Border.Width = 0F;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
@@ -86,7 +86,7 @@
             this.labelSpecial1.Animations.HoverColorText = System.Drawing.Color.Empty;
             this.labelSpecial1.Animations.HoverColorTextLeave = System.Drawing.Color.Empty;
             this.labelSpecial1.BackColor = System.Drawing.Color.Transparent;
-            this.labelSpecial1.Border.Radius = 0;
+            this.labelSpecial1.Border.Radius = new System.Drawing.Size(0, 0);
             this.labelSpecial1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelSpecial1.ForeColor = System.Drawing.Color.Gainsboro;
             this.labelSpecial1.Location = new System.Drawing.Point(22, 89);
@@ -105,7 +105,7 @@
             this.labelSpecial2.Animations.HoverColorText = System.Drawing.Color.Empty;
             this.labelSpecial2.Animations.HoverColorTextLeave = System.Drawing.Color.Empty;
             this.labelSpecial2.BackColor = System.Drawing.Color.Transparent;
-            this.labelSpecial2.Border.Radius = 0;
+            this.labelSpecial2.Border.Radius = new System.Drawing.Size(0, 0);
             this.labelSpecial2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelSpecial2.ForeColor = System.Drawing.Color.Gainsboro;
             this.labelSpecial2.Location = new System.Drawing.Point(22, 172);
@@ -127,7 +127,7 @@
             this.buttonImage1.BackColor = System.Drawing.Color.Transparent;
             this.buttonImage1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonImage1.BackgroundImage")));
             this.buttonImage1.Border.Color = System.Drawing.Color.Empty;
-            this.buttonImage1.Border.Radius = 0;
+            this.buttonImage1.Border.Radius = new System.Drawing.Size(0, 0);
             this.buttonImage1.Border.Width = 0F;
             this.buttonImage1.FlatAppearance.BorderSize = 0;
             this.buttonImage1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
@@ -150,7 +150,7 @@
             this.labelSpecial3.Animations.HoverColorText = System.Drawing.Color.Empty;
             this.labelSpecial3.Animations.HoverColorTextLeave = System.Drawing.Color.Empty;
             this.labelSpecial3.BackColor = System.Drawing.Color.Transparent;
-            this.labelSpecial3.Border.Radius = 0;
+            this.labelSpecial3.Border.Radius = new System.Drawing.Size(0, 0);
             this.labelSpecial3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelSpecial3.ForeColor = System.Drawing.Color.Gainsboro;
             this.labelSpecial3.Location = new System.Drawing.Point(22, 260);
@@ -172,7 +172,7 @@
             this.slider1.BarInnerColor = System.Drawing.Color.DimGray;
             this.slider1.BarOuterColor = System.Drawing.Color.DimGray;
             this.slider1.BarPenColor = System.Drawing.Color.Transparent;
-            this.slider1.Border.Radius = 0;
+            this.slider1.Border.Radius = new System.Drawing.Size(0, 0);
             this.slider1.BorderRoundRectSize = new System.Drawing.Size(20, 20);
             this.slider1.DrawFocusRectangle = false;
             this.slider1.DrawSemitransparentThumb = false;
@@ -204,7 +204,7 @@
             this.button2.Border.Locations = ((Iswenzz.UI.Data.RectLocation)((((Iswenzz.UI.Data.RectLocation.Top | Iswenzz.UI.Data.RectLocation.Right) 
             | Iswenzz.UI.Data.RectLocation.Bottom) 
             | Iswenzz.UI.Data.RectLocation.Left)));
-            this.button2.Border.Radius = 0;
+            this.button2.Border.Radius = new System.Drawing.Size(0, 0);
             this.button2.Border.Width = 8F;
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
@@ -228,7 +228,7 @@
             this.button3.Animations.HoverColorTextLeave = System.Drawing.Color.Empty;
             this.button3.BackColor = System.Drawing.Color.SteelBlue;
             this.button3.Border.Color = System.Drawing.Color.Empty;
-            this.button3.Border.Radius = 0;
+            this.button3.Border.Radius = new System.Drawing.Size(40, 40);
             this.button3.Border.Width = 0F;
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
