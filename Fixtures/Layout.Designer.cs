@@ -180,9 +180,9 @@
         private Controls.Layout.PanelBorder panelBorder1;
         private Controls.Layout.PanelSeparator panelSeparator1;
         private System.Windows.Forms.Label label1;
-        private Data.LabelSpecial labelSpecial1;
-        private Data.LabelSpecial labelSpecial2;
-        private Data.LabelSpecial labelSpecial3;
+        private Controls.Data.LabelSpecial labelSpecial1;
+        private Controls.Data.LabelSpecial labelSpecial2;
+        private Controls.Data.LabelSpecial labelSpecial3;
         private Separator separator1;
     }
 }

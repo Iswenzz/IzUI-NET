@@ -36,6 +36,8 @@
             this.buttonImage1 = new Iswenzz.UI.Controls.Inputs.ButtonImage();
             this.labelSpecial3 = new Iswenzz.UI.Controls.Data.LabelSpecial();
             this.slider1 = new Iswenzz.UI.Controls.Inputs.Slider();
+            this.button2 = new Iswenzz.UI.Controls.Inputs.Button();
+            this.button3 = new Iswenzz.UI.Controls.Inputs.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -46,7 +48,7 @@
             this.label1.ForeColor = System.Drawing.Color.Gainsboro;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(382, 54);
+            this.label1.Size = new System.Drawing.Size(568, 54);
             this.label1.TabIndex = 24;
             this.label1.Text = "Inputs";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -65,10 +67,13 @@
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button1.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.button1.Icon.IconImage = global::Iswenzz.UI.Controls.Resources.ControlResources.Icon_Colors;
+            this.button1.Icon.IconSize = 40;
             this.button1.Location = new System.Drawing.Point(181, 89);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(179, 46);
+            this.button1.Size = new System.Drawing.Size(200, 46);
             this.button1.TabIndex = 25;
             this.button1.Text = "button1";
             this.button1.TextLayouts.Angle = 0;
@@ -128,10 +133,11 @@
             this.buttonImage1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.buttonImage1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.buttonImage1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonImage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonImage1.ForeColor = System.Drawing.Color.SteelBlue;
             this.buttonImage1.Location = new System.Drawing.Point(181, 172);
             this.buttonImage1.Name = "buttonImage1";
-            this.buttonImage1.Size = new System.Drawing.Size(179, 46);
+            this.buttonImage1.Size = new System.Drawing.Size(200, 46);
             this.buttonImage1.TabIndex = 32;
             this.buttonImage1.Text = "buttonImage1";
             this.buttonImage1.TextLayouts.Angle = 0;
@@ -177,21 +183,76 @@
             this.slider1.Location = new System.Drawing.Point(181, 260);
             this.slider1.MouseEffects = false;
             this.slider1.Name = "slider1";
-            this.slider1.Size = new System.Drawing.Size(180, 24);
+            this.slider1.Size = new System.Drawing.Size(200, 24);
             this.slider1.SmallChange = ((uint)(1u));
             this.slider1.TabIndex = 34;
             this.slider1.Text = "slider1";
             this.slider1.ThumbOuterColor = System.Drawing.Color.Gainsboro;
             this.slider1.ThumbPenColor = System.Drawing.Color.Gainsboro;
-            this.slider1.ThumbRect = new System.Drawing.Rectangle(80, 1, 19, 21);
+            this.slider1.ThumbRect = new System.Drawing.Rectangle(90, 1, 19, 21);
             this.slider1.ThumbRoundRectSize = new System.Drawing.Size(20, 20);
             this.slider1.ThumbSize = 20;
+            // 
+            // button2
+            // 
+            this.button2.Animations.HoverColor = System.Drawing.Color.RoyalBlue;
+            this.button2.Animations.HoverColorLeave = System.Drawing.Color.Empty;
+            this.button2.Animations.HoverColorText = System.Drawing.Color.DarkOrange;
+            this.button2.Animations.HoverColorTextLeave = System.Drawing.Color.Empty;
+            this.button2.BackColor = System.Drawing.Color.SteelBlue;
+            this.button2.Border.Color = System.Drawing.Color.RoyalBlue;
+            this.button2.Border.Locations = ((Iswenzz.UI.Data.RectLocation)((((Iswenzz.UI.Data.RectLocation.Top | Iswenzz.UI.Data.RectLocation.Right) 
+            | Iswenzz.UI.Data.RectLocation.Bottom) 
+            | Iswenzz.UI.Data.RectLocation.Left)));
+            this.button2.Border.Radius = 0;
+            this.button2.Border.Width = 8F;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button2.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.button2.Location = new System.Drawing.Point(404, 89);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(62, 195);
+            this.button2.TabIndex = 35;
+            this.button2.Text = "button2";
+            this.button2.TextLayouts.Angle = 90;
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            this.button3.Animations.HoverColor = System.Drawing.Color.RoyalBlue;
+            this.button3.Animations.HoverColorLeave = System.Drawing.Color.Empty;
+            this.button3.Animations.HoverColorText = System.Drawing.Color.DarkOrange;
+            this.button3.Animations.HoverColorTextLeave = System.Drawing.Color.Empty;
+            this.button3.BackColor = System.Drawing.Color.SteelBlue;
+            this.button3.Border.Color = System.Drawing.Color.Empty;
+            this.button3.Border.Radius = 0;
+            this.button3.Border.Width = 0F;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button3.ForeColor = System.Drawing.Color.MediumBlue;
+            this.button3.Icon.IconImage = global::Iswenzz.UI.Controls.Resources.ControlResources.Icon_Colors;
+            this.button3.Icon.IconSize = 150;
+            this.button3.Location = new System.Drawing.Point(485, 89);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(62, 195);
+            this.button3.TabIndex = 36;
+            this.button3.Text = "button3";
+            this.button3.TextLayouts.Angle = 90;
+            this.button3.UseVisualStyleBackColor = false;
             // 
             // Inputs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.slider1);
             this.Controls.Add(this.labelSpecial3);
             this.Controls.Add(this.buttonImage1);
@@ -201,7 +262,7 @@
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Inputs";
-            this.Size = new System.Drawing.Size(382, 322);
+            this.Size = new System.Drawing.Size(568, 322);
             this.ResumeLayout(false);
 
         }
@@ -209,10 +270,12 @@
         #endregion
         private System.Windows.Forms.Label label1;
         private Controls.Inputs.Button button1;
-        private Data.LabelSpecial labelSpecial1;
-        private Data.LabelSpecial labelSpecial2;
+        private Controls.Data.LabelSpecial labelSpecial1;
+        private Controls.Data.LabelSpecial labelSpecial2;
         private Controls.Inputs.ButtonImage buttonImage1;
-        private Data.LabelSpecial labelSpecial3;
+        private Controls.Data.LabelSpecial labelSpecial3;
         private Controls.Inputs.Slider slider1;
+        private Controls.Inputs.Button button2;
+        private Controls.Inputs.Button button3;
     }
 }

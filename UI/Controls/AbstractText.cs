@@ -30,6 +30,10 @@ namespace Iswenzz.UI.Controls
         public virtual Border Border { get; set; }
 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        [Category("Appearance"), Description("Icon styles.")]
+        public virtual Icon Icon { get; set; }
+
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [Category("Appearance"), Description("Animations styles.")]
         public virtual Animations Animations { get; set; }
 
@@ -42,6 +46,7 @@ namespace Iswenzz.UI.Controls
             TextLayouts = new TextLayouts(this);
             Alpha = new Alpha(this);
             Border = new Border(this);
+            Icon = new Icon(this);
             Animations = new Animations(this);
 
             SetStyle(Alpha.ControlStylesToEnable, true);
@@ -96,6 +101,8 @@ namespace Iswenzz.UI.Controls
             if (BasePainting)
                 base.OnPaint(pe);
 
+            Alpha.OnPaint(pe);
+            Icon.OnPaint(pe);
             Border.OnPaint(pe);
             Animations.OnPaint(pe);
             TextLayouts.OnPaint(pe);

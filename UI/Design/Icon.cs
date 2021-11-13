@@ -16,12 +16,6 @@ namespace Iswenzz.UI.Design
         public virtual Image IconImage { get; set; }
 
         /// <summary>
-        /// Icon placement.
-        /// </summary>
-        [Description("Button icon placement.")]
-        public virtual bool IconAutoPlacement { get; set; }
-
-        /// <summary>
         /// Icon size.
         /// </summary>
         [Description("Button icon size (0 = Auto).")]
@@ -43,7 +37,6 @@ namespace Iswenzz.UI.Design
         {
             IconImage = icon;
             IconSize = size;
-            IconAutoPlacement = autoPlace;
         }
 
         /// <summary>
@@ -55,18 +48,11 @@ namespace Iswenzz.UI.Design
             if (!Renderable || IconImage == null) return;
 
             // Icon render
-            if (IconSize == 0 && IconAutoPlacement)
-                pe.Graphics.DrawImage(IconImage,
-                    new Rectangle((Owner.Width / 2 / 2) - Owner.Height / 2, 0, Owner.Height, Owner.Height));
-            if (IconSize != 0 && IconAutoPlacement)
-                pe.Graphics.DrawImage(IconImage,
-                    new Rectangle((Owner.Width / 2 / 2) - IconSize / 2, 0, IconSize, IconSize));
-            if (IconSize == 0 && !IconAutoPlacement)
-                pe.Graphics.DrawImage(IconImage,
-                    new Rectangle(10, 0, Owner.Height, Owner.Height));
-            if (IconSize != 0 && !IconAutoPlacement)
-                pe.Graphics.DrawImage(IconImage,
-                    new Rectangle(10, 0, IconSize, IconSize));
+            int size = IconSize > 0 ? IconSize : IconImage.Height;
+            pe.Graphics.DrawImage(IconImage, new Rectangle(
+                (Owner.Width / 6) - (size / 2), 
+                (Owner.Height / 2) - (size / 2),
+                size, size));
         }
     }
 }

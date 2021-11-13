@@ -59,17 +59,17 @@ namespace Iswenzz.UI.Design
 
             // Borders
             if (Locations.HasFlag(RectLocation.Top))
-                pe.Graphics.DrawLine(borderPen, new PointF(0, Width - 1),
-                    new PointF(Owner.Width - 1, Width - 1));
+                pe.Graphics.DrawLine(borderPen, new PointF(0, Width / 2),
+                    new PointF(Owner.Width, Width / 2));
             if (Locations.HasFlag(RectLocation.Right))
-                pe.Graphics.DrawLine(borderPen, new PointF(Owner.Width - Width + 1, 0),
-                    new PointF(Owner.Width - Width + 1, Owner.Height - 1));
+                pe.Graphics.DrawLine(borderPen, new PointF(Owner.Width - (Width / 2), 0),
+                    new PointF(Owner.Width - (Width / 2), Owner.Height));
             if (Locations.HasFlag(RectLocation.Bottom))
-                pe.Graphics.DrawLine(borderPen, new PointF(0, Owner.Height - Width + 1),
-                    new PointF(Owner.Width - 1, Owner.Height - Width + 1));
+                pe.Graphics.DrawLine(borderPen, new PointF(0, Owner.Height - (Width / 2)),
+                    new PointF(Owner.Width, Owner.Height - (Width / 2)));
             if (Locations.HasFlag(RectLocation.Left))
-                pe.Graphics.DrawLine(borderPen, new PointF(Width - 1, 0),
-                    new PointF(Width - 1, Owner.Height - 1));
+                pe.Graphics.DrawLine(borderPen, new PointF(Width / 2, 0),
+                    new PointF(Width / 2, Owner.Height));
 
             // Rounded
             if (Radius > 0 && Owner.BackColor != Color.Transparent)

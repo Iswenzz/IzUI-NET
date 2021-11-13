@@ -102,7 +102,7 @@
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private Data.LabelSpecial labelSpecial1;
+        private Controls.Data.LabelSpecial labelSpecial1;
         private Game.MKW.TimeTrialCard timeTrialCard1;
     }
 }

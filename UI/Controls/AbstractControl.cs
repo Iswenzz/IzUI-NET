@@ -96,6 +96,7 @@ namespace Iswenzz.UI.Controls
             if (BasePainting)
                 base.OnPaint(pe);
 
+            Alpha.OnPaint(pe);
             Border.OnPaint(pe);
             Animations.OnPaint(pe);
             Layouts.OnPaint(pe);

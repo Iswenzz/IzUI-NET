@@ -27,7 +27,11 @@ namespace Iswenzz.UI.Design
 
             using SolidBrush foreBrush = new(Owner.ForeColor);
             using StringFormat sf = Alignment.GetStringFormat(ContentAlign);
-            pe.Graphics.DrawString(Owner.Text, Owner.Font, foreBrush, Owner.ClientRectangle, sf);
+
+            Rectangle clientRectangle = Owner.ClientRectangle;
+            Rectangle clientRectangleReverse = new(0, 0, Owner.Height, Owner.Width);
+            pe.Graphics.DrawString(Owner.Text, Owner.Font, foreBrush, 
+                Angle > 0 ? clientRectangleReverse : clientRectangle, sf);
         }
     }
 }

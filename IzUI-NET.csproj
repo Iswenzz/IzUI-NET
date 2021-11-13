@@ -15,6 +15,9 @@
     <ApplicationIcon />
   </PropertyGroup>
   <ItemGroup>
+    <Compile Update="Fixtures\Data.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Fixtures\MKW.cs">
       <SubType>UserControl</SubType>
     </Compile>
