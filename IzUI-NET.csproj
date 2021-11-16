@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFrameworks>net48;net6.0-windows</TargetFrameworks>
     <OutputType>Library</OutputType>
     <RootNamespace>Iswenzz</RootNamespace>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
@@ -13,19 +13,22 @@
   <PropertyGroup>
     <StartupObject />
     <ApplicationIcon />
-    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Copyright>Iswenzz</Copyright>
     <PackageProjectUrl>https://iswenzz.com</PackageProjectUrl>
-    <PackageIcon>UI\Controls\Resources\Iswenzz.png</PackageIcon>
+    <PackageIcon>Iswenzz.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/Iswenzz/IzUI-NET</RepositoryUrl>
     <PackageTags>ui; winforms; components; controls; iswenzz</PackageTags>
-    <AssemblyVersion>1.0</AssemblyVersion>
-    <FileVersion>1.0</FileVersion>
+    <AssemblyVersion>1.0.2</AssemblyVersion>
+    <FileVersion>1.0.2</FileVersion>
     <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
     <Description>UI component library allowing you to make modern designs using the various components it offers.</Description>
     <Authors>Iswenzz</Authors>
     <PackageId>Iswenzz.$(AssemblyName)</PackageId>
+    <Version>1.0.2</Version>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
   <ItemGroup>
     <Compile Update="Fixtures\Data.cs">
@@ -101,13 +104,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Update="README.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-    <None Update="UI\Controls\Resources\Iswenzz.png">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
+    <None Include="README.md" Pack="true" PackagePath="$(PackageReadmeFile)" />
+    <None Include="UI\Controls\Resources\Iswenzz.png" Pack="true" PackagePath="$(PackageIcon)" />
   </ItemGroup>
 </Project>

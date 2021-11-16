@@ -22,8 +22,8 @@ namespace Iswenzz.UI.Models.Converter
                 string[] enumTypeAndValue = (value as string).Split('.');
                 if (enumTypeAndValue.Length < 2) throw new Exception();
 
-                string enumTypeName = string.Concat(enumTypeAndValue[0..^2]);
-                string enumValue = enumTypeAndValue[^1];
+                string enumTypeName = string.Concat(enumTypeAndValue.Take(enumTypeAndValue.Length - 2));
+                string enumValue = enumTypeAndValue.Last();
 
                 Type enumType = AppDomain.CurrentDomain.GetAssemblies()
                     .Where(asm => !asm.IsDynamic)
