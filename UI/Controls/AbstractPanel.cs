@@ -38,6 +38,10 @@ namespace Iswenzz.UI.Controls
             Layouts = new Layouts(this);
             Border = new Border(this);
             Animations = new Animations(this);
+
+            SetStyle(ControlStyles.OptimizedDoubleBuffer | 
+                ControlStyles.AllPaintingInWmPaint |
+                ControlStyles.UserPaint, true);
         }
 
         /// <summary>
@@ -69,9 +73,22 @@ namespace Iswenzz.UI.Controls
             if (BasePainting)
                 base.OnPaint(pe);
 
-            Border.OnPaint(pe);
-            Animations.OnPaint(pe);
-            Layouts.OnPaint(pe);
+            Border?.OnPaint(pe);
+            Animations?.OnPaint(pe);
+            Layouts?.OnPaint(pe);
+        }
+
+        /// <summary>
+        /// Release all resources.
+        /// </summary>
+        /// <param name="disposing">Should dispose.</param>
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
+
+            Border?.Dispose();
+            Animations?.Dispose();
+            Layouts?.Dispose();
         }
 
         /// <summary>

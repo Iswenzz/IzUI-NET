@@ -96,10 +96,26 @@ namespace Iswenzz.UI.Controls
             if (BasePainting)
                 base.OnPaint(pe);
 
-            Alpha.OnPaint(pe);
-            Border.OnPaint(pe);
-            Animations.OnPaint(pe);
-            Layouts.OnPaint(pe);
+            Alpha?.OnPaint(pe);
+            Border?.OnPaint(pe);
+            Animations?.OnPaint(pe);
+            Layouts?.OnPaint(pe);
+        }
+
+        /// <summary>
+        /// Release all resources.
+        /// </summary>
+        /// <param name="disposing">Should dispose.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+                components.Dispose();
+            base.Dispose(disposing);
+
+            Alpha?.Dispose();
+            Border?.Dispose();
+            Animations?.Dispose();
+            Layouts?.Dispose();
         }
 
         /// <summary>

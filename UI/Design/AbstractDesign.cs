@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
@@ -12,7 +13,7 @@ namespace Iswenzz.UI.Design
     /// Represent a designer object.
     /// </summary>
     [TypeConverter(typeof(ExpandableObjectConverter))]
-    public abstract class AbstractDesign : INotifyPropertyChanged
+    public abstract class AbstractDesign : IDisposable, INotifyPropertyChanged
     {
         [Browsable(false)] 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -81,5 +82,10 @@ namespace Iswenzz.UI.Design
             }
             return string.Join(", ", propertyValues);
         }
+
+        /// <summary>
+        /// Dispose all resources.
+        /// </summary>
+        public virtual void Dispose() { }
     }
 }
