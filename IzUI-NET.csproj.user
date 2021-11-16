@@ -2,6 +2,9 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
+    <Compile Update="UI\Controls\AbstractButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Update="UI\Controls\AbstractControl.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -12,6 +15,12 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="UI\Controls\Data\LabelSpecial.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="UI\Controls\Inputs\Button.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="UI\Controls\Inputs\ButtonImage.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="UI\Controls\Layout\PanelBorder.cs">

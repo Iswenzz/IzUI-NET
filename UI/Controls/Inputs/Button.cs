@@ -14,13 +14,7 @@ namespace Iswenzz.UI.Controls.Inputs
         /// </summary>
         public Button() : base()
         {
-            BasePainting = false;
-            FlatStyle = FlatStyle.Flat;
             Size = new Size(125, 40);
-
-            FlatAppearance.BorderSize = 0;
-            FlatAppearance.MouseDownBackColor = Color.Transparent;
-            FlatAppearance.MouseOverBackColor = Color.Transparent;
 
             BackColor = Color.SteelBlue;
             ForeColor = Color.WhiteSmoke;

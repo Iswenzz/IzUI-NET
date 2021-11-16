@@ -41,8 +41,10 @@
     <Compile Update="Fixtures\Inputs.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UI\Controls\AbstractButton.cs">
-      <SubType>Component</SubType>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Update="UI\Controls\AbstractText.cs" />
     <Compile Update="UI\Controls\AbstractTreeView.cs">
@@ -73,12 +75,8 @@
     <Compile Update="UI\Controls\Inputs\Slider.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="UI\Controls\Inputs\Button.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="UI\Controls\Inputs\ButtonImage.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Update="UI\Controls\Inputs\Button.cs" />
+    <Compile Update="UI\Controls\Inputs\ButtonImage.cs" />
     <Compile Update="UI\Controls\Data\LabelSpecial.cs" />
     <Compile Update="UI\Controls\Resources\ControlResources.Designer.cs">
       <DesignTime>True</DesignTime>
@@ -96,6 +94,10 @@
     <PackageReference Include="System.Resources.Extensions" Version="6.0.0" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Update="UI\Controls\Game\MKW\Resources\MKWResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>MKWResources.Designer.cs</LastGenOutput>

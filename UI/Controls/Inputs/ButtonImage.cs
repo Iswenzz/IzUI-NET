@@ -29,13 +29,7 @@ namespace Iswenzz.UI.Controls.Inputs
         /// </summary>
         public ButtonImage() : base()
         {
-            BasePainting = false;
             Size = new Size(125, 40);
-            FlatStyle = FlatStyle.Flat;
-
-            FlatAppearance.BorderSize = 0;
-            FlatAppearance.MouseDownBackColor = Color.Transparent;
-            FlatAppearance.MouseOverBackColor = Color.Transparent;
 
             BackColor = Color.Transparent;
             ForeColor = Color.SteelBlue;
@@ -76,7 +70,10 @@ namespace Iswenzz.UI.Controls.Inputs
         /// <param name="pe">Paint data.</param>
         protected override void OnPaint(PaintEventArgs pe)
         {
-            pe.Graphics.DrawImage(BackgroundImage, ClientRectangle);
+            using SolidBrush backColor = new(BackColor);
+            pe.Graphics.FillRectangle(backColor, ClientRectangle);
+            if (BackgroundImage != null)
+                pe.Graphics.DrawImage(BackgroundImage, ClientRectangle);
             base.OnPaint(pe);
         }
     }
