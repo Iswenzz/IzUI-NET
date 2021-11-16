@@ -54,6 +54,7 @@ namespace Iswenzz.UI.Controls.Inputs
         {
             BackgroundImage = DefaultImage;
             Invalidate();
+            base.OnMouseLeave(e);
         }
 
         /// <summary>
@@ -66,6 +67,7 @@ namespace Iswenzz.UI.Controls.Inputs
             if (ActiveImage != null)
                 BackgroundImage = ActiveImage;
             Invalidate();
+            base.OnMouseEnter(e);
         }
 
         /// <summary>
