@@ -7,7 +7,7 @@ namespace Iswenzz.UI.Controls.Inputs
     /// <summary>
     /// Button control.
     /// </summary>
-    public class Button : AbstractButton, INotifyPropertyChanged
+    public class Button : AbstractText, INotifyPropertyChanged
     {
         /// <summary>
         /// Initialize a new <see cref="Button"/> object.
@@ -18,8 +18,8 @@ namespace Iswenzz.UI.Controls.Inputs
 
             BackColor = Color.SteelBlue;
             ForeColor = Color.WhiteSmoke;
-            Animations.HoverColor = Color.RoyalBlue;
-            Animations.HoverColorText = Color.DarkOrange;
+            Animations.ColorHover = Color.RoyalBlue;
+            Animations.TextColorHover = Color.DarkOrange;
         }
 
         /// <summary>

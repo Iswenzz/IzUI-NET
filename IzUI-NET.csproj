@@ -21,13 +21,13 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/Iswenzz/IzUI-NET</RepositoryUrl>
     <PackageTags>ui; winforms; components; controls; iswenzz</PackageTags>
-    <AssemblyVersion>1.0.2</AssemblyVersion>
-    <FileVersion>1.0.2</FileVersion>
+    <AssemblyVersion>1.0.4</AssemblyVersion>
+    <FileVersion>1.0.4</FileVersion>
     <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
     <Description>UI component library allowing you to make modern designs using the various components it offers.</Description>
     <Authors>Iswenzz</Authors>
     <PackageId>Iswenzz.$(AssemblyName)</PackageId>
-    <Version>1.0.2</Version>
+    <Version>1.0.4</Version>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
@@ -46,7 +46,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Update="UI\Controls\AbstractText.cs" />
     <Compile Update="UI\Controls\AbstractTreeView.cs">
       <SubType>Component</SubType>
     </Compile>

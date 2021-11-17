@@ -3,53 +3,35 @@ using System.ComponentModel;
 using System.Windows.Forms;
 
 using Iswenzz.UI.Design;
-using Iswenzz.UI.Utils;
 
 namespace Iswenzz.UI.Controls
 {
     /// <summary>
     /// Base text class.
     /// </summary>
-    public abstract partial class AbstractText : Control, INotifyPropertyChanged
+    public abstract class AbstractText : AbstractControl, INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected CreateParams BaseCreateParams { get => base.CreateParams; }
-        protected override CreateParams CreateParams { get => Alpha.CreateParams(base.CreateParams); }
-        protected bool BasePainting { get; set; } = true;
-
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        [Category("Appearance"), Description("Transparency settings.")]
-        public virtual Alpha Alpha { get; set; }
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public override Layouts Layouts { get => null; set => base.Layouts = null; }
 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [Category("Appearance"), Description("Layout alignment and rotation angle.")]
         public virtual TextLayouts TextLayouts { get; set; }
 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        [Category("Appearance"), Description("Border styles.")]
-        public virtual Border Border { get; set; }
-
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [Category("Appearance"), Description("Icon styles.")]
         public virtual Icon Icon { get; set; }
-
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        [Category("Appearance"), Description("Animations styles.")]
-        public virtual Animations Animations { get; set; }
 
         /// <summary>
         /// Initialize a new <see cref="AbstractText"/> object.
         /// </summary>
-        protected AbstractText()
+        protected AbstractText() : base()
         {
-            InitializeComponent();
             TextLayouts = new TextLayouts(this);
-            Alpha = new Alpha(this);
-            Border = new Border(this);
             Icon = new Icon(this);
-            Animations = new Animations(this);
 
-            SetStyle(Alpha.ControlStylesToEnable, true);
+            Animations.CursorHover = Cursors.Hand;
         }
 
         /// <summary>
@@ -58,8 +40,8 @@ namespace Iswenzz.UI.Controls
         /// <param name="e">Mouse event.</param>
         protected override void OnMouseLeave(EventArgs e)
         {
+            Cursor = Cursors.Default;
             base.OnMouseLeave(e);
-            Animations.OnMouseLeave(e);
         }
 
         /// <summary>
@@ -68,28 +50,8 @@ namespace Iswenzz.UI.Controls
         /// <param name="e">Mouse event.</param>
         protected override void OnMouseEnter(EventArgs e)
         {
+            Cursor = Cursors.Hand;
             base.OnMouseEnter(e);
-            Animations.OnMouseEnter(e);
-        }
-
-        /// <summary>
-        /// Callback when back color changes.
-        /// </summary>
-        /// <param name="e"></param>
-        protected override void OnParentBackColorChanged(EventArgs e)
-        {
-            Alpha.OnParentBackColorChanged(e);
-            base.OnParentBackColorChanged(e);
-        }
-
-        /// <summary>
-        /// Update the parent when back color changes.
-        /// </summary>
-        /// <param name="e"></param>
-        protected override void OnBackColorChanged(EventArgs e)
-        {
-            Alpha.OnBackColorChanged(e);
-            base.OnBackColorChanged(e);
         }
 
         /// <summary>
@@ -98,13 +60,9 @@ namespace Iswenzz.UI.Controls
         /// <param name="pe">Paint data.</param>
         protected override void OnPaint(PaintEventArgs pe)
         {
-            if (BasePainting)
-                base.OnPaint(pe);
+            base.OnPaint(pe);
 
-            Alpha?.OnPaint(pe);
             Icon?.OnPaint(pe);
-            Border?.OnPaint(pe);
-            Animations?.OnPaint(pe);
             TextLayouts?.OnPaint(pe);
         }
 
@@ -114,22 +72,10 @@ namespace Iswenzz.UI.Controls
         /// <param name="disposing">Should dispose.</param>
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
-                components.Dispose();
             base.Dispose(disposing);
 
-            Alpha?.Dispose();
             Icon?.Dispose();
-            Border?.Dispose();
-            Animations?.Dispose();
             TextLayouts?.Dispose();
         }
-
-        /// <summary>
-        /// Invalidate on class property changes.
-        /// </summary>
-        /// <param name="eventArgs">Property event args.</param>
-        protected virtual void OnPropertyChanged(PropertyChangedEventArgs eventArgs) =>
-            NotifyProperty.Callback(this, PropertyChanged, eventArgs);
     }
 }

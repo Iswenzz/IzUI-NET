@@ -59,11 +59,5 @@ namespace Iswenzz.UI.Design
             if (IsTransparent && Owner.Parent != null)
                 Owner.Parent.Invalidate(Owner.Bounds, true);
         }
-
-        /// <summary>
-        /// Render callback.
-        /// </summary>
-        /// <param name="pe">Paint data.</param>
-        public override void OnPaint(PaintEventArgs pe) { }
     }
 }

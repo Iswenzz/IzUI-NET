@@ -1,5 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
 using Iswenzz.UI.Design;
@@ -100,6 +102,23 @@ namespace Iswenzz.UI.Controls
             Border?.OnPaint(pe);
             Animations?.OnPaint(pe);
             Layouts?.OnPaint(pe);
+        }
+
+        /// <summary>
+        /// Paint the transparency background.
+        /// </summary>
+        /// <param name="pe">Paint data.</param>
+        protected void PaintTransparency(PaintEventArgs pe)
+        {
+            GraphicsContainer cstate = pe.Graphics.BeginContainer();
+            pe.Graphics.TranslateTransform(-Left, -Top);
+            Rectangle clip = pe.ClipRectangle;
+            clip.Offset(Left, Top);
+            PaintEventArgs peArgs = new(pe.Graphics, clip);
+
+            InvokePaintBackground(Parent, peArgs);
+            InvokePaint(Parent, peArgs);
+            pe.Graphics.EndContainer(cstate);
         }
 
         /// <summary>

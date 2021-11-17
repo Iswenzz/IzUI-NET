@@ -49,10 +49,10 @@
             // 
             // labelSpecial1
             // 
-            this.labelSpecial1.Animations.HoverColor = System.Drawing.Color.Empty;
-            this.labelSpecial1.Animations.HoverColorLeave = System.Drawing.Color.Empty;
-            this.labelSpecial1.Animations.HoverColorText = System.Drawing.Color.Empty;
-            this.labelSpecial1.Animations.HoverColorTextLeave = System.Drawing.Color.Empty;
+            this.labelSpecial1.Animations.ColorHover = System.Drawing.Color.Empty;
+            this.labelSpecial1.Animations.ColorHoverLeave = System.Drawing.Color.Empty;
+            this.labelSpecial1.Animations.TextColorHover = System.Drawing.Color.Empty;
+            this.labelSpecial1.Animations.TextColorHoverLeave = System.Drawing.Color.Empty;
             this.labelSpecial1.BackColor = System.Drawing.Color.Transparent;
             this.labelSpecial1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelSpecial1.ForeColor = System.Drawing.Color.Gainsboro;
@@ -67,10 +67,10 @@
             // 
             // timeTrialCard1
             // 
-            this.timeTrialCard1.Animations.HoverColor = System.Drawing.Color.Empty;
-            this.timeTrialCard1.Animations.HoverColorLeave = System.Drawing.Color.Empty;
-            this.timeTrialCard1.Animations.HoverColorText = System.Drawing.Color.Empty;
-            this.timeTrialCard1.Animations.HoverColorTextLeave = System.Drawing.Color.Empty;
+            this.timeTrialCard1.Animations.ColorHover = System.Drawing.Color.Empty;
+            this.timeTrialCard1.Animations.ColorHoverLeave = System.Drawing.Color.Empty;
+            this.timeTrialCard1.Animations.TextColorHover = System.Drawing.Color.Empty;
+            this.timeTrialCard1.Animations.TextColorHoverLeave = System.Drawing.Color.Empty;
             this.timeTrialCard1.BackgroundImage = ((System.Drawing.Bitmap)(resources.GetObject("timeTrialCard1.BackgroundImage")));
             this.timeTrialCard1.CardImage = ((System.Drawing.Bitmap)(resources.GetObject("timeTrialCard1.CardImage")));
             this.timeTrialCard1.ComboImage = ((System.Drawing.Bitmap)(resources.GetObject("timeTrialCard1.ComboImage")));

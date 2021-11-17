@@ -59,10 +59,10 @@
             // 
             // labelSpecial2
             // 
-            this.labelSpecial2.Animations.HoverColor = System.Drawing.Color.Empty;
-            this.labelSpecial2.Animations.HoverColorLeave = System.Drawing.Color.Empty;
-            this.labelSpecial2.Animations.HoverColorText = System.Drawing.Color.Empty;
-            this.labelSpecial2.Animations.HoverColorTextLeave = System.Drawing.Color.Empty;
+            this.labelSpecial2.Animations.ColorHover = System.Drawing.Color.Empty;
+            this.labelSpecial2.Animations.ColorHoverLeave = System.Drawing.Color.Empty;
+            this.labelSpecial2.Animations.TextColorHover = System.Drawing.Color.Empty;
+            this.labelSpecial2.Animations.TextColorHoverLeave = System.Drawing.Color.Empty;
             this.labelSpecial2.BackColor = System.Drawing.Color.Transparent;
             this.labelSpecial2.Border.Locations = ((Iswenzz.UI.Data.RectLocation)((((Iswenzz.UI.Data.RectLocation.Top | Iswenzz.UI.Data.RectLocation.Right) 
             | Iswenzz.UI.Data.RectLocation.Bottom) 
@@ -81,10 +81,10 @@
             // 
             // treeViewer1
             // 
-            this.treeViewer1.Animations.HoverColor = System.Drawing.Color.Empty;
-            this.treeViewer1.Animations.HoverColorLeave = System.Drawing.Color.Empty;
-            this.treeViewer1.Animations.HoverColorText = System.Drawing.Color.Empty;
-            this.treeViewer1.Animations.HoverColorTextLeave = System.Drawing.Color.Empty;
+            this.treeViewer1.Animations.ColorHover = System.Drawing.Color.Empty;
+            this.treeViewer1.Animations.ColorHoverLeave = System.Drawing.Color.Empty;
+            this.treeViewer1.Animations.TextColorHover = System.Drawing.Color.Empty;
+            this.treeViewer1.Animations.TextColorHoverLeave = System.Drawing.Color.Empty;
             this.treeViewer1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.treeViewer1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.treeViewer1.Cursor = System.Windows.Forms.Cursors.Default;
@@ -115,10 +115,10 @@
             // 
             // labelSpecial3
             // 
-            this.labelSpecial3.Animations.HoverColor = System.Drawing.Color.Empty;
-            this.labelSpecial3.Animations.HoverColorLeave = System.Drawing.Color.Empty;
-            this.labelSpecial3.Animations.HoverColorText = System.Drawing.Color.Empty;
-            this.labelSpecial3.Animations.HoverColorTextLeave = System.Drawing.Color.Empty;
+            this.labelSpecial3.Animations.ColorHover = System.Drawing.Color.Empty;
+            this.labelSpecial3.Animations.ColorHoverLeave = System.Drawing.Color.Empty;
+            this.labelSpecial3.Animations.TextColorHover = System.Drawing.Color.Empty;
+            this.labelSpecial3.Animations.TextColorHoverLeave = System.Drawing.Color.Empty;
             this.labelSpecial3.BackColor = System.Drawing.Color.Transparent;
             this.labelSpecial3.Border.Locations = ((Iswenzz.UI.Data.RectLocation)((((Iswenzz.UI.Data.RectLocation.Top | Iswenzz.UI.Data.RectLocation.Right) 
             | Iswenzz.UI.Data.RectLocation.Bottom) 
@@ -137,10 +137,10 @@
             // 
             // labelSpecial1
             // 
-            this.labelSpecial1.Animations.HoverColor = System.Drawing.Color.Empty;
-            this.labelSpecial1.Animations.HoverColorLeave = System.Drawing.Color.Empty;
-            this.labelSpecial1.Animations.HoverColorText = System.Drawing.Color.Empty;
-            this.labelSpecial1.Animations.HoverColorTextLeave = System.Drawing.Color.Empty;
+            this.labelSpecial1.Animations.ColorHover = System.Drawing.Color.Empty;
+            this.labelSpecial1.Animations.ColorHoverLeave = System.Drawing.Color.Empty;
+            this.labelSpecial1.Animations.TextColorHover = System.Drawing.Color.Empty;
+            this.labelSpecial1.Animations.TextColorHoverLeave = System.Drawing.Color.Empty;
             this.labelSpecial1.BackColor = System.Drawing.Color.Transparent;
             this.labelSpecial1.Border.Locations = ((Iswenzz.UI.Data.RectLocation)((((Iswenzz.UI.Data.RectLocation.Top | Iswenzz.UI.Data.RectLocation.Right) 
             | Iswenzz.UI.Data.RectLocation.Bottom) 
@@ -157,10 +157,10 @@
             // 
             // labelSpecial4
             // 
-            this.labelSpecial4.Animations.HoverColor = System.Drawing.Color.Empty;
-            this.labelSpecial4.Animations.HoverColorLeave = System.Drawing.Color.Empty;
-            this.labelSpecial4.Animations.HoverColorText = System.Drawing.Color.Empty;
-            this.labelSpecial4.Animations.HoverColorTextLeave = System.Drawing.Color.Empty;
+            this.labelSpecial4.Animations.ColorHover = System.Drawing.Color.Empty;
+            this.labelSpecial4.Animations.ColorHoverLeave = System.Drawing.Color.Empty;
+            this.labelSpecial4.Animations.TextColorHover = System.Drawing.Color.Empty;
+            this.labelSpecial4.Animations.TextColorHoverLeave = System.Drawing.Color.Empty;
             this.labelSpecial4.BackColor = System.Drawing.Color.Transparent;
             this.labelSpecial4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelSpecial4.ForeColor = System.Drawing.Color.Gainsboro;
@@ -175,10 +175,10 @@
             // 
             // labelSpecial5
             // 
-            this.labelSpecial5.Animations.HoverColor = System.Drawing.Color.Empty;
-            this.labelSpecial5.Animations.HoverColorLeave = System.Drawing.Color.Empty;
-            this.labelSpecial5.Animations.HoverColorText = System.Drawing.Color.Empty;
-            this.labelSpecial5.Animations.HoverColorTextLeave = System.Drawing.Color.Empty;
+            this.labelSpecial5.Animations.ColorHover = System.Drawing.Color.Empty;
+            this.labelSpecial5.Animations.ColorHoverLeave = System.Drawing.Color.Empty;
+            this.labelSpecial5.Animations.TextColorHover = System.Drawing.Color.Empty;
+            this.labelSpecial5.Animations.TextColorHoverLeave = System.Drawing.Color.Empty;
             this.labelSpecial5.BackColor = System.Drawing.Color.Transparent;
             this.labelSpecial5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelSpecial5.ForeColor = System.Drawing.Color.Gainsboro;

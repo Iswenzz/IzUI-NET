@@ -55,10 +55,10 @@
             // 
             // button3
             // 
-            this.button3.Animations.HoverColor = System.Drawing.Color.RoyalBlue;
-            this.button3.Animations.HoverColorLeave = System.Drawing.Color.Empty;
-            this.button3.Animations.HoverColorText = System.Drawing.Color.DarkOrange;
-            this.button3.Animations.HoverColorTextLeave = System.Drawing.Color.Empty;
+            this.button3.Animations.ColorHover = System.Drawing.Color.RoyalBlue;
+            this.button3.Animations.ColorHoverLeave = System.Drawing.Color.Empty;
+            this.button3.Animations.TextColorHover = System.Drawing.Color.DarkOrange;
+            this.button3.Animations.TextColorHoverLeave = System.Drawing.Color.Empty;
             this.button3.BackColor = System.Drawing.Color.SteelBlue;
             this.button3.Border.Color = System.Drawing.Color.Empty;
             this.button3.Border.Radius = new System.Drawing.Size(40, 40);
@@ -77,10 +77,10 @@
             // 
             // button2
             // 
-            this.button2.Animations.HoverColor = System.Drawing.Color.RoyalBlue;
-            this.button2.Animations.HoverColorLeave = System.Drawing.Color.Empty;
-            this.button2.Animations.HoverColorText = System.Drawing.Color.DarkOrange;
-            this.button2.Animations.HoverColorTextLeave = System.Drawing.Color.Empty;
+            this.button2.Animations.ColorHover = System.Drawing.Color.RoyalBlue;
+            this.button2.Animations.ColorHoverLeave = System.Drawing.Color.Empty;
+            this.button2.Animations.TextColorHover = System.Drawing.Color.DarkOrange;
+            this.button2.Animations.TextColorHoverLeave = System.Drawing.Color.Empty;
             this.button2.BackColor = System.Drawing.Color.SteelBlue;
             this.button2.Border.Color = System.Drawing.Color.RoyalBlue;
             this.button2.Border.Locations = ((Iswenzz.UI.Data.RectLocation)((((Iswenzz.UI.Data.RectLocation.Top | Iswenzz.UI.Data.RectLocation.Right) 
@@ -102,10 +102,10 @@
             // 
             // slider1
             // 
-            this.slider1.Animations.HoverColor = System.Drawing.Color.Empty;
-            this.slider1.Animations.HoverColorLeave = System.Drawing.Color.Empty;
-            this.slider1.Animations.HoverColorText = System.Drawing.Color.Empty;
-            this.slider1.Animations.HoverColorTextLeave = System.Drawing.Color.Empty;
+            this.slider1.Animations.ColorHover = System.Drawing.Color.Empty;
+            this.slider1.Animations.ColorHoverLeave = System.Drawing.Color.Empty;
+            this.slider1.Animations.TextColorHover = System.Drawing.Color.Empty;
+            this.slider1.Animations.TextColorHoverLeave = System.Drawing.Color.Empty;
             this.slider1.BackColor = System.Drawing.Color.Transparent;
             this.slider1.BarInnerColor = System.Drawing.Color.DimGray;
             this.slider1.BarOuterColor = System.Drawing.Color.DimGray;
@@ -134,10 +134,10 @@
             // 
             // labelSpecial3
             // 
-            this.labelSpecial3.Animations.HoverColor = System.Drawing.Color.Empty;
-            this.labelSpecial3.Animations.HoverColorLeave = System.Drawing.Color.Empty;
-            this.labelSpecial3.Animations.HoverColorText = System.Drawing.Color.Empty;
-            this.labelSpecial3.Animations.HoverColorTextLeave = System.Drawing.Color.Empty;
+            this.labelSpecial3.Animations.ColorHover = System.Drawing.Color.Empty;
+            this.labelSpecial3.Animations.ColorHoverLeave = System.Drawing.Color.Empty;
+            this.labelSpecial3.Animations.TextColorHover = System.Drawing.Color.Empty;
+            this.labelSpecial3.Animations.TextColorHoverLeave = System.Drawing.Color.Empty;
             this.labelSpecial3.BackColor = System.Drawing.Color.Transparent;
             this.labelSpecial3.Border.Radius = new System.Drawing.Size(0, 0);
             this.labelSpecial3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
@@ -155,10 +155,10 @@
             // buttonImage1
             // 
             this.buttonImage1.ActiveImage = null;
-            this.buttonImage1.Animations.HoverColor = System.Drawing.Color.Transparent;
-            this.buttonImage1.Animations.HoverColorLeave = System.Drawing.Color.Empty;
-            this.buttonImage1.Animations.HoverColorText = System.Drawing.Color.DarkOrange;
-            this.buttonImage1.Animations.HoverColorTextLeave = System.Drawing.Color.Empty;
+            this.buttonImage1.Animations.ColorHover = System.Drawing.Color.Transparent;
+            this.buttonImage1.Animations.ColorHoverLeave = System.Drawing.Color.Empty;
+            this.buttonImage1.Animations.TextColorHover = System.Drawing.Color.DarkOrange;
+            this.buttonImage1.Animations.TextColorHoverLeave = System.Drawing.Color.Empty;
             this.buttonImage1.BackColor = System.Drawing.Color.Transparent;
             this.buttonImage1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonImage1.BackgroundImage")));
             this.buttonImage1.Border.Color = System.Drawing.Color.Empty;
@@ -178,10 +178,10 @@
             // 
             // labelSpecial2
             // 
-            this.labelSpecial2.Animations.HoverColor = System.Drawing.Color.Empty;
-            this.labelSpecial2.Animations.HoverColorLeave = System.Drawing.Color.Empty;
-            this.labelSpecial2.Animations.HoverColorText = System.Drawing.Color.Empty;
-            this.labelSpecial2.Animations.HoverColorTextLeave = System.Drawing.Color.Empty;
+            this.labelSpecial2.Animations.ColorHover = System.Drawing.Color.Empty;
+            this.labelSpecial2.Animations.ColorHoverLeave = System.Drawing.Color.Empty;
+            this.labelSpecial2.Animations.TextColorHover = System.Drawing.Color.Empty;
+            this.labelSpecial2.Animations.TextColorHoverLeave = System.Drawing.Color.Empty;
             this.labelSpecial2.BackColor = System.Drawing.Color.Transparent;
             this.labelSpecial2.Border.Radius = new System.Drawing.Size(0, 0);
             this.labelSpecial2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
@@ -198,10 +198,10 @@
             // 
             // labelSpecial1
             // 
-            this.labelSpecial1.Animations.HoverColor = System.Drawing.Color.Empty;
-            this.labelSpecial1.Animations.HoverColorLeave = System.Drawing.Color.Empty;
-            this.labelSpecial1.Animations.HoverColorText = System.Drawing.Color.Empty;
-            this.labelSpecial1.Animations.HoverColorTextLeave = System.Drawing.Color.Empty;
+            this.labelSpecial1.Animations.ColorHover = System.Drawing.Color.Empty;
+            this.labelSpecial1.Animations.ColorHoverLeave = System.Drawing.Color.Empty;
+            this.labelSpecial1.Animations.TextColorHover = System.Drawing.Color.Empty;
+            this.labelSpecial1.Animations.TextColorHoverLeave = System.Drawing.Color.Empty;
             this.labelSpecial1.BackColor = System.Drawing.Color.Transparent;
             this.labelSpecial1.Border.Radius = new System.Drawing.Size(0, 0);
             this.labelSpecial1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
@@ -218,10 +218,10 @@
             // 
             // button1
             // 
-            this.button1.Animations.HoverColor = System.Drawing.Color.RoyalBlue;
-            this.button1.Animations.HoverColorLeave = System.Drawing.Color.Empty;
-            this.button1.Animations.HoverColorText = System.Drawing.Color.DarkOrange;
-            this.button1.Animations.HoverColorTextLeave = System.Drawing.Color.Empty;
+            this.button1.Animations.ColorHover = System.Drawing.Color.RoyalBlue;
+            this.button1.Animations.ColorHoverLeave = System.Drawing.Color.Empty;
+            this.button1.Animations.TextColorHover = System.Drawing.Color.DarkOrange;
+            this.button1.Animations.TextColorHoverLeave = System.Drawing.Color.Empty;
             this.button1.BackColor = System.Drawing.Color.SteelBlue;
             this.button1.Border.Color = System.Drawing.Color.Empty;
             this.button1.Border.Radius = new System.Drawing.Size(0, 0);

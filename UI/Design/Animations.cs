@@ -11,28 +11,40 @@ namespace Iswenzz.UI.Design
     public class Animations : AbstractDesign, INotifyPropertyChanged
     {
         /// <summary>
-        /// Color when mouse hover the button.
+        /// Cursor style when mouse hover the control.
         /// </summary>
-        [Description("Change the color when mouse hover the button.")]
-        public virtual Color HoverColor { get; set; }
+        [Description("Change the cursor when mouse hover the control.")]
+        public virtual Cursor CursorHover { get; set; }
 
         /// <summary>
-        /// Color when mouse leave the button.
+        /// Cursor style when mouse hover the control.
         /// </summary>
-        [Description("Change the color when mouse leave the button.")]
-        public virtual Color HoverColorLeave { get; set; }
+        [Description("Change the cursor when mouse hover the control.")]
+        public virtual Cursor CursorHoverLeave { get; set; }
 
         /// <summary>
-        /// Text color when mouse hover the button.
+        /// Color when mouse hover the control.
         /// </summary>
-        [Description("Change the color when mouse hover the button.")]
-        public virtual Color HoverColorText { get; set; }
+        [Description("Change the color when mouse hover the control.")]
+        public virtual Color ColorHover { get; set; }
 
         /// <summary>
-        /// Text color when mouse leave the button.
+        /// Color when mouse leave the control.
         /// </summary>
-        [Description("Change the color when mouse leave the button.")]
-        public virtual Color HoverColorTextLeave { get; set; }
+        [Description("Change the color when mouse leave the control.")]
+        public virtual Color ColorHoverLeave { get; set; }
+
+        /// <summary>
+        /// Text color when mouse hover the control.
+        /// </summary>
+        [Description("Change the color when mouse hover the control.")]
+        public virtual Color TextColorHover { get; set; }
+
+        /// <summary>
+        /// Text color when mouse leave the control.
+        /// </summary>
+        [Description("Change the color when mouse leave the control.")]
+        public virtual Color TextColorHoverLeave { get; set; }
 
         /// <summary>
         /// Create a new <see cref="Animations"/>.
@@ -46,8 +58,9 @@ namespace Iswenzz.UI.Design
         /// <param name="e">Mouse event.</param>
         public void OnMouseLeave(EventArgs e)
         {
-            Owner.BackColor = HoverColorLeave;
-            Owner.ForeColor = HoverColorTextLeave;
+            Owner.BackColor = ColorHoverLeave;
+            Owner.ForeColor = TextColorHoverLeave;
+            Owner.Cursor = CursorHoverLeave;
             Owner.Invalidate();
         }
 
@@ -57,17 +70,12 @@ namespace Iswenzz.UI.Design
         /// <param name="e">Mouse event.</param>
         public void OnMouseEnter(EventArgs e)
         {
-            HoverColorLeave = Owner.BackColor;
-            HoverColorTextLeave = Owner.ForeColor;
-            Owner.BackColor = HoverColor;
-            Owner.ForeColor = HoverColorText;
+            ColorHoverLeave = Owner.BackColor;
+            TextColorHoverLeave = Owner.ForeColor;
+            Owner.BackColor = ColorHover;
+            Owner.ForeColor = TextColorHover;
+            Owner.Cursor = CursorHover;
             Owner.Invalidate();
         }
-
-        /// <summary>
-        /// Render callback.
-        /// </summary>
-        /// <param name="pe">Paint data.</param>
-        public override void OnPaint(PaintEventArgs pe) { }
     }
 }

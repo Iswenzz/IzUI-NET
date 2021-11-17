@@ -60,7 +60,7 @@ namespace Iswenzz.UI.Design
         /// Render callback.
         /// </summary>
         /// <param name="pe">Paint data.</param>
-        public abstract void OnPaint(PaintEventArgs pe);
+        public virtual void OnPaint(PaintEventArgs pe) { }
 
         /// <summary>
         /// Override the grid view display value.

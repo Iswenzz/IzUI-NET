@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
 using Iswenzz.UI.Controls.Resources;
@@ -10,7 +11,7 @@ namespace Iswenzz.UI.Controls.Inputs
     /// <summary>
     /// Button image control.
     /// </summary>
-    public class ButtonImage : AbstractButton, INotifyPropertyChanged
+    public class ButtonImage : AbstractText, INotifyPropertyChanged
     {
         /// <summary>
         /// Default background image.
@@ -33,8 +34,8 @@ namespace Iswenzz.UI.Controls.Inputs
 
             BackColor = Color.Transparent;
             ForeColor = Color.SteelBlue;
-            Animations.HoverColor = Color.Transparent;
-            Animations.HoverColorText = Color.DarkOrange;
+            Animations.ColorHover = Color.Transparent;
+            Animations.TextColorHover = Color.DarkOrange;
 
             BackgroundImage = ControlResources.Inputs_PlaceHolder;
             DefaultImage = BackgroundImage;
@@ -70,8 +71,7 @@ namespace Iswenzz.UI.Controls.Inputs
         /// <param name="pe">Paint data.</param>
         protected override void OnPaint(PaintEventArgs pe)
         {
-            using SolidBrush backColor = new(BackColor);
-            pe.Graphics.FillRectangle(backColor, ClientRectangle);
+            PaintTransparency(pe);
             if (BackgroundImage != null)
                 pe.Graphics.DrawImage(BackgroundImage, ClientRectangle);
             base.OnPaint(pe);

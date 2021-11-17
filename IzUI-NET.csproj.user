@@ -2,13 +2,10 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
-    <Compile Update="UI\Controls\AbstractButton.cs">
+    <Compile Update="UI\Controls\AbstractText.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="UI\Controls\AbstractControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="UI\Controls\AbstractText.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="UI\Controls\Data\FlagCheckedListBox.cs">

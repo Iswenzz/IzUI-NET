@@ -39,10 +39,10 @@
             // 
             // panelSeparator1
             // 
-            this.panelSeparator1.Animations.HoverColor = System.Drawing.Color.Empty;
-            this.panelSeparator1.Animations.HoverColorLeave = System.Drawing.Color.Empty;
-            this.panelSeparator1.Animations.HoverColorText = System.Drawing.Color.Empty;
-            this.panelSeparator1.Animations.HoverColorTextLeave = System.Drawing.Color.Empty;
+            this.panelSeparator1.Animations.ColorHover = System.Drawing.Color.Empty;
+            this.panelSeparator1.Animations.ColorHoverLeave = System.Drawing.Color.Empty;
+            this.panelSeparator1.Animations.TextColorHover = System.Drawing.Color.Empty;
+            this.panelSeparator1.Animations.TextColorHoverLeave = System.Drawing.Color.Empty;
             this.panelSeparator1.Border.Locations = ((Iswenzz.UI.Data.RectLocation)((Iswenzz.UI.Data.RectLocation.Right | Iswenzz.UI.Data.RectLocation.Left)));
             this.panelSeparator1.Layouts.Angle = 0;
             this.panelSeparator1.Location = new System.Drawing.Point(185, 257);
@@ -53,10 +53,10 @@
             // 
             // panelBorder1
             // 
-            this.panelBorder1.Animations.HoverColor = System.Drawing.Color.Empty;
-            this.panelBorder1.Animations.HoverColorLeave = System.Drawing.Color.Empty;
-            this.panelBorder1.Animations.HoverColorText = System.Drawing.Color.Empty;
-            this.panelBorder1.Animations.HoverColorTextLeave = System.Drawing.Color.Empty;
+            this.panelBorder1.Animations.ColorHover = System.Drawing.Color.Empty;
+            this.panelBorder1.Animations.ColorHoverLeave = System.Drawing.Color.Empty;
+            this.panelBorder1.Animations.TextColorHover = System.Drawing.Color.Empty;
+            this.panelBorder1.Animations.TextColorHoverLeave = System.Drawing.Color.Empty;
             this.panelBorder1.Border.Locations = ((Iswenzz.UI.Data.RectLocation)((((Iswenzz.UI.Data.RectLocation.Top | Iswenzz.UI.Data.RectLocation.Right) 
             | Iswenzz.UI.Data.RectLocation.Bottom) 
             | Iswenzz.UI.Data.RectLocation.Left)));
@@ -82,10 +82,10 @@
             // 
             // labelSpecial1
             // 
-            this.labelSpecial1.Animations.HoverColor = System.Drawing.Color.Empty;
-            this.labelSpecial1.Animations.HoverColorLeave = System.Drawing.Color.Empty;
-            this.labelSpecial1.Animations.HoverColorText = System.Drawing.Color.Empty;
-            this.labelSpecial1.Animations.HoverColorTextLeave = System.Drawing.Color.Empty;
+            this.labelSpecial1.Animations.ColorHover = System.Drawing.Color.Empty;
+            this.labelSpecial1.Animations.ColorHoverLeave = System.Drawing.Color.Empty;
+            this.labelSpecial1.Animations.TextColorHover = System.Drawing.Color.Empty;
+            this.labelSpecial1.Animations.TextColorHoverLeave = System.Drawing.Color.Empty;
             this.labelSpecial1.BackColor = System.Drawing.Color.Transparent;
             this.labelSpecial1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelSpecial1.ForeColor = System.Drawing.Color.Gainsboro;
@@ -100,10 +100,10 @@
             // 
             // labelSpecial2
             // 
-            this.labelSpecial2.Animations.HoverColor = System.Drawing.Color.Empty;
-            this.labelSpecial2.Animations.HoverColorLeave = System.Drawing.Color.Empty;
-            this.labelSpecial2.Animations.HoverColorText = System.Drawing.Color.Empty;
-            this.labelSpecial2.Animations.HoverColorTextLeave = System.Drawing.Color.Empty;
+            this.labelSpecial2.Animations.ColorHover = System.Drawing.Color.Empty;
+            this.labelSpecial2.Animations.ColorHoverLeave = System.Drawing.Color.Empty;
+            this.labelSpecial2.Animations.TextColorHover = System.Drawing.Color.Empty;
+            this.labelSpecial2.Animations.TextColorHoverLeave = System.Drawing.Color.Empty;
             this.labelSpecial2.BackColor = System.Drawing.Color.Transparent;
             this.labelSpecial2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelSpecial2.ForeColor = System.Drawing.Color.Gainsboro;
@@ -118,10 +118,10 @@
             // 
             // labelSpecial3
             // 
-            this.labelSpecial3.Animations.HoverColor = System.Drawing.Color.Empty;
-            this.labelSpecial3.Animations.HoverColorLeave = System.Drawing.Color.Empty;
-            this.labelSpecial3.Animations.HoverColorText = System.Drawing.Color.Empty;
-            this.labelSpecial3.Animations.HoverColorTextLeave = System.Drawing.Color.Empty;
+            this.labelSpecial3.Animations.ColorHover = System.Drawing.Color.Empty;
+            this.labelSpecial3.Animations.ColorHoverLeave = System.Drawing.Color.Empty;
+            this.labelSpecial3.Animations.TextColorHover = System.Drawing.Color.Empty;
+            this.labelSpecial3.Animations.TextColorHoverLeave = System.Drawing.Color.Empty;
             this.labelSpecial3.BackColor = System.Drawing.Color.Transparent;
             this.labelSpecial3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelSpecial3.ForeColor = System.Drawing.Color.Gainsboro;
@@ -136,10 +136,10 @@
             // 
             // separator1
             // 
-            this.separator1.Animations.HoverColor = System.Drawing.Color.Empty;
-            this.separator1.Animations.HoverColorLeave = System.Drawing.Color.Empty;
-            this.separator1.Animations.HoverColorText = System.Drawing.Color.Empty;
-            this.separator1.Animations.HoverColorTextLeave = System.Drawing.Color.Empty;
+            this.separator1.Animations.ColorHover = System.Drawing.Color.Empty;
+            this.separator1.Animations.ColorHoverLeave = System.Drawing.Color.Empty;
+            this.separator1.Animations.TextColorHover = System.Drawing.Color.Empty;
+            this.separator1.Animations.TextColorHoverLeave = System.Drawing.Color.Empty;
             this.separator1.BackColor = System.Drawing.Color.Transparent;
             this.separator1.Border.Color = System.Drawing.Color.Empty;
             this.separator1.Border.Width = 0F;
