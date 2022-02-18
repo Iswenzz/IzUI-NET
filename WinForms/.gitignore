@@ -1,0 +1,9 @@
+.vs/*
+bin/*
+Release/*
+Debug/*
+x64/*
+x86/*
+obj/*
+build/*
+COVERAGE.sh

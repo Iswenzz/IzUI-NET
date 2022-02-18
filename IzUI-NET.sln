@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IzUI.WinForms", "WinForms\IzUI.WinForms.csproj", "{CDB380B1-064A-4615-996F-097B6D6B8E5B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CDB380B1-064A-4615-996F-097B6D6B8E5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDB380B1-064A-4615-996F-097B6D6B8E5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDB380B1-064A-4615-996F-097B6D6B8E5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDB380B1-064A-4615-996F-097B6D6B8E5B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B3CBC5AF-14AB-45EC-B5A8-43193D5DFDC5}
+	EndGlobalSection
+EndGlobal
