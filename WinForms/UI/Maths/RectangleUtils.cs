@@ -3,10 +3,10 @@ using System.Drawing.Drawing2D;
 
 namespace IzUI.WinForms.UI.Maths
 {
-    public static class DRectangle
+    public static class RectangleUtils
     {
         /// <summary>
-        /// Create a <see cref="GraphicsPath"/> from a <see cref="DRectangle"/> with the specified radius.
+        /// Create a <see cref="GraphicsPath"/> from a <see cref="RectangleUtils"/> with the specified radius.
         /// </summary>
         /// <param name="Rect">The rectangle.</param>
         /// <param name="radius">Rounded radius.</param>

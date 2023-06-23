@@ -123,16 +123,6 @@ namespace IzUI.WinForms.UI.Controls.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap VS_Button1 {
-            get {
-                object obj = ResourceManager.GetObject("VS_Button1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap VS_Image {
             get {
                 object obj = ResourceManager.GetObject("VS_Image", resourceCulture);

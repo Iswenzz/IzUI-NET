@@ -57,6 +57,8 @@
             // 
             this.button3.Animations.ColorHover = System.Drawing.Color.RoyalBlue;
             this.button3.Animations.ColorHoverLeave = System.Drawing.Color.Empty;
+            this.button3.Animations.CursorHover = System.Windows.Forms.Cursors.Hand;
+            this.button3.Animations.CursorHoverLeave = null;
             this.button3.Animations.TextColorHover = System.Drawing.Color.DarkOrange;
             this.button3.Animations.TextColorHoverLeave = System.Drawing.Color.Empty;
             this.button3.BackColor = System.Drawing.Color.SteelBlue;
@@ -79,6 +81,8 @@
             // 
             this.button2.Animations.ColorHover = System.Drawing.Color.RoyalBlue;
             this.button2.Animations.ColorHoverLeave = System.Drawing.Color.Empty;
+            this.button2.Animations.CursorHover = System.Windows.Forms.Cursors.Hand;
+            this.button2.Animations.CursorHoverLeave = null;
             this.button2.Animations.TextColorHover = System.Drawing.Color.DarkOrange;
             this.button2.Animations.TextColorHoverLeave = System.Drawing.Color.Empty;
             this.button2.BackColor = System.Drawing.Color.SteelBlue;
@@ -104,6 +108,8 @@
             // 
             this.slider1.Animations.ColorHover = System.Drawing.Color.Empty;
             this.slider1.Animations.ColorHoverLeave = System.Drawing.Color.Empty;
+            this.slider1.Animations.CursorHover = null;
+            this.slider1.Animations.CursorHoverLeave = null;
             this.slider1.Animations.TextColorHover = System.Drawing.Color.Empty;
             this.slider1.Animations.TextColorHoverLeave = System.Drawing.Color.Empty;
             this.slider1.BackColor = System.Drawing.Color.Transparent;
@@ -136,6 +142,8 @@
             // 
             this.labelSpecial3.Animations.ColorHover = System.Drawing.Color.Empty;
             this.labelSpecial3.Animations.ColorHoverLeave = System.Drawing.Color.Empty;
+            this.labelSpecial3.Animations.CursorHover = System.Windows.Forms.Cursors.Hand;
+            this.labelSpecial3.Animations.CursorHoverLeave = null;
             this.labelSpecial3.Animations.TextColorHover = System.Drawing.Color.Empty;
             this.labelSpecial3.Animations.TextColorHoverLeave = System.Drawing.Color.Empty;
             this.labelSpecial3.BackColor = System.Drawing.Color.Transparent;
@@ -157,6 +165,8 @@
             this.buttonImage1.ActiveImage = null;
             this.buttonImage1.Animations.ColorHover = System.Drawing.Color.Transparent;
             this.buttonImage1.Animations.ColorHoverLeave = System.Drawing.Color.Empty;
+            this.buttonImage1.Animations.CursorHover = System.Windows.Forms.Cursors.Hand;
+            this.buttonImage1.Animations.CursorHoverLeave = null;
             this.buttonImage1.Animations.TextColorHover = System.Drawing.Color.DarkOrange;
             this.buttonImage1.Animations.TextColorHoverLeave = System.Drawing.Color.Empty;
             this.buttonImage1.BackColor = System.Drawing.Color.Transparent;
@@ -180,6 +190,8 @@
             // 
             this.labelSpecial2.Animations.ColorHover = System.Drawing.Color.Empty;
             this.labelSpecial2.Animations.ColorHoverLeave = System.Drawing.Color.Empty;
+            this.labelSpecial2.Animations.CursorHover = System.Windows.Forms.Cursors.Hand;
+            this.labelSpecial2.Animations.CursorHoverLeave = null;
             this.labelSpecial2.Animations.TextColorHover = System.Drawing.Color.Empty;
             this.labelSpecial2.Animations.TextColorHoverLeave = System.Drawing.Color.Empty;
             this.labelSpecial2.BackColor = System.Drawing.Color.Transparent;
@@ -200,6 +212,8 @@
             // 
             this.labelSpecial1.Animations.ColorHover = System.Drawing.Color.Empty;
             this.labelSpecial1.Animations.ColorHoverLeave = System.Drawing.Color.Empty;
+            this.labelSpecial1.Animations.CursorHover = System.Windows.Forms.Cursors.Hand;
+            this.labelSpecial1.Animations.CursorHoverLeave = null;
             this.labelSpecial1.Animations.TextColorHover = System.Drawing.Color.Empty;
             this.labelSpecial1.Animations.TextColorHoverLeave = System.Drawing.Color.Empty;
             this.labelSpecial1.BackColor = System.Drawing.Color.Transparent;
@@ -220,6 +234,8 @@
             // 
             this.button1.Animations.ColorHover = System.Drawing.Color.RoyalBlue;
             this.button1.Animations.ColorHoverLeave = System.Drawing.Color.Empty;
+            this.button1.Animations.CursorHover = System.Windows.Forms.Cursors.Hand;
+            this.button1.Animations.CursorHoverLeave = null;
             this.button1.Animations.TextColorHover = System.Drawing.Color.DarkOrange;
             this.button1.Animations.TextColorHoverLeave = System.Drawing.Color.Empty;
             this.button1.BackColor = System.Drawing.Color.SteelBlue;

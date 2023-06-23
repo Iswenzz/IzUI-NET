@@ -35,9 +35,6 @@
 		<Compile Update="Fixtures\Data.cs">
 			<SubType>UserControl</SubType>
 		</Compile>
-		<Compile Update="Fixtures\MKW.cs">
-			<SubType>UserControl</SubType>
-		</Compile>
 		<Compile Update="Fixtures\Inputs.cs">
 			<SubType>UserControl</SubType>
 		</Compile>

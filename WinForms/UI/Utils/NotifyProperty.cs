@@ -1,6 +1,7 @@
-﻿using IzUI.WinForms.UI.Design;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Windows.Forms;
+
+using IzUI.WinForms.UI.Design;
 
 namespace IzUI.WinForms.UI.Utils
 {
@@ -23,8 +24,8 @@ namespace IzUI.WinForms.UI.Utils
 
             if (instance is Control)
                 (instance as Control).Invalidate();
-            if (instance is Design.AbstractDesign)
-                (instance as Design.AbstractDesign).Owner.Invalidate();
+            if (instance is AbstractDesign)
+                (instance as AbstractDesign).Owner.Invalidate();
         }
     }
 }
