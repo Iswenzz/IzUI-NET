@@ -1,13 +1,11 @@
-﻿using System.ComponentModel;
-
-using IzUI.WinForms.UI.Data;
+﻿using IzUI.WinForms.UI.Data;
 
 namespace IzUI.WinForms.UI.Controls.Layout
 {
     /// <summary>
     /// Panel with separators borders.
     /// </summary>
-    public class PanelSeparator : AbstractPanel, INotifyPropertyChanged
+    public class PanelSeparator : AbstractPanel
     {
         /// <summary>
         /// Initialize a new <see cref="PanelSeparator"/> object.

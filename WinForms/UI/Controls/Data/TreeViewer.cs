@@ -7,7 +7,7 @@ namespace IzUI.WinForms.UI.Controls.Data
     /// <summary>
     /// Tree viewer control.
     /// </summary>
-    public partial class TreeViewer : AbstractTreeView, INotifyPropertyChanged
+    public partial class TreeViewer : AbstractTreeView
     {
         /// <summary>
         /// Collapase icon.
@@ -30,7 +30,7 @@ namespace IzUI.WinForms.UI.Controls.Data
         /// <summary>
         /// Initialize a new <see cref="TreeViewer"/> object.
         /// </summary>
-        public TreeViewer()
+        public TreeViewer() : base()
         {
             DrawMode = TreeViewDrawMode.OwnerDrawAll;
             DrawNode += OnDrawIcons;

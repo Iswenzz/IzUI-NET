@@ -1,7 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
 using IzUI.WinForms.UI.Controls.Resources;
@@ -11,7 +10,7 @@ namespace IzUI.WinForms.UI.Controls.Inputs
     /// <summary>
     /// Button image control.
     /// </summary>
-    public class ButtonImage : AbstractText, INotifyPropertyChanged
+    public class ButtonImage : AbstractText
     {
         /// <summary>
         /// Default background image.
@@ -47,9 +46,9 @@ namespace IzUI.WinForms.UI.Controls.Inputs
         /// <param name="e">Mouse event.</param>
         protected override void OnMouseLeave(EventArgs e)
         {
+            base.OnMouseLeave(e);
             BackgroundImage = DefaultImage;
             Invalidate();
-            base.OnMouseLeave(e);
         }
 
         /// <summary>
@@ -58,11 +57,11 @@ namespace IzUI.WinForms.UI.Controls.Inputs
         /// <param name="e">Mouse event.</param>
         protected override void OnMouseEnter(EventArgs e)
         {
+            base.OnMouseEnter(e);
             DefaultImage = BackgroundImage;
             if (ActiveImage != null)
                 BackgroundImage = ActiveImage;
             Invalidate();
-            base.OnMouseEnter(e);
         }
 
         /// <summary>

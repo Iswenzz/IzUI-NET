@@ -7,7 +7,7 @@ namespace IzUI.WinForms.UI.Design
     /// <summary>
     /// Icon design.
     /// </summary>
-    public class Icon : AbstractDesign, INotifyPropertyChanged
+    public class Icon : AbstractDesign
     {
         /// <summary>
         /// Button icon.
@@ -24,8 +24,8 @@ namespace IzUI.WinForms.UI.Design
         /// <summary>
         /// Create a new <see cref="Icon"/>.
         /// </summary>
-        /// <param name="owner">The <see cref="Control"/> owner.</param>
-        public Icon(Control owner) : base(owner) { }
+        /// <param name="control">The <see cref="Control"/>.</param>
+        public Icon(Control control) : base(control) { }
         
         /// <summary>
         /// Set button icon.
@@ -50,8 +50,8 @@ namespace IzUI.WinForms.UI.Design
             // Icon render
             int size = IconSize > 0 ? IconSize : IconImage.Height;
             pe.Graphics.DrawImage(IconImage, new Rectangle(
-                (Owner.Width / 6) - (size / 2), 
-                (Owner.Height / 2) - (size / 2),
+                (Control.Width / 6) - (size / 2), 
+                (Control.Height / 2) - (size / 2),
                 size, size));
         }
     }

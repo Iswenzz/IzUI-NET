@@ -8,7 +8,7 @@ namespace IzUI.WinForms.UI.Design
     /// <summary>
     /// Animations on events.
     /// </summary>
-    public class Animations : AbstractDesign, INotifyPropertyChanged
+    public class Animations : AbstractDesign
     {
         /// <summary>
         /// Cursor style when mouse hover the control.
@@ -49,8 +49,8 @@ namespace IzUI.WinForms.UI.Design
         /// <summary>
         /// Create a new <see cref="Animations"/>.
         /// </summary>
-        /// <param name="owner">The <see cref="Control"/> owner.</param>
-        public Animations(Control owner) : base(owner) { }
+        /// <param name="control">The <see cref="Control"/>.</param>
+        public Animations(Control control) : base(control) { }
 
         /// <summary>
         /// Mouse leave callback.
@@ -58,10 +58,10 @@ namespace IzUI.WinForms.UI.Design
         /// <param name="e">Mouse event.</param>
         public void OnMouseLeave(EventArgs e)
         {
-            Owner.BackColor = ColorHoverLeave;
-            Owner.ForeColor = TextColorHoverLeave;
-            Owner.Cursor = CursorHoverLeave;
-            Owner.Invalidate();
+            Control.BackColor = ColorHoverLeave;
+            Control.ForeColor = TextColorHoverLeave;
+            Control.Cursor = CursorHoverLeave;
+            Control.Invalidate();
         }
 
         /// <summary>
@@ -70,12 +70,12 @@ namespace IzUI.WinForms.UI.Design
         /// <param name="e">Mouse event.</param>
         public void OnMouseEnter(EventArgs e)
         {
-            ColorHoverLeave = Owner.BackColor;
-            TextColorHoverLeave = Owner.ForeColor;
-            Owner.BackColor = ColorHover;
-            Owner.ForeColor = TextColorHover;
-            Owner.Cursor = CursorHover;
-            Owner.Invalidate();
+            ColorHoverLeave = Control.BackColor;
+            TextColorHoverLeave = Control.ForeColor;
+            Control.BackColor = ColorHover;
+            Control.ForeColor = TextColorHover;
+            Control.Cursor = CursorHover;
+            Control.Invalidate();
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-using System.Drawing;
+﻿using System.Drawing;
 using System.Windows.Forms;
 
 namespace IzUI.WinForms.UI.Controls.Inputs
@@ -7,7 +6,7 @@ namespace IzUI.WinForms.UI.Controls.Inputs
     /// <summary>
     /// Button control.
     /// </summary>
-    public class Button : AbstractText, INotifyPropertyChanged
+    public class Button : AbstractText
     {
         /// <summary>
         /// Initialize a new <see cref="Button"/> object.

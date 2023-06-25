@@ -3,18 +3,16 @@ using System.ComponentModel;
 using System.Windows.Forms;
 
 using IzUI.WinForms.UI.Design;
-using IzUI.WinForms.UI.Utils;
 
 namespace IzUI.WinForms.UI.Controls
 {
     /// <summary>
     /// Base panel class.
     /// </summary>
-    public abstract class AbstractPanel : Panel, INotifyPropertyChanged
+    public abstract class AbstractPanel : Panel
     {
         public event PropertyChangedEventHandler PropertyChanged;
         protected CreateParams BaseCreateParams { get => base.CreateParams; }
-        protected bool BasePainting { get; set; } = true;
 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [Category("Appearance"), Description("Layout alignment and rotation angle.")]
@@ -70,8 +68,7 @@ namespace IzUI.WinForms.UI.Controls
         /// <param name="pe">Paint data.</param>
         protected override void OnPaint(PaintEventArgs pe)
         {
-            if (BasePainting)
-                base.OnPaint(pe);
+            base.OnPaint(pe);
 
             Border?.OnPaint(pe);
             Animations?.OnPaint(pe);
@@ -90,12 +87,5 @@ namespace IzUI.WinForms.UI.Controls
             Animations?.Dispose();
             Layouts?.Dispose();
         }
-
-        /// <summary>
-        /// Invalidate on class property changes.
-        /// </summary>
-        /// <param name="eventArgs">Property event args.</param>
-        protected virtual void OnPropertyChanged(PropertyChangedEventArgs eventArgs) =>
-            NotifyProperty.Callback(this, PropertyChanged, eventArgs);
     }
 }

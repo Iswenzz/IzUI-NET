@@ -1,17 +1,16 @@
-﻿using System.ComponentModel;
-using System.Drawing;
+﻿using System.Drawing;
 
 namespace IzUI.WinForms.UI.Controls.Data
 {
     /// <summary>
     /// Label control.
     /// </summary>
-    public class LabelSpecial : AbstractText, INotifyPropertyChanged
+    public class LabelSpecial : AbstractText
     {
         /// <summary>
         /// Initialize a new <see cref="LabelSpecial"/> object.
         /// </summary>
-        public LabelSpecial()
+        public LabelSpecial() : base()
         {
             Size = new Size(125, 40);
 

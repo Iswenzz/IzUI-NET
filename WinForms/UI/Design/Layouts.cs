@@ -7,7 +7,7 @@ namespace IzUI.WinForms.UI.Design
     /// <summary>
     /// Layout settings.
     /// </summary>
-    public class Layouts : AbstractDesign, INotifyPropertyChanged
+    public class Layouts : AbstractDesign
     {
         /// <summary>
         /// The angle used to rotate the text.
@@ -25,8 +25,8 @@ namespace IzUI.WinForms.UI.Design
         /// <summary>
         /// Create a new <see cref="Layouts"/>.
         /// </summary>
-        /// <param name="owner">The <see cref="Control"/> owner.</param>
-        public Layouts(Control owner) : base(owner) { }
+        /// <param name="control">The <see cref="Control"/>.</param>
+        public Layouts(Control control) : base(control) { }
 
         /// <summary>
         /// Render callback.
@@ -38,7 +38,7 @@ namespace IzUI.WinForms.UI.Design
 
             if (Angle > 0)
             {
-                pe.Graphics.TranslateTransform(Owner.Width, 0);
+                pe.Graphics.TranslateTransform(Control.Width, 0);
                 pe.Graphics.RotateTransform(Angle);
             }
         }

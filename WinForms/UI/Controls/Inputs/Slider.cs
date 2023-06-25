@@ -15,7 +15,7 @@ namespace IzUI.WinForms.UI.Controls.Inputs
     /// </summary>
     [ToolboxBitmap(typeof(TrackBar))]
     [DefaultEvent("Scroll"), DefaultProperty("BarInnerColor")]
-    public class Slider : AbstractControl, INotifyPropertyChanged
+    public class Slider : AbstractControl
     {
         private bool MouseInRegion { get; set; }
         private bool MouseInThumbRegion { get; set; }

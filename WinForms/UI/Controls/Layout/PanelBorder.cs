@@ -1,13 +1,11 @@
-﻿using System.ComponentModel;
-
-using IzUI.WinForms.UI.Data;
+﻿using IzUI.WinForms.UI.Data;
 
 namespace IzUI.WinForms.UI.Controls.Layout
 {
     /// <summary>
     /// Panel control with borders.
     /// </summary>
-    public class PanelBorder : AbstractPanel, INotifyPropertyChanged
+    public class PanelBorder : AbstractPanel
     {
         /// <summary>
         /// Initialize a new <see cref="PanelBorder"/> object.

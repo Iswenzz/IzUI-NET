@@ -13,7 +13,7 @@ namespace IzUI.WinForms.UI.Design
     /// <summary>
     /// Border styles.
     /// </summary>
-    public class Border : AbstractDesign, INotifyPropertyChanged
+    public class Border : AbstractDesign
     {
         /// <summary>
         /// Border corner radius.
@@ -45,8 +45,8 @@ namespace IzUI.WinForms.UI.Design
         /// <summary>
         /// Create a new <see cref="Border"/>.
         /// </summary>
-        /// <param name="owner">The <see cref="Control"/> owner.</param>
-        public Border(Control owner) : base(owner) { }
+        /// <param name="control">The <see cref="Control"/>.</param>
+        public Border(Control control) : base(control) { }
 
         /// <summary>
         /// Render callback.
@@ -56,28 +56,28 @@ namespace IzUI.WinForms.UI.Design
         {
             if (!Renderable) return;
 
-            using SolidBrush backBrush = new(Owner.BackColor);
+            using SolidBrush backBrush = new(Control.BackColor);
             using Pen borderPen = new(Color, Width);
 
             // Borders
             if (Locations.HasFlag(RectLocation.Top))
                 pe.Graphics.DrawLine(borderPen, new PointF(0, Width / 2),
-                    new PointF(Owner.Width, Width / 2));
+                    new PointF(Control.Width, Width / 2));
             if (Locations.HasFlag(RectLocation.Right))
-                pe.Graphics.DrawLine(borderPen, new PointF(Owner.Width - (Width / 2), 0),
-                    new PointF(Owner.Width - (Width / 2), Owner.Height));
+                pe.Graphics.DrawLine(borderPen, new PointF(Control.Width - (Width / 2), 0),
+                    new PointF(Control.Width - (Width / 2), Control.Height));
             if (Locations.HasFlag(RectLocation.Bottom))
-                pe.Graphics.DrawLine(borderPen, new PointF(0, Owner.Height - (Width / 2)),
-                    new PointF(Owner.Width, Owner.Height - (Width / 2)));
+                pe.Graphics.DrawLine(borderPen, new PointF(0, Control.Height - (Width / 2)),
+                    new PointF(Control.Width, Control.Height - (Width / 2)));
             if (Locations.HasFlag(RectLocation.Left))
                 pe.Graphics.DrawLine(borderPen, new PointF(Width / 2, 0),
-                    new PointF(Width / 2, Owner.Height));
+                    new PointF(Width / 2, Control.Height));
 
             // Rounded
-            if (Radius.Width > 0 && Radius.Height > 0 && Owner.BackColor != Color.Transparent)
+            if (Radius.Width > 0 && Radius.Height > 0 && Control.BackColor != Color.Transparent)
             {
-                GraphicsPath path = Owner.ClientRectangle.CreateRoundRectPath(Radius);
-                Owner.Region = new Region(path);
+                GraphicsPath path = Control.ClientRectangle.CreateRoundRectPath(Radius);
+                Control.Region = new Region(path);
                 path.Dispose();
             }
         }

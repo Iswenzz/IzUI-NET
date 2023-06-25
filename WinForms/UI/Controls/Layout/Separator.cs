@@ -7,7 +7,7 @@ namespace IzUI.WinForms.UI.Controls.Layout
     /// <summary>
     /// Separator line control.
     /// </summary>
-    public class Separator : AbstractControl, INotifyPropertyChanged
+    public class Separator : AbstractControl
     {
         /// <summary>
         /// Separator stroke thickness.

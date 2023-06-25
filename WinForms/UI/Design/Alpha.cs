@@ -9,7 +9,7 @@ namespace IzUI.WinForms.UI.Design
     /// Base design class that supports alpha.
     /// </summary>
     [Browsable(false)]
-    public class Alpha : AbstractDesign, INotifyPropertyChanged
+    public class Alpha : AbstractDesign
     {
         public const int WS_EX_TRANSPARENT = 0x20;
 
@@ -24,13 +24,13 @@ namespace IzUI.WinForms.UI.Design
         /// <summary>
         /// Create a new <see cref="Alpha"/>.
         /// </summary>
-        /// <param name="owner">The <see cref="Control"/> owner.</param>
-        public Alpha(Control owner) : base(owner) { }
+        /// <param name="control">The <see cref="Control"/>.</param>
+        public Alpha(Control control) : base(control) { }
 
         /// <summary>
         /// Allow components to be transparent.
         /// </summary>
-        /// <param name="controlParams">The <see cref="Control"/> owner.</param>
+        /// <param name="controlParams">The <see cref="System.Windows.Forms.CreateParams"/>.</param>
         /// <returns></returns>
         public virtual CreateParams CreateParams(CreateParams controlParams)
         {
@@ -46,7 +46,7 @@ namespace IzUI.WinForms.UI.Design
         public virtual void OnParentBackColorChanged(EventArgs e)
         {
             if (IsTransparent)
-                Owner.Invalidate();
+                Control.Invalidate();
         }
 
         /// <summary>
@@ -55,9 +55,9 @@ namespace IzUI.WinForms.UI.Design
         /// <param name="e"></param>
         public virtual void OnBackColorChanged(EventArgs e)
         {
-            IsTransparent = Owner.BackColor == Color.Transparent;
-            if (IsTransparent && Owner.Parent != null)
-                Owner.Parent.Invalidate(Owner.Bounds, true);
+            IsTransparent = Control.BackColor == Color.Transparent;
+            if (IsTransparent && Control.Parent != null)
+                Control.Parent.Invalidate(Control.Bounds, true);
         }
     }
 }

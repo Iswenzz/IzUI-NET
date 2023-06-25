@@ -5,19 +5,17 @@ using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
 using IzUI.WinForms.UI.Design;
-using IzUI.WinForms.UI.Utils;
 
 namespace IzUI.WinForms.UI.Controls
 {
     /// <summary>
     /// Base control class.
     /// </summary>
-    public abstract partial class AbstractControl : Control, INotifyPropertyChanged
+    public abstract partial class AbstractControl : Control
     {
         public event PropertyChangedEventHandler PropertyChanged;
         protected CreateParams BaseCreateParams { get => base.CreateParams; }
         protected override CreateParams CreateParams { get => Alpha.CreateParams(base.CreateParams); }
-        protected bool BasePainting { get; set; } = true;
 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [Category("Appearance"), Description("Transparency settings.")]
@@ -41,6 +39,9 @@ namespace IzUI.WinForms.UI.Controls
         protected AbstractControl()
         {
             InitializeComponent();
+
+            Label a;
+
             Layouts = new Layouts(this);
             Alpha = new Alpha(this);
             Border = new Border(this);
@@ -95,8 +96,7 @@ namespace IzUI.WinForms.UI.Controls
         /// <param name="pe">Paint data.</param>
         protected override void OnPaint(PaintEventArgs pe)
         {
-            if (BasePainting)
-                base.OnPaint(pe);
+            base.OnPaint(pe);
 
             Alpha?.OnPaint(pe);
             Border?.OnPaint(pe);
@@ -136,12 +136,5 @@ namespace IzUI.WinForms.UI.Controls
             Animations?.Dispose();
             Layouts?.Dispose();
         }
-
-        /// <summary>
-        /// Invalidate on class property changes.
-        /// </summary>
-        /// <param name="eventArgs">Property event args.</param>
-        protected virtual void OnPropertyChanged(PropertyChangedEventArgs eventArgs) =>
-            NotifyProperty.Callback(this, PropertyChanged, eventArgs);
     }
 }

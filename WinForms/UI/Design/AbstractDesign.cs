@@ -5,19 +5,17 @@ using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 
-using IzUI.WinForms.UI.Utils;
-
 namespace IzUI.WinForms.UI.Design
 {
     /// <summary>
     /// Represent a designer object.
     /// </summary>
     [TypeConverter(typeof(ExpandableObjectConverter))]
-    public abstract class AbstractDesign : IDisposable, INotifyPropertyChanged
+    public abstract class AbstractDesign : IDisposable
     {
         [Browsable(false)] 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public Control Owner { get; protected set; }
+        public Control Control { get; protected set; }
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -33,10 +31,10 @@ namespace IzUI.WinForms.UI.Design
         /// <summary>
         /// Create a new <see cref="AbstractDesign"/>.
         /// </summary>
-        /// <param name="owner">The <see cref="Control"/> owner.</param>
-        protected AbstractDesign(Control owner)
+        /// <param name="control">The <see cref="System.Windows.Forms.Control"/>.</param>
+        protected AbstractDesign(Control control)
         {
-            Owner = owner;
+            Control = control;
         }
 
         /// <summary>
@@ -48,13 +46,6 @@ namespace IzUI.WinForms.UI.Design
         /// Enable rendering.
         /// </summary>
         public virtual void Enable() => Renderable = true;
-
-        /// <summary>
-        /// Invalidate on class property changes.
-        /// </summary>
-        /// <param name="eventArgs">Property event args.</param>
-        protected virtual void OnPropertyChanged(PropertyChangedEventArgs eventArgs) =>
-            NotifyProperty.Callback(this, PropertyChanged, eventArgs);
 
         /// <summary>
         /// Render callback.

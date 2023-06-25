@@ -1,5 +1,4 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Windows.Forms;
 
 using IzUI.WinForms.UI.Design;
@@ -9,7 +8,7 @@ namespace IzUI.WinForms.UI.Controls
     /// <summary>
     /// Base text class.
     /// </summary>
-    public abstract class AbstractText : AbstractControl, INotifyPropertyChanged
+    public abstract class AbstractText : AbstractControl
     {
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -30,28 +29,6 @@ namespace IzUI.WinForms.UI.Controls
         {
             TextLayouts = new TextLayouts(this);
             Icon = new Icon(this);
-
-            Animations.CursorHover = Cursors.Hand;
-        }
-
-        /// <summary>
-        /// Mouse leave callback.
-        /// </summary>
-        /// <param name="e">Mouse event.</param>
-        protected override void OnMouseLeave(EventArgs e)
-        {
-            Cursor = Cursors.Default;
-            base.OnMouseLeave(e);
-        }
-
-        /// <summary>
-        /// Mouse enter callback.
-        /// </summary>
-        /// <param name="e">Mouse event.</param>
-        protected override void OnMouseEnter(EventArgs e)
-        {
-            Cursor = Cursors.Hand;
-            base.OnMouseEnter(e);
         }
 
         /// <summary>

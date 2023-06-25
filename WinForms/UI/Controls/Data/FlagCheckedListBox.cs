@@ -35,7 +35,7 @@ namespace IzUI.WinForms.UI.Controls.Data
         /// <summary>
         /// Initialize a new <see cref="FlagCheckedListBox"/> object.
         /// </summary>
-        public FlagCheckedListBox()
+        public FlagCheckedListBox() : base()
         {
             CheckOnClick = true;
         }
