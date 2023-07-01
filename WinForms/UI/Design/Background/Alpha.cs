@@ -1,24 +1,20 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace IzUI.WinForms.UI.Design
+namespace IzUI.WinForms.UI.Design.Background
 {
     /// <summary>
     /// Base design class that supports alpha.
     /// </summary>
-    [Browsable(false)]
     public class Alpha : AbstractDesign
     {
         public const int WS_EX_TRANSPARENT = 0x20;
-
         protected virtual bool IsTransparent { get; set; }
 
-        public override ControlStyles ControlStylesToEnable 
+        public override ControlStyles ControlStylesToEnable
         {
-            get => ControlStyles.SupportsTransparentBackColor | 
-                ControlStyles.Opaque;
+            get => ControlStyles.SupportsTransparentBackColor | ControlStyles.Opaque;
         }
 
         /// <summary>
@@ -56,8 +52,8 @@ namespace IzUI.WinForms.UI.Design
         public virtual void OnBackColorChanged(EventArgs e)
         {
             IsTransparent = Control.BackColor == Color.Transparent;
-            if (IsTransparent && Control.Parent != null)
-                Control.Parent.Invalidate(Control.Bounds, true);
+            if (IsTransparent)
+                Control.Parent?.Invalidate(Control.Bounds, true);
         }
     }
 }

@@ -3,8 +3,9 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
-
-using IzUI.WinForms.UI.Design;
+using IzUI.WinForms.UI.Design.Background;
+using IzUI.WinForms.UI.Design.Data;
+using IzUI.WinForms.UI.Design.Layout;
 
 namespace IzUI.WinForms.UI.Controls
 {
@@ -39,12 +40,10 @@ namespace IzUI.WinForms.UI.Controls
         {
             InitializeComponent();
 
-            Label a;
-
+            Animations = new Animations(this);
             Layouts = new Layouts(this);
             Alpha = new Alpha(this);
             Border = new Border(this);
-            Animations = new Animations(this);
 
             SetStyle(Alpha.ControlStylesToEnable, true);
         }
@@ -97,10 +96,10 @@ namespace IzUI.WinForms.UI.Controls
         {
             base.OnPaint(pe);
 
-            Alpha?.OnPaint(pe);
-            Border?.OnPaint(pe);
-            Animations?.OnPaint(pe);
-            Layouts?.OnPaint(pe);
+            Animations.OnPaint(pe);
+            Alpha.OnPaint(pe);
+            Border.OnPaint(pe);
+            Layouts.OnPaint(pe);
         }
 
         /// <summary>
@@ -130,10 +129,10 @@ namespace IzUI.WinForms.UI.Controls
                 components.Dispose();
             base.Dispose(disposing);
 
-            Alpha?.Dispose();
-            Border?.Dispose();
-            Animations?.Dispose();
-            Layouts?.Dispose();
+            Animations.Dispose();
+            Alpha.Dispose();
+            Border.Dispose();
+            Layouts.Dispose();
         }
     }
 }

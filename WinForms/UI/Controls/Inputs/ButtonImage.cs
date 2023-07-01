@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 
 using IzUI.WinForms.UI.Controls.Resources;
+using IzUI.WinForms.UI.Design;
 
 namespace IzUI.WinForms.UI.Controls.Inputs
 {

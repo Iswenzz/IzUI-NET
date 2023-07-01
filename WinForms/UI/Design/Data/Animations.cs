@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace IzUI.WinForms.UI.Design
+namespace IzUI.WinForms.UI.Design.Data
 {
     /// <summary>
     /// Animations on events.

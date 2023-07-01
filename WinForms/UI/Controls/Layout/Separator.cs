@@ -17,7 +17,7 @@ namespace IzUI.WinForms.UI.Controls.Layout
         public virtual float Thickness { get; set; } = 1f;
 
         [Browsable(false)]
-        public override string Text { get => string.Empty; set => base.Text = string.Empty; }
+        public override string Text { get => string.Empty; }
 
         /// <summary>
         /// Initialize a new <see cref="Separator"/> object.

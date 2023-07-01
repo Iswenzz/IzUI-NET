@@ -44,7 +44,4 @@
 		<None Include="README.md" Pack="true" PackagePath="$(PackageReadmeFile)" />
 		<None Include="UI\Controls\Resources\Iswenzz.png" Pack="true" PackagePath="$(PackageIcon)" />
 	</ItemGroup>
-	<ItemGroup>
-	  <PackageReference Include="System.Resources.Extensions" Version="8.0.0-preview.5.23280.8" />
-	</ItemGroup>
 </Project>

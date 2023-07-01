@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace IzUI.WinForms.UI.Design
+namespace IzUI.WinForms.UI.Design.Layout
 {
     /// <summary>
     /// Layout settings.
@@ -34,13 +34,10 @@ namespace IzUI.WinForms.UI.Design
         /// <param name="pe">Paint data.</param>
         public override void OnPaint(PaintEventArgs pe)
         {
-            if (!Renderable) return;
+            if (!Enabled || Angle <= 0) return;
 
-            if (Angle > 0)
-            {
-                pe.Graphics.TranslateTransform(Control.Width, 0);
-                pe.Graphics.RotateTransform(Angle);
-            }
+            pe.Graphics.TranslateTransform(Control.Width, 0);
+            pe.Graphics.RotateTransform(Angle);
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 using IzUI.WinForms.UI.Data;
 
-namespace IzUI.WinForms.UI.Design
+namespace IzUI.WinForms.UI.Design.Layout
 {
     /// <summary>
     /// Texts layout.
@@ -22,7 +22,7 @@ namespace IzUI.WinForms.UI.Design
         /// <param name="pe">Paint data.</param>
         public override void OnPaint(PaintEventArgs pe)
         {
-            if (!Renderable) return;
+            if (!Enabled) return;
             base.OnPaint(pe);
 
             using SolidBrush foreBrush = new(Control.ForeColor);
@@ -30,7 +30,7 @@ namespace IzUI.WinForms.UI.Design
 
             Rectangle clientRectangle = Control.ClientRectangle;
             Rectangle clientRectangleReverse = new(0, 0, Control.Height, Control.Width);
-            pe.Graphics.DrawString(Control.Text, Control.Font, foreBrush, 
+            pe.Graphics.DrawString(Control.Text, Control.Font, foreBrush,
                 Angle > 0 ? clientRectangleReverse : clientRectangle, sf);
         }
     }

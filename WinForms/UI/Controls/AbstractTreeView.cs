@@ -1,8 +1,9 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Windows.Forms;
-
-using IzUI.WinForms.UI.Design;
+using IzUI.WinForms.UI.Design.Background;
+using IzUI.WinForms.UI.Design.Data;
+using IzUI.WinForms.UI.Design.Layout;
 
 namespace IzUI.WinForms.UI.Controls
 {
@@ -32,9 +33,9 @@ namespace IzUI.WinForms.UI.Controls
         {
             Text = string.Empty;
 
+            Animations = new Animations(this);
             Layouts = new Layouts(this);
             Border = new Border(this);
-            Animations = new Animations(this);
         }
 
         /// <summary>
@@ -65,9 +66,9 @@ namespace IzUI.WinForms.UI.Controls
         {
             base.OnPaint(pe);
 
-            Border?.OnPaint(pe);
-            Animations?.OnPaint(pe);
-            Layouts?.OnPaint(pe);
+            Animations.OnPaint(pe);
+            Border.OnPaint(pe);
+            Layouts.OnPaint(pe);
         }
 
         /// <summary>
@@ -78,9 +79,9 @@ namespace IzUI.WinForms.UI.Controls
         {
             base.Dispose(disposing);
 
-            Border?.Dispose();
-            Animations?.Dispose();
-            Layouts?.Dispose();
+            Animations.Dispose();
+            Border.Dispose();
+            Layouts.Dispose();
         }
     }
 }

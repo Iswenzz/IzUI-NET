@@ -8,7 +8,7 @@ using IzUI.WinForms.UI.Data;
 using IzUI.WinForms.UI.Maths;
 using IzUI.WinForms.UI.Models.Editors;
 
-namespace IzUI.WinForms.UI.Design
+namespace IzUI.WinForms.UI.Design.Background
 {
     /// <summary>
     /// Border styles.
@@ -54,7 +54,7 @@ namespace IzUI.WinForms.UI.Design
         /// <param name="pe">Paint data.</param>
         public override void OnPaint(PaintEventArgs pe)
         {
-            if (!Renderable) return;
+            if (!Enabled) return;
 
             using SolidBrush backBrush = new(Control.BackColor);
             using Pen borderPen = new(Color, Width);
@@ -64,11 +64,11 @@ namespace IzUI.WinForms.UI.Design
                 pe.Graphics.DrawLine(borderPen, new PointF(0, Width / 2),
                     new PointF(Control.Width, Width / 2));
             if (Locations.HasFlag(RectLocation.Right))
-                pe.Graphics.DrawLine(borderPen, new PointF(Control.Width - (Width / 2), 0),
-                    new PointF(Control.Width - (Width / 2), Control.Height));
+                pe.Graphics.DrawLine(borderPen, new PointF(Control.Width - Width / 2, 0),
+                    new PointF(Control.Width - Width / 2, Control.Height));
             if (Locations.HasFlag(RectLocation.Bottom))
-                pe.Graphics.DrawLine(borderPen, new PointF(0, Control.Height - (Width / 2)),
-                    new PointF(Control.Width, Control.Height - (Width / 2)));
+                pe.Graphics.DrawLine(borderPen, new PointF(0, Control.Height - Width / 2),
+                    new PointF(Control.Width, Control.Height - Width / 2));
             if (Locations.HasFlag(RectLocation.Left))
                 pe.Graphics.DrawLine(borderPen, new PointF(Width / 2, 0),
                     new PointF(Width / 2, Control.Height));

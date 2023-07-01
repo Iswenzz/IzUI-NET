@@ -12,15 +12,4 @@
   <ItemGroup>
     <ProjectReference Include="..\WinForms\IzUI.WinForms.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Update="UI\Data.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="UI\Inputs.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="UI\Layout.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-  </ItemGroup>
 </Project>

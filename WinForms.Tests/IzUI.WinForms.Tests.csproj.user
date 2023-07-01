@@ -4,5 +4,14 @@
     <Compile Update="Fixture.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="UI\Data.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UI\Inputs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UI\Layout.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

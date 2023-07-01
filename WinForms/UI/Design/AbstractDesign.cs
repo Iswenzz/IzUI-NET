@@ -17,12 +17,14 @@ namespace IzUI.WinForms.UI.Design
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Control Control { get; protected set; }
 
-        [Browsable(false)]
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public bool Renderable { get; set; } = true;
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        public bool Enabled { get; set; } = true;
 
-        [Browsable(false)] public virtual ControlStyles ControlStylesToEnable { get; }
-        [Browsable(false)] public virtual ControlStyles ControlStylesToDisable { get; }
+        [Browsable(false)] 
+        public virtual ControlStyles ControlStylesToEnable { get; }
+
+        [Browsable(false)] 
+        public virtual ControlStyles ControlStylesToDisable { get; }
 
         /// <summary>
         /// Create a new <see cref="AbstractDesign"/>.
@@ -36,12 +38,12 @@ namespace IzUI.WinForms.UI.Design
         /// <summary>
         /// Disable rendering.
         /// </summary>
-        public virtual void Disable() => Renderable = false;
+        public virtual void Disable() => Enabled = false;
 
         /// <summary>
         /// Enable rendering.
         /// </summary>
-        public virtual void Enable() => Renderable = true;
+        public virtual void Enable() => Enabled = true;
 
         /// <summary>
         /// Render callback.

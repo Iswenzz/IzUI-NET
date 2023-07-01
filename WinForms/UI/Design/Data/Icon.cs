@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace IzUI.WinForms.UI.Design
+namespace IzUI.WinForms.UI.Design.Data
 {
     /// <summary>
     /// Icon design.
@@ -26,7 +26,7 @@ namespace IzUI.WinForms.UI.Design
         /// </summary>
         /// <param name="control">The <see cref="Control"/>.</param>
         public Icon(Control control) : base(control) { }
-        
+
         /// <summary>
         /// Set button icon.
         /// </summary>
@@ -45,13 +45,13 @@ namespace IzUI.WinForms.UI.Design
         /// <param name="pe">Paint data.</param>
         public override void OnPaint(PaintEventArgs pe)
         {
-            if (!Renderable || IconImage == null) return;
+            if (!Enabled || IconImage == null) return;
 
             // Icon render
             int size = IconSize > 0 ? IconSize : IconImage.Height;
             pe.Graphics.DrawImage(IconImage, new Rectangle(
-                (Control.Width / 6) - (size / 2), 
-                (Control.Height / 2) - (size / 2),
+                Control.Width / 6 - size / 2,
+                Control.Height / 2 - size / 2,
                 size, size));
         }
     }

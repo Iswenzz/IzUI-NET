@@ -1,7 +1,8 @@
 ﻿using System.ComponentModel;
 using System.Windows.Forms;
 
-using IzUI.WinForms.UI.Design;
+using IzUI.WinForms.UI.Design.Data;
+using IzUI.WinForms.UI.Design.Layout;
 
 namespace IzUI.WinForms.UI.Controls
 {
@@ -12,7 +13,7 @@ namespace IzUI.WinForms.UI.Controls
     {
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public override Layouts Layouts { get => null; set => base.Layouts = null; }
+        public override Layouts Layouts { get => null; }
 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [Category("Appearance"), Description("Layout alignment and rotation angle.")]
@@ -39,8 +40,8 @@ namespace IzUI.WinForms.UI.Controls
         {
             base.OnPaint(pe);
 
-            Icon?.OnPaint(pe);
-            TextLayouts?.OnPaint(pe);
+            Icon.OnPaint(pe);
+            TextLayouts.OnPaint(pe);
         }
 
         /// <summary>
@@ -51,8 +52,8 @@ namespace IzUI.WinForms.UI.Controls
         {
             base.Dispose(disposing);
 
-            Icon?.Dispose();
-            TextLayouts?.Dispose();
+            Icon.Dispose();
+            TextLayouts.Dispose();
         }
     }
 }
