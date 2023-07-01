@@ -1,15 +1,14 @@
 ﻿using System.ComponentModel;
-using System.Windows.Forms;
 
-namespace IzUI.WinForms.UI.Controls.Layout
+namespace IzUI.WinForms.Tests.UI
 {
     /// <summary>
-    /// Inputs fixtures.
+    /// Data fixtures.
     /// </summary>
     [ToolboxItem(false)]
-    public partial class Inputs : UserControl
+    public partial class Data : UserControl
     {
-        public Inputs()
+        public Data()
         {
             InitializeComponent();
         }

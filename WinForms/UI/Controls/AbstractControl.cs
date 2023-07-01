@@ -13,7 +13,6 @@ namespace IzUI.WinForms.UI.Controls
     /// </summary>
     public abstract partial class AbstractControl : Control
     {
-        public event PropertyChangedEventHandler PropertyChanged;
         protected CreateParams BaseCreateParams { get => base.CreateParams; }
         protected override CreateParams CreateParams { get => Alpha.CreateParams(base.CreateParams); }
 

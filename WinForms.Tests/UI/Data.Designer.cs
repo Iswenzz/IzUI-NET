@@ -1,4 +1,4 @@
-﻿namespace IzUI.WinForms.UI.Controls.Layout
+﻿namespace IzUI.WinForms.Tests.UI
 {
     partial class Data
     {
@@ -231,11 +231,11 @@
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private Controls.Data.LabelSpecial labelSpecial2;
-        private Controls.Data.TreeViewer treeViewer1;
-        private Controls.Data.LabelSpecial labelSpecial3;
-        private Controls.Data.LabelSpecial labelSpecial1;
-        private Controls.Data.LabelSpecial labelSpecial4;
-        private Controls.Data.LabelSpecial labelSpecial5;
+        private IzUI.WinForms.UI.Controls.Data.LabelSpecial labelSpecial2;
+        private IzUI.WinForms.UI.Controls.Data.TreeViewer treeViewer1;
+        private IzUI.WinForms.UI.Controls.Data.LabelSpecial labelSpecial3;
+        private IzUI.WinForms.UI.Controls.Data.LabelSpecial labelSpecial1;
+        private IzUI.WinForms.UI.Controls.Data.LabelSpecial labelSpecial4;
+        private IzUI.WinForms.UI.Controls.Data.LabelSpecial labelSpecial5;
     }
 }

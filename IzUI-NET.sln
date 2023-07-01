@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IzUI.WinForms", "WinForms\IzUI.WinForms.csproj", "{CDB380B1-064A-4615-996F-097B6D6B8E5B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IzUI.WinForms.Tests", "IzUI.WinForms.Tests\IzUI.WinForms.Tests.csproj", "{9FDC6915-567F-4E61-A8DE-7CA79211B5AF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{CDB380B1-064A-4615-996F-097B6D6B8E5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CDB380B1-064A-4615-996F-097B6D6B8E5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CDB380B1-064A-4615-996F-097B6D6B8E5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FDC6915-567F-4E61-A8DE-7CA79211B5AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FDC6915-567F-4E61-A8DE-7CA79211B5AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FDC6915-567F-4E61-A8DE-7CA79211B5AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FDC6915-567F-4E61-A8DE-7CA79211B5AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

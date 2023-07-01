@@ -1,4 +1,4 @@
-﻿namespace IzUI.WinForms.UI.Controls.Layout
+﻿namespace IzUI.WinForms.Tests.UI
 {
     partial class Inputs
     {
@@ -276,13 +276,13 @@
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private Controls.Inputs.Button button1;
-        private Controls.Data.LabelSpecial labelSpecial1;
-        private Controls.Data.LabelSpecial labelSpecial2;
-        private Controls.Inputs.ButtonImage buttonImage1;
-        private Controls.Data.LabelSpecial labelSpecial3;
-        private Controls.Inputs.Slider slider1;
-        private Controls.Inputs.Button button2;
-        private Controls.Inputs.Button button3;
+        private IzUI.WinForms.UI.Controls.Inputs.Button button1;
+        private IzUI.WinForms.UI.Controls.Data.LabelSpecial labelSpecial1;
+        private IzUI.WinForms.UI.Controls.Data.LabelSpecial labelSpecial2;
+        private IzUI.WinForms.UI.Controls.Inputs.ButtonImage buttonImage1;
+        private IzUI.WinForms.UI.Controls.Data.LabelSpecial labelSpecial3;
+        private IzUI.WinForms.UI.Controls.Inputs.Slider slider1;
+        private IzUI.WinForms.UI.Controls.Inputs.Button button2;
+        private IzUI.WinForms.UI.Controls.Inputs.Button button3;
     }
 }

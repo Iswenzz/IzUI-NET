@@ -32,24 +32,7 @@
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 	</PropertyGroup>
 	<ItemGroup>
-		<Compile Update="Fixtures\Data.cs">
-			<SubType>UserControl</SubType>
-		</Compile>
-		<Compile Update="Fixtures\Inputs.cs">
-			<SubType>UserControl</SubType>
-		</Compile>
-		<Compile Update="Fixtures\Layout.cs">
-			<SubType>UserControl</SubType>
-		</Compile>
 		<Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
-	</ItemGroup>
-	<ItemGroup>
-		<PackageReference Include="Fody" Version="6.6.0">
-			<PrivateAssets>all</PrivateAssets>
-			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		</PackageReference>
-		<PackageReference Include="PropertyChanged.Fody" Version="3.4.0" />
-		<PackageReference Include="System.Resources.Extensions" Version="6.0.0" />
 	</ItemGroup>
 	<ItemGroup>
 		<EmbeddedResource Update="Properties\Resources.resx">
@@ -60,5 +43,8 @@
 	<ItemGroup>
 		<None Include="README.md" Pack="true" PackagePath="$(PackageReadmeFile)" />
 		<None Include="UI\Controls\Resources\Iswenzz.png" Pack="true" PackagePath="$(PackageIcon)" />
+	</ItemGroup>
+	<ItemGroup>
+	  <PackageReference Include="System.Resources.Extensions" Version="8.0.0-preview.5.23280.8" />
 	</ItemGroup>
 </Project>

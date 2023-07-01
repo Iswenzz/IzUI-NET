@@ -11,7 +11,6 @@ namespace IzUI.WinForms.UI.Controls
     /// </summary>
     public abstract class AbstractPanel : Panel
     {
-        public event PropertyChangedEventHandler PropertyChanged;
         protected CreateParams BaseCreateParams { get => base.CreateParams; }
 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]

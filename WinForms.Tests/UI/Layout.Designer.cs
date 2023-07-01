@@ -1,4 +1,4 @@
-﻿namespace IzUI.WinForms.UI.Controls.Layout
+﻿namespace IzUI.WinForms.Tests.UI
 {
     partial class Layout
     {
@@ -190,12 +190,12 @@
         }
 
         #endregion
-        private Controls.Layout.PanelBorder panelBorder1;
-        private Controls.Layout.PanelSeparator panelSeparator1;
         private System.Windows.Forms.Label label1;
-        private Controls.Data.LabelSpecial labelSpecial1;
-        private Controls.Data.LabelSpecial labelSpecial2;
-        private Controls.Data.LabelSpecial labelSpecial3;
-        private Separator separator1;
+        private IzUI.WinForms.UI.Controls.Layout.PanelBorder panelBorder1;
+        private IzUI.WinForms.UI.Controls.Layout.PanelSeparator panelSeparator1;
+        private IzUI.WinForms.UI.Controls.Data.LabelSpecial labelSpecial1;
+        private IzUI.WinForms.UI.Controls.Data.LabelSpecial labelSpecial2;
+        private IzUI.WinForms.UI.Controls.Data.LabelSpecial labelSpecial3;
+        private IzUI.WinForms.UI.Controls.Layout.Separator separator1;
     }
 }
