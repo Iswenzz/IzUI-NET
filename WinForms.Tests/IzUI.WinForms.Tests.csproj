@@ -1,5 +1,4 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net7.0-windows</TargetFramework>
@@ -7,11 +6,12 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
-
+  <PropertyGroup>
+    <LangVersion>preview</LangVersion>
+  </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\WinForms\IzUI.WinForms.csproj" />
   </ItemGroup>
-
   <ItemGroup>
     <Compile Update="UI\Data.cs">
       <SubType>UserControl</SubType>
@@ -23,5 +23,4 @@
       <SubType>UserControl</SubType>
     </Compile>
   </ItemGroup>
-
 </Project>
