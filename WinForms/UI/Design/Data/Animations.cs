@@ -14,7 +14,7 @@ namespace IzUI.WinForms.UI.Design.Data
         /// Cursor style when mouse hover the control.
         /// </summary>
         [Description("Change the cursor when mouse hover the control.")]
-        public virtual Cursor CursorHover { get; set; }
+        public virtual Cursor CursorHover { get; set; } = Cursors.Hand;
 
         /// <summary>
         /// Cursor style when mouse hover the control.
@@ -53,11 +53,20 @@ namespace IzUI.WinForms.UI.Design.Data
         public Animations(Control control) : base(control) { }
 
         /// <summary>
+        /// Create a new <see cref="Animations"/>.
+        /// </summary>
+        /// <param name="control">The <see cref="Control"/>.</param>
+        /// <param name="enabled">Is enabled.</param>
+        public Animations(Control control, bool enabled) : base(control, enabled) { }
+
+        /// <summary>
         /// Mouse leave callback.
         /// </summary>
         /// <param name="e">Mouse event.</param>
         public void OnMouseLeave(EventArgs e)
         {
+            if (!Enabled) return;
+
             Control.BackColor = ColorHoverLeave;
             Control.ForeColor = TextColorHoverLeave;
             Control.Cursor = CursorHoverLeave;
@@ -70,6 +79,8 @@ namespace IzUI.WinForms.UI.Design.Data
         /// <param name="e">Mouse event.</param>
         public void OnMouseEnter(EventArgs e)
         {
+            if (!Enabled) return;
+
             ColorHoverLeave = Control.BackColor;
             TextColorHoverLeave = Control.ForeColor;
             Control.BackColor = ColorHover;

@@ -33,7 +33,7 @@ namespace IzUI.WinForms.UI.Controls
         {
             Text = string.Empty;
 
-            Animations = new Animations(this);
+            Animations = new Animations(this, false);
             Layouts = new Layouts(this);
             Border = new Border(this);
 

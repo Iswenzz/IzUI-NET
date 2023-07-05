@@ -34,6 +34,8 @@ namespace IzUI.WinForms.UI.Controls.Inputs
 
             BackColor = Color.Transparent;
             ForeColor = Color.SteelBlue;
+
+            Animations.Enable();
             Animations.ColorHover = Color.Transparent;
             Animations.TextColorHover = Color.DarkOrange;
 

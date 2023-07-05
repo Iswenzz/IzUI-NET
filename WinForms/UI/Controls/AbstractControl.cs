@@ -40,9 +40,9 @@ namespace IzUI.WinForms.UI.Controls
         {
             InitializeComponent();
 
-            Animations = new Animations(this);
+            Animations = new Animations(this, false);
             Layouts = new Layouts(this);
-            Alpha = new Alpha(this);
+            Alpha = new Alpha(this, false);
             Border = new Border(this);
 
             SetStyle(Alpha.ControlStylesToEnable, true);

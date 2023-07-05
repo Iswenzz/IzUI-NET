@@ -17,6 +17,8 @@ namespace IzUI.WinForms.UI.Controls.Inputs
 
             BackColor = Color.SteelBlue;
             ForeColor = Color.WhiteSmoke;
+
+            Animations.Enable();
             Animations.ColorHover = Color.RoyalBlue;
             Animations.TextColorHover = Color.DarkOrange;
         }

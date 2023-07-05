@@ -28,6 +28,13 @@ namespace IzUI.WinForms.UI.Design.Data
         public Icon(Control control) : base(control) { }
 
         /// <summary>
+        /// Create a new <see cref="Icon"/>.
+        /// </summary>
+        /// <param name="control">The <see cref="Control"/>.</param>
+        /// <param name="enabled">Is enabled.</param>
+        public Icon(Control control, bool enabled) : base(control, enabled) { }
+
+        /// <summary>
         /// Set button icon.
         /// </summary>
         /// <param name="icon">Icon Image.</param>

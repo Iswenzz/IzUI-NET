@@ -63,6 +63,7 @@
             button3.ForeColor = Color.MediumBlue;
             button3.Icon.IconImage = (Image)resources.GetObject("resource.IconImage");
             button3.Icon.IconSize = 150;
+            button3.Layouts.Angle = 0;
             button3.Location = new Point(485, 89);
             button3.Margin = new Padding(3, 2, 3, 2);
             button3.Name = "button3";
@@ -80,6 +81,7 @@
             button2.Border.Width = 8F;
             button2.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             button2.ForeColor = Color.WhiteSmoke;
+            button2.Layouts.Angle = 0;
             button2.Location = new Point(404, 89);
             button2.Margin = new Padding(3, 2, 3, 2);
             button2.Name = "button2";
@@ -122,6 +124,7 @@
             labelSpecial3.Border.Radius = new Size(0, 0);
             labelSpecial3.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             labelSpecial3.ForeColor = Color.Gainsboro;
+            labelSpecial3.Layouts.Angle = 0;
             labelSpecial3.Location = new Point(22, 260);
             labelSpecial3.Margin = new Padding(3, 4, 3, 4);
             labelSpecial3.Name = "labelSpecial3";
@@ -141,6 +144,7 @@
             buttonImage1.Border.Width = 0F;
             buttonImage1.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             buttonImage1.ForeColor = Color.SteelBlue;
+            buttonImage1.Layouts.Angle = 0;
             buttonImage1.Location = new Point(181, 172);
             buttonImage1.Margin = new Padding(3, 2, 3, 2);
             buttonImage1.Name = "buttonImage1";
@@ -155,6 +159,7 @@
             labelSpecial2.Border.Radius = new Size(0, 0);
             labelSpecial2.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             labelSpecial2.ForeColor = Color.Gainsboro;
+            labelSpecial2.Layouts.Angle = 0;
             labelSpecial2.Location = new Point(22, 172);
             labelSpecial2.Margin = new Padding(3, 4, 3, 4);
             labelSpecial2.Name = "labelSpecial2";
@@ -170,6 +175,7 @@
             labelSpecial1.Border.Radius = new Size(0, 0);
             labelSpecial1.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             labelSpecial1.ForeColor = Color.Gainsboro;
+            labelSpecial1.Layouts.Angle = 0;
             labelSpecial1.Location = new Point(22, 89);
             labelSpecial1.Margin = new Padding(3, 4, 3, 4);
             labelSpecial1.Name = "labelSpecial1";
@@ -189,6 +195,7 @@
             button1.ForeColor = Color.WhiteSmoke;
             button1.Icon.IconImage = (Image)resources.GetObject("resource.IconImage1");
             button1.Icon.IconSize = 40;
+            button1.Layouts.Angle = 0;
             button1.Location = new Point(181, 89);
             button1.Margin = new Padding(3, 2, 3, 2);
             button1.Name = "button1";

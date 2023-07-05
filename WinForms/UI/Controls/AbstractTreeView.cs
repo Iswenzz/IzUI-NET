@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Windows.Forms;
+
 using IzUI.WinForms.UI.Design.Background;
 using IzUI.WinForms.UI.Design.Data;
 using IzUI.WinForms.UI.Design.Layout;
@@ -33,7 +34,7 @@ namespace IzUI.WinForms.UI.Controls
         {
             Text = string.Empty;
 
-            Animations = new Animations(this);
+            Animations = new Animations(this, false);
             Layouts = new Layouts(this);
             Border = new Border(this);
         }

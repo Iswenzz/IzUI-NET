@@ -408,6 +408,8 @@ namespace IzUI.WinForms.UI.Controls.Inputs
                 ControlStyles.UserPaint, true);
             SetStyle(ControlStyles.Opaque, false);
 
+            Animations.Enable();
+
             Minimum = min;
             Maximum = max;
             Value = value;

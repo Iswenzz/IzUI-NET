@@ -102,7 +102,10 @@ namespace IzUI.WinForms.UI.Controls.Data
             if (nodeFont == null)
                 nodeFont = e.Node.TreeView.Font;
             if ((e.State & TreeNodeStates.Focused) != 0)
+            {
+                textBrush.Dispose();
                 textBrush = new SolidBrush(ControlPaint.Dark(e.Node.TreeView.ForeColor, 0.2f));
+            }
 
             textRect.Width += 40;
             e.Graphics.DrawString(e.Node.Text, nodeFont, textBrush, textRect);

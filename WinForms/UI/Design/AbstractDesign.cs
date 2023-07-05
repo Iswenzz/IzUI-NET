@@ -17,7 +17,8 @@ namespace IzUI.WinForms.UI.Design
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Control Control { get; protected set; }
 
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool Enabled { get; set; } = true;
 
         [Browsable(false)] 
@@ -33,6 +34,17 @@ namespace IzUI.WinForms.UI.Design
         protected AbstractDesign(Control control)
         {
             Control = control;
+        }
+
+        /// <summary>
+        /// Create a new <see cref="AbstractDesign"/>.
+        /// </summary>
+        /// <param name="control">The <see cref="System.Windows.Forms.Control"/>.</param>
+        /// <param name="enabled">Is enabled</param>
+        protected AbstractDesign(Control control, bool enabled)
+        {
+            Control = control;
+            Enabled = enabled;
         }
 
         /// <summary>

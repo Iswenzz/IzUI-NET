@@ -49,6 +49,13 @@ namespace IzUI.WinForms.UI.Design.Background
         public Border(Control control) : base(control) { }
 
         /// <summary>
+        /// Create a new <see cref="Animations"/>.
+        /// </summary>
+        /// <param name="control">The <see cref="Control"/>.</param>
+        /// <param name="enabled">Is enabled.</param>
+        public Border(Control control, bool enabled) : base(control, enabled) { }
+
+        /// <summary>
         /// Render callback.
         /// </summary>
         /// <param name="pe">Paint data.</param>

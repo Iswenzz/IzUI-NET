@@ -29,6 +29,13 @@ namespace IzUI.WinForms.UI.Design.Layout
         public Layouts(Control control) : base(control) { }
 
         /// <summary>
+        /// Create a new <see cref="Layouts"/>.
+        /// </summary>
+        /// <param name="control">The <see cref="Control"/>.</param>
+        /// <param name="enabled">Is enabled.</param>
+        public Layouts(Control control, bool enabled) : base(control, enabled) { }
+
+        /// <summary>
         /// Render callback.
         /// </summary>
         /// <param name="pe">Paint data.</param>

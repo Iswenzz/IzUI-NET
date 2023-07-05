@@ -17,6 +17,13 @@ namespace IzUI.WinForms.UI.Design.Layout
         public TextLayouts(Control control) : base(control) { }
 
         /// <summary>
+        /// Create a new <see cref="TextLayouts"/>.
+        /// </summary>
+        /// <param name="control">The <see cref="Control"/>.</param>
+        /// <param name="enabled">Is enabled.</param>
+        public TextLayouts(Control control, bool enabled) : base(control, enabled) { }
+
+        /// <summary>
         /// Render callback.
         /// </summary>
         /// <param name="pe">Paint data.</param>

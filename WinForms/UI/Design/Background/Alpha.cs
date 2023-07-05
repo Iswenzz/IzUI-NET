@@ -24,6 +24,13 @@ namespace IzUI.WinForms.UI.Design.Background
         public Alpha(Control control) : base(control) { }
 
         /// <summary>
+        /// Create a new <see cref="Animations"/>.
+        /// </summary>
+        /// <param name="control">The <see cref="Control"/>.</param>
+        /// <param name="enabled">Is enabled.</param>
+        public Alpha(Control control, bool enabled) : base(control, enabled) { }
+
+        /// <summary>
         /// Allow components to be transparent.
         /// </summary>
         /// <param name="controlParams">The <see cref="System.Windows.Forms.CreateParams"/>.</param>

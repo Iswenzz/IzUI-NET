@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 using IzUI.WinForms.UI.Design.Data;
@@ -11,10 +12,6 @@ namespace IzUI.WinForms.UI.Controls
     /// </summary>
     public abstract class AbstractText : AbstractControl
     {
-        [Browsable(false)]
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public override Layouts Layouts { get => null; }
-
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [Category("Appearance"), Description("Layout alignment and rotation angle.")]
         public virtual TextLayouts TextLayouts { get; set; }
