@@ -136,7 +136,7 @@
             // 
             // buttonImage1
             // 
-            buttonImage1.ActiveImage = null;
+            buttonImage1.ImageHover = null;
             buttonImage1.BackColor = Color.Transparent;
             buttonImage1.BackgroundImage = (Image)resources.GetObject("buttonImage1.BackgroundImage");
             buttonImage1.Border.Color = Color.Empty;

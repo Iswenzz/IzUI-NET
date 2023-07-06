@@ -36,7 +36,8 @@ namespace IzUI.WinForms.UI.Controls.Inputs
         /// Gets the thumb rect. Usefull to determine bounding rectangle when creating custom thumb shape.
         /// </summary>
         /// <value>The thumb rect.</value>
-        [Browsable(false)] public Rectangle ThumbRect { get; set; }
+        [Browsable(false)] 
+        public Rectangle ThumbRect { get; set; }
 
         private int thumbSize = 15;
         /// <summary>
@@ -67,7 +68,8 @@ namespace IzUI.WinForms.UI.Controls.Inputs
         /// Gets or sets the thumb custom shape. Use ThumbRect property to determine bounding rectangle.
         /// </summary>
         /// <value>The thumb custom shape. null means default shape.</value>
-        [Browsable(false), DefaultValue(typeof(GraphicsPath), "null")]
+        [Browsable(false)]
+        [DefaultValue(typeof(GraphicsPath), "null")]
         [Category("Slider"), Description("Set Slider's thumb's custom shape.")]
         public GraphicsPath ThumbCustomShape
         {
@@ -229,7 +231,6 @@ namespace IzUI.WinForms.UI.Controls.Inputs
         /// Gets or sets trackbar's small change. It affects how to behave when directional keys are pressed.
         /// </summary>
         /// <value>The small change value.</value>
-        [DefaultValue(1)]
         [Category("Slider"), Description("Set trackbar's small change.")]
         public uint SmallChange { get; set; } = 1;
 
@@ -237,7 +238,6 @@ namespace IzUI.WinForms.UI.Controls.Inputs
         /// Gets or sets trackbar's large change. It affects how to behave when PageUp/PageDown keys are pressed.
         /// </summary>
         /// <value>The large change value.</value>
-        [DefaultValue(5)]
         [Category("Slider"), Description("Set trackbar's large change.")]
         public uint LargeChange { get; set; } = 5;
 
@@ -245,7 +245,6 @@ namespace IzUI.WinForms.UI.Controls.Inputs
         /// Gets or sets a value indicating whether to draw focus rectangle.
         /// </summary>
         /// <value>true if focus rectangle should be drawn.</value>
-        [DefaultValue(true)]
         [Category("Slider"), Description("Set whether to draw focus rectangle.")]
         public bool DrawFocusRectangle { get; set; } = true;
 
@@ -253,7 +252,6 @@ namespace IzUI.WinForms.UI.Controls.Inputs
         /// Gets or sets a value indicating whether to draw semitransparent thumb.
         /// </summary>
         /// <value>true if semitransparent thumb should be drawn.</value>
-        [DefaultValue(true)]
         [Category("Slider"), Description("Set whether to draw semitransparent thumb.")]
         public bool DrawSemitransparentThumb { get; set; } = true;
 
@@ -261,7 +259,6 @@ namespace IzUI.WinForms.UI.Controls.Inputs
         /// Gets or sets whether mouse entry and exit actions have impact on how control look.
         /// </summary>
         /// <value>true if mouse entry and exit actions have impact on how control look.</value>
-        [DefaultValue(true)]
         [Category("Slider"), Description("Set whether mouse entry and exit actions have impact.")]
         public bool MouseEffects { get; set; } = true;
 
@@ -279,16 +276,15 @@ namespace IzUI.WinForms.UI.Controls.Inputs
             {
                 if (value > 0)
                     mouseWheelBarPartitions = value;
-                else 
+                else
                     throw new ArgumentOutOfRangeException("MouseWheelBarPartitions has to be greather than zero.");
             }
         }
-        
+
         /// <summary>
         /// Gets or sets the thumb outer color.
         /// </summary>
         /// <value>The thumb outer color.</value>
-        [DefaultValue(typeof(Color), "White")]
         [Category("Slider"), Description("Set Slider thumb outer color.")]
         public Color ThumbOuterColor { get; set; } = Color.White;
 
@@ -296,7 +292,6 @@ namespace IzUI.WinForms.UI.Controls.Inputs
         /// Gets or sets the inner color of the thumb.
         /// </summary>
         /// <value>The inner color of the thumb.</value>
-        [DefaultValue(typeof(Color), "Gainsboro")]
         [Category("Slider"), Description("Set Slider thumb inner color.")]
         public Color ThumbInnerColor { get; set; } = Color.Gainsboro;
 
@@ -304,16 +299,13 @@ namespace IzUI.WinForms.UI.Controls.Inputs
         /// Gets or sets the color of the thumb pen.
         /// </summary>
         /// <value>The color of the thumb pen.</value>
-        [Description("Set Slider thumb pen color.")]
-        [Category("Slider")]
-        [DefaultValue(typeof(Color), "Silver")]
+        [Category("Slider"), Description("Set Slider thumb pen color.")]
         public Color ThumbPenColor { get; set; } = Color.Silver;
 
         /// <summary>
         /// Gets or sets the outer color of the bar.
         /// </summary>
         /// <value>The outer color of the bar.</value>
-        [DefaultValue(typeof(Color), "SkyBlue")]
         [Category("Slider"), Description("Set Slider bar outer color.")]
         public Color BarOuterColor { get; set; } = Color.SkyBlue;
 
@@ -321,7 +313,6 @@ namespace IzUI.WinForms.UI.Controls.Inputs
         /// Gets or sets the inner color of the bar.
         /// </summary>
         /// <value>The inner color of the bar.</value>
-        [DefaultValue(typeof(Color), "DarkSlateBlue")]
         [Category("Slider"), Description("Set Slider bar inner color.")]
         public Color BarInnerColor { get; set; } = Color.DarkSlateBlue;
 
@@ -329,7 +320,6 @@ namespace IzUI.WinForms.UI.Controls.Inputs
         /// Gets or sets the color of the bar pen.
         /// </summary>
         /// <value>The color of the bar pen.</value>
-        [DefaultValue(typeof(Color), "Gainsboro")]
         [Category("Slider"), Description("Set Slider bar pen color.")]
         public Color BarPenColor { get; set; } = Color.Gainsboro;
 
@@ -337,7 +327,6 @@ namespace IzUI.WinForms.UI.Controls.Inputs
         /// Gets or sets the outer color of the elapsed.
         /// </summary>
         /// <value>The outer color of the elapsed.</value>
-        [DefaultValue(typeof(Color), "DarkGreen")]
         [Category("Slider"), Description("Set Slider's elapsed part outer color.")]
         public Color ElapsedOuterColor { get; set; } = Color.DarkGreen;
 
@@ -345,7 +334,6 @@ namespace IzUI.WinForms.UI.Controls.Inputs
         /// Gets or sets the inner color of the elapsed.
         /// </summary>
         /// <value>The inner color of the elapsed.</value>
-        [DefaultValue(typeof(Color), "Chartreuse")]
         [Category("Slider"), Description("Set Slider's elapsed part inner color.")]
         public Color ElapsedInnerColor { get; set; } = Color.Chartreuse;
 
@@ -414,7 +402,7 @@ namespace IzUI.WinForms.UI.Controls.Inputs
             Maximum = max;
             Value = value;
 
-            Size = new Size(180, 24);
+            Size = new Size(180, 18);
 
             BackColor = Color.Transparent;
             BarPenColor = Color.Transparent;

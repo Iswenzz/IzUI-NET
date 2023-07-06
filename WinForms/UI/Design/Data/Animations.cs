@@ -15,36 +15,23 @@ namespace IzUI.WinForms.UI.Design.Data
         /// </summary>
         [Description("Change the cursor when mouse hover the control.")]
         public virtual Cursor CursorHover { get; set; } = Cursors.Hand;
-
-        /// <summary>
-        /// Cursor style when mouse hover the control.
-        /// </summary>
-        [Description("Change the cursor when mouse hover the control.")]
-        public virtual Cursor CursorHoverLeave { get; set; }
+        protected Cursor PrevCursorHover { get; set; }
 
         /// <summary>
         /// Color when mouse hover the control.
         /// </summary>
+        [TypeConverter(typeof(ColorConverter))]
         [Description("Change the color when mouse hover the control.")]
-        public virtual Color ColorHover { get; set; }
-
-        /// <summary>
-        /// Color when mouse leave the control.
-        /// </summary>
-        [Description("Change the color when mouse leave the control.")]
-        public virtual Color ColorHoverLeave { get; set; }
+        public virtual Color ColorHover { get; set; } = Color.Empty;
+        protected Color PrevColorHover { get; set; }
 
         /// <summary>
         /// Text color when mouse hover the control.
         /// </summary>
+        [TypeConverter(typeof(ColorConverter))]
         [Description("Change the color when mouse hover the control.")]
-        public virtual Color TextColorHover { get; set; }
-
-        /// <summary>
-        /// Text color when mouse leave the control.
-        /// </summary>
-        [Description("Change the color when mouse leave the control.")]
-        public virtual Color TextColorHoverLeave { get; set; }
+        public virtual Color TextColorHover { get; set; } = Color.Empty;
+        protected Color PrevTextColorHover { get; set; }
 
         /// <summary>
         /// Create a new <see cref="Animations"/>.
@@ -67,9 +54,10 @@ namespace IzUI.WinForms.UI.Design.Data
         {
             if (!Enabled) return;
 
-            Control.BackColor = ColorHoverLeave;
-            Control.ForeColor = TextColorHoverLeave;
-            Control.Cursor = CursorHoverLeave;
+            Control.BackColor = PrevColorHover;
+            Control.ForeColor = PrevTextColorHover;
+            Control.Cursor = PrevCursorHover;
+
             Control.Invalidate();
         }
 
@@ -81,11 +69,14 @@ namespace IzUI.WinForms.UI.Design.Data
         {
             if (!Enabled) return;
 
-            ColorHoverLeave = Control.BackColor;
-            TextColorHoverLeave = Control.ForeColor;
+            PrevCursorHover = Control.Cursor;
+            PrevColorHover = Control.BackColor;
+            PrevTextColorHover = Control.ForeColor;
+
+            Control.Cursor = CursorHover;
             Control.BackColor = ColorHover;
             Control.ForeColor = TextColorHover;
-            Control.Cursor = CursorHover;
+
             Control.Invalidate();
         }
     }

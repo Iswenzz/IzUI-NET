@@ -18,7 +18,6 @@ namespace IzUI.WinForms.UI.Design.Layout
         /// <summary>
         /// The content alignment.
         /// </summary>
-        [DefaultValue(ContentAlignment.MiddleCenter)]
         [Description("Content alignment.")]
         public virtual ContentAlignment ContentAlign { get; set; } = ContentAlignment.MiddleCenter;
 

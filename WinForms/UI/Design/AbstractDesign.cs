@@ -17,9 +17,8 @@ namespace IzUI.WinForms.UI.Design
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Control Control { get; protected set; }
 
-        [Browsable(false)]
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public bool Enabled { get; set; } = true;
+        [Browsable(true)]
+        public virtual bool Enabled { get; set; } = true;
 
         [Browsable(false)] 
         public virtual ControlStyles ControlStylesToEnable { get; }

@@ -31,8 +31,6 @@ namespace IzUI.WinForms.UI.Controls
         /// </summary>
         protected AbstractPanel() : base()
         {
-            Text = string.Empty;
-
             Animations = new Animations(this, false);
             Layouts = new Layouts(this);
             Border = new Border(this);

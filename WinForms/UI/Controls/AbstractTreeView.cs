@@ -32,8 +32,6 @@ namespace IzUI.WinForms.UI.Controls
         /// </summary>
         protected AbstractTreeView() : base()
         {
-            Text = string.Empty;
-
             Animations = new Animations(this, false);
             Layouts = new Layouts(this);
             Border = new Border(this);

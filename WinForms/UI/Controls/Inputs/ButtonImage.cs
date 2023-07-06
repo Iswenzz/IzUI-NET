@@ -4,7 +4,6 @@ using System.Drawing;
 using System.Windows.Forms;
 
 using IzUI.WinForms.UI.Controls.Resources;
-using IzUI.WinForms.UI.Design;
 
 namespace IzUI.WinForms.UI.Controls.Inputs
 {
@@ -14,16 +13,15 @@ namespace IzUI.WinForms.UI.Controls.Inputs
     public class ButtonImage : AbstractText
     {
         /// <summary>
-        /// Default background image.
+        /// The previous background image.
         /// </summary>
-        [Browsable(false)]
-        protected virtual Image DefaultImage { get; set; }
+        protected virtual Image PrevImage { get; set; }
 
         /// <summary>
-        /// Active background image.
+        /// Background image on hover.
         /// </summary>
         [Category("Appearance"), Description("Change the BackgroundImage on mouse hover.")]
-        public virtual Image ActiveImage { get; set; }
+        public virtual Image ImageHover { get; set; }
 
         /// <summary>
         /// Initialize a new <see cref="ButtonImage"/> object.
@@ -40,7 +38,7 @@ namespace IzUI.WinForms.UI.Controls.Inputs
             Animations.TextColorHover = Color.DarkOrange;
 
             BackgroundImage = ControlResources.Inputs_PlaceHolder;
-            DefaultImage = BackgroundImage;
+            PrevImage = BackgroundImage;
         }
 
         /// <summary>
@@ -50,7 +48,7 @@ namespace IzUI.WinForms.UI.Controls.Inputs
         protected override void OnMouseLeave(EventArgs e)
         {
             base.OnMouseLeave(e);
-            BackgroundImage = DefaultImage;
+            BackgroundImage = PrevImage;
             Invalidate();
         }
 
@@ -61,9 +59,9 @@ namespace IzUI.WinForms.UI.Controls.Inputs
         protected override void OnMouseEnter(EventArgs e)
         {
             base.OnMouseEnter(e);
-            DefaultImage = BackgroundImage;
-            if (ActiveImage != null)
-                BackgroundImage = ActiveImage;
+            PrevImage = BackgroundImage;
+            if (ImageHover != null)
+                BackgroundImage = ImageHover;
             Invalidate();
         }
 

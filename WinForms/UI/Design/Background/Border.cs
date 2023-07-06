@@ -24,14 +24,12 @@ namespace IzUI.WinForms.UI.Design.Background
         /// <summary>
         /// Border color.
         /// </summary>
-        [DefaultValue(typeof(Color), "SteelBlue")]
         [Description("Change the border color.")]
         public virtual Color Color { get; set; } = Color.SteelBlue;
 
         /// <summary>
         /// Border width.
         /// </summary>
-        [DefaultValue(4f)]
         [Description("Change the border thickness.")]
         public virtual float Width { get; set; } = 4f;
 

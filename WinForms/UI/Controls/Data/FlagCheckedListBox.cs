@@ -9,17 +9,17 @@ namespace IzUI.WinForms.UI.Controls.Data
     /// </summary>
     public class FlagCheckedListBox : CheckedListBox
     {
-        protected virtual bool IsUpdatingCheckStates { get; set; }
         protected virtual Type EnumType { get; set; }
         protected virtual Enum EnumValue { get; set; }
 
         /// <summary>
         /// The enum value.
         /// </summary>
+        [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public virtual Enum Enum
         {
-            get => (Enum)Enum.ToObject(EnumType, GetCurrentValue());
+            get => (Enum)Enum.ToObject(EnumType, GetValue());
             set
             {
                 Items.Clear();
@@ -27,8 +27,7 @@ namespace IzUI.WinForms.UI.Controls.Data
                 EnumValue = value;
                 EnumType = value.GetType();
 
-                FillEnumMembers();
-                ApplyEnumValue();
+                LoadEnum();
             }
         }
 
@@ -41,14 +40,24 @@ namespace IzUI.WinForms.UI.Controls.Data
         }
 
         /// <summary>
+        /// On create control.
+        /// </summary>
+        /// <exception cref="NotImplementedException">Not implemented.</exception>
+        protected override void OnCreateControl()
+        {
+            base.OnCreateControl();
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
         /// Add a new element.
         /// </summary>
-        /// <param name="v">Value.</param>
-        /// <param name="c">Caption string.</param>
+        /// <param name="value">The value.</param>
+        /// <param name="label">Label string.</param>
         /// <returns></returns>
-        public virtual FlagCheckedListBoxItem Add(int v, string c)
+        public virtual FlagCheckedListBoxItem Add(int value, string label)
         {
-            FlagCheckedListBoxItem item = new(v, c);
+            FlagCheckedListBoxItem item = new(value, label);
             Items.Add(item);
             return item;
         }
@@ -71,20 +80,16 @@ namespace IzUI.WinForms.UI.Controls.Data
         protected override void OnItemCheck(ItemCheckEventArgs e)
         {
             base.OnItemCheck(e);
-            if (IsUpdatingCheckStates) return;
-
             FlagCheckedListBoxItem item = Items[e.Index] as FlagCheckedListBoxItem;
-            UpdateCheckedItems(item, e.NewValue);
+            UpdateValue(item, e.NewValue);
         }
 
         /// <summary>
         /// Update flags.
         /// </summary>
         /// <param name="value">Item value.</param>
-        protected virtual void UpdateCheckedItems(int value)
+        protected virtual void UpdateValue(int value)
         {
-            IsUpdatingCheckStates = true;
-
             for (int i = 0; i < Items.Count; i++)
             {
                 FlagCheckedListBoxItem item = Items[i] as FlagCheckedListBoxItem;
@@ -99,39 +104,38 @@ namespace IzUI.WinForms.UI.Controls.Data
                         SetItemChecked(i, false);
                 }
             }
-            IsUpdatingCheckStates = false;
         }
 
         /// <summary>
         /// Update flags.
         /// </summary>
-        /// <param name="composite">Composite item.</param>
+        /// <param name="item">The item.</param>
         /// <param name="cs">Checked state.</param>
-        protected virtual void UpdateCheckedItems(FlagCheckedListBoxItem composite, CheckState cs)
+        protected virtual void UpdateValue(FlagCheckedListBoxItem item, CheckState cs)
         {
-            if (composite.Value == 0)
-                UpdateCheckedItems(0);
+            if (item.Value == 0)
+                UpdateValue(0);
 
             int sum = 0;
             for (int i = 0; i < Items.Count; i++)
             {
-                FlagCheckedListBoxItem item = Items[i] as FlagCheckedListBoxItem;
-
+                FlagCheckedListBoxItem current = Items[i] as FlagCheckedListBoxItem;
                 if (GetItemChecked(i))
-                    sum |= item.Value;
+                    sum |= current.Value;
             }
             if (cs == CheckState.Unchecked)
-                sum &= ~composite.Value;
+                sum &= ~item.Value;
             else
-                sum |= composite.Value;
-            UpdateCheckedItems(sum);
+                sum |= item.Value;
+
+            UpdateValue(sum);
         }
 
         /// <summary>
         /// Get flags value.
         /// </summary>
         /// <returns></returns>
-        public virtual int GetCurrentValue()
+        public virtual int GetValue()
         {
             int sum = 0;
             for (int i = 0; i < Items.Count; i++)
@@ -145,9 +149,9 @@ namespace IzUI.WinForms.UI.Controls.Data
         }
 
         /// <summary>
-        /// Fill the listbox.
+        /// Load the listbox.
         /// </summary>
-        protected virtual void FillEnumMembers()
+        protected virtual void LoadEnum()
         {
             foreach (string name in Enum.GetNames(EnumType))
             {
@@ -156,15 +160,7 @@ namespace IzUI.WinForms.UI.Controls.Data
 
                 Add(intVal, name);
             }
-        }
-
-        /// <summary>
-        /// Update flags.
-        /// </summary>
-        protected virtual void ApplyEnumValue()
-        {
-            int intVal = (int)Convert.ChangeType(EnumValue, typeof(int));
-            UpdateCheckedItems(intVal);
+            UpdateValue((int)Convert.ChangeType(EnumValue, typeof(int)));
         }
 
         /// <summary>
@@ -173,24 +169,24 @@ namespace IzUI.WinForms.UI.Controls.Data
         public class FlagCheckedListBoxItem
         {
             public int Value { get; set; }
-            public string Caption { get; set; }
+            public string Label { get; set; }
 
             /// <summary>
             /// Initialize a new <see cref="FlagCheckedListBoxItem"/> object.
             /// </summary>
-            /// <param name="v">Itme value.</param>
-            /// <param name="c">Caption string.</param>
+            /// <param name="v">Item value.</param>
+            /// <param name="c">Label string.</param>
             public FlagCheckedListBoxItem(int v, string c)
             {
                 Value = v;
-                Caption = c;
+                Label = c;
             }
 
             /// <summary>
-            /// Return the caption name.
+            /// Return the label name.
             /// </summary>
             /// <returns></returns>
-            public override string ToString() => Caption;
+            public override string ToString() => Label;
 
             /// <summary>
             /// Check if a flag is set.

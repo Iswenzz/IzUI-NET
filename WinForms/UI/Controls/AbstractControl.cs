@@ -12,7 +12,7 @@ namespace IzUI.WinForms.UI.Controls
     /// <summary>
     /// Base control class.
     /// </summary>
-    public abstract partial class AbstractControl : Control
+    public abstract class AbstractControl : Control
     {
         protected CreateParams BaseCreateParams { get => base.CreateParams; }
         protected override CreateParams CreateParams { get => Alpha.CreateParams(base.CreateParams); }
@@ -38,8 +38,6 @@ namespace IzUI.WinForms.UI.Controls
         /// </summary>
         protected AbstractControl()
         {
-            InitializeComponent();
-
             Animations = new Animations(this, false);
             Layouts = new Layouts(this);
             Alpha = new Alpha(this, false);
@@ -125,8 +123,8 @@ namespace IzUI.WinForms.UI.Controls
         /// <param name="disposing">Should dispose.</param>
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
-                components.Dispose();
+            //if (disposing && (components != null))
+            //    components.Dispose();
             base.Dispose(disposing);
 
             Animations.Dispose();

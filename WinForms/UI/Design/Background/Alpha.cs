@@ -48,7 +48,7 @@ namespace IzUI.WinForms.UI.Design.Background
         /// <param name="e"></param>
         public virtual void OnParentBackColorChanged(EventArgs e)
         {
-            if (IsTransparent)
+            if (Enabled && IsTransparent)
                 Control.Invalidate();
         }
 
@@ -59,7 +59,7 @@ namespace IzUI.WinForms.UI.Design.Background
         public virtual void OnBackColorChanged(EventArgs e)
         {
             IsTransparent = Control.BackColor == Color.Transparent;
-            if (IsTransparent)
+            if (Enabled && IsTransparent)
                 Control.Parent?.Invalidate(Control.Bounds, true);
         }
     }

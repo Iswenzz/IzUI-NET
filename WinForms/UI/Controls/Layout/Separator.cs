@@ -12,7 +12,6 @@ namespace IzUI.WinForms.UI.Controls.Layout
         /// <summary>
         /// Separator stroke thickness.
         /// </summary>
-        [DefaultValue(1f)]
         [Category("Appearance"), Description("Separator line thickness.")]
         public virtual float Thickness { get; set; } = 1f;
 
@@ -28,7 +27,6 @@ namespace IzUI.WinForms.UI.Controls.Layout
 
             BackColor = Color.Transparent;
             ForeColor = Color.DarkGray;
-            Text = string.Empty;
         }
 
         /// <summary>
