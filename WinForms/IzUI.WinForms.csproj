@@ -21,13 +21,13 @@
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<RepositoryUrl>https://github.com/Iswenzz/IzUI-NET</RepositoryUrl>
 		<PackageTags>ui; winforms; components; controls; iswenzz</PackageTags>
-		<AssemblyVersion>1.0.6</AssemblyVersion>
-		<FileVersion>1.0.6</FileVersion>
+		<AssemblyVersion>1.1.0</AssemblyVersion>
+		<FileVersion>1.1.0</FileVersion>
 		<PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
 		<Description>UI component library allowing you to make modern designs using the various components it offers.</Description>
 		<Authors>Iswenzz</Authors>
 		<PackageId>IzUI.WinForms</PackageId>
-		<Version>1.0.6</Version>
+		<Version>1.1.0</Version>
 		<IncludeSymbols>true</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 	</PropertyGroup>
