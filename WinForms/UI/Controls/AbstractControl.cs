@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
+
 using IzUI.WinForms.UI.Design.Background;
 using IzUI.WinForms.UI.Design.Data;
 using IzUI.WinForms.UI.Design.Layout;
@@ -12,8 +13,9 @@ namespace IzUI.WinForms.UI.Controls
     /// <summary>
     /// Base control class.
     /// </summary>
-    public abstract class AbstractControl : Control
+    public abstract class AbstractControl : Control, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         protected CreateParams BaseCreateParams { get => base.CreateParams; }
         protected override CreateParams CreateParams { get => Alpha.CreateParams(base.CreateParams); }
 
@@ -40,7 +42,7 @@ namespace IzUI.WinForms.UI.Controls
         {
             Animations = new Animations(this, false);
             Layouts = new Layouts(this);
-            Alpha = new Alpha(this, false);
+            Alpha = new Alpha(this);
             Border = new Border(this);
 
             SetStyle(Alpha.ControlStylesToEnable, true);
@@ -92,12 +94,11 @@ namespace IzUI.WinForms.UI.Controls
         /// <param name="pe">Paint data.</param>
         protected override void OnPaint(PaintEventArgs pe)
         {
-            base.OnPaint(pe);
-
-            Animations.OnPaint(pe);
             Alpha.OnPaint(pe);
+            Animations.OnPaint(pe);
             Border.OnPaint(pe);
             Layouts.OnPaint(pe);
+            base.OnPaint(pe);
         }
 
         /// <summary>
@@ -123,14 +124,18 @@ namespace IzUI.WinForms.UI.Controls
         /// <param name="disposing">Should dispose.</param>
         protected override void Dispose(bool disposing)
         {
-            //if (disposing && (components != null))
-            //    components.Dispose();
             base.Dispose(disposing);
-
-            Animations.Dispose();
             Alpha.Dispose();
+            Animations.Dispose();
             Border.Dispose();
             Layouts.Dispose();
         }
+
+        /// <summary>
+        /// Invalidate on class property changes.
+        /// </summary>
+        /// <param name="eventArgs">Property event args.</param>
+        protected virtual void OnPropertyChanged(PropertyChangedEventArgs eventArgs) =>
+            Invalidate();
     }
 }

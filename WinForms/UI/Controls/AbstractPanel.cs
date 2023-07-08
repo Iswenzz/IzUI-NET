@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Windows.Forms;
+
 using IzUI.WinForms.UI.Design.Background;
 using IzUI.WinForms.UI.Design.Data;
 using IzUI.WinForms.UI.Design.Layout;
@@ -10,8 +11,9 @@ namespace IzUI.WinForms.UI.Controls
     /// <summary>
     /// Base panel class.
     /// </summary>
-    public abstract class AbstractPanel : Panel
+    public abstract class AbstractPanel : Panel, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         protected CreateParams BaseCreateParams { get => base.CreateParams; }
 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
@@ -66,11 +68,10 @@ namespace IzUI.WinForms.UI.Controls
         /// <param name="pe">Paint data.</param>
         protected override void OnPaint(PaintEventArgs pe)
         {
-            base.OnPaint(pe);
-
             Animations.OnPaint(pe);
             Border.OnPaint(pe);
             Layouts.OnPaint(pe);
+            base.OnPaint(pe);
         }
 
         /// <summary>
@@ -80,10 +81,16 @@ namespace IzUI.WinForms.UI.Controls
         protected override void Dispose(bool disposing)
         {
             base.Dispose(disposing);
-
             Animations.Dispose();
             Border.Dispose();
             Layouts.Dispose();
         }
+
+        /// <summary>
+        /// Invalidate on class property changes.
+        /// </summary>
+        /// <param name="eventArgs">Property event args.</param>
+        protected virtual void OnPropertyChanged(PropertyChangedEventArgs eventArgs) =>
+            Invalidate();
     }
 }

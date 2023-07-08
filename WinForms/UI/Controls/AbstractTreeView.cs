@@ -11,8 +11,9 @@ namespace IzUI.WinForms.UI.Controls
     /// <summary>
     /// Base tree view class.
     /// </summary>
-    public abstract class AbstractTreeView : TreeView
+    public abstract class AbstractTreeView : TreeView, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         protected CreateParams BaseCreateParams { get => base.CreateParams; }
 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
@@ -63,11 +64,10 @@ namespace IzUI.WinForms.UI.Controls
         /// <param name="pe">Paint data.</param>
         protected override void OnPaint(PaintEventArgs pe)
         {
-            base.OnPaint(pe);
-
             Animations.OnPaint(pe);
             Border.OnPaint(pe);
             Layouts.OnPaint(pe);
+            base.OnPaint(pe);
         }
 
         /// <summary>
@@ -77,10 +77,16 @@ namespace IzUI.WinForms.UI.Controls
         protected override void Dispose(bool disposing)
         {
             base.Dispose(disposing);
-
             Animations.Dispose();
             Border.Dispose();
             Layouts.Dispose();
         }
+
+        /// <summary>
+        /// Invalidate on class property changes.
+        /// </summary>
+        /// <param name="eventArgs">Property event args.</param>
+        protected virtual void OnPropertyChanged(PropertyChangedEventArgs eventArgs) =>
+            Invalidate();
     }
 }

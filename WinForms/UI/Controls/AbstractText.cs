@@ -1,5 +1,4 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Windows.Forms;
 
 using IzUI.WinForms.UI.Design.Data;
@@ -10,8 +9,10 @@ namespace IzUI.WinForms.UI.Controls
     /// <summary>
     /// Base text class.
     /// </summary>
-    public abstract class AbstractText : AbstractControl
+    public abstract class AbstractText : AbstractControl, INotifyPropertyChanged
     {
+        public override string Text { get => base.Text; set => base.Text = value; }
+
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [Category("Appearance"), Description("Layout alignment and rotation angle.")]
         public virtual TextLayouts TextLayouts { get; set; }
@@ -36,7 +37,6 @@ namespace IzUI.WinForms.UI.Controls
         protected override void OnPaint(PaintEventArgs pe)
         {
             base.OnPaint(pe);
-
             Icon.OnPaint(pe);
             TextLayouts.OnPaint(pe);
         }
@@ -48,7 +48,6 @@ namespace IzUI.WinForms.UI.Controls
         protected override void Dispose(bool disposing)
         {
             base.Dispose(disposing);
-
             Icon.Dispose();
             TextLayouts.Dispose();
         }

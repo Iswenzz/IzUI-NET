@@ -11,8 +11,10 @@ namespace IzUI.WinForms.UI.Design
     /// Represent a designer object.
     /// </summary>
     [TypeConverter(typeof(ExpandableObjectConverter))]
-    public abstract class AbstractDesign : IDisposable
+    public abstract class AbstractDesign : IDisposable, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         [Browsable(false)] 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Control Control { get; protected set; }
@@ -87,5 +89,12 @@ namespace IzUI.WinForms.UI.Design
         /// Dispose all resources.
         /// </summary>
         public virtual void Dispose() { }
+
+        /// <summary>
+        /// Invalidate on class property changes.
+        /// </summary>
+        /// <param name="eventArgs">Property event args.</param>
+        protected virtual void OnPropertyChanged(PropertyChangedEventArgs eventArgs) =>
+            Control.Invalidate();
     }
 }

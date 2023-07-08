@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using System.Windows.Forms;
 
 namespace IzUI.WinForms.UI.Controls.Data
 {
@@ -16,6 +17,16 @@ namespace IzUI.WinForms.UI.Controls.Data
 
             BackColor = Color.Transparent;
             ForeColor = Color.WhiteSmoke;
+        }
+
+        /// <summary>
+        /// Render callback.
+        /// </summary>
+        /// <param name="pe">Paint data.</param>
+        protected override void OnPaint(PaintEventArgs pe)
+        {
+            PaintTransparency(pe);
+            base.OnPaint(pe);
         }
     }
 }

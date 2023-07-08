@@ -29,6 +29,7 @@ namespace IzUI.WinForms.UI.Controls.Inputs
         /// <param name="pe">Paint data.</param>
         protected override void OnPaint(PaintEventArgs pe)
         {
+            PaintTransparency(pe);
             using SolidBrush backBrush = new(BackColor);
             pe.Graphics.FillRectangle(backBrush, ClientRectangle);
 

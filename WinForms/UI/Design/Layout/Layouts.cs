@@ -16,12 +16,6 @@ namespace IzUI.WinForms.UI.Design.Layout
         public virtual int Angle { get; set; }
 
         /// <summary>
-        /// The content alignment.
-        /// </summary>
-        [Description("Content alignment.")]
-        public virtual ContentAlignment ContentAlign { get; set; } = ContentAlignment.MiddleCenter;
-
-        /// <summary>
         /// Create a new <see cref="Layouts"/>.
         /// </summary>
         /// <param name="control">The <see cref="Control"/>.</param>

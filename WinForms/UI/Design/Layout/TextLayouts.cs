@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System.ComponentModel;
+using System.Drawing;
 using System.Windows.Forms;
 
 using IzUI.WinForms.UI.Data;
@@ -10,6 +11,12 @@ namespace IzUI.WinForms.UI.Design.Layout
     /// </summary>
     public class TextLayouts : Layouts
     {
+        /// <summary>
+        /// The content alignment.
+        /// </summary>
+        [Description("Content alignment.")]
+        public virtual ContentAlignment ContentAlign { get; set; } = ContentAlignment.MiddleCenter;
+
         /// <summary>
         /// Create a new <see cref="TextLayouts"/>.
         /// </summary>
