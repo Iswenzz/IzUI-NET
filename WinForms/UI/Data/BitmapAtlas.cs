@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Runtime.Versioning;
 
 namespace IzUI.WinForms.UI.Data
 {
     /// <summary>
     /// Represent a bitmap atlas.
     /// </summary>
+    [SupportedOSPlatform("windows10.0")]
     public sealed class BitmapAtlas : IDisposable
     {
         public InterpolationMode InterpolationMode { get; set; } = InterpolationMode.NearestNeighbor;
@@ -31,8 +33,10 @@ namespace IzUI.WinForms.UI.Data
         /// </summary>
         /// <param name="index">The index to retrieve the <see cref="Bitmap"/>.</param>
         /// <returns></returns>
-        public Bitmap GetBitmapFromIndex(int index) => 
-            GetBitmapFromRowCol(index / MaxX, index % MaxX);
+        public Bitmap GetBitmapFromIndex(int index)
+        {
+            return GetBitmapFromRowCol(index / MaxX, index % MaxX);
+        }
 
         /// <summary>
         /// Get a <see cref="Bitmap"/> from X and Y index.
@@ -45,7 +49,7 @@ namespace IzUI.WinForms.UI.Data
             if (Bitmap == null)
                 return null;
 
-            Rectangle r = new(x * (Size.Width / MaxX), y * (Size.Height / MaxY), 
+            Rectangle r = new(x * (Size.Width / MaxX), y * (Size.Height / MaxY),
                 Size.Width / MaxX, Size.Height / MaxY);
             Bitmap nb = new(r.Width, r.Height);
 

@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel;
-using System.Drawing;
+using System.Runtime.Versioning;
 using System.Windows.Forms;
 
 namespace IzUI.WinForms.UI.Design.Layout
@@ -7,6 +7,7 @@ namespace IzUI.WinForms.UI.Design.Layout
     /// <summary>
     /// Layout settings.
     /// </summary>
+    [SupportedOSPlatform("windows10.0")]
     public class Layouts : AbstractDesign
     {
         /// <summary>

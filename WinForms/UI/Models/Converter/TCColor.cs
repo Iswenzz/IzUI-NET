@@ -15,14 +15,30 @@ namespace IzUI.WinForms.UI.Models.Converter
     {
         public TCColor() : base() { }
 
-        public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType) => true;
-        public override bool CanConvertTo(ITypeDescriptorContext context, Type destinationType) => true;
+        public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType)
+        {
+            return true;
+        }
 
-        public override object ConvertFrom(ITypeDescriptorContext context, CultureInfo culture, object value) =>
-            (value as string).Convert<EnumColor>();
+        public override bool CanConvertTo(ITypeDescriptorContext context, Type destinationType)
+        {
+            return true;
+        }
 
-        public override bool GetStandardValuesSupported(ITypeDescriptorContext context) => true;
-        public override bool GetStandardValuesExclusive(ITypeDescriptorContext context) => true;
+        public override object ConvertFrom(ITypeDescriptorContext context, CultureInfo culture, object value)
+        {
+            return (value as string).Convert<EnumColor>();
+        }
+
+        public override bool GetStandardValuesSupported(ITypeDescriptorContext context)
+        {
+            return true;
+        }
+
+        public override bool GetStandardValuesExclusive(ITypeDescriptorContext context)
+        {
+            return true;
+        }
 
         public override StandardValuesCollection GetStandardValues(ITypeDescriptorContext context)
         {

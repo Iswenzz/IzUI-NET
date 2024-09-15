@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Drawing.Design;
 using System.Drawing.Drawing2D;
+using System.Runtime.Versioning;
 using System.Windows.Forms;
 
 using IzUI.WinForms.UI.Data;
@@ -13,6 +14,7 @@ namespace IzUI.WinForms.UI.Design.Background
     /// <summary>
     /// Border styles.
     /// </summary>
+    [SupportedOSPlatform("windows10.0")]
     public class Border : AbstractDesign
     {
         /// <summary>

@@ -1,8 +1,10 @@
 ﻿using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Runtime.Versioning;
 
 namespace IzUI.WinForms.UI.Maths
 {
+    [SupportedOSPlatform("windows10.0")]
     public static class RectangleUtils
     {
         /// <summary>
@@ -38,7 +40,9 @@ namespace IzUI.WinForms.UI.Maths
         /// <returns>
         /// True if rectangle contains given point.
         /// </returns>
-        public static bool ContainsRect(this Point pt, Rectangle rect) =>
-            pt.X > rect.Left & pt.X < rect.Right & pt.Y > rect.Top & pt.Y < rect.Bottom;
+        public static bool ContainsRect(this Point pt, Rectangle rect)
+        {
+            return pt.X > rect.Left & pt.X < rect.Right & pt.Y > rect.Top & pt.Y < rect.Bottom;
+        }
     }
 }

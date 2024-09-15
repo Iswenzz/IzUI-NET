@@ -1,11 +1,13 @@
 ﻿using System.Drawing;
 using System.Reflection;
+using System.Runtime.Versioning;
 using System.Windows.Forms;
 
 using IzUI.WinForms.UI.Data;
 
 namespace IzUI.WinForms.UI.Utils
 {
+    [SupportedOSPlatform("windows10.0")]
     public static class ColorUtils
     {
         /// <summary>

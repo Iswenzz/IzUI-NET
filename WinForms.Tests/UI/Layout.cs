@@ -1,6 +1,4 @@
-﻿using System.ComponentModel;
-
-namespace IzUI.WinForms.Tests.UI
+﻿namespace IzUI.WinForms.Tests.UI
 {
     /// <summary>
     /// Layout fixtures.

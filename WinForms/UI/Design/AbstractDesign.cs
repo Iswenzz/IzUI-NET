@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.Versioning;
 using System.Windows.Forms;
 
 namespace IzUI.WinForms.UI.Design
@@ -10,22 +11,23 @@ namespace IzUI.WinForms.UI.Design
     /// <summary>
     /// Represent a designer object.
     /// </summary>
+    [SupportedOSPlatform("windows10.0")]
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public abstract class AbstractDesign : IDisposable, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        [Browsable(false)] 
+        [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Control Control { get; protected set; }
 
         [Browsable(true)]
         public virtual bool Enabled { get; set; } = true;
 
-        [Browsable(false)] 
+        [Browsable(false)]
         public virtual ControlStyles ControlStylesToEnable { get; }
 
-        [Browsable(false)] 
+        [Browsable(false)]
         public virtual ControlStyles ControlStylesToDisable { get; }
 
         /// <summary>
@@ -51,12 +53,18 @@ namespace IzUI.WinForms.UI.Design
         /// <summary>
         /// Disable rendering.
         /// </summary>
-        public virtual void Disable() => Enabled = false;
+        public virtual void Disable()
+        {
+            Enabled = false;
+        }
 
         /// <summary>
         /// Enable rendering.
         /// </summary>
-        public virtual void Enable() => Enabled = true;
+        public virtual void Enable()
+        {
+            Enabled = true;
+        }
 
         /// <summary>
         /// Render callback.
@@ -94,7 +102,9 @@ namespace IzUI.WinForms.UI.Design
         /// Invalidate on class property changes.
         /// </summary>
         /// <param name="eventArgs">Property event args.</param>
-        protected virtual void OnPropertyChanged(PropertyChangedEventArgs eventArgs) =>
+        protected virtual void OnPropertyChanged(PropertyChangedEventArgs eventArgs)
+        {
             Control.Invalidate();
+        }
     }
 }

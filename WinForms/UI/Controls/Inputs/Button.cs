@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using System.Runtime.Versioning;
 using System.Windows.Forms;
 
 namespace IzUI.WinForms.UI.Controls.Inputs
@@ -6,6 +7,7 @@ namespace IzUI.WinForms.UI.Controls.Inputs
     /// <summary>
     /// Button control.
     /// </summary>
+    [SupportedOSPlatform("windows10.0")]
     public class Button : AbstractText
     {
         /// <summary>

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Runtime.Versioning;
 using System.Windows.Forms;
 
 using IzUI.WinForms.UI.Design.Data;
@@ -9,8 +10,10 @@ namespace IzUI.WinForms.UI.Controls
     /// <summary>
     /// Base text class.
     /// </summary>
+    [SupportedOSPlatform("windows10.0")]
     public abstract class AbstractText : AbstractControl, INotifyPropertyChanged
     {
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public override string Text { get => base.Text; set => base.Text = value; }
 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]

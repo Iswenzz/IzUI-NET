@@ -12,8 +12,15 @@ namespace IzUI.WinForms.UI.Models.Converter
     {
         public TCEnum() : base() { }
 
-        public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType) => true;
-        public override bool CanConvertTo(ITypeDescriptorContext context, Type destinationType) => true;
+        public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType)
+        {
+            return true;
+        }
+
+        public override bool CanConvertTo(ITypeDescriptorContext context, Type destinationType)
+        {
+            return true;
+        }
 
         public override object ConvertFrom(ITypeDescriptorContext context, CultureInfo culture, object value)
         {
@@ -36,9 +43,9 @@ namespace IzUI.WinForms.UI.Models.Converter
 
                 return $"{qualifiedEnumTypeName}.{enumValue}";
             }
-            catch 
-            { 
-                return string.Empty; 
+            catch
+            {
+                return string.Empty;
             }
         }
     }

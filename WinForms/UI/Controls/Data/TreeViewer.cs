@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Drawing;
+using System.Runtime.Versioning;
 using System.Windows.Forms;
 
 namespace IzUI.WinForms.UI.Controls.Data
@@ -7,23 +8,27 @@ namespace IzUI.WinForms.UI.Controls.Data
     /// <summary>
     /// Tree viewer control.
     /// </summary>
+    [SupportedOSPlatform("windows10.0")]
     public partial class TreeViewer : AbstractTreeView
     {
         /// <summary>
         /// Collapase icon.
         /// </summary>
         [Category("Appearance"), Description("The collapase icon.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public virtual Image MinusIcon { get; set; }
 
         /// <summary>
         /// Expand icon.
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [Category("Appearance"), Description("The expand icon.")]
         public virtual Image PlusIcon { get; set; }
 
         /// <summary>
         /// Default icon.
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [Category("Appearance"), Description("The default icon.")]
         public virtual Image DefaultIcon { get; set; }
 

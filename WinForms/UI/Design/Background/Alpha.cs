@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Runtime.Versioning;
 using System.Windows.Forms;
 
 namespace IzUI.WinForms.UI.Design.Background
@@ -7,15 +8,13 @@ namespace IzUI.WinForms.UI.Design.Background
     /// <summary>
     /// Base design class that supports alpha.
     /// </summary>
+    [SupportedOSPlatform("windows10.0")]
     public class Alpha : AbstractDesign
     {
         public const int WS_EX_TRANSPARENT = 0x20;
         protected virtual bool IsTransparent { get; set; }
 
-        public override ControlStyles ControlStylesToEnable
-        {
-            get => ControlStyles.SupportsTransparentBackColor | ControlStyles.Opaque;
-        }
+        public override ControlStyles ControlStylesToEnable => ControlStyles.SupportsTransparentBackColor | ControlStyles.Opaque;
 
         /// <summary>
         /// Create a new <see cref="Alpha"/>.

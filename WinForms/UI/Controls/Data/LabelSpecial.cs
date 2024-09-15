@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using System.Runtime.Versioning;
 using System.Windows.Forms;
 
 namespace IzUI.WinForms.UI.Controls.Data
@@ -6,6 +7,7 @@ namespace IzUI.WinForms.UI.Controls.Data
     /// <summary>
     /// Label control.
     /// </summary>
+    [SupportedOSPlatform("windows10.0")]
     public class LabelSpecial : AbstractText
     {
         /// <summary>

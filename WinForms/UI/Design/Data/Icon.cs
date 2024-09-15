@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Drawing;
+using System.Runtime.Versioning;
 using System.Windows.Forms;
 
 namespace IzUI.WinForms.UI.Design.Data
@@ -7,6 +8,7 @@ namespace IzUI.WinForms.UI.Design.Data
     /// <summary>
     /// Icon design.
     /// </summary>
+    [SupportedOSPlatform("windows10.0")]
     public class Icon : AbstractDesign
     {
         /// <summary>

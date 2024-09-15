@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Runtime.Versioning;
 using System.Windows.Forms;
 
 namespace IzUI.WinForms.UI.Controls.Data
@@ -7,6 +8,7 @@ namespace IzUI.WinForms.UI.Controls.Data
     /// <summary>
     /// Flag checked list box control.
     /// </summary>
+    [SupportedOSPlatform("windows10.0")]
     public class FlagCheckedListBox : CheckedListBox
     {
         protected virtual Type EnumType { get; set; }
@@ -186,20 +188,25 @@ namespace IzUI.WinForms.UI.Controls.Data
             /// Return the label name.
             /// </summary>
             /// <returns></returns>
-            public override string ToString() => Label;
+            public override string ToString()
+            {
+                return Label;
+            }
 
             /// <summary>
             /// Check if a flag is set.
             /// </summary>
-            public bool IsFlag { get => (Value & (Value - 1)) == 0; }
+            public bool IsFlag => (Value & (Value - 1)) == 0;
 
             /// <summary>
             /// Check if item value is set.
             /// </summary>
             /// <param name="composite"><see cref="FlagCheckedListBoxItem"/> item value.</param>
             /// <returns></returns>
-            public bool IsMemberFlag(FlagCheckedListBoxItem composite) =>
-                IsFlag && ((Value & composite.Value) == Value);
+            public bool IsMemberFlag(FlagCheckedListBoxItem composite)
+            {
+                return IsFlag && ((Value & composite.Value) == Value);
+            }
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Runtime.Versioning;
 using System.Windows.Forms;
 
 using IzUI.WinForms.UI.Design.Background;
@@ -13,11 +14,12 @@ namespace IzUI.WinForms.UI.Controls
     /// <summary>
     /// Base control class.
     /// </summary>
+    [SupportedOSPlatform("windows10.0")]
     public abstract class AbstractControl : Control, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        protected CreateParams BaseCreateParams { get => base.CreateParams; }
-        protected override CreateParams CreateParams { get => Alpha.CreateParams(base.CreateParams); }
+        protected CreateParams BaseCreateParams => base.CreateParams;
+        protected override CreateParams CreateParams => Alpha.CreateParams(base.CreateParams);
 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [Category("Appearance"), Description("Transparency settings.")]
@@ -135,7 +137,9 @@ namespace IzUI.WinForms.UI.Controls
         /// Invalidate on class property changes.
         /// </summary>
         /// <param name="eventArgs">Property event args.</param>
-        protected virtual void OnPropertyChanged(PropertyChangedEventArgs eventArgs) =>
+        protected virtual void OnPropertyChanged(PropertyChangedEventArgs eventArgs)
+        {
             Invalidate();
+        }
     }
 }

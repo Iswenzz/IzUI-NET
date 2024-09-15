@@ -13,10 +13,19 @@ namespace IzUI.WinForms.UI.Models.Converter
     {
         public TCFloat() : base() { }
 
-        public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType) => true;
-        public override bool CanConvertTo(ITypeDescriptorContext context, Type destinationType) => true;
+        public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType)
+        {
+            return true;
+        }
 
-        public override object ConvertFrom(ITypeDescriptorContext context, CultureInfo culture, object value) =>
-            (value as string).Convert<float>();
+        public override bool CanConvertTo(ITypeDescriptorContext context, Type destinationType)
+        {
+            return true;
+        }
+
+        public override object ConvertFrom(ITypeDescriptorContext context, CultureInfo culture, object value)
+        {
+            return (value as string).Convert<float>();
+        }
     }
 }

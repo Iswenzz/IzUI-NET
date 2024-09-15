@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Runtime.Versioning;
 using System.Windows.Forms;
 
 using IzUI.WinForms.UI.Maths;
@@ -13,6 +14,7 @@ namespace IzUI.WinForms.UI.Controls.Inputs
     /// Slider control.
     /// Credits: Michal Brylka
     /// </summary>
+    [SupportedOSPlatform("windows10.0")]
     [ToolboxBitmap(typeof(TrackBar))]
     [DefaultEvent("Scroll"), DefaultProperty("BarInnerColor")]
     public class Slider : AbstractControl
@@ -36,7 +38,8 @@ namespace IzUI.WinForms.UI.Controls.Inputs
         /// Gets the thumb rect. Usefull to determine bounding rectangle when creating custom thumb shape.
         /// </summary>
         /// <value>The thumb rect.</value>
-        [Browsable(false)] 
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public Rectangle ThumbRect { get; set; }
 
         private int thumbSize = 15;
@@ -51,7 +54,7 @@ namespace IzUI.WinForms.UI.Controls.Inputs
             get => thumbSize;
             set
             {
-                if (value > 0 & value < (barOrientation == Orientation.Horizontal 
+                if (value > 0 & value < (barOrientation == Orientation.Horizontal
                     ? ClientRectangle.Width : ClientRectangle.Height))
                     thumbSize = value;
                 else
@@ -77,7 +80,7 @@ namespace IzUI.WinForms.UI.Controls.Inputs
             set
             {
                 thumbCustomShape = value;
-                thumbSize = (int)(barOrientation == Orientation.Horizontal 
+                thumbSize = (int)(barOrientation == Orientation.Horizontal
                     ? value.GetBounds().Width : value.GetBounds().Height) + 1;
                 Invalidate();
             }
@@ -231,6 +234,7 @@ namespace IzUI.WinForms.UI.Controls.Inputs
         /// Gets or sets trackbar's small change. It affects how to behave when directional keys are pressed.
         /// </summary>
         /// <value>The small change value.</value>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         [Category("Slider"), Description("Set trackbar's small change.")]
         public uint SmallChange { get; set; } = 1;
 
@@ -238,6 +242,7 @@ namespace IzUI.WinForms.UI.Controls.Inputs
         /// Gets or sets trackbar's large change. It affects how to behave when PageUp/PageDown keys are pressed.
         /// </summary>
         /// <value>The large change value.</value>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         [Category("Slider"), Description("Set trackbar's large change.")]
         public uint LargeChange { get; set; } = 5;
 
@@ -245,6 +250,7 @@ namespace IzUI.WinForms.UI.Controls.Inputs
         /// Gets or sets a value indicating whether to draw focus rectangle.
         /// </summary>
         /// <value>true if focus rectangle should be drawn.</value>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         [Category("Slider"), Description("Set whether to draw focus rectangle.")]
         public bool DrawFocusRectangle { get; set; } = true;
 
@@ -252,6 +258,7 @@ namespace IzUI.WinForms.UI.Controls.Inputs
         /// Gets or sets a value indicating whether to draw semitransparent thumb.
         /// </summary>
         /// <value>true if semitransparent thumb should be drawn.</value>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         [Category("Slider"), Description("Set whether to draw semitransparent thumb.")]
         public bool DrawSemitransparentThumb { get; set; } = true;
 
@@ -259,6 +266,7 @@ namespace IzUI.WinForms.UI.Controls.Inputs
         /// Gets or sets whether mouse entry and exit actions have impact on how control look.
         /// </summary>
         /// <value>true if mouse entry and exit actions have impact on how control look.</value>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         [Category("Slider"), Description("Set whether mouse entry and exit actions have impact.")]
         public bool MouseEffects { get; set; } = true;
 
@@ -285,6 +293,7 @@ namespace IzUI.WinForms.UI.Controls.Inputs
         /// Gets or sets the thumb outer color.
         /// </summary>
         /// <value>The thumb outer color.</value>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [Category("Slider"), Description("Set Slider thumb outer color.")]
         public Color ThumbOuterColor { get; set; } = Color.White;
 
@@ -292,6 +301,7 @@ namespace IzUI.WinForms.UI.Controls.Inputs
         /// Gets or sets the inner color of the thumb.
         /// </summary>
         /// <value>The inner color of the thumb.</value>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [Category("Slider"), Description("Set Slider thumb inner color.")]
         public Color ThumbInnerColor { get; set; } = Color.Gainsboro;
 
@@ -299,6 +309,7 @@ namespace IzUI.WinForms.UI.Controls.Inputs
         /// Gets or sets the color of the thumb pen.
         /// </summary>
         /// <value>The color of the thumb pen.</value>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [Category("Slider"), Description("Set Slider thumb pen color.")]
         public Color ThumbPenColor { get; set; } = Color.Silver;
 
@@ -306,6 +317,7 @@ namespace IzUI.WinForms.UI.Controls.Inputs
         /// Gets or sets the outer color of the bar.
         /// </summary>
         /// <value>The outer color of the bar.</value>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [Category("Slider"), Description("Set Slider bar outer color.")]
         public Color BarOuterColor { get; set; } = Color.SkyBlue;
 
@@ -313,6 +325,7 @@ namespace IzUI.WinForms.UI.Controls.Inputs
         /// Gets or sets the inner color of the bar.
         /// </summary>
         /// <value>The inner color of the bar.</value>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [Category("Slider"), Description("Set Slider bar inner color.")]
         public Color BarInnerColor { get; set; } = Color.DarkSlateBlue;
 
@@ -320,6 +333,7 @@ namespace IzUI.WinForms.UI.Controls.Inputs
         /// Gets or sets the color of the bar pen.
         /// </summary>
         /// <value>The color of the bar pen.</value>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [Category("Slider"), Description("Set Slider bar pen color.")]
         public Color BarPenColor { get; set; } = Color.Gainsboro;
 
@@ -327,6 +341,7 @@ namespace IzUI.WinForms.UI.Controls.Inputs
         /// Gets or sets the outer color of the elapsed.
         /// </summary>
         /// <value>The outer color of the elapsed.</value>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [Category("Slider"), Description("Set Slider's elapsed part outer color.")]
         public Color ElapsedOuterColor { get; set; } = Color.DarkGreen;
 
@@ -334,6 +349,7 @@ namespace IzUI.WinForms.UI.Controls.Inputs
         /// Gets or sets the inner color of the elapsed.
         /// </summary>
         /// <value>The inner color of the elapsed.</value>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [Category("Slider"), Description("Set Slider's elapsed part inner color.")]
         public Color ElapsedInnerColor { get; set; } = Color.Chartreuse;
 
@@ -431,19 +447,19 @@ namespace IzUI.WinForms.UI.Controls.Inputs
         {
             if (!Enabled)
             {
-                Color[] desaturatedColors = ColorUtils.DesaturateColors(ThumbOuterColor, 
-                    ThumbInnerColor, ThumbPenColor, BarOuterColor, BarInnerColor, BarPenColor, 
+                Color[] desaturatedColors = ColorUtils.DesaturateColors(ThumbOuterColor,
+                    ThumbInnerColor, ThumbPenColor, BarOuterColor, BarInnerColor, BarPenColor,
                     ElapsedOuterColor, ElapsedInnerColor);
                 DrawSlider(e, desaturatedColors[0], desaturatedColors[1], desaturatedColors[2],
-                    desaturatedColors[3], desaturatedColors[4], desaturatedColors[5], desaturatedColors[6], 
+                    desaturatedColors[3], desaturatedColors[4], desaturatedColors[5], desaturatedColors[6],
                     desaturatedColors[7]);
             }
             else
             {
                 if (MouseEffects && MouseInRegion)
                 {
-                    Color[] lightenedColors = ColorUtils.LightenColors(ThumbOuterColor, 
-                        ThumbInnerColor, ThumbPenColor, BarOuterColor, BarInnerColor, BarPenColor, 
+                    Color[] lightenedColors = ColorUtils.LightenColors(ThumbOuterColor,
+                        ThumbInnerColor, ThumbPenColor, BarOuterColor, BarInnerColor, BarPenColor,
                         ElapsedOuterColor, ElapsedInnerColor);
                     DrawSlider(e, lightenedColors[0], lightenedColors[1], lightenedColors[2], lightenedColors[3],
                         lightenedColors[4], lightenedColors[5], lightenedColors[6], lightenedColors[7]);
@@ -470,7 +486,7 @@ namespace IzUI.WinForms.UI.Controls.Inputs
         /// <param name="elapsedOuterColorPaint">The elapsed outer color paint.</param>
         /// <param name="elapsedInnerColorPaint">The elapsed inner color paint.</param>
         private void DrawSlider(PaintEventArgs e, Color thumbOuterColorPaint, Color thumbInnerColorPaint,
-            Color thumbPenColorPaint, Color barOuterColorPaint, Color barInnerColorPaint, 
+            Color thumbPenColorPaint, Color barOuterColorPaint, Color barInnerColorPaint,
             Color barPenColorPaint, Color elapsedOuterColorPaint, Color elapsedInnerColorPaint)
         {
             try
@@ -528,7 +544,7 @@ namespace IzUI.WinForms.UI.Controls.Inputs
                 }
 
                 //draw bar
-                using (LinearGradientBrush lgbBar = new(barHalfRect, barOuterColorPaint, 
+                using (LinearGradientBrush lgbBar = new(barHalfRect, barOuterColorPaint,
                     barInnerColorPaint, gradientOrientation))
                 {
                     lgbBar.WrapMode = WrapMode.TileFlipXY;
@@ -553,7 +569,7 @@ namespace IzUI.WinForms.UI.Controls.Inputs
                 }
 
                 // Draw thumb
-                Color newthumbOuterColorPaint = thumbOuterColorPaint, 
+                Color newthumbOuterColorPaint = thumbOuterColorPaint,
                     newthumbInnerColorPaint = thumbInnerColorPaint;
                 if (Capture && DrawSemitransparentThumb)
                 {
@@ -586,7 +602,7 @@ namespace IzUI.WinForms.UI.Controls.Inputs
                     r.Width -= 2;
                     r.Height--;
                     r.X++;
-                       
+
                     using GraphicsPath gpBorder = r.CreateRoundRectPath(borderRoundRectSize);
                     e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
                     e.Graphics.DrawPath(p, gpBorder);
@@ -660,8 +676,8 @@ namespace IzUI.WinForms.UI.Controls.Inputs
                 int p = barOrientation == Orientation.Horizontal ? pt.X : pt.Y;
                 int margin = thumbSize >> 1;
                 p -= margin;
-                float coef = (barMaximum - barMinimum) / 
-                    (float)((barOrientation == Orientation.Horizontal 
+                float coef = (barMaximum - barMinimum) /
+                    (float)((barOrientation == Orientation.Horizontal
                     ? ClientSize.Width : ClientSize.Height) - 2 * margin);
 
                 trackerValue = (int)(p * coef + barMinimum);
@@ -761,9 +777,9 @@ namespace IzUI.WinForms.UI.Controls.Inputs
                     Scroll?.Invoke(this, new ScrollEventArgs(ScrollEventType.LargeIncrement, Value));
                     break;
             }
-            if (Scroll != null && Value == barMinimum) 
+            if (Scroll != null && Value == barMinimum)
                 Scroll(this, new ScrollEventArgs(ScrollEventType.First, Value));
-            if (Scroll != null && Value == barMaximum) 
+            if (Scroll != null && Value == barMaximum)
                 Scroll(this, new ScrollEventArgs(ScrollEventType.Last, Value));
 
             Point pt = PointToClient(Cursor.Position);
@@ -795,11 +811,11 @@ namespace IzUI.WinForms.UI.Controls.Inputs
         /// <param name="val">The value.</param>
         private void SetProperValue(int val)
         {
-            if (val < barMinimum) 
+            if (val < barMinimum)
                 Value = barMinimum;
-            else if (val > barMaximum) 
+            else if (val > barMaximum)
                 Value = barMaximum;
-            else 
+            else
                 Value = val;
         }
     }

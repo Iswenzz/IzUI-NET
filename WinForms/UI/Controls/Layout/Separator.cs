@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Drawing;
+using System.Runtime.Versioning;
 using System.Windows.Forms;
 
 namespace IzUI.WinForms.UI.Controls.Layout
@@ -7,16 +8,18 @@ namespace IzUI.WinForms.UI.Controls.Layout
     /// <summary>
     /// Separator line control.
     /// </summary>
+    [SupportedOSPlatform("windows10.0")]
     public class Separator : AbstractControl
     {
         /// <summary>
         /// Separator stroke thickness.
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         [Category("Appearance"), Description("Separator line thickness.")]
         public virtual float Thickness { get; set; } = 1f;
 
         [Browsable(false)]
-        public override string Text { get => string.Empty; }
+        public override string Text => string.Empty;
 
         /// <summary>
         /// Initialize a new <see cref="Separator"/> object.

@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Design;
-
+using System.Runtime.Versioning;
 using IzUI.WinForms.UI.Data;
 using IzUI.WinForms.UI.Utils;
 
@@ -10,9 +10,13 @@ namespace IzUI.WinForms.UI.Models.Editors
     /// <summary>
     /// Represent a color <see cref="UITypeEditor"/>.
     /// </summary>
+    [SupportedOSPlatform("windows10.0")]
     public class ColorEditor : UITypeEditor
     {
-        public override bool GetPaintValueSupported(ITypeDescriptorContext context) => true;
+        public override bool GetPaintValueSupported(ITypeDescriptorContext context)
+        {
+            return true;
+        }
 
         /// <summary>
         /// Paint value callback.

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Runtime.Versioning;
 using System.Windows.Forms;
 
 using IzUI.WinForms.UI.Design.Background;
@@ -11,10 +12,11 @@ namespace IzUI.WinForms.UI.Controls
     /// <summary>
     /// Base panel class.
     /// </summary>
+    [SupportedOSPlatform("windows10.0")]
     public abstract class AbstractPanel : Panel, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        protected CreateParams BaseCreateParams { get => base.CreateParams; }
+        protected CreateParams BaseCreateParams => base.CreateParams;
 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [Category("Appearance"), Description("Layout alignment and rotation angle.")]
@@ -37,7 +39,7 @@ namespace IzUI.WinForms.UI.Controls
             Layouts = new Layouts(this);
             Border = new Border(this);
 
-            SetStyle(ControlStyles.OptimizedDoubleBuffer | 
+            SetStyle(ControlStyles.OptimizedDoubleBuffer |
                 ControlStyles.AllPaintingInWmPaint |
                 ControlStyles.UserPaint, true);
         }
@@ -90,7 +92,9 @@ namespace IzUI.WinForms.UI.Controls
         /// Invalidate on class property changes.
         /// </summary>
         /// <param name="eventArgs">Property event args.</param>
-        protected virtual void OnPropertyChanged(PropertyChangedEventArgs eventArgs) =>
+        protected virtual void OnPropertyChanged(PropertyChangedEventArgs eventArgs)
+        {
             Invalidate();
+        }
     }
 }
