@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Runtime.Versioning;
 
 namespace IzUI.WinForms.UI.Data
 {
     /// <summary>
     /// Represent a bitmap atlas.
     /// </summary>
-    [SupportedOSPlatform("windows10.0")]
     public sealed class BitmapAtlas : IDisposable
     {
         public InterpolationMode InterpolationMode { get; set; } = InterpolationMode.NearestNeighbor;

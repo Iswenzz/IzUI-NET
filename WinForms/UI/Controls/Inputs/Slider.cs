@@ -2,7 +2,6 @@
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Runtime.Versioning;
 using System.Windows.Forms;
 
 using IzUI.WinForms.UI.Maths;
@@ -14,7 +13,6 @@ namespace IzUI.WinForms.UI.Controls.Inputs
     /// Slider control.
     /// Credits: Michal Brylka
     /// </summary>
-    [SupportedOSPlatform("windows10.0")]
     [ToolboxBitmap(typeof(TrackBar))]
     [DefaultEvent("Scroll"), DefaultProperty("BarInnerColor")]
     public class Slider : AbstractControl

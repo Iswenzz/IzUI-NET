@@ -3,7 +3,6 @@
 		<TargetFramework>net9.0-windows7.0</TargetFramework>
 		<OutputType>Library</OutputType>
 		<RootNamespace>IzUI.WinForms</RootNamespace>
-		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 		<UseWindowsForms>true</UseWindowsForms>
 		<ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
 		<GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>

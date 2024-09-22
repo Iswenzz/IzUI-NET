@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel;
 using System.Drawing;
-using System.Runtime.Versioning;
 using System.Windows.Forms;
 
 using IzUI.WinForms.UI.Data;
@@ -10,7 +9,6 @@ namespace IzUI.WinForms.UI.Design.Layout
     /// <summary>
     /// Texts layout.
     /// </summary>
-    [SupportedOSPlatform("windows10.0")]
     public class TextLayouts : Layouts
     {
         /// <summary>

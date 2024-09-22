@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel;
 using System.Drawing;
-using System.Runtime.Versioning;
 using System.Windows.Forms;
 
 namespace IzUI.WinForms.UI.Controls.Layout
@@ -8,7 +7,6 @@ namespace IzUI.WinForms.UI.Controls.Layout
     /// <summary>
     /// Separator line control.
     /// </summary>
-    [SupportedOSPlatform("windows10.0")]
     public class Separator : AbstractControl
     {
         /// <summary>

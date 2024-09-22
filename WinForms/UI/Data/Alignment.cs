@@ -1,12 +1,10 @@
 ﻿using System.Drawing;
-using System.Runtime.Versioning;
 
 namespace IzUI.WinForms.UI.Data
 {
     /// <summary>
     /// Alignment util class.
     /// </summary>
-    [SupportedOSPlatform("windows10.0")]
     public static class Alignment
     {
         /// <summary>

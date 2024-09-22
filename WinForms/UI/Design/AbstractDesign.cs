@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
-using System.Runtime.Versioning;
 using System.Windows.Forms;
 
 namespace IzUI.WinForms.UI.Design
@@ -11,7 +10,6 @@ namespace IzUI.WinForms.UI.Design
     /// <summary>
     /// Represent a designer object.
     /// </summary>
-    [SupportedOSPlatform("windows10.0")]
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public abstract class AbstractDesign : IDisposable, INotifyPropertyChanged
     {

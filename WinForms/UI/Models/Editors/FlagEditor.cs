@@ -1,7 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Drawing.Design;
-using System.Runtime.Versioning;
 using System.Windows.Forms.Design;
 
 using IzUI.WinForms.UI.Controls.Data;
@@ -11,7 +10,6 @@ namespace IzUI.WinForms.UI.Models.Editors
     /// <summary>
     /// Represent a flag <see cref="UITypeEditor"/>.
     /// </summary>
-    [SupportedOSPlatform("windows10.0")]
     public class FlagEditor : UITypeEditor
     {
         private FlagCheckedListBox FlagListBox { get; } = new FlagCheckedListBox();

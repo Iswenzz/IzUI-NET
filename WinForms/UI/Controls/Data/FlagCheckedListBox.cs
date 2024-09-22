@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Runtime.Versioning;
 using System.Windows.Forms;
 
 namespace IzUI.WinForms.UI.Controls.Data
@@ -8,7 +7,6 @@ namespace IzUI.WinForms.UI.Controls.Data
     /// <summary>
     /// Flag checked list box control.
     /// </summary>
-    [SupportedOSPlatform("windows10.0")]
     public class FlagCheckedListBox : CheckedListBox
     {
         protected virtual Type EnumType { get; set; }

@@ -1,10 +1,8 @@
 ﻿using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Runtime.Versioning;
 
 namespace IzUI.WinForms.UI.Maths
 {
-    [SupportedOSPlatform("windows10.0")]
     public static class RectangleUtils
     {
         /// <summary>

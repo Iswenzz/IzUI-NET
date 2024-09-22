@@ -1,7 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Drawing;
-using System.Runtime.Versioning;
 using System.Windows.Forms;
 
 using IzUI.WinForms.UI.Controls.Resources;
@@ -11,7 +10,6 @@ namespace IzUI.WinForms.UI.Controls.Inputs
     /// <summary>
     /// Button image control.
     /// </summary>
-    [SupportedOSPlatform("windows10.0")]
     public class ButtonImage : AbstractText
     {
         /// <summary>
