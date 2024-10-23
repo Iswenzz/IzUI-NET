@@ -9,7 +9,7 @@ IzUI-NET is a UI component library. It allows you to make modern designs using t
 
 ## Controls
 
-![](https://i.imgur.com/YAK9dVC.jpg)
+![](https://i.imgur.com/BBQlTg6.png)
 
 ## Instructions
 
