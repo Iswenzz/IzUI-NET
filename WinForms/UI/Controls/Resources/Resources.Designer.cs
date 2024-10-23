@@ -22,14 +22,14 @@ namespace IzUI.WinForms.UI.Controls.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class ControlResources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        public ControlResources() {
+        public Resources() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace IzUI.WinForms.UI.Controls.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("IzUI.WinForms.UI.Controls.Resources.ControlResources", typeof(ControlResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("IzUI.WinForms.UI.Controls.Resources.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -59,17 +59,7 @@ namespace IzUI.WinForms.UI.Controls.Resources {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap Icon_Colors {
-            get {
-                object obj = ResourceManager.GetObject("Icon_Colors", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
+
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
@@ -86,116 +76,6 @@ namespace IzUI.WinForms.UI.Controls.Resources {
         public static System.Drawing.Bitmap Icon_Right {
             get {
                 object obj = ResourceManager.GetObject("Icon_Right", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap Inputs_PlaceHolder {
-            get {
-                object obj = ResourceManager.GetObject("Inputs_PlaceHolder", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap Iswenzz {
-            get {
-                object obj = ResourceManager.GetObject("Iswenzz", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap VS_Button {
-            get {
-                object obj = ResourceManager.GetObject("VS_Button", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap VS_Image {
-            get {
-                object obj = ResourceManager.GetObject("VS_Image", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap VS_ImageButton {
-            get {
-                object obj = ResourceManager.GetObject("VS_ImageButton", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap VS_Label {
-            get {
-                object obj = ResourceManager.GetObject("VS_Label", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap VS_ListBox {
-            get {
-                object obj = ResourceManager.GetObject("VS_ListBox", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap VS_Panel {
-            get {
-                object obj = ResourceManager.GetObject("VS_Panel", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap VS_Separator {
-            get {
-                object obj = ResourceManager.GetObject("VS_Separator", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap VS_Slider {
-            get {
-                object obj = ResourceManager.GetObject("VS_Slider", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap VS_TreeView {
-            get {
-                object obj = ResourceManager.GetObject("VS_TreeView", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
