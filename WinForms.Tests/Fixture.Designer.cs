@@ -57,7 +57,7 @@
             layout1.Location = new Point(1404, 0);
             layout1.Margin = new Padding(4, 5, 4, 5);
             layout1.Name = "layout1";
-            layout1.Size = new Size(547, 624);
+            layout1.Size = new Size(577, 624);
             layout1.TabIndex = 2;
             // 
             // Fixture
