@@ -34,6 +34,13 @@ namespace IzUI.WinForms.UI.Design.Data
         protected Color PrevTextColorHover { get; set; }
 
         /// <summary>
+        /// Background image when mouse hover the control.
+        /// </summary>
+        [Description("Change the BackgroundImage when mouse hover the control.")]
+        public virtual Image BackgroundImageHover { get; set; }
+        protected Image PrevBackgroundImage { get; set; }
+
+        /// <summary>
         /// Create a new <see cref="Animations"/>.
         /// </summary>
         /// <param name="control">The <see cref="Control"/>.</param>
@@ -54,9 +61,17 @@ namespace IzUI.WinForms.UI.Design.Data
         {
             if (!Enabled) return;
 
-            Control.BackColor = PrevColorHover;
-            Control.ForeColor = PrevTextColorHover;
-            Control.Cursor = PrevCursorHover;
+            if (PrevCursorHover != null)
+                Control.Cursor = PrevCursorHover;
+
+            if (!PrevColorHover.IsEmpty)
+                Control.BackColor = PrevColorHover;
+
+            if (!PrevTextColorHover.IsEmpty)
+                Control.ForeColor = PrevTextColorHover;
+
+            if (BackgroundImageHover != null)
+                Control.BackgroundImage = PrevBackgroundImage;
 
             Control.Invalidate();
         }
@@ -72,10 +87,19 @@ namespace IzUI.WinForms.UI.Design.Data
             PrevCursorHover = Control.Cursor;
             PrevColorHover = Control.BackColor;
             PrevTextColorHover = Control.ForeColor;
+            PrevBackgroundImage = Control.BackgroundImage;
 
-            Control.Cursor = CursorHover;
-            Control.BackColor = ColorHover;
-            Control.ForeColor = TextColorHover;
+            if (CursorHover != null)
+                Control.Cursor = CursorHover;
+
+            if (!ColorHover.IsEmpty)
+                Control.BackColor = ColorHover;
+
+            if (!TextColorHover.IsEmpty)
+                Control.ForeColor = TextColorHover;
+
+            if (BackgroundImageHover != null)
+                Control.BackgroundImage = BackgroundImageHover;
 
             Control.Invalidate();
         }

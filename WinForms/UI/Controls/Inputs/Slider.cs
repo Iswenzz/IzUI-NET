@@ -40,19 +40,19 @@ namespace IzUI.WinForms.UI.Controls.Inputs
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public Rectangle ThumbRect { get; set; }
 
-        private int thumbSize = 15;
+        private int thumbSize = 20;
         /// <summary>
         /// Gets or sets the size of the thumb.
         /// </summary>
         /// <value>The size of the thumb.</value>
-        [DefaultValue(15)]
+        [DefaultValue(20)]
         [Category("Slider"), Description("Set Slider thumb size.")]
         public int ThumbSize
         {
             get => thumbSize;
             set
             {
-                if (value > 0 & value < (barOrientation == Orientation.Horizontal
+                if (value > 0 & value < (orientation == Orientation.Horizontal
                     ? ClientRectangle.Width : ClientRectangle.Height))
                     thumbSize = value;
                 else
@@ -64,67 +64,7 @@ namespace IzUI.WinForms.UI.Controls.Inputs
             }
         }
 
-        private GraphicsPath thumbCustomShape = null;
-        /// <summary>
-        /// Gets or sets the thumb custom shape. Use ThumbRect property to determine bounding rectangle.
-        /// </summary>
-        /// <value>The thumb custom shape. null means default shape.</value>
-        [Browsable(false)]
-        [DefaultValue(typeof(GraphicsPath), "null")]
-        [Category("Slider"), Description("Set Slider's thumb's custom shape.")]
-        public GraphicsPath ThumbCustomShape
-        {
-            get => thumbCustomShape;
-            set
-            {
-                thumbCustomShape = value;
-                thumbSize = (int)(barOrientation == Orientation.Horizontal
-                    ? value.GetBounds().Width : value.GetBounds().Height) + 1;
-                Invalidate();
-            }
-        }
-
-        private Size thumbRoundRectSize = new(8, 8);
-        /// <summary>
-        /// Gets or sets the size of the thumb round rectangle edges.
-        /// </summary>
-        /// <value>The size of the thumb round rectangle edges.</value>
-        [DefaultValue(typeof(Size), "8; 8")]
-        [Category("Slider"), Description("Set Slider's thumb round rect size.")]
-        public Size ThumbRoundRectSize
-        {
-            get => thumbRoundRectSize;
-            set
-            {
-                int h = value.Height, w = value.Width;
-                if (h <= 0) h = 1;
-                if (w <= 0) w = 1;
-                thumbRoundRectSize = new Size(w, h);
-                Invalidate();
-            }
-        }
-
-        private Size borderRoundRectSize = new(8, 8);
-        /// <summary>
-        /// Gets or sets the size of the border round rect.
-        /// </summary>
-        /// <value>The size of the border round rect.</value>
-        [DefaultValue(typeof(Size), "8; 8")]
-        [Category("Slider"), Description("Set Slider's border round rect size.")]
-        public Size BorderRoundRectSize
-        {
-            get => borderRoundRectSize;
-            set
-            {
-                int h = value.Height, w = value.Width;
-                if (h <= 0) h = 1;
-                if (w <= 0) w = 1;
-                borderRoundRectSize = new Size(w, h);
-                Invalidate();
-            }
-        }
-
-        private Orientation barOrientation = Orientation.Horizontal;
+        private Orientation orientation = Orientation.Horizontal;
         /// <summary>
         /// Gets or sets the orientation of Slider.
         /// </summary>
@@ -133,22 +73,13 @@ namespace IzUI.WinForms.UI.Controls.Inputs
         [Category("Slider"), Description("Set Slider orientation.")]
         public Orientation Orientation
         {
-            get => barOrientation;
+            get => orientation;
             set
             {
-                if (barOrientation != value)
+                if (orientation != value)
                 {
-                    barOrientation = value;
-                    int temp = Width;
-                    Width = Height;
-                    Height = temp;
-
-                    if (thumbCustomShape != null)
-                    {
-                        thumbSize = (int)(barOrientation == Orientation.Horizontal
-                            ? thumbCustomShape.GetBounds().Width
-                            : thumbCustomShape.GetBounds().Height) + 1;
-                    }
+                    orientation = value;
+                    (Height, Width) = (Width, Height);
                     Invalidate();
                 }
             }
@@ -166,7 +97,7 @@ namespace IzUI.WinForms.UI.Controls.Inputs
             get => trackerValue;
             set
             {
-                if (value >= barMinimum && value <= barMaximum)
+                if (value >= minimum && value <= barMaximum)
                 {
                     trackerValue = value;
                     ValueChanged?.Invoke(this, new EventArgs());
@@ -176,7 +107,7 @@ namespace IzUI.WinForms.UI.Controls.Inputs
             }
         }
 
-        private int barMinimum = 0;
+        private int minimum = 0;
         /// <summary>
         /// Gets or sets the minimum value.
         /// </summary>
@@ -185,15 +116,15 @@ namespace IzUI.WinForms.UI.Controls.Inputs
         [Category("Slider"), Description("Set Slider minimal point.")]
         public int Minimum
         {
-            get => barMinimum;
+            get => minimum;
             set
             {
                 if (value < barMaximum)
                 {
-                    barMinimum = value;
-                    if (trackerValue < barMinimum)
+                    minimum = value;
+                    if (trackerValue < minimum)
                     {
-                        trackerValue = barMinimum;
+                        trackerValue = minimum;
                         ValueChanged?.Invoke(this, new EventArgs());
                     }
                     Invalidate();
@@ -214,7 +145,7 @@ namespace IzUI.WinForms.UI.Controls.Inputs
             get => barMaximum;
             set
             {
-                if (value > barMinimum)
+                if (value > minimum)
                 {
                     barMaximum = value;
                     if (trackerValue > barMaximum)
@@ -258,7 +189,7 @@ namespace IzUI.WinForms.UI.Controls.Inputs
         /// <value>true if semitransparent thumb should be drawn.</value>
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         [Category("Slider"), Description("Set whether to draw semitransparent thumb.")]
-        public bool DrawSemitransparentThumb { get; set; } = true;
+        public bool DrawSemiTransparentThumb { get; set; } = true;
 
         /// <summary>
         /// Gets or sets whether mouse entry and exit actions have impact on how control look.
@@ -351,46 +282,6 @@ namespace IzUI.WinForms.UI.Controls.Inputs
         [Category("Slider"), Description("Set Slider's elapsed part inner color.")]
         public Color ElapsedInnerColor { get; set; } = Color.Chartreuse;
 
-        private Rectangle barRect;
-        /// <summary>
-        /// The bar rectangle.
-        /// </summary>
-        protected Rectangle BarRect
-        {
-            get => barRect;
-            set => barRect = value;
-        }
-
-        private Rectangle barHalfRect;
-        /// <summary>
-        /// The bar half rectangle.
-        /// </summary>
-        protected Rectangle BarHalfRect
-        {
-            get => barHalfRect;
-            set => barHalfRect = value;
-        }
-
-        private Rectangle elapsedRect;
-        /// <summary>
-        /// The elasped rectangle.
-        /// </summary>
-        protected Rectangle ElapsedRect
-        {
-            get => elapsedRect;
-            set => elapsedRect = value;
-        }
-
-        private Rectangle thumbHalfRect;
-        /// <summary>
-        /// The thumb half rectangle.
-        /// </summary>
-        protected Rectangle ThumbHalfRect
-        {
-            get => thumbHalfRect;
-            set => thumbHalfRect = value;
-        }
-
         /// <summary>
         /// Initialize a new <see cref="Slider"/> object.
         /// </summary>
@@ -417,24 +308,21 @@ namespace IzUI.WinForms.UI.Controls.Inputs
             Value = value;
 
             Size = new Size(180, 18);
+            ThumbSize = 20;
 
             BackColor = Color.Transparent;
             BarPenColor = Color.Transparent;
             BarInnerColor = Color.DimGray;
             BarOuterColor = Color.DimGray;
-            ElapsedInnerColor = Color.SteelBlue;
-            ElapsedOuterColor = Color.SteelBlue;
+            ElapsedInnerColor = Color.DodgerBlue;
+            ElapsedOuterColor = Color.DodgerBlue;
             ThumbInnerColor = Color.Gainsboro;
             ThumbOuterColor = Color.Gainsboro;
             ThumbPenColor = Color.Gainsboro;
 
             DrawFocusRectangle = false;
-            DrawSemitransparentThumb = false;
+            DrawSemiTransparentThumb = false;
             MouseEffects = false;
-
-            ThumbSize = 20;
-            ThumbRoundRectSize = new Size(20, 20);
-            BorderRoundRectSize = new Size(20, 20);
         }
 
         /// <summary>
@@ -475,138 +363,100 @@ namespace IzUI.WinForms.UI.Controls.Inputs
         /// Draws the Slider control using passed colors.
         /// </summary>
         /// <param name="e">The <see cref="PaintEventArgs"/> instance containing the event data.</param>
-        /// <param name="thumbOuterColorPaint">The thumb outer color paint.</param>
-        /// <param name="thumbInnerColorPaint">The thumb inner color paint.</param>
-        /// <param name="thumbPenColorPaint">The thumb pen color paint.</param>
-        /// <param name="barOuterColorPaint">The bar outer color paint.</param>
-        /// <param name="barInnerColorPaint">The bar inner color paint.</param>
-        /// <param name="barPenColorPaint">The bar pen color paint.</param>
-        /// <param name="elapsedOuterColorPaint">The elapsed outer color paint.</param>
-        /// <param name="elapsedInnerColorPaint">The elapsed inner color paint.</param>
-        private void DrawSlider(PaintEventArgs e, Color thumbOuterColorPaint, Color thumbInnerColorPaint,
-            Color thumbPenColorPaint, Color barOuterColorPaint, Color barInnerColorPaint,
-            Color barPenColorPaint, Color elapsedOuterColorPaint, Color elapsedInnerColorPaint)
+        /// <param name="thumbOuterColor">The thumb outer color.</param>
+        /// <param name="thumbInnerColor">The thumb inner color.</param>
+        /// <param name="thumbPenColor">The thumb pen color.</param>
+        /// <param name="barOuterColor">The bar outer color.</param>
+        /// <param name="barInnerColor">The bar inner color.</param>
+        /// <param name="barPenColor">The bar pen color.</param>
+        /// <param name="elapsedOuterColor">The elapsed outer color.</param>
+        /// <param name="elapsedInnerColor">The elapsed inner color.</param>
+        private void DrawSlider(PaintEventArgs e, Color thumbOuterColor, Color thumbInnerColor, Color thumbPenColor, 
+            Color barOuterColor, Color barInnerColor, Color barPenColor, Color elapsedOuterColor, Color elapsedInnerColor)
         {
-            try
+            // Set up thumbRect aproprietly
+            if (orientation == Orientation.Horizontal)
             {
-                // Set up thumbRect aproprietly
-                if (barOrientation == Orientation.Horizontal)
-                {
-                    int TrackX = (trackerValue - barMinimum) * (ClientRectangle.Width - thumbSize)
-                        / (barMaximum - barMinimum);
-                    ThumbRect = new Rectangle(TrackX, 1, thumbSize - 1, ClientRectangle.Height - 3);
-                }
-                else
-                {
-                    int TrackY = (trackerValue - barMinimum) * (ClientRectangle.Height - thumbSize)
-                        / (barMaximum - barMinimum);
-                    ThumbRect = new Rectangle(1, TrackY, ClientRectangle.Width - 3, thumbSize - 1);
-                }
-
-                // Adjust drawing rects
-                LinearGradientMode gradientOrientation;
-                barRect = ClientRectangle;
-                thumbHalfRect = ThumbRect;
-
-                if (barOrientation == Orientation.Horizontal)
-                {
-                    barRect.Inflate(-1, -barRect.Height / 3);
-                    barHalfRect = barRect;
-                    barHalfRect.Height /= 2;
-                    gradientOrientation = LinearGradientMode.Vertical;
-                    thumbHalfRect.Height /= 2;
-                    elapsedRect = barRect;
-                    elapsedRect.Width = ThumbRect.Left + thumbSize / 2;
-                }
-                else
-                {
-                    barRect.Inflate(-barRect.Width / 3, -1);
-                    barHalfRect = barRect;
-                    barHalfRect.Width /= 2;
-                    gradientOrientation = LinearGradientMode.Horizontal;
-                    thumbHalfRect.Width /= 2;
-                    elapsedRect = barRect;
-                    elapsedRect.Height = ThumbRect.Top + thumbSize / 2;
-                }
-
-                // Get thumb shape path 
-                GraphicsPath thumbPath;
-                if (thumbCustomShape == null)
-                    thumbPath = ThumbRect.CreateRoundRectPath(thumbRoundRectSize);
-                else
-                {
-                    thumbPath = thumbCustomShape;
-                    Matrix m = new();
-                    m.Translate(ThumbRect.Left - thumbPath.GetBounds().Left, ThumbRect.Top - thumbPath.GetBounds().Top);
-                    thumbPath.Transform(m);
-                }
-
-                //draw bar
-                using (LinearGradientBrush lgbBar = new(barHalfRect, barOuterColorPaint,
-                    barInnerColorPaint, gradientOrientation))
-                {
-                    lgbBar.WrapMode = WrapMode.TileFlipXY;
-                    e.Graphics.FillRectangle(lgbBar, barRect);
-                    // Draw elapsed bar
-                    using (LinearGradientBrush lgbElapsed = new(barHalfRect, elapsedOuterColorPaint,
-                        elapsedInnerColorPaint, gradientOrientation))
-                    {
-                        lgbElapsed.WrapMode = WrapMode.TileFlipXY;
-                        if (Capture && DrawSemitransparentThumb)
-                        {
-                            Region elapsedReg = new(elapsedRect);
-                            elapsedReg.Exclude(thumbPath);
-                            e.Graphics.FillRegion(lgbElapsed, elapsedReg);
-                        }
-                        else
-                            e.Graphics.FillRectangle(lgbElapsed, elapsedRect);
-                    }
-                    // Draw bar band                    
-                    using Pen barPen = new(barPenColorPaint, 0.5f);
-                    e.Graphics.DrawRectangle(barPen, barRect);
-                }
-
-                // Draw thumb
-                Color newthumbOuterColorPaint = thumbOuterColorPaint,
-                    newthumbInnerColorPaint = thumbInnerColorPaint;
-                if (Capture && DrawSemitransparentThumb)
-                {
-                    newthumbOuterColorPaint = Color.FromArgb(175, thumbOuterColorPaint);
-                    newthumbInnerColorPaint = Color.FromArgb(175, thumbInnerColorPaint);
-                }
-                using (LinearGradientBrush lgbThumb = new(thumbHalfRect, newthumbOuterColorPaint,
-                    newthumbInnerColorPaint, gradientOrientation))
-                {
-                    lgbThumb.WrapMode = WrapMode.TileFlipXY;
-                    e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-                    e.Graphics.FillPath(lgbThumb, thumbPath);
-
-                    // Draw thumb band
-                    Color newThumbPenColor = thumbPenColorPaint;
-                    if (MouseEffects && (Capture || MouseInThumbRegion))
-                        newThumbPenColor = ControlPaint.Dark(newThumbPenColor);
-
-                    using Pen thumbPen = new(newThumbPenColor);
-                    e.Graphics.DrawPath(thumbPen, thumbPath);
-                }
-
-                // Draw focusing rectangle
-                if (Focused & DrawFocusRectangle)
-                {
-                    using Pen p = new(Color.FromArgb(200, barPenColorPaint));
-                    Rectangle r = ClientRectangle;
-
-                    p.DashStyle = DashStyle.Dot;
-                    r.Width -= 2;
-                    r.Height--;
-                    r.X++;
-
-                    using GraphicsPath gpBorder = r.CreateRoundRectPath(borderRoundRectSize);
-                    e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-                    e.Graphics.DrawPath(p, gpBorder);
-                }
+                int TrackX = (trackerValue - minimum) * (ClientRectangle.Width - thumbSize) / (barMaximum - minimum);
+                ThumbRect = new Rectangle(TrackX, 1, thumbSize - 1, ClientRectangle.Height - 3);
             }
-            catch (Exception) { }
+            else
+            {
+                int TrackY = (trackerValue - minimum) * (ClientRectangle.Height - thumbSize) / (barMaximum - minimum);
+                ThumbRect = new Rectangle(1, TrackY, ClientRectangle.Width - 3, thumbSize - 1);
+            }
+            LinearGradientMode gradientOrientation;
+            Rectangle barRect = ClientRectangle;
+            Rectangle barHalfRect, elapsedRect;
+
+            if (orientation == Orientation.Horizontal)
+            {
+                barRect.Inflate(-1, -barRect.Height / 3);
+                barHalfRect = barRect;
+                barHalfRect.Height /= 2;
+                gradientOrientation = LinearGradientMode.Vertical;
+                elapsedRect = barRect;
+                elapsedRect.Width = ThumbRect.Left + thumbSize / 2;
+            }
+            else
+            {
+                barRect.Inflate(-barRect.Width / 3, -1);
+                barHalfRect = barRect;
+                barHalfRect.Width /= 2;
+                gradientOrientation = LinearGradientMode.Horizontal;
+                elapsedRect = barRect;
+                elapsedRect.Height = ClientRectangle.Bottom - ThumbRect.Top;
+                elapsedRect.Y = ThumbRect.Bottom;
+            }
+            // Thumb placement
+            GraphicsPath thumbPath = ThumbRect.CreateRoundRectPath(ThumbRect.Size);
+
+            // Draw bar
+            using LinearGradientBrush lgbBar = new(barHalfRect, barOuterColor, barInnerColor, gradientOrientation);
+            lgbBar.WrapMode = WrapMode.TileFlipXY;
+            e.Graphics.FillRectangle(lgbBar, barRect);
+
+            // Draw elapsed bar
+            using LinearGradientBrush lgbElapsed = new(barHalfRect, elapsedOuterColor, elapsedInnerColor, gradientOrientation);
+            lgbElapsed.WrapMode = WrapMode.TileFlipXY;
+            if (Capture && DrawSemiTransparentThumb)
+            {
+                Region region = new(elapsedRect);
+                region.Exclude(thumbPath);
+                e.Graphics.FillRegion(lgbElapsed, region);
+            }
+            else
+                e.Graphics.FillRectangle(lgbElapsed, elapsedRect);
+
+            // Draw thumb
+            Color newthumbOuterColorPaint = thumbOuterColor, newthumbInnerColorPaint = thumbInnerColor;
+            if (Capture && DrawSemiTransparentThumb)
+            {
+                newthumbOuterColorPaint = Color.FromArgb(175, thumbOuterColor);
+                newthumbInnerColorPaint = Color.FromArgb(175, thumbInnerColor);
+            }
+            using LinearGradientBrush lgbThumb = new(ThumbRect, newthumbOuterColorPaint,
+                newthumbInnerColorPaint, gradientOrientation);
+
+            lgbThumb.WrapMode = WrapMode.TileFlipXY;
+            e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+            e.Graphics.FillPath(lgbThumb, thumbPath);
+
+            // Draw focusing rectangle
+            if (Focused & DrawFocusRectangle)
+            {
+                using Pen p = new(Color.FromArgb(200, barPenColor));
+                Rectangle r = ClientRectangle;
+
+                p.DashStyle = DashStyle.Dot;
+                r.Width -= 2;
+                r.Height--;
+                r.X++;
+
+                using GraphicsPath gpBorder = r.CreateRoundRectPath(ThumbRect.Size);
+                e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+                e.Graphics.DrawPath(p, gpBorder);
+            }
         }
 
         /// <summary>
@@ -671,17 +521,17 @@ namespace IzUI.WinForms.UI.Controls.Inputs
                 ScrollEventType set = ScrollEventType.ThumbPosition;
                 Point pt = e.Location;
 
-                int p = barOrientation == Orientation.Horizontal ? pt.X : pt.Y;
+                int p = orientation == Orientation.Horizontal ? pt.X : pt.Y;
                 int margin = thumbSize >> 1;
                 p -= margin;
-                float coef = (barMaximum - barMinimum) /
-                    (float)((barOrientation == Orientation.Horizontal
+                float coef = (barMaximum - minimum) /
+                    (float)((orientation == Orientation.Horizontal
                     ? ClientSize.Width : ClientSize.Height) - 2 * margin);
 
-                trackerValue = (int)(p * coef + barMinimum);
-                if (trackerValue <= barMinimum)
+                trackerValue = (int)(p * coef + minimum);
+                if (trackerValue <= minimum)
                 {
-                    trackerValue = barMinimum;
+                    trackerValue = minimum;
                     set = ScrollEventType.First;
                 }
                 else if (trackerValue >= barMaximum)
@@ -717,7 +567,7 @@ namespace IzUI.WinForms.UI.Controls.Inputs
         protected override void OnMouseWheel(MouseEventArgs e)
         {
             base.OnMouseWheel(e);
-            int v = e.Delta / 120 * (barMaximum - barMinimum) / mouseWheelBarPartitions;
+            int v = e.Delta / 120 * (barMaximum - minimum) / mouseWheelBarPartitions;
             SetProperValue(Value + v);
         }
 
@@ -761,7 +611,7 @@ namespace IzUI.WinForms.UI.Controls.Inputs
                     Scroll?.Invoke(this, new ScrollEventArgs(ScrollEventType.SmallIncrement, Value));
                     break;
                 case Keys.Home:
-                    Value = barMinimum;
+                    Value = minimum;
                     break;
                 case Keys.End:
                     Value = barMaximum;
@@ -775,7 +625,7 @@ namespace IzUI.WinForms.UI.Controls.Inputs
                     Scroll?.Invoke(this, new ScrollEventArgs(ScrollEventType.LargeIncrement, Value));
                     break;
             }
-            if (Scroll != null && Value == barMinimum)
+            if (Scroll != null && Value == minimum)
                 Scroll(this, new ScrollEventArgs(ScrollEventType.First, Value));
             if (Scroll != null && Value == barMaximum)
                 Scroll(this, new ScrollEventArgs(ScrollEventType.Last, Value));
@@ -809,8 +659,8 @@ namespace IzUI.WinForms.UI.Controls.Inputs
         /// <param name="val">The value.</param>
         private void SetProperValue(int val)
         {
-            if (val < barMinimum)
-                Value = barMinimum;
+            if (val < minimum)
+                Value = minimum;
             else if (val > barMaximum)
                 Value = barMaximum;
             else

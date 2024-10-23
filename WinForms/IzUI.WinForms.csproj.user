@@ -26,25 +26,15 @@
     <Compile Update="UI\Controls\Inputs\Button.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="UI\Controls\Inputs\ButtonImage.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Update="UI\Controls\Inputs\Slider.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="UI\Controls\Layout\PanelBorder.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="UI\Controls\Layout\PanelSeparator.cs">
+    <Compile Update="UI\Controls\Layout\Panel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="UI\Controls\Layout\Separator.cs">
       <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Update="UI\Controls\Resources\ControlResources.resx">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
+  <ItemGroup />
 </Project>

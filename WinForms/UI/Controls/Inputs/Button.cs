@@ -15,12 +15,11 @@ namespace IzUI.WinForms.UI.Controls.Inputs
         {
             Size = new Size(125, 40);
 
-            BackColor = Color.SteelBlue;
+            BackColor = Color.DodgerBlue;
             ForeColor = Color.WhiteSmoke;
 
             Animations.Enable();
             Animations.ColorHover = Color.RoyalBlue;
-            Animations.TextColorHover = Color.DarkOrange;
         }
 
         /// <summary>
@@ -32,6 +31,9 @@ namespace IzUI.WinForms.UI.Controls.Inputs
             PaintTransparency(pe);
             using SolidBrush backBrush = new(BackColor);
             pe.Graphics.FillRectangle(backBrush, ClientRectangle);
+
+            if (BackgroundImage != null)
+                pe.Graphics.DrawImage(BackgroundImage, ClientRectangle);
 
             base.OnPaint(pe);
         }

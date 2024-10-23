@@ -5,12 +5,12 @@ namespace IzUI.WinForms.UI.Controls.Layout
     /// <summary>
     /// Panel control with borders.
     /// </summary>
-    public class PanelBorder : AbstractPanel
+    public class Panel : AbstractPanel
     {
         /// <summary>
-        /// Initialize a new <see cref="PanelBorder"/> object.
+        /// Initialize a new <see cref="Panel"/> object.
         /// </summary>
-        public PanelBorder() : base()
+        public Panel() : base()
         {
             Border.Locations = RectLocation.Top | RectLocation.Left |
                 RectLocation.Bottom | RectLocation.Right;

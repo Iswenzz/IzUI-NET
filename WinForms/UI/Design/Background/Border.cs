@@ -25,7 +25,7 @@ namespace IzUI.WinForms.UI.Design.Background
         /// Border color.
         /// </summary>
         [Description("Change the border color.")]
-        public virtual Color Color { get; set; } = Color.SteelBlue;
+        public virtual Color Color { get; set; } = Color.DodgerBlue;
 
         /// <summary>
         /// Border width.
@@ -61,6 +61,7 @@ namespace IzUI.WinForms.UI.Design.Background
         {
             if (!Enabled) return;
 
+            pe.Graphics.SmoothingMode = SmoothingMode.HighQuality;
             using SolidBrush backBrush = new(Control.BackColor);
             using Pen borderPen = new(Color, Width);
 
