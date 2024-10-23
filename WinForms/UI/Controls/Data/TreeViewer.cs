@@ -14,14 +14,14 @@ namespace IzUI.WinForms.UI.Controls.Data
         /// </summary>
         [Category("Appearance"), Description("The collapase icon.")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public virtual Image MinusIcon { get; set; }
+        public virtual Image MinusIcon { get; set; } = Resources.Resources.Icon_Down;
 
         /// <summary>
         /// Expand icon.
         /// </summary>
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [Category("Appearance"), Description("The expand icon.")]
-        public virtual Image PlusIcon { get; set; }
+        public virtual Image PlusIcon { get; set; } = Resources.Resources.Icon_Right;
 
         /// <summary>
         /// Default icon.
@@ -87,7 +87,7 @@ namespace IzUI.WinForms.UI.Controls.Data
                 expandImg = DefaultIcon;
 
             // Render icon
-            if (expandImg != null)
+            if (expandImg != null && !nodeRect.IsEmpty)
             {
                 expandImg = new Bitmap(expandImg, new Size(nodeRect.Size.Height - 4, nodeRect.Size.Height - 4));
                 g = Graphics.FromImage(expandImg);
