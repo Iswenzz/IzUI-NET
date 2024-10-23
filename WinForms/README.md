@@ -1,15 +1,15 @@
-# IzUI.WinForms
+# IzUI-NET
 
-[![Checks](https://img.shields.io/github/checks-status/Iswenzz/IzUI-NET/master?logo=github)](https://github.com/Iswenzz/IzUI-NET/actions)
+[![Checks](https://img.shields.io/github/check-runs/Iswenzz/IzUI-NET/master?logo=github)](https://github.com/Iswenzz/IzUI-NET/actions)
 [![CodeFactor](https://img.shields.io/codefactor/grade/github/Iswenzz/IzUI-NET?label=codefactor&logo=codefactor)](https://www.codefactor.io/repository/github/iswenzz/IzUI-NET)
 [![CodeCov](https://img.shields.io/codecov/c/github/Iswenzz/IzUI-NET?label=codecov&logo=codecov)](https://codecov.io/gh/Iswenzz/IzUI-NET)
 [![License](https://img.shields.io/github/license/Iswenzz/IzUI-NET?color=blue&logo=gitbook&logoColor=white)](https://github.com/Iswenzz/IzUI-NET/blob/master/LICENSE)
 
-IzUI.WinForms is a UI component library. It allows you to make modern designs using the various components it offers.
+IzUI-NET is a UI component library. It allows you to make modern designs using the various components it offers.
 
 ## Controls
 
-![](https://i.imgur.com/YAK9dVC.jpg)
+![](https://i.imgur.com/BBQlTg6.png)
 
 ## Instructions
 
