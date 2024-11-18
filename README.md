@@ -5,11 +5,9 @@
 [![CodeCov](https://img.shields.io/codecov/c/github/Iswenzz/IzUI-NET?label=codecov&logo=codecov)](https://codecov.io/gh/Iswenzz/IzUI-NET)
 [![License](https://img.shields.io/github/license/Iswenzz/IzUI-NET?color=blue&logo=gitbook&logoColor=white)](https://github.com/Iswenzz/IzUI-NET/blob/master/LICENSE)
 
-IzUI-NET is a UI component library. It allows you to make modern designs using the various components it offers.
-
-## Controls
-
 ![](https://i.imgur.com/BBQlTg6.png)
+
+IzUI-NET is a UI component library. It allows you to make modern designs using the various components it offers.
 
 ## Instructions
 
